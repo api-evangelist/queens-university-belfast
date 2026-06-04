@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/queens-university-belfast/main/json-structure/queens-university-belfast-research-output-structure.json",
+  "name": "ResearchOutput",
+  "type": "object",
+  "description": "A research output (publication) record from the Queen's University Belfast Pure API.",
+  "properties": {
+    "pureId": {
+      "type": "int64",
+      "description": "Pure database ID of the object."
+    },
+    "uuid": {
+      "type": "string",
+      "description": "UUID, the primary identity of the entity."
+    },
+    "createdDate": {
+      "type": "string",
+      "description": "Date and time of creation."
+    },
+    "modifiedDate": {
+      "type": "string",
+      "description": "Date and time of last modification."
+    },
+    "portalUrl": {
+      "type": "string",
+      "description": "URL of the content on the Pure Portal."
+    },
+    "title": {
+      "type": "string",
+      "description": "The title of the research output (FormattedString)."
+    },
+    "type": {
+      "type": "string",
+      "description": "Classification reference for the research output type."
+    },
+    "peerReview": {
+      "type": "boolean",
+      "description": "Whether the research output is peer reviewed."
+    },
+    "contributors": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "description": "Contributors and their affiliations."
+    },
+    "organizations": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "description": "Organizational unit affiliations."
+    },
+    "totalNumberOfContributors": {
+      "type": "int32",
+      "description": "Total number of authors."
+    }
+  }
+}

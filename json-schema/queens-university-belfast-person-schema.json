@@ -1,0 +1,1611 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/queens-university-belfast/main/json-schema/queens-university-belfast-person-schema.json",
+  "title": "Pure API Person",
+  "description": "An academic professional, student, or other individual attached to the institution.",
+  "type": "object",
+  "properties": {
+    "pureId": {
+      "type": "integer",
+      "description": "Pure database ID of the object, prefer using the UUID if it is present on the entity",
+      "format": "int64",
+      "readOnly": true
+    },
+    "uuid": {
+      "type": "string",
+      "description": "UUID, this is the primary identity of the entity",
+      "format": "uuid",
+      "readOnly": true
+    },
+    "createdBy": {
+      "type": "string",
+      "description": "Username of creator",
+      "readOnly": true
+    },
+    "createdDate": {
+      "type": "string",
+      "description": "Date and time of creation",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "modifiedBy": {
+      "type": "string",
+      "description": "Username of the user that performed a modification",
+      "readOnly": true
+    },
+    "modifiedDate": {
+      "type": "string",
+      "description": "Date and time of last modification",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "portalUrl": {
+      "type": "string",
+      "description": "URL of the content on the Pure Portal",
+      "readOnly": true
+    },
+    "prettyUrlIdentifiers": {
+      "type": "array",
+      "description": "All pretty URLs",
+      "readOnly": true,
+      "items": {
+        "type": "string",
+        "description": "All pretty URLs",
+        "readOnly": true
+      }
+    },
+    "previousUuids": {
+      "type": "array",
+      "description": "UUIDs of other content items which have been merged into this content item (or similar)",
+      "readOnly": true,
+      "items": {
+        "type": "string",
+        "description": "UUIDs of other content items which have been merged into this content item (or similar)",
+        "readOnly": true
+      }
+    },
+    "version": {
+      "type": "string",
+      "description": "Used to guard against conflicting updates. For new content this is null, and for existing content the current value. The property should never be modified by a client, except in the rare case where the client wants to perform an update irrespective of if other clients have made updates in the meantime, also known as a \"dirty write\". A dirty write is performed by not including the property value or setting the property to null",
+      "nullable": true
+    },
+    "personExpertise": {
+      "$ref": "#/$defs/PersonExpertiseRef"
+    },
+    "startDateAsResearcher": {
+      "type": "string",
+      "description": "Date that the person entered into the academic profession.",
+      "format": "date",
+      "nullable": true
+    },
+    "affiliationNote": {
+      "type": "string",
+      "description": "Notes regarding affiliations of the person.",
+      "nullable": true
+    },
+    "dateOfBirth": {
+      "type": "string",
+      "description": "The person's date of birth.",
+      "format": "date",
+      "nullable": true
+    },
+    "employeeStartDate": {
+      "type": "string",
+      "description": "Date of the persons first day of the institution.",
+      "format": "date",
+      "nullable": true
+    },
+    "employeeEndDate": {
+      "type": "string",
+      "description": "Date of the persons last day of the institution.",
+      "format": "date",
+      "nullable": true
+    },
+    "externalPositions": {
+      "type": "array",
+      "description": "positions held by the person, that are external to the institution",
+      "nullable": true,
+      "items": {
+        "$ref": "#/$defs/ExternalAppointment"
+      }
+    },
+    "keywordGroups": {
+      "type": "array",
+      "description": "Groups of Keyword associated with the person.",
+      "nullable": true,
+      "items": {
+        "$ref": "#/$defs/KeywordGroup"
+      }
+    },
+    "leavesOfAbsence": {
+      "type": "array",
+      "description": "Leaves of absence had by the person.",
+      "nullable": true,
+      "items": {
+        "$ref": "#/$defs/PersonClassifiedLeaveOfAbsence"
+      }
+    },
+    "links": {
+      "type": "array",
+      "description": "Links associated with the person.",
+      "nullable": true,
+      "items": {
+        "$ref": "#/$defs/Link"
+      }
+    },
+    "name": {
+      "$ref": "#/$defs/Name"
+    },
+    "names": {
+      "type": "array",
+      "description": "Variant names of the person, Known aliases, ect.",
+      "nullable": true,
+      "items": {
+        "$ref": "#/$defs/ClassifiedName"
+      }
+    },
+    "nationality": {
+      "$ref": "#/$defs/ClassificationRef"
+    },
+    "orcid": {
+      "type": "string",
+      "description": "orcid of the person.",
+      "nullable": true
+    },
+    "orcidAuthenticated": {
+      "type": "boolean",
+      "description": "Authentication status of the orcid associated with the person.",
+      "readOnly": true
+    },
+    "cienciaId": {
+      "type": "string",
+      "description": "Ciencia ID of the person.",
+      "nullable": true
+    },
+    "cienciaIdAuthenticated": {
+      "type": "boolean",
+      "description": "Authentication status of the Ciencia ID associated with the person."
+    },
+    "honoraryStaffOrganizationAssociations": {
+      "type": "array",
+      "description": "Organizations that the person is associated with under the title of 'Honorary Staff'",
+      "nullable": true,
+      "items": {
+        "$ref": "#/$defs/HonoraryStaffOrganizationAssociation"
+      }
+    },
+    "staffOrganizationAssociations": {
+      "type": "array",
+      "description": "Organizations that the person is associated with as 'Staff'",
+      "nullable": true,
+      "items": {
+        "$ref": "#/$defs/StaffOrganizationAssociation"
+      }
+    },
+    "studentOrganizationAssociations": {
+      "type": "array",
+      "description": "Organizations that the person is associated with as a 'Student'",
+      "nullable": true,
+      "items": {
+        "$ref": "#/$defs/StudentOrganizationAssociation"
+      }
+    },
+    "visitingScholarOrganizationAssociations": {
+      "type": "array",
+      "description": "Organizations that the person is associated with as a 'Visiting Scholar",
+      "nullable": true,
+      "items": {
+        "$ref": "#/$defs/VisitingScholarOrganizationAssociation"
+      }
+    },
+    "academicQualifications": {
+      "type": "array",
+      "description": "Levels of academic qualifications that the person has achieved.",
+      "nullable": true,
+      "items": {
+        "$ref": "#/$defs/AcademicQualification"
+      }
+    },
+    "profilePhotos": {
+      "type": "array",
+      "description": "Profile photos in the form of Image files. The maximum file size is 1mb",
+      "nullable": true,
+      "items": {
+        "$ref": "#/$defs/ImageFile"
+      }
+    },
+    "documents": {
+      "type": "array",
+      "description": "Associated documents for the person",
+      "nullable": true,
+      "items": {
+        "$ref": "#/$defs/Document"
+      }
+    },
+    "privateAddress": {
+      "$ref": "#/$defs/Address"
+    },
+    "professionalQualifications": {
+      "type": "array",
+      "description": "The professional qualifications held by the person",
+      "nullable": true,
+      "items": {
+        "$ref": "#/$defs/ProfessionalQualification"
+      }
+    },
+    "selectedForProfileRefinementService": {
+      "type": "boolean",
+      "description": "If the person has been profiled."
+    },
+    "profileInformation": {
+      "type": "array",
+      "description": "Information objects making up profiles made of the person",
+      "nullable": true,
+      "items": {
+        "$ref": "#/$defs/ClassifiedFormattedLocalizedValue"
+      }
+    },
+    "retirementDate": {
+      "type": "string",
+      "description": "Date of retirement for the person",
+      "format": "date",
+      "nullable": true
+    },
+    "gender": {
+      "$ref": "#/$defs/ClassificationRef"
+    },
+    "titles": {
+      "type": "array",
+      "description": "Titles held by the person",
+      "nullable": true,
+      "items": {
+        "$ref": "#/$defs/ClassifiedLocalizedValue"
+      }
+    },
+    "visibility": {
+      "$ref": "#/$defs/Visibility"
+    },
+    "willingToTakePhdStudents": {
+      "type": "boolean",
+      "description": "Boolean to define if the Person is willing to take on Phd Students."
+    },
+    "willingToTakePhdStudentsDescription": {
+      "type": "string",
+      "description": "Field to describe or list phd projects that the person will participate in.",
+      "nullable": true
+    },
+    "identifiers": {
+      "type": "array",
+      "description": "Identifiers related to the person",
+      "nullable": true,
+      "items": {
+        "$ref": "#/$defs/Identifier"
+      }
+    },
+    "user": {
+      "$ref": "#/$defs/UserRef"
+    },
+    "customDefinedFields": {
+      "$ref": "#/$defs/CustomDefinedFields"
+    },
+    "workflow": {
+      "$ref": "#/$defs/Workflow"
+    },
+    "mainResearchArea": {
+      "$ref": "#/$defs/ClassificationRef"
+    },
+    "profiled": {
+      "type": "boolean"
+    },
+    "systemName": {
+      "type": "string",
+      "description": "The content system name",
+      "readOnly": true
+    }
+  },
+  "$defs": {
+    "PersonExpertiseRef": {
+      "required": [
+        "uuid"
+      ],
+      "type": "object",
+      "description": "A reference to a person expertise",
+      "nullable": true,
+      "allOf": [
+        {
+          "$ref": "#/$defs/ContentRef"
+        }
+      ]
+    },
+    "ContentRef": {
+      "required": [
+        "systemName",
+        "uuid"
+      ],
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "description": "UUID of the referred content",
+          "format": "uuid"
+        },
+        "systemName": {
+          "type": "string"
+        }
+      },
+      "nullable": true,
+      "discriminator": {
+        "propertyName": "systemName",
+        "mapping": {
+          "AccessDefinition": "#/components/schemas/AccessDefinitionRef",
+          "Activity": "#/components/schemas/ActivityRef",
+          "Application": "#/components/schemas/ApplicationRef",
+          "AuthorCollaboration": "#/components/schemas/AuthorCollaborationRef",
+          "Award": "#/components/schemas/AwardRef",
+          "ClassificationScheme": "#/components/schemas/ClassificationSchemeRef",
+          "ConferenceSeries": "#/components/schemas/ConferenceSeriesRef",
+          "DataSet": "#/components/schemas/DataSetRef",
+          "Equipment": "#/components/schemas/EquipmentRef",
+          "Event": "#/components/schemas/EventRef",
+          "ExternalOrganization": "#/components/schemas/ExternalOrganizationRef",
+          "ExternalPerson": "#/components/schemas/ExternalPersonRef",
+          "Impact": "#/components/schemas/ImpactRef",
+          "Journal": "#/components/schemas/JournalRef",
+          "Organization": "#/components/schemas/OrganizationRef",
+          "Person": "#/components/schemas/PersonRef",
+          "Publisher": "#/components/schemas/PublisherRef",
+          "PressMedia": "#/components/schemas/PressMediaRef",
+          "Prize": "#/components/schemas/PrizeRef",
+          "Project": "#/components/schemas/ProjectRef",
+          "ResearchOutput": "#/components/schemas/ResearchOutputRef",
+          "StudentThesis": "#/components/schemas/StudentThesisRef",
+          "FundingOpportunity": "#/components/schemas/FundingOpportunityRef",
+          "EthicalReview": "#/components/schemas/EthicalReviewRef",
+          "ApplicationCluster": "#/components/schemas/ApplicationClusterRef",
+          "AwardCluster": "#/components/schemas/AwardClusterRef",
+          "User": "#/components/schemas/UserRef",
+          "ERA2018FieldOfResearch": "#/components/schemas/Anzsrc2008FieldOfResearchRef",
+          "UnitOfAssessmentREF2014": "#/components/schemas/Ref2014UnitOfAssessmentRef",
+          "UnitOfAssessmentREF2020": "#/components/schemas/Ref2020UnitOfAssessmentRef",
+          "ANZSRCTypeOfActivity": "#/components/schemas/Anzsrc2020TypeOfActivityRef",
+          "ANZSRCFieldOfResearch": "#/components/schemas/Anzsrc2020FieldOfResearchRef",
+          "ANZSRCSocioEconomicObjective": "#/components/schemas/Anzsrc2020SocioEconomicObjectiveRef",
+          "Semester": "#/components/schemas/SemesterRef",
+          "Education": "#/components/schemas/EducationRef",
+          "Course": "#/components/schemas/CourseRef",
+          "CurriculumVitae": "#/components/schemas/CurriculumVitaeRef",
+          "CustomDefinedFieldConfiguration": "#/components/schemas/CustomDefinedFieldConfigurationRef",
+          "KeywordGroupConfiguration": "#/components/schemas/KeywordGroupConfigurationRef",
+          "Review": "#/components/schemas/ReviewRef",
+          "GenericContentRef": "#/components/schemas/GenericContentRef",
+          "UserProfile": "#/components/schemas/UserProfileRef",
+          "Thesaurus": "#/components/schemas/ThesaurusRef",
+          "Concept": "#/components/schemas/ConceptRef",
+          "PersonExpertise": "#/components/schemas/PersonExpertiseRef",
+          "Contract": "#/components/schemas/ContractRef",
+          "Milestone": "#/components/schemas/MilestoneRef",
+          "Fingerprint": "#/components/schemas/FingerprintRef",
+          "Specialization": "#/components/schemas/SpecializationRef",
+          "StudentProject": "#/components/schemas/StudentProjectRef"
+        }
+      }
+    },
+    "ExternalAppointment": {
+      "type": "object",
+      "properties": {
+        "pureId": {
+          "type": "integer",
+          "description": "Pure database ID of the object, prefer using the UUID if it is present on the entity",
+          "format": "int64",
+          "readOnly": true
+        },
+        "appointment": {
+          "$ref": "#/$defs/ClassificationRef"
+        },
+        "appointmentString": {
+          "$ref": "#/$defs/LocalizedString"
+        },
+        "period": {
+          "$ref": "#/$defs/CompoundDateRange"
+        },
+        "externalOrganization": {
+          "$ref": "#/$defs/ExternalOrganizationRef"
+        }
+      },
+      "description": "An appointment held in an external organizational unit"
+    },
+    "ClassificationRef": {
+      "required": [
+        "uri"
+      ],
+      "type": "object",
+      "properties": {
+        "uri": {
+          "type": "string",
+          "description": "Classification URI of the referred classification"
+        },
+        "term": {
+          "$ref": "#/$defs/SystemLocalizedString"
+        }
+      },
+      "description": "A reference to a classification value",
+      "nullable": true
+    },
+    "SystemLocalizedString": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "description": "A set of localized string values each for a specific UI locale.",
+        "nullable": true,
+        "example": "{\"en_GB\":\"Some text\"}"
+      },
+      "description": "A set of localized string values each for a specific UI locale.",
+      "nullable": true,
+      "example": {
+        "en_GB": "Some text"
+      }
+    },
+    "LocalizedString": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "description": "A set of string values, one for each submission locale. Note: invalid locale values will be ignored.",
+        "nullable": true,
+        "example": "{\"en_GB\":\"Some text\"}"
+      },
+      "description": "A set of string values, one for each submission locale. Note: invalid locale values will be ignored.",
+      "nullable": true,
+      "example": {
+        "en_GB": "Some text"
+      }
+    },
+    "CompoundDateRange": {
+      "type": "object",
+      "properties": {
+        "startDate": {
+          "$ref": "#/$defs/CompoundDate"
+        },
+        "endDate": {
+          "$ref": "#/$defs/CompoundDate"
+        }
+      },
+      "description": "A date range of that can be defined by only year, year and month or a full date"
+    },
+    "CompoundDate": {
+      "required": [
+        "year"
+      ],
+      "type": "object",
+      "properties": {
+        "year": {
+          "maximum": 4000,
+          "minimum": 0,
+          "type": "integer",
+          "format": "int32"
+        },
+        "month": {
+          "maximum": 12,
+          "minimum": 1,
+          "type": "integer",
+          "format": "int32",
+          "nullable": true
+        },
+        "day": {
+          "maximum": 31,
+          "minimum": 1,
+          "type": "integer",
+          "format": "int32",
+          "nullable": true
+        }
+      },
+      "description": "A date that can be defined by only year, year and month or a full date",
+      "nullable": true
+    },
+    "ExternalOrganizationRef": {
+      "required": [
+        "uuid"
+      ],
+      "type": "object",
+      "description": "A reference to an organization external to the institution",
+      "nullable": true,
+      "allOf": [
+        {
+          "$ref": "#/$defs/ContentRef"
+        }
+      ]
+    },
+    "KeywordGroup": {
+      "required": [
+        "logicalName",
+        "typeDiscriminator"
+      ],
+      "type": "object",
+      "properties": {
+        "pureId": {
+          "type": "integer",
+          "description": "Pure database ID of the object, prefer using the UUID if it is present on the entity",
+          "format": "int64",
+          "readOnly": true
+        },
+        "logicalName": {
+          "type": "string",
+          "description": "Unique name of the configuration that specifies this keyword group"
+        },
+        "name": {
+          "$ref": "#/$defs/LocalizedString"
+        },
+        "typeDiscriminator": {
+          "type": "string"
+        }
+      },
+      "discriminator": {
+        "propertyName": "typeDiscriminator",
+        "mapping": {
+          "ClassificationsKeywordGroup": "#/components/schemas/ClassificationsKeywordGroup",
+          "FreeKeywordsKeywordGroup": "#/components/schemas/FreeKeywordsKeywordGroup",
+          "FullKeywordGroup": "#/components/schemas/FullKeywordGroup"
+        }
+      }
+    },
+    "PersonClassifiedLeaveOfAbsence": {
+      "type": "object",
+      "properties": {
+        "pureId": {
+          "type": "integer",
+          "description": "Pure database ID of the object, prefer using the UUID if it is present on the entity",
+          "format": "int64",
+          "readOnly": true
+        },
+        "classification": {
+          "$ref": "#/$defs/ClassificationRef"
+        },
+        "period": {
+          "$ref": "#/$defs/DateRange"
+        }
+      },
+      "description": "Leave of absence held by a person"
+    },
+    "DateRange": {
+      "type": "object",
+      "properties": {
+        "startDate": {
+          "type": "string",
+          "description": "Start date",
+          "format": "date",
+          "nullable": true
+        },
+        "endDate": {
+          "type": "string",
+          "description": "End date",
+          "format": "date",
+          "nullable": true
+        }
+      },
+      "description": "A date range"
+    },
+    "Link": {
+      "required": [
+        "url"
+      ],
+      "type": "object",
+      "properties": {
+        "pureId": {
+          "type": "integer",
+          "description": "Pure database ID of the object, prefer using the UUID if it is present on the entity",
+          "format": "int64",
+          "readOnly": true
+        },
+        "url": {
+          "type": "string",
+          "description": "The URL (Uniform Resource Locator) of the link"
+        },
+        "alias": {
+          "type": "string",
+          "description": "A user-friendly text to show instead of the URL",
+          "nullable": true
+        },
+        "description": {
+          "$ref": "#/$defs/LocalizedString"
+        },
+        "linkType": {
+          "$ref": "#/$defs/ClassificationRef"
+        }
+      },
+      "description": "A hyperlink describing a location on the web."
+    },
+    "Name": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        }
+      },
+      "description": "A name describing a person, made up of given- and family name"
+    },
+    "ClassifiedName": {
+      "type": "object",
+      "properties": {
+        "pureId": {
+          "type": "integer",
+          "description": "Pure database ID of the object, prefer using the UUID if it is present on the entity",
+          "format": "int64",
+          "readOnly": true
+        },
+        "name": {
+          "$ref": "#/$defs/Name"
+        },
+        "type": {
+          "$ref": "#/$defs/ClassificationRef"
+        }
+      },
+      "description": "A classified name"
+    },
+    "HonoraryStaffOrganizationAssociation": {
+      "type": "object",
+      "description": "A relation describing the association between honorary staff and organization",
+      "allOf": [
+        {
+          "$ref": "#/$defs/PersonOrganizationAssociation"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "jobDescription": {
+              "$ref": "#/$defs/LocalizedString"
+            },
+            "jobTitle": {
+              "$ref": "#/$defs/ClassificationRef"
+            }
+          }
+        }
+      ]
+    },
+    "PersonOrganizationAssociation": {
+      "required": [
+        "typeDiscriminator"
+      ],
+      "type": "object",
+      "properties": {
+        "pureId": {
+          "type": "integer",
+          "description": "Pure database ID of the object, prefer using the UUID if it is present on the entity",
+          "format": "int64",
+          "readOnly": true
+        },
+        "addresses": {
+          "type": "array",
+          "description": "List of physical addresses.",
+          "nullable": true,
+          "items": {
+            "$ref": "#/$defs/ClassifiedAddress"
+          }
+        },
+        "affiliationId": {
+          "type": "string",
+          "description": "Affiliation identification. This could be a student ID or a staff ID.",
+          "nullable": true
+        },
+        "employmentType": {
+          "$ref": "#/$defs/ClassificationRef"
+        },
+        "organization": {
+          "$ref": "#/$defs/OrganizationRef"
+        },
+        "emails": {
+          "type": "array",
+          "description": "List of emails.",
+          "nullable": true,
+          "items": {
+            "$ref": "#/$defs/ClassifiedValue"
+          }
+        },
+        "webAddresses": {
+          "type": "array",
+          "description": "List of web addresses.",
+          "nullable": true,
+          "items": {
+            "$ref": "#/$defs/ClassifiedLocalizedValue"
+          }
+        },
+        "phoneNumbers": {
+          "type": "array",
+          "description": "Phone numbers associated with the organization association.",
+          "nullable": true,
+          "items": {
+            "$ref": "#/$defs/ClassifiedValue"
+          }
+        },
+        "period": {
+          "$ref": "#/$defs/DateRange"
+        },
+        "supervisorAssociations": {
+          "type": "array",
+          "description": "List of associations to persons who supervise this person.",
+          "nullable": true,
+          "items": {
+            "$ref": "#/$defs/PersonSupervisorAssociation"
+          }
+        },
+        "keywordGroups": {
+          "type": "array",
+          "description": "List of keyword groups.",
+          "nullable": true,
+          "items": {
+            "$ref": "#/$defs/KeywordGroup"
+          }
+        },
+        "primaryAssociation": {
+          "type": "boolean",
+          "description": "A boolean value indicating whether this is the primary association or not. Only one of the associations from a person to an organization will be primary."
+        },
+        "typeDiscriminator": {
+          "type": "string"
+        }
+      },
+      "nullable": true,
+      "discriminator": {
+        "propertyName": "typeDiscriminator",
+        "mapping": {
+          "HonoraryStaffOrganizationAssociation": "#/components/schemas/HonoraryStaffOrganizationAssociation",
+          "StaffOrganizationAssociation": "#/components/schemas/StaffOrganizationAssociation",
+          "StudentOrganizationAssociation": "#/components/schemas/StudentOrganizationAssociation",
+          "VisitingScholarOrganizationAssociation": "#/components/schemas/VisitingScholarOrganizationAssociation"
+        }
+      }
+    },
+    "ClassifiedAddress": {
+      "required": [
+        "addressType"
+      ],
+      "type": "object",
+      "properties": {
+        "pureId": {
+          "type": "integer",
+          "description": "Pure database ID of the object, prefer using the UUID if it is present on the entity",
+          "format": "int64",
+          "readOnly": true
+        },
+        "addressType": {
+          "$ref": "#/$defs/ClassificationRef"
+        },
+        "addressLines": {
+          "type": "string",
+          "description": "Address for personal residence",
+          "nullable": true
+        },
+        "street": {
+          "type": "string",
+          "description": "The name of the street",
+          "nullable": true
+        },
+        "building": {
+          "type": "string",
+          "description": "The name of the building",
+          "nullable": true
+        },
+        "postalcode": {
+          "type": "string",
+          "description": "The postal code of the city",
+          "nullable": true
+        },
+        "city": {
+          "type": "string",
+          "description": "The name of the city",
+          "nullable": true
+        },
+        "country": {
+          "$ref": "#/$defs/ClassificationRef"
+        },
+        "subdivision": {
+          "$ref": "#/$defs/ClassificationRef"
+        },
+        "geoLocation": {
+          "$ref": "#/$defs/GeoLocation"
+        }
+      },
+      "description": "A physical address"
+    },
+    "GeoLocation": {
+      "type": "object",
+      "properties": {
+        "point": {
+          "type": "string",
+          "description": "Location expressed as a point",
+          "nullable": true
+        },
+        "polygon": {
+          "type": "string",
+          "description": "Location expressed as a polygon",
+          "nullable": true
+        },
+        "calculatedPoint": {
+          "type": "string",
+          "description": "Used to determine whether or not we may update the point. An end-user has not entered a point manually if the value of the calculated point is the same as point",
+          "readOnly": true
+        }
+      },
+      "description": "Geographical location",
+      "nullable": true
+    },
+    "OrganizationRef": {
+      "required": [
+        "uuid"
+      ],
+      "type": "object",
+      "description": "A reference to an organization in the institution",
+      "nullable": true,
+      "allOf": [
+        {
+          "$ref": "#/$defs/ContentRef"
+        }
+      ]
+    },
+    "ClassifiedValue": {
+      "required": [
+        "type",
+        "value"
+      ],
+      "type": "object",
+      "properties": {
+        "pureId": {
+          "type": "integer",
+          "description": "Pure database ID of the object, prefer using the UUID if it is present on the entity",
+          "format": "int64",
+          "readOnly": true
+        },
+        "value": {
+          "type": "string",
+          "description": "Classified value"
+        },
+        "type": {
+          "$ref": "#/$defs/ClassificationRef"
+        }
+      },
+      "description": "A classified value"
+    },
+    "ClassifiedLocalizedValue": {
+      "required": [
+        "type"
+      ],
+      "type": "object",
+      "properties": {
+        "pureId": {
+          "type": "integer",
+          "description": "Pure database ID of the object, prefer using the UUID if it is present on the entity",
+          "format": "int64",
+          "readOnly": true
+        },
+        "value": {
+          "$ref": "#/$defs/LocalizedString"
+        },
+        "type": {
+          "$ref": "#/$defs/ClassificationRef"
+        }
+      },
+      "description": "A classified localized value"
+    },
+    "PersonSupervisorAssociation": {
+      "type": "object",
+      "properties": {
+        "pureId": {
+          "type": "integer",
+          "description": "Pure database ID of the object, prefer using the UUID if it is present on the entity",
+          "format": "int64",
+          "readOnly": true
+        },
+        "period": {
+          "$ref": "#/$defs/DateRange"
+        },
+        "supervisionPercentage": {
+          "maximum": 100,
+          "minimum": 0,
+          "type": "integer",
+          "description": "Percentage for which the Supervisor is responsible for the total supervision",
+          "format": "int32"
+        },
+        "supervisorRole": {
+          "$ref": "#/$defs/ClassificationRef"
+        },
+        "supervisor": {
+          "$ref": "#/$defs/InternalOrExternalSupervisor"
+        }
+      },
+      "description": "The association data of a person and their supervisor"
+    },
+    "InternalOrExternalSupervisor": {
+      "type": "object",
+      "properties": {
+        "externalSupervisor": {
+          "$ref": "#/$defs/ExternalPersonRef"
+        },
+        "supervisor": {
+          "$ref": "#/$defs/PersonRef"
+        }
+      },
+      "description": "A supervisor, either internal or external, use as mutually exclusive"
+    },
+    "StaffOrganizationAssociation": {
+      "type": "object",
+      "description": "A relation describing the association between Staff and organization",
+      "allOf": [
+        {
+          "$ref": "#/$defs/PersonOrganizationAssociation"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "contractType": {
+              "$ref": "#/$defs/ClassificationRef"
+            },
+            "fte": {
+              "type": "number",
+              "description": "The FTE (Full-Time Equivalent). A decimal number ranging between 0 (0% equivalent of full time) and 1 (100% equivalent of full time).",
+              "format": "double",
+              "nullable": true
+            },
+            "jobDescription": {
+              "$ref": "#/$defs/LocalizedString"
+            },
+            "jobTitle": {
+              "$ref": "#/$defs/ClassificationRef"
+            },
+            "staffType": {
+              "$ref": "#/$defs/ClassificationRef"
+            }
+          }
+        }
+      ]
+    },
+    "StudentOrganizationAssociation": {
+      "type": "object",
+      "description": "A relation describing the association between student and organization",
+      "allOf": [
+        {
+          "$ref": "#/$defs/PersonOrganizationAssociation"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "awardDate": {
+              "type": "string",
+              "description": "The date when the student received an award.",
+              "format": "date",
+              "nullable": true
+            },
+            "awardGained": {
+              "type": "string",
+              "description": "Description of what award the student gained.",
+              "nullable": true
+            },
+            "fte": {
+              "type": "number",
+              "description": "The FTE (Full-Time Equivalent). A decimal number ranging between 0 (0% equivalent of full time) and 1 (100% equivalent of full time).",
+              "format": "double",
+              "nullable": true
+            },
+            "programme": {
+              "type": "string",
+              "description": "The name or title of a program often consists of the degree (e.g., BS) and the discipline or field of study (e.g., Business Administration).",
+              "nullable": true
+            },
+            "projectTitle": {
+              "$ref": "#/$defs/LocalizedString"
+            },
+            "expectedStudyDuration": {
+              "type": "integer",
+              "description": "The expected study duration.",
+              "format": "int32",
+              "nullable": true
+            },
+            "minimumStudyDuration": {
+              "type": "integer",
+              "description": "The minimum study duration.",
+              "format": "int32",
+              "nullable": true
+            },
+            "maximumStudyDuration": {
+              "type": "integer",
+              "description": "The maximum study duration.",
+              "format": "int32",
+              "nullable": true
+            },
+            "programYear": {
+              "type": "string",
+              "description": "The program year",
+              "nullable": true
+            },
+            "initialSubmissionDate": {
+              "type": "string",
+              "description": "The program year",
+              "format": "date",
+              "nullable": true
+            },
+            "getExpectedEndDate": {
+              "type": "string",
+              "description": "Expected end date",
+              "format": "date",
+              "nullable": true
+            },
+            "startYear": {
+              "type": "string",
+              "description": "Start year",
+              "nullable": true
+            },
+            "attendanceStatus": {
+              "$ref": "#/$defs/ClassificationRef"
+            },
+            "getStudentNationality": {
+              "$ref": "#/$defs/ClassificationRef"
+            },
+            "studentResidencyFlag": {
+              "type": "string",
+              "description": "Residency flag of the student, indicating whether the student is a home student or an overseas student.",
+              "enum": [
+                "UNKNOWN",
+                "HOME",
+                "OVERSEAS"
+              ]
+            },
+            "getStudentCountryOfDomicile": {
+              "$ref": "#/$defs/ClassificationRef"
+            },
+            "studentTypeDescription": {
+              "$ref": "#/$defs/ClassificationRef"
+            }
+          }
+        }
+      ]
+    },
+    "VisitingScholarOrganizationAssociation": {
+      "type": "object",
+      "description": "A relation describing the association between a visiting scholar and organization",
+      "allOf": [
+        {
+          "$ref": "#/$defs/PersonOrganizationAssociation"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "jobDescription": {
+              "$ref": "#/$defs/LocalizedString"
+            },
+            "jobTitle": {
+              "$ref": "#/$defs/ClassificationRef"
+            },
+            "purposeOfStay": {
+              "type": "string",
+              "description": "Why the visiting shcolar has transfered to the organization.",
+              "nullable": true
+            },
+            "visitorFrom": {
+              "$ref": "#/$defs/ExternalOrganizationRef"
+            }
+          }
+        }
+      ]
+    },
+    "AcademicQualification": {
+      "type": "object",
+      "properties": {
+        "pureId": {
+          "type": "integer",
+          "description": "Pure database ID of the object, prefer using the UUID if it is present on the entity",
+          "format": "int64",
+          "readOnly": true
+        },
+        "awardDate": {
+          "type": "string",
+          "description": "Date that the education was awarded at.",
+          "format": "date",
+          "nullable": true
+        },
+        "period": {
+          "$ref": "#/$defs/CompoundDateRange"
+        },
+        "fieldOfStudy": {
+          "$ref": "#/$defs/ClassificationRef"
+        },
+        "fieldOfStudyUnstructured": {
+          "$ref": "#/$defs/LocalizedString"
+        },
+        "organization": {
+          "$ref": "#/$defs/OrganizationOrExternalOrganizationRef"
+        },
+        "projectTitle": {
+          "$ref": "#/$defs/LocalizedString"
+        },
+        "qualification": {
+          "$ref": "#/$defs/ClassificationRef"
+        },
+        "qualificationUnstructured": {
+          "$ref": "#/$defs/LocalizedString"
+        },
+        "distinction": {
+          "$ref": "#/$defs/ClassificationRef"
+        },
+        "supervisor": {
+          "$ref": "#/$defs/InternalOrExternalSupervisor"
+        }
+      },
+      "description": "An object mapping the data of an education received by a person"
+    },
+    "OrganizationOrExternalOrganizationRef": {
+      "type": "object",
+      "properties": {
+        "organizationRef": {
+          "$ref": "#/$defs/OrganizationRef"
+        },
+        "externalOrganizationRef": {
+          "$ref": "#/$defs/ExternalOrganizationRef"
+        }
+      },
+      "description": "A reference to an organization in the institution or an external organization",
+      "nullable": true
+    },
+    "ImageFile": {
+      "required": [
+        "fileName",
+        "mimeType"
+      ],
+      "type": "object",
+      "properties": {
+        "pureId": {
+          "type": "integer",
+          "description": "Pure database ID of the object, prefer using the UUID if it is present on the entity",
+          "format": "int64",
+          "readOnly": true
+        },
+        "fileId": {
+          "type": "string",
+          "description": "The id of the file",
+          "readOnly": true
+        },
+        "fileName": {
+          "type": "string",
+          "description": "The documents file name"
+        },
+        "mimeType": {
+          "type": "string",
+          "description": "The documents mime type"
+        },
+        "size": {
+          "type": "integer",
+          "description": "The documents size in bytes",
+          "format": "int64"
+        },
+        "url": {
+          "type": "string",
+          "description": "Download url for the binary file",
+          "readOnly": true
+        },
+        "fileStoreLocations": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "description": "Locations of the binary file in file stores.",
+            "readOnly": true
+          },
+          "description": "Locations of the binary file in file stores.",
+          "readOnly": true
+        },
+        "uploadedFile": {
+          "$ref": "#/$defs/UploadedFile"
+        },
+        "remoteFile": {
+          "$ref": "#/$defs/RemoteFile"
+        },
+        "fileData": {
+          "type": "string",
+          "description": "Base64 encoded file data for new files. This property can be used instead of uploadedFile for small files",
+          "format": "byte",
+          "writeOnly": true
+        },
+        "type": {
+          "$ref": "#/$defs/ClassificationRef"
+        },
+        "copyrightConfirmation": {
+          "type": "boolean",
+          "description": "Indicates whether this file has been confirmed to adhere to the appropriate copyrights",
+          "nullable": true
+        },
+        "caption": {
+          "$ref": "#/$defs/LocalizedString"
+        },
+        "altText": {
+          "$ref": "#/$defs/LocalizedString"
+        },
+        "copyrightStatement": {
+          "$ref": "#/$defs/LocalizedString"
+        }
+      },
+      "description": "An image file"
+    },
+    "UploadedFile": {
+      "required": [
+        "key"
+      ],
+      "type": "object",
+      "properties": {
+        "digest": {
+          "type": "string",
+          "description": "The calculated digest for the file in Pure",
+          "readOnly": true
+        },
+        "digestType": {
+          "type": "string",
+          "description": "The digest type",
+          "readOnly": true
+        },
+        "size": {
+          "type": "integer",
+          "description": "The file size of the file in Pure",
+          "format": "int64",
+          "readOnly": true
+        },
+        "mimeType": {
+          "type": "string",
+          "description": "The mime type detected for the file",
+          "readOnly": true
+        },
+        "timeStamp": {
+          "type": "string",
+          "description": "The timestamp Pure received the file",
+          "format": "date-time",
+          "readOnly": true
+        },
+        "expires": {
+          "type": "string",
+          "description": "The timestamp where Pure deletes the uploaded file if it has not been attached to any content",
+          "format": "date-time",
+          "readOnly": true
+        },
+        "key": {
+          "type": "string",
+          "description": "Pure key identifer for the file upload",
+          "readOnly": true
+        }
+      },
+      "description": "Information about the uploaded file"
+    },
+    "RemoteFile": {
+      "required": [
+        "fileId",
+        "fileState",
+        "sourceId",
+        "storeName"
+      ],
+      "type": "object",
+      "properties": {
+        "sourceId": {
+          "type": "string",
+          "description": "The remote source ID"
+        },
+        "storeName": {
+          "type": "string",
+          "description": "The name of the remote store"
+        },
+        "timeStamp": {
+          "type": "string",
+          "description": "The timestamp at which the file was stored",
+          "format": "date-time"
+        },
+        "fileId": {
+          "type": "string",
+          "description": "The remote file ID"
+        },
+        "fileState": {
+          "type": "string",
+          "description": "The remote file state",
+          "enum": [
+            "AWAITING_CREATION",
+            "CREATION_IN_PROGRESS",
+            "CREATION_FAILED",
+            "STORED",
+            "AWAITING_DELETE",
+            "DELETE_IN_PROGRESS",
+            "DELETE_FAILED",
+            "DELETED"
+          ]
+        },
+        "metadataUpdateRequired": {
+          "type": "boolean",
+          "description": "Whether the file's metadata should be updated",
+          "default": false
+        }
+      },
+      "description": "Information about a remote file (Elsevier only)"
+    },
+    "Document": {
+      "required": [
+        "fileName",
+        "mimeType",
+        "type",
+        "visibility"
+      ],
+      "type": "object",
+      "properties": {
+        "pureId": {
+          "type": "integer",
+          "description": "Pure database ID of the object, prefer using the UUID if it is present on the entity",
+          "format": "int64",
+          "readOnly": true
+        },
+        "fileId": {
+          "type": "string",
+          "description": "The id of the file",
+          "readOnly": true
+        },
+        "fileName": {
+          "type": "string",
+          "description": "The documents file name"
+        },
+        "mimeType": {
+          "type": "string",
+          "description": "The documents mime type"
+        },
+        "size": {
+          "type": "integer",
+          "description": "The documents size in bytes",
+          "format": "int64"
+        },
+        "url": {
+          "type": "string",
+          "description": "Download url for the binary file",
+          "readOnly": true
+        },
+        "fileStoreLocations": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "description": "Locations of the binary file in file stores.",
+            "readOnly": true
+          },
+          "description": "Locations of the binary file in file stores.",
+          "readOnly": true
+        },
+        "uploadedFile": {
+          "$ref": "#/$defs/UploadedFile"
+        },
+        "remoteFile": {
+          "$ref": "#/$defs/RemoteFile"
+        },
+        "fileData": {
+          "type": "string",
+          "description": "Base64 encoded file data for new files. This property can be used instead of uploadedFile for small files",
+          "format": "byte",
+          "writeOnly": true
+        },
+        "title": {
+          "type": "string",
+          "description": "Document title",
+          "nullable": true
+        },
+        "type": {
+          "$ref": "#/$defs/ClassificationRef"
+        },
+        "license": {
+          "$ref": "#/$defs/ClassificationRef"
+        },
+        "visibleOnPortalDate": {
+          "type": "string",
+          "description": "The date the document will be available on the portal",
+          "format": "date",
+          "readOnly": true
+        },
+        "visibility": {
+          "$ref": "#/$defs/Visibility"
+        },
+        "creator": {
+          "type": "string",
+          "description": "The user that created the document",
+          "readOnly": true
+        },
+        "created": {
+          "type": "string",
+          "description": "Create date for the document",
+          "format": "date-time",
+          "readOnly": true
+        }
+      },
+      "description": "Document"
+    },
+    "Visibility": {
+      "required": [
+        "key"
+      ],
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string",
+          "description": "Visibility value",
+          "enum": [
+            "FREE",
+            "CAMPUS",
+            "BACKEND",
+            "CONFIDENTIAL"
+          ]
+        },
+        "description": {
+          "$ref": "#/$defs/SystemLocalizedString"
+        }
+      },
+      "description": "Visibility of an object"
+    },
+    "Address": {
+      "type": "object",
+      "properties": {
+        "road": {
+          "type": "string",
+          "description": "Name of road and house number, eg. 'Pennsylvania Avenue' or '123 Main St.'",
+          "nullable": true
+        },
+        "room": {
+          "type": "string",
+          "description": "Room number or name if available, eg. '1.23' or 'Office of Creative Services'",
+          "nullable": true
+        },
+        "building": {
+          "type": "string",
+          "description": "Building Name if available, eg. 'Couper Administration Building'",
+          "nullable": true
+        },
+        "postalCode": {
+          "type": "string",
+          "description": "Postal code",
+          "nullable": true
+        },
+        "city": {
+          "type": "string",
+          "description": "City or town, eg. 'Binghamton'",
+          "nullable": true
+        },
+        "country": {
+          "$ref": "#/$defs/ClassificationRef"
+        }
+      },
+      "description": "A physical address",
+      "nullable": true
+    },
+    "ProfessionalQualification": {
+      "type": "object",
+      "properties": {
+        "pureId": {
+          "type": "integer",
+          "description": "Pure database ID of the object, prefer using the UUID if it is present on the entity",
+          "format": "int64",
+          "readOnly": true
+        },
+        "abbreviatedQualification": {
+          "$ref": "#/$defs/LocalizedString"
+        },
+        "period": {
+          "$ref": "#/$defs/CompoundDateRange"
+        },
+        "qualification": {
+          "$ref": "#/$defs/LocalizedString"
+        }
+      },
+      "description": "The professional qualifications held by a person"
+    },
+    "ClassifiedFormattedLocalizedValue": {
+      "required": [
+        "type"
+      ],
+      "type": "object",
+      "properties": {
+        "pureId": {
+          "type": "integer",
+          "description": "Pure database ID of the object, prefer using the UUID if it is present on the entity",
+          "format": "int64",
+          "readOnly": true
+        },
+        "value": {
+          "$ref": "#/$defs/FormattedLocalizedString"
+        },
+        "type": {
+          "$ref": "#/$defs/ClassificationRef"
+        }
+      },
+      "description": "A classified formatted localized value"
+    },
+    "FormattedLocalizedString": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "description": "A set of localized strings that support formatting. Invalid locale values will be ignored.",
+        "nullable": true,
+        "example": "{\"en_GB\":\"Some text\"}"
+      },
+      "description": "A set of localized strings that support formatting. Invalid locale values will be ignored.",
+      "nullable": true,
+      "example": {
+        "en_GB": "Some text"
+      }
+    },
+    "Identifier": {
+      "required": [
+        "typeDiscriminator"
+      ],
+      "type": "object",
+      "properties": {
+        "typeDiscriminator": {
+          "type": "string"
+        }
+      },
+      "discriminator": {
+        "propertyName": "typeDiscriminator",
+        "mapping": {
+          "ClassifiedId": "#/components/schemas/ClassifiedId",
+          "PrimaryId": "#/components/schemas/PrimaryId",
+          "Id": "#/components/schemas/Id"
+        }
+      }
+    },
+    "UserRef": {
+      "required": [
+        "uuid"
+      ],
+      "type": "object",
+      "description": "A reference to an user",
+      "nullable": true,
+      "allOf": [
+        {
+          "$ref": "#/$defs/ContentRef"
+        }
+      ]
+    },
+    "CustomDefinedFields": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/CustomDefinedField"
+      },
+      "description": "Map of CustomDefinedField values, where the key is the field identifier",
+      "nullable": true,
+      "example": "{ \"fieldName1\": \"typeDiscriminator\": \"Integer\", \"value\" : 1}"
+    },
+    "CustomDefinedField": {
+      "required": [
+        "typeDiscriminator"
+      ],
+      "type": "object",
+      "properties": {
+        "typeDiscriminator": {
+          "type": "string"
+        }
+      },
+      "description": "Map of CustomDefinedField values, where the key is the field identifier",
+      "nullable": true,
+      "example": "{ \"fieldName1\": \"typeDiscriminator\": \"Integer\", \"value\" : 1}",
+      "discriminator": {
+        "propertyName": "typeDiscriminator",
+        "mapping": {
+          "Integer": "#/components/schemas/CustomDefinedFieldInteger",
+          "String": "#/components/schemas/CustomDefinedFieldString",
+          "Date": "#/components/schemas/CustomDefinedFieldDate",
+          "Classification": "#/components/schemas/CustomDefinedFieldClassification",
+          "Boolean": "#/components/schemas/CustomDefinedFieldBoolean",
+          "Decimal": "#/components/schemas/CustomDefinedFieldDecimal"
+        }
+      }
+    },
+    "Workflow": {
+      "required": [
+        "step"
+      ],
+      "type": "object",
+      "properties": {
+        "step": {
+          "type": "string",
+          "description": "Current workflow step"
+        },
+        "description": {
+          "$ref": "#/$defs/SystemLocalizedString"
+        }
+      },
+      "description": "Information about workflow"
+    }
+  }
+}

@@ -1,0 +1,66 @@
+rules:
+  qub-pure-info-contact:
+    description: Pure API info object should retain a support contact.
+    given: $.info
+    severity: warn
+    then:
+      field: contact
+      function: truthy
+
+  qub-pure-server-https:
+    description: Servers should use HTTPS against the Queen's University Belfast Pure host.
+    given: $.servers[*].url
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        match: "^https://"
+
+  qub-pure-operation-id:
+    description: Every operation should carry an operationId (Pure uses snake_case like activity_list).
+    given: $.paths[*][get,post,put,delete]
+    severity: warn
+    then:
+      field: operationId
+      function: truthy
+
+  qub-pure-operation-tag:
+    description: Operations should be tagged with their Pure content family (e.g. researchOutput, person, dataSet).
+    given: $.paths[*][get,post,put,delete]
+    severity: warn
+    then:
+      field: tags
+      function: truthy
+
+  qub-pure-list-pagination-params:
+    description: List (GET collection) operations should expose size and offset paging parameters.
+    given: "$.paths[?(@property.match(/s$/))].get.parameters"
+    severity: info
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: array
+          contains:
+            type: object
+            properties:
+              name:
+                enum: [size, offset]
+
+  qub-pure-security-api-key:
+    description: The Pure API is secured with an api-key security scheme.
+    given: $.components.securitySchemes
+    severity: warn
+    then:
+      field: api-key
+      function: truthy
+
+  qub-pure-uuid-identity:
+    description: Core objects should expose a uuid as their primary identity.
+    given: "$.components.schemas[ResearchOutput,Person,DataSet].properties"
+    severity: info
+    then:
+      field: uuid
+      function: truthy
+formats:
+  - oas3

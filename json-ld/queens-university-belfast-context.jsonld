@@ -1,0 +1,39 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "pure": "https://pure.qub.ac.uk/ws/api/#",
+    "qub": "https://www.qub.ac.uk/#",
+    "name": "name",
+    "url": "url",
+    "uuid": "@id",
+    "pureId": "identifier",
+    "portalUrl": "url",
+    "createdDate": "dateCreated",
+    "modifiedDate": "dateModified",
+    "title": "name",
+    "ResearchOutput": "CreativeWork",
+    "DataSet": "Dataset",
+    "Person": "Person",
+    "Organization": "Organization",
+    "Project": "Project",
+    "contributors": "author",
+    "publisher": "publisher",
+    "doi": "identifier",
+    "orcid": {
+      "@id": "https://schema.org/identifier",
+      "@type": "@id"
+    },
+    "peerReview": "https://pure.qub.ac.uk/ws/api/#peerReview"
+  },
+  "@type": "CollegeOrUniversity",
+  "@id": "https://ror.org/00hswv687",
+  "name": "Queen's University Belfast",
+  "url": "https://www.qub.ac.uk/",
+  "sameAs": [
+    "https://pure.qub.ac.uk/",
+    "https://www.wikidata.org/wiki/Q1064782",
+    "https://ror.org/00hswv687"
+  ],
+  "description": "Russell Group research-intensive university in Belfast, Northern Ireland, United Kingdom. Its research information is exposed through the Pure API and an OAI-PMH endpoint.",
+  "publishingPrinciples": "https://pure.qub.ac.uk/ws/api/openapi.json"
+}

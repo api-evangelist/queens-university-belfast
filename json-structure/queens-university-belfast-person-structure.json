@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/queens-university-belfast/main/json-structure/queens-university-belfast-person-structure.json",
+  "name": "Person",
+  "type": "object",
+  "description": "A researcher / person record from the Queen's University Belfast Pure API.",
+  "properties": {
+    "pureId": {
+      "type": "int64",
+      "description": "Pure database ID of the object."
+    },
+    "uuid": {
+      "type": "string",
+      "description": "UUID, the primary identity of the entity."
+    },
+    "createdDate": {
+      "type": "string",
+      "description": "Date and time of creation."
+    },
+    "modifiedDate": {
+      "type": "string",
+      "description": "Date and time of last modification."
+    },
+    "portalUrl": {
+      "type": "string",
+      "description": "URL of the content on the Pure Portal."
+    },
+    "name": {
+      "type": "object",
+      "description": "The person's name (firstName/lastName)."
+    },
+    "orcid": {
+      "type": "string",
+      "description": "ORCID of the person."
+    },
+    "orcidAuthenticated": {
+      "type": "boolean",
+      "description": "ORCID authentication status."
+    },
+    "startDateAsResearcher": {
+      "type": "string",
+      "description": "Date the person entered the academic profession."
+    },
+    "externalPositions": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "description": "Positions external to the institution."
+    },
+    "keywordGroups": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "description": "Groups of keywords associated with the person."
+    }
+  }
+}

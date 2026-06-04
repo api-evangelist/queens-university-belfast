@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/queens-university-belfast/main/json-structure/queens-university-belfast-dataset-structure.json",
+  "name": "DataSet",
+  "type": "object",
+  "description": "A research dataset record from the Queen's University Belfast Pure API.",
+  "properties": {
+    "pureId": {
+      "type": "int64",
+      "description": "Pure database ID of the object."
+    },
+    "uuid": {
+      "type": "string",
+      "description": "UUID, the primary identity of the entity."
+    },
+    "createdDate": {
+      "type": "string",
+      "description": "Date and time of creation."
+    },
+    "modifiedDate": {
+      "type": "string",
+      "description": "Date and time of last modification."
+    },
+    "portalUrl": {
+      "type": "string",
+      "description": "URL of the content on the Pure Portal."
+    },
+    "title": {
+      "type": "string",
+      "description": "The dataset title (LocalizedString)."
+    },
+    "descriptions": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "description": "A collection of descriptions."
+    },
+    "type": {
+      "type": "string",
+      "description": "Classification reference for dataset type."
+    },
+    "publisher": {
+      "type": "object",
+      "description": "Reference to the publisher."
+    },
+    "doi": {
+      "type": "object",
+      "description": "The dataset DOI."
+    },
+    "contributors": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "description": "Contributors associated with the dataset."
+    },
+    "dataProductionPeriod": {
+      "type": "object",
+      "description": "Compound date range of data production."
+    }
+  }
+}

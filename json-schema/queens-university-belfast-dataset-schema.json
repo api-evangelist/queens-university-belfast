@@ -1,0 +1,1498 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/queens-university-belfast/main/json-schema/queens-university-belfast-dataset-schema.json",
+  "title": "Pure API DataSet",
+  "description": "A dataset",
+  "required": [
+    "managingOrganization",
+    "persons",
+    "publisher",
+    "title",
+    "type",
+    "visibility"
+  ],
+  "type": "object",
+  "properties": {
+    "pureId": {
+      "type": "integer",
+      "description": "Pure database ID of the object, prefer using the UUID if it is present on the entity",
+      "format": "int64",
+      "readOnly": true
+    },
+    "uuid": {
+      "type": "string",
+      "description": "UUID, this is the primary identity of the entity",
+      "format": "uuid",
+      "readOnly": true
+    },
+    "createdBy": {
+      "type": "string",
+      "description": "Username of creator",
+      "readOnly": true
+    },
+    "createdDate": {
+      "type": "string",
+      "description": "Date and time of creation",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "modifiedBy": {
+      "type": "string",
+      "description": "Username of the user that performed a modification",
+      "readOnly": true
+    },
+    "modifiedDate": {
+      "type": "string",
+      "description": "Date and time of last modification",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "portalUrl": {
+      "type": "string",
+      "description": "URL of the content on the Pure Portal",
+      "readOnly": true
+    },
+    "prettyUrlIdentifiers": {
+      "type": "array",
+      "description": "All pretty URLs",
+      "readOnly": true,
+      "items": {
+        "type": "string",
+        "description": "All pretty URLs",
+        "readOnly": true
+      }
+    },
+    "previousUuids": {
+      "type": "array",
+      "description": "UUIDs of other content items which have been merged into this content item (or similar)",
+      "readOnly": true,
+      "items": {
+        "type": "string",
+        "description": "UUIDs of other content items which have been merged into this content item (or similar)",
+        "readOnly": true
+      }
+    },
+    "version": {
+      "type": "string",
+      "description": "Used to guard against conflicting updates. For new content this is null, and for existing content the current value. The property should never be modified by a client, except in the rare case where the client wants to perform an update irrespective of if other clients have made updates in the meantime, also known as a \"dirty write\". A dirty write is performed by not including the property value or setting the property to null",
+      "nullable": true
+    },
+    "title": {
+      "$ref": "#/$defs/LocalizedString"
+    },
+    "descriptions": {
+      "type": "array",
+      "description": "A collection of descriptions.",
+      "nullable": true,
+      "items": {
+        "$ref": "#/$defs/ClassifiedLocalizedValue"
+      }
+    },
+    "managingOrganization": {
+      "$ref": "#/$defs/OrganizationRef"
+    },
+    "type": {
+      "$ref": "#/$defs/ClassificationRef"
+    },
+    "natureTypes": {
+      "type": "array",
+      "description": "Nature of activity types for the project.",
+      "nullable": true,
+      "items": {
+        "$ref": "#/$defs/ClassificationRef"
+      }
+    },
+    "publisher": {
+      "$ref": "#/$defs/PublisherRef"
+    },
+    "temporalCoveragePeriod": {
+      "$ref": "#/$defs/CompoundDateRange"
+    },
+    "dataProductionPeriod": {
+      "$ref": "#/$defs/CompoundDateRange"
+    },
+    "identifiers": {
+      "type": "array",
+      "description": "IDs that this object corresponds to in external systems. Such as a Scopus ID. Used by Pure where it is necessary to identify objects to specific external systems",
+      "nullable": true,
+      "items": {
+        "$ref": "#/$defs/Identifier"
+      }
+    },
+    "geoLocation": {
+      "$ref": "#/$defs/DataSetGeoLocation"
+    },
+    "persons": {
+      "type": "array",
+      "description": "DEPRECATED - use contributors instead. The persons that the dataset is associated with",
+      "deprecated": true,
+      "items": {
+        "$ref": "#/$defs/AbstractDataSetPersonAssociation"
+      }
+    },
+    "contributors": {
+      "type": "array",
+      "description": "The contributors that the dataset is associated with",
+      "items": {
+        "$ref": "#/$defs/AbstractDataSetContributorAssociation"
+      }
+    },
+    "totalNumberOfAuthors": {
+      "type": "integer",
+      "description": "The total number of authors from author collaborations.",
+      "format": "int32",
+      "nullable": true
+    },
+    "doi": {
+      "$ref": "#/$defs/DataSetDoi"
+    },
+    "documents": {
+      "type": "array",
+      "description": "A collection of documents.",
+      "nullable": true,
+      "items": {
+        "$ref": "#/$defs/DataSetDocument"
+      }
+    },
+    "physicalData": {
+      "type": "array",
+      "description": "A collection of physical data.",
+      "nullable": true,
+      "items": {
+        "$ref": "#/$defs/DataSetPhysicalData"
+      }
+    },
+    "contactPerson": {
+      "$ref": "#/$defs/PersonRef"
+    },
+    "legalConditions": {
+      "type": "array",
+      "description": "A collection of legal conditions.",
+      "nullable": true,
+      "items": {
+        "$ref": "#/$defs/DataSetLegalCondition"
+      }
+    },
+    "organizations": {
+      "type": "array",
+      "description": "A collection of organizational unit affiliations.",
+      "nullable": true,
+      "items": {
+        "$ref": "#/$defs/OrganizationRef"
+      }
+    },
+    "externalOrganizations": {
+      "type": "array",
+      "description": "A collection of external organization affiliations.",
+      "nullable": true,
+      "items": {
+        "$ref": "#/$defs/ExternalOrganizationRef"
+      }
+    },
+    "publicationAvailableDate": {
+      "$ref": "#/$defs/CompoundDate"
+    },
+    "openAccess": {
+      "$ref": "#/$defs/OpenAccess"
+    },
+    "openAireCompliant": {
+      "type": "boolean",
+      "description": "OpenAire Compliancy.",
+      "readOnly": true
+    },
+    "license": {
+      "$ref": "#/$defs/ClassificationRef"
+    },
+    "dataSets": {
+      "type": "array",
+      "description": "A collection of related datasets.",
+      "nullable": true,
+      "items": {
+        "$ref": "#/$defs/DataSetAssociation"
+      }
+    },
+    "projects": {
+      "type": "array",
+      "description": "A collection of related projects.",
+      "nullable": true,
+      "items": {
+        "$ref": "#/$defs/DataSetProjectAssociation"
+      }
+    },
+    "researchOutputs": {
+      "type": "array",
+      "description": "A collection of related research outputs.",
+      "nullable": true,
+      "items": {
+        "$ref": "#/$defs/DataSetResearchOutputAssociation"
+      }
+    },
+    "activities": {
+      "type": "array",
+      "description": "A collection of related activities.",
+      "nullable": true,
+      "items": {
+        "$ref": "#/$defs/DataSetActivityAssociation"
+      }
+    },
+    "pressMedia": {
+      "type": "array",
+      "description": "A collection of related press media.",
+      "nullable": true,
+      "items": {
+        "$ref": "#/$defs/DataSetPressMediaAssociation"
+      }
+    },
+    "studentTheses": {
+      "type": "array",
+      "description": "A collection of related student theses.",
+      "nullable": true,
+      "items": {
+        "$ref": "#/$defs/DataSetStudentThesisAssociation"
+      }
+    },
+    "impacts": {
+      "type": "array",
+      "description": "A collection of related impacts.",
+      "nullable": true,
+      "items": {
+        "$ref": "#/$defs/DataSetImpactAssociation"
+      }
+    },
+    "prizes": {
+      "type": "array",
+      "description": "A collection of related prizes.",
+      "nullable": true,
+      "items": {
+        "$ref": "#/$defs/DataSetPrizeAssociation"
+      }
+    },
+    "equipment": {
+      "type": "array",
+      "description": "A collection of related equipment.",
+      "nullable": true,
+      "items": {
+        "$ref": "#/$defs/DataSetEquipmentAssociation"
+      }
+    },
+    "links": {
+      "type": "array",
+      "description": "A collection of links.",
+      "nullable": true,
+      "items": {
+        "$ref": "#/$defs/Link"
+      }
+    },
+    "keywordGroups": {
+      "type": "array",
+      "description": "A group for each type of keyword present.",
+      "nullable": true,
+      "items": {
+        "$ref": "#/$defs/KeywordGroup"
+      }
+    },
+    "visibility": {
+      "$ref": "#/$defs/Visibility"
+    },
+    "images": {
+      "type": "array",
+      "description": "Image files with a maximum file size of 1MB",
+      "nullable": true,
+      "items": {
+        "$ref": "#/$defs/ImageFile"
+      }
+    },
+    "fundingText": {
+      "$ref": "#/$defs/LocalizedString"
+    },
+    "fundingDetails": {
+      "type": "array",
+      "description": "The funding details for the dataset",
+      "nullable": true,
+      "items": {
+        "$ref": "#/$defs/FundingDetails"
+      }
+    },
+    "customDefinedFields": {
+      "$ref": "#/$defs/CustomDefinedFields"
+    },
+    "workflow": {
+      "$ref": "#/$defs/Workflow"
+    },
+    "systemName": {
+      "type": "string",
+      "description": "The content system name",
+      "readOnly": true
+    }
+  },
+  "$defs": {
+    "LocalizedString": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "description": "A set of string values, one for each submission locale. Note: invalid locale values will be ignored.",
+        "nullable": true,
+        "example": "{\"en_GB\":\"Some text\"}"
+      },
+      "description": "A set of string values, one for each submission locale. Note: invalid locale values will be ignored.",
+      "nullable": true,
+      "example": {
+        "en_GB": "Some text"
+      }
+    },
+    "ClassifiedLocalizedValue": {
+      "required": [
+        "type"
+      ],
+      "type": "object",
+      "properties": {
+        "pureId": {
+          "type": "integer",
+          "description": "Pure database ID of the object, prefer using the UUID if it is present on the entity",
+          "format": "int64",
+          "readOnly": true
+        },
+        "value": {
+          "$ref": "#/$defs/LocalizedString"
+        },
+        "type": {
+          "$ref": "#/$defs/ClassificationRef"
+        }
+      },
+      "description": "A classified localized value"
+    },
+    "ClassificationRef": {
+      "required": [
+        "uri"
+      ],
+      "type": "object",
+      "properties": {
+        "uri": {
+          "type": "string",
+          "description": "Classification URI of the referred classification"
+        },
+        "term": {
+          "$ref": "#/$defs/SystemLocalizedString"
+        }
+      },
+      "description": "A reference to a classification value",
+      "nullable": true
+    },
+    "SystemLocalizedString": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "description": "A set of localized string values each for a specific UI locale.",
+        "nullable": true,
+        "example": "{\"en_GB\":\"Some text\"}"
+      },
+      "description": "A set of localized string values each for a specific UI locale.",
+      "nullable": true,
+      "example": {
+        "en_GB": "Some text"
+      }
+    },
+    "OrganizationRef": {
+      "required": [
+        "uuid"
+      ],
+      "type": "object",
+      "description": "A reference to an organization in the institution",
+      "nullable": true,
+      "allOf": [
+        {
+          "$ref": "#/$defs/ContentRef"
+        }
+      ]
+    },
+    "ContentRef": {
+      "required": [
+        "systemName",
+        "uuid"
+      ],
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "description": "UUID of the referred content",
+          "format": "uuid"
+        },
+        "systemName": {
+          "type": "string"
+        }
+      },
+      "nullable": true,
+      "discriminator": {
+        "propertyName": "systemName",
+        "mapping": {
+          "AccessDefinition": "#/components/schemas/AccessDefinitionRef",
+          "Activity": "#/components/schemas/ActivityRef",
+          "Application": "#/components/schemas/ApplicationRef",
+          "AuthorCollaboration": "#/components/schemas/AuthorCollaborationRef",
+          "Award": "#/components/schemas/AwardRef",
+          "ClassificationScheme": "#/components/schemas/ClassificationSchemeRef",
+          "ConferenceSeries": "#/components/schemas/ConferenceSeriesRef",
+          "DataSet": "#/components/schemas/DataSetRef",
+          "Equipment": "#/components/schemas/EquipmentRef",
+          "Event": "#/components/schemas/EventRef",
+          "ExternalOrganization": "#/components/schemas/ExternalOrganizationRef",
+          "ExternalPerson": "#/components/schemas/ExternalPersonRef",
+          "Impact": "#/components/schemas/ImpactRef",
+          "Journal": "#/components/schemas/JournalRef",
+          "Organization": "#/components/schemas/OrganizationRef",
+          "Person": "#/components/schemas/PersonRef",
+          "Publisher": "#/components/schemas/PublisherRef",
+          "PressMedia": "#/components/schemas/PressMediaRef",
+          "Prize": "#/components/schemas/PrizeRef",
+          "Project": "#/components/schemas/ProjectRef",
+          "ResearchOutput": "#/components/schemas/ResearchOutputRef",
+          "StudentThesis": "#/components/schemas/StudentThesisRef",
+          "FundingOpportunity": "#/components/schemas/FundingOpportunityRef",
+          "EthicalReview": "#/components/schemas/EthicalReviewRef",
+          "ApplicationCluster": "#/components/schemas/ApplicationClusterRef",
+          "AwardCluster": "#/components/schemas/AwardClusterRef",
+          "User": "#/components/schemas/UserRef",
+          "ERA2018FieldOfResearch": "#/components/schemas/Anzsrc2008FieldOfResearchRef",
+          "UnitOfAssessmentREF2014": "#/components/schemas/Ref2014UnitOfAssessmentRef",
+          "UnitOfAssessmentREF2020": "#/components/schemas/Ref2020UnitOfAssessmentRef",
+          "ANZSRCTypeOfActivity": "#/components/schemas/Anzsrc2020TypeOfActivityRef",
+          "ANZSRCFieldOfResearch": "#/components/schemas/Anzsrc2020FieldOfResearchRef",
+          "ANZSRCSocioEconomicObjective": "#/components/schemas/Anzsrc2020SocioEconomicObjectiveRef",
+          "Semester": "#/components/schemas/SemesterRef",
+          "Education": "#/components/schemas/EducationRef",
+          "Course": "#/components/schemas/CourseRef",
+          "CurriculumVitae": "#/components/schemas/CurriculumVitaeRef",
+          "CustomDefinedFieldConfiguration": "#/components/schemas/CustomDefinedFieldConfigurationRef",
+          "KeywordGroupConfiguration": "#/components/schemas/KeywordGroupConfigurationRef",
+          "Review": "#/components/schemas/ReviewRef",
+          "GenericContentRef": "#/components/schemas/GenericContentRef",
+          "UserProfile": "#/components/schemas/UserProfileRef",
+          "Thesaurus": "#/components/schemas/ThesaurusRef",
+          "Concept": "#/components/schemas/ConceptRef",
+          "PersonExpertise": "#/components/schemas/PersonExpertiseRef",
+          "Contract": "#/components/schemas/ContractRef",
+          "Milestone": "#/components/schemas/MilestoneRef",
+          "Fingerprint": "#/components/schemas/FingerprintRef",
+          "Specialization": "#/components/schemas/SpecializationRef",
+          "StudentProject": "#/components/schemas/StudentProjectRef"
+        }
+      }
+    },
+    "PublisherRef": {
+      "required": [
+        "uuid"
+      ],
+      "type": "object",
+      "description": "A reference to a publisher",
+      "nullable": true,
+      "allOf": [
+        {
+          "$ref": "#/$defs/ContentRef"
+        }
+      ]
+    },
+    "CompoundDateRange": {
+      "type": "object",
+      "properties": {
+        "startDate": {
+          "$ref": "#/$defs/CompoundDate"
+        },
+        "endDate": {
+          "$ref": "#/$defs/CompoundDate"
+        }
+      },
+      "description": "A date range of that can be defined by only year, year and month or a full date"
+    },
+    "CompoundDate": {
+      "required": [
+        "year"
+      ],
+      "type": "object",
+      "properties": {
+        "year": {
+          "maximum": 4000,
+          "minimum": 0,
+          "type": "integer",
+          "format": "int32"
+        },
+        "month": {
+          "maximum": 12,
+          "minimum": 1,
+          "type": "integer",
+          "format": "int32",
+          "nullable": true
+        },
+        "day": {
+          "maximum": 31,
+          "minimum": 1,
+          "type": "integer",
+          "format": "int32",
+          "nullable": true
+        }
+      },
+      "description": "A date that can be defined by only year, year and month or a full date",
+      "nullable": true
+    },
+    "Identifier": {
+      "required": [
+        "typeDiscriminator"
+      ],
+      "type": "object",
+      "properties": {
+        "typeDiscriminator": {
+          "type": "string"
+        }
+      },
+      "discriminator": {
+        "propertyName": "typeDiscriminator",
+        "mapping": {
+          "ClassifiedId": "#/components/schemas/ClassifiedId",
+          "PrimaryId": "#/components/schemas/PrimaryId",
+          "Id": "#/components/schemas/Id"
+        }
+      }
+    },
+    "DataSetGeoLocation": {
+      "type": "object",
+      "properties": {
+        "point": {
+          "type": "string",
+          "description": "Location expressed as a point",
+          "nullable": true
+        },
+        "polygon": {
+          "type": "string",
+          "description": "Location expressed as a polygon",
+          "nullable": true
+        },
+        "calculatedPoint": {
+          "type": "string",
+          "description": "Used to determine whether or not we may update the point. An end-user has not entered a point manually if the value of the calculated point is the same as point",
+          "readOnly": true
+        },
+        "geographicalCoverage": {
+          "$ref": "#/$defs/LocalizedString"
+        }
+      },
+      "description": "A data set geo-location."
+    },
+    "AbstractDataSetPersonAssociation": {
+      "required": [
+        "role",
+        "typeDiscriminator"
+      ],
+      "type": "object",
+      "properties": {
+        "pureId": {
+          "type": "integer",
+          "description": "Pure database ID of the object, prefer using the UUID if it is present on the entity",
+          "format": "int64",
+          "readOnly": true
+        },
+        "externalOrganizations": {
+          "type": "array",
+          "description": "A collection of external organization affiliations.",
+          "nullable": true,
+          "items": {
+            "$ref": "#/$defs/ExternalOrganizationRef"
+          }
+        },
+        "name": {
+          "$ref": "#/$defs/Name"
+        },
+        "role": {
+          "$ref": "#/$defs/ClassificationRef"
+        },
+        "period": {
+          "$ref": "#/$defs/DateRange"
+        },
+        "typeDiscriminator": {
+          "type": "string"
+        }
+      },
+      "description": "An association between dataset and a person",
+      "discriminator": {
+        "propertyName": "typeDiscriminator",
+        "mapping": {
+          "InternalDataSetPersonAssociation": "#/components/schemas/InternalDataSetPersonAssociation",
+          "ExternalDataSetPersonAssociation": "#/components/schemas/ExternalDataSetPersonAssociation"
+        }
+      }
+    },
+    "ExternalOrganizationRef": {
+      "required": [
+        "uuid"
+      ],
+      "type": "object",
+      "description": "A reference to an organization external to the institution",
+      "nullable": true,
+      "allOf": [
+        {
+          "$ref": "#/$defs/ContentRef"
+        }
+      ]
+    },
+    "Name": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        }
+      },
+      "description": "A name describing a person, made up of given- and family name"
+    },
+    "DateRange": {
+      "type": "object",
+      "properties": {
+        "startDate": {
+          "type": "string",
+          "description": "Start date",
+          "format": "date",
+          "nullable": true
+        },
+        "endDate": {
+          "type": "string",
+          "description": "End date",
+          "format": "date",
+          "nullable": true
+        }
+      },
+      "description": "A date range"
+    },
+    "AbstractDataSetContributorAssociation": {
+      "required": [
+        "typeDiscriminator"
+      ],
+      "type": "object",
+      "properties": {
+        "pureId": {
+          "type": "integer",
+          "description": "Pure database ID of the object, prefer using the UUID if it is present on the entity",
+          "format": "int64",
+          "readOnly": true
+        },
+        "externalOrganizations": {
+          "type": "array",
+          "description": "A collection of external organization affiliations.",
+          "nullable": true,
+          "items": {
+            "$ref": "#/$defs/ExternalOrganizationRef"
+          }
+        },
+        "typeDiscriminator": {
+          "type": "string"
+        }
+      },
+      "description": "An association between dataset and a contributor",
+      "discriminator": {
+        "propertyName": "typeDiscriminator",
+        "mapping": {
+          "DataSetInternalContributorAssociation": "#/components/schemas/DataSetInternalContributorAssociation",
+          "DataSetExternalContributorAssociation": "#/components/schemas/DataSetExternalContributorAssociation",
+          "DataSetAuthorCollaborationContributorAssociation": "#/components/schemas/DataSetAuthorCollaborationContributorAssociation"
+        }
+      }
+    },
+    "DataSetDoi": {
+      "type": "object",
+      "properties": {
+        "pureId": {
+          "type": "integer",
+          "description": "Pure database ID of the object, prefer using the UUID if it is present on the entity",
+          "format": "int64",
+          "readOnly": true
+        },
+        "doi": {
+          "type": "string",
+          "description": "DOI.",
+          "nullable": true
+        },
+        "accessType": {
+          "$ref": "#/$defs/ClassificationRef"
+        },
+        "embargoPeriod": {
+          "$ref": "#/$defs/DateRange"
+        },
+        "licenseType": {
+          "$ref": "#/$defs/ClassificationRef"
+        }
+      },
+      "description": "A DOI."
+    },
+    "DataSetDocument": {
+      "required": [
+        "fileName",
+        "mimeType",
+        "type",
+        "visibility"
+      ],
+      "type": "object",
+      "properties": {
+        "pureId": {
+          "type": "integer",
+          "description": "Pure database ID of the object, prefer using the UUID if it is present on the entity",
+          "format": "int64",
+          "readOnly": true
+        },
+        "fileId": {
+          "type": "string",
+          "description": "The id of the file",
+          "readOnly": true
+        },
+        "fileName": {
+          "type": "string",
+          "description": "The documents file name"
+        },
+        "mimeType": {
+          "type": "string",
+          "description": "The documents mime type"
+        },
+        "size": {
+          "type": "integer",
+          "description": "The documents size in bytes",
+          "format": "int64"
+        },
+        "url": {
+          "type": "string",
+          "description": "Download url for the binary file",
+          "readOnly": true
+        },
+        "fileStoreLocations": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "description": "Locations of the binary file in file stores.",
+            "readOnly": true
+          },
+          "description": "Locations of the binary file in file stores.",
+          "readOnly": true
+        },
+        "uploadedFile": {
+          "$ref": "#/$defs/UploadedFile"
+        },
+        "remoteFile": {
+          "$ref": "#/$defs/RemoteFile"
+        },
+        "fileData": {
+          "type": "string",
+          "description": "Base64 encoded file data for new files. This property can be used instead of uploadedFile for small files",
+          "format": "byte",
+          "writeOnly": true
+        },
+        "title": {
+          "type": "string",
+          "description": "Document title",
+          "nullable": true
+        },
+        "type": {
+          "$ref": "#/$defs/ClassificationRef"
+        },
+        "license": {
+          "$ref": "#/$defs/ClassificationRef"
+        },
+        "visibleOnPortalDate": {
+          "type": "string",
+          "description": "The date the document will be available on the portal",
+          "format": "date",
+          "readOnly": true
+        },
+        "visibility": {
+          "$ref": "#/$defs/Visibility"
+        },
+        "creator": {
+          "type": "string",
+          "description": "The user that created the document",
+          "readOnly": true
+        },
+        "created": {
+          "type": "string",
+          "description": "Create date for the document",
+          "format": "date-time",
+          "readOnly": true
+        },
+        "embargoDate": {
+          "type": "string",
+          "description": "Embargo date.",
+          "format": "date-time",
+          "nullable": true
+        }
+      },
+      "description": "A dataset document."
+    },
+    "UploadedFile": {
+      "required": [
+        "key"
+      ],
+      "type": "object",
+      "properties": {
+        "digest": {
+          "type": "string",
+          "description": "The calculated digest for the file in Pure",
+          "readOnly": true
+        },
+        "digestType": {
+          "type": "string",
+          "description": "The digest type",
+          "readOnly": true
+        },
+        "size": {
+          "type": "integer",
+          "description": "The file size of the file in Pure",
+          "format": "int64",
+          "readOnly": true
+        },
+        "mimeType": {
+          "type": "string",
+          "description": "The mime type detected for the file",
+          "readOnly": true
+        },
+        "timeStamp": {
+          "type": "string",
+          "description": "The timestamp Pure received the file",
+          "format": "date-time",
+          "readOnly": true
+        },
+        "expires": {
+          "type": "string",
+          "description": "The timestamp where Pure deletes the uploaded file if it has not been attached to any content",
+          "format": "date-time",
+          "readOnly": true
+        },
+        "key": {
+          "type": "string",
+          "description": "Pure key identifer for the file upload",
+          "readOnly": true
+        }
+      },
+      "description": "Information about the uploaded file"
+    },
+    "RemoteFile": {
+      "required": [
+        "fileId",
+        "fileState",
+        "sourceId",
+        "storeName"
+      ],
+      "type": "object",
+      "properties": {
+        "sourceId": {
+          "type": "string",
+          "description": "The remote source ID"
+        },
+        "storeName": {
+          "type": "string",
+          "description": "The name of the remote store"
+        },
+        "timeStamp": {
+          "type": "string",
+          "description": "The timestamp at which the file was stored",
+          "format": "date-time"
+        },
+        "fileId": {
+          "type": "string",
+          "description": "The remote file ID"
+        },
+        "fileState": {
+          "type": "string",
+          "description": "The remote file state",
+          "enum": [
+            "AWAITING_CREATION",
+            "CREATION_IN_PROGRESS",
+            "CREATION_FAILED",
+            "STORED",
+            "AWAITING_DELETE",
+            "DELETE_IN_PROGRESS",
+            "DELETE_FAILED",
+            "DELETED"
+          ]
+        },
+        "metadataUpdateRequired": {
+          "type": "boolean",
+          "description": "Whether the file's metadata should be updated",
+          "default": false
+        }
+      },
+      "description": "Information about a remote file (Elsevier only)"
+    },
+    "Visibility": {
+      "required": [
+        "key"
+      ],
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string",
+          "description": "Visibility value",
+          "enum": [
+            "FREE",
+            "CAMPUS",
+            "BACKEND",
+            "CONFIDENTIAL"
+          ]
+        },
+        "description": {
+          "$ref": "#/$defs/SystemLocalizedString"
+        }
+      },
+      "description": "Visibility of an object"
+    },
+    "DataSetPhysicalData": {
+      "required": [
+        "media",
+        "storageLocation",
+        "title"
+      ],
+      "type": "object",
+      "properties": {
+        "pureId": {
+          "type": "integer",
+          "description": "Pure database ID of the object, prefer using the UUID if it is present on the entity",
+          "format": "int64",
+          "readOnly": true
+        },
+        "title": {
+          "type": "string",
+          "description": "Title."
+        },
+        "storageLocation": {
+          "type": "string",
+          "description": "Storage location."
+        },
+        "accessDescription": {
+          "type": "string",
+          "description": "Access description.",
+          "nullable": true
+        },
+        "media": {
+          "type": "string",
+          "description": "Media."
+        },
+        "type": {
+          "$ref": "#/$defs/ClassificationRef"
+        }
+      },
+      "description": "A description of physical data."
+    },
+    "PersonRef": {
+      "required": [
+        "uuid"
+      ],
+      "type": "object",
+      "description": "A reference to a person internal to the institution",
+      "nullable": true,
+      "allOf": [
+        {
+          "$ref": "#/$defs/ContentRef"
+        }
+      ]
+    },
+    "DataSetLegalCondition": {
+      "type": "object",
+      "properties": {
+        "pureId": {
+          "type": "integer",
+          "description": "Pure database ID of the object, prefer using the UUID if it is present on the entity",
+          "format": "int64",
+          "readOnly": true
+        },
+        "description": {
+          "type": "string",
+          "description": "Description.",
+          "nullable": true
+        },
+        "type": {
+          "$ref": "#/$defs/ClassificationRef"
+        }
+      },
+      "description": "A description of a legal condition."
+    },
+    "OpenAccess": {
+      "type": "object",
+      "properties": {
+        "openAccessPermission": {
+          "$ref": "#/$defs/ClassificationRef"
+        },
+        "openAccessEmbargoMonths": {
+          "type": "integer",
+          "description": "Open access embargo months.",
+          "format": "int32",
+          "nullable": true
+        },
+        "openAccessEmbargoDate": {
+          "type": "string",
+          "description": "Open access embargo date.",
+          "format": "date",
+          "nullable": true,
+          "readOnly": true
+        }
+      },
+      "description": "Open Access information."
+    },
+    "DataSetAssociation": {
+      "required": [
+        "dataSet"
+      ],
+      "type": "object",
+      "properties": {
+        "dataSet": {
+          "$ref": "#/$defs/DataSetRef"
+        }
+      },
+      "description": "An association to a dataset."
+    },
+    "DataSetRef": {
+      "required": [
+        "uuid"
+      ],
+      "type": "object",
+      "description": "A reference to a data set",
+      "nullable": true,
+      "allOf": [
+        {
+          "$ref": "#/$defs/ContentRef"
+        }
+      ]
+    },
+    "DataSetProjectAssociation": {
+      "required": [
+        "project"
+      ],
+      "type": "object",
+      "properties": {
+        "project": {
+          "$ref": "#/$defs/ProjectRef"
+        }
+      },
+      "description": "An association to a project."
+    },
+    "ProjectRef": {
+      "required": [
+        "uuid"
+      ],
+      "type": "object",
+      "description": "A reference to project",
+      "nullable": true,
+      "allOf": [
+        {
+          "$ref": "#/$defs/ContentRef"
+        }
+      ]
+    },
+    "DataSetResearchOutputAssociation": {
+      "required": [
+        "researchOutput"
+      ],
+      "type": "object",
+      "properties": {
+        "researchOutput": {
+          "$ref": "#/$defs/ResearchOutputRef"
+        }
+      },
+      "description": "An association to a research output."
+    },
+    "ResearchOutputRef": {
+      "required": [
+        "uuid"
+      ],
+      "type": "object",
+      "description": "A reference to a research output",
+      "nullable": true,
+      "allOf": [
+        {
+          "$ref": "#/$defs/ContentRef"
+        }
+      ]
+    },
+    "DataSetActivityAssociation": {
+      "required": [
+        "activity"
+      ],
+      "type": "object",
+      "properties": {
+        "activity": {
+          "$ref": "#/$defs/ActivityRef"
+        }
+      },
+      "description": "An association to an activity."
+    },
+    "ActivityRef": {
+      "required": [
+        "uuid"
+      ],
+      "type": "object",
+      "description": "A reference to an activity",
+      "nullable": true,
+      "allOf": [
+        {
+          "$ref": "#/$defs/ContentRef"
+        }
+      ]
+    },
+    "DataSetPressMediaAssociation": {
+      "required": [
+        "pressMedia"
+      ],
+      "type": "object",
+      "properties": {
+        "pressMedia": {
+          "$ref": "#/$defs/PressMediaRef"
+        }
+      },
+      "description": "An association to a press media."
+    },
+    "PressMediaRef": {
+      "required": [
+        "uuid"
+      ],
+      "type": "object",
+      "description": "A reference to a press/media",
+      "nullable": true,
+      "allOf": [
+        {
+          "$ref": "#/$defs/ContentRef"
+        }
+      ]
+    },
+    "DataSetStudentThesisAssociation": {
+      "required": [
+        "studentThesis"
+      ],
+      "type": "object",
+      "properties": {
+        "studentThesis": {
+          "$ref": "#/$defs/StudentThesisRef"
+        }
+      },
+      "description": "An association to a student thesis."
+    },
+    "StudentThesisRef": {
+      "required": [
+        "uuid"
+      ],
+      "type": "object",
+      "description": "A reference to student thesis",
+      "nullable": true,
+      "allOf": [
+        {
+          "$ref": "#/$defs/ContentRef"
+        }
+      ]
+    },
+    "DataSetImpactAssociation": {
+      "required": [
+        "impact"
+      ],
+      "type": "object",
+      "properties": {
+        "impact": {
+          "$ref": "#/$defs/ImpactRef"
+        }
+      },
+      "description": "An association to an impact."
+    },
+    "ImpactRef": {
+      "required": [
+        "uuid"
+      ],
+      "type": "object",
+      "description": "A reference to impact",
+      "nullable": true,
+      "allOf": [
+        {
+          "$ref": "#/$defs/ContentRef"
+        }
+      ]
+    },
+    "DataSetPrizeAssociation": {
+      "required": [
+        "prize"
+      ],
+      "type": "object",
+      "properties": {
+        "prize": {
+          "$ref": "#/$defs/PrizeRef"
+        }
+      },
+      "description": "An association to a prize."
+    },
+    "PrizeRef": {
+      "required": [
+        "uuid"
+      ],
+      "type": "object",
+      "description": "A reference to a prize",
+      "nullable": true,
+      "allOf": [
+        {
+          "$ref": "#/$defs/ContentRef"
+        }
+      ]
+    },
+    "DataSetEquipmentAssociation": {
+      "required": [
+        "equipment"
+      ],
+      "type": "object",
+      "properties": {
+        "equipment": {
+          "$ref": "#/$defs/EquipmentRef"
+        }
+      },
+      "description": "An association to an equipment."
+    },
+    "EquipmentRef": {
+      "required": [
+        "uuid"
+      ],
+      "type": "object",
+      "description": "A reference to a piece of equipment",
+      "nullable": true,
+      "allOf": [
+        {
+          "$ref": "#/$defs/ContentRef"
+        }
+      ]
+    },
+    "Link": {
+      "required": [
+        "url"
+      ],
+      "type": "object",
+      "properties": {
+        "pureId": {
+          "type": "integer",
+          "description": "Pure database ID of the object, prefer using the UUID if it is present on the entity",
+          "format": "int64",
+          "readOnly": true
+        },
+        "url": {
+          "type": "string",
+          "description": "The URL (Uniform Resource Locator) of the link"
+        },
+        "alias": {
+          "type": "string",
+          "description": "A user-friendly text to show instead of the URL",
+          "nullable": true
+        },
+        "description": {
+          "$ref": "#/$defs/LocalizedString"
+        },
+        "linkType": {
+          "$ref": "#/$defs/ClassificationRef"
+        }
+      },
+      "description": "A hyperlink describing a location on the web."
+    },
+    "KeywordGroup": {
+      "required": [
+        "logicalName",
+        "typeDiscriminator"
+      ],
+      "type": "object",
+      "properties": {
+        "pureId": {
+          "type": "integer",
+          "description": "Pure database ID of the object, prefer using the UUID if it is present on the entity",
+          "format": "int64",
+          "readOnly": true
+        },
+        "logicalName": {
+          "type": "string",
+          "description": "Unique name of the configuration that specifies this keyword group"
+        },
+        "name": {
+          "$ref": "#/$defs/LocalizedString"
+        },
+        "typeDiscriminator": {
+          "type": "string"
+        }
+      },
+      "discriminator": {
+        "propertyName": "typeDiscriminator",
+        "mapping": {
+          "ClassificationsKeywordGroup": "#/components/schemas/ClassificationsKeywordGroup",
+          "FreeKeywordsKeywordGroup": "#/components/schemas/FreeKeywordsKeywordGroup",
+          "FullKeywordGroup": "#/components/schemas/FullKeywordGroup"
+        }
+      }
+    },
+    "ImageFile": {
+      "required": [
+        "fileName",
+        "mimeType"
+      ],
+      "type": "object",
+      "properties": {
+        "pureId": {
+          "type": "integer",
+          "description": "Pure database ID of the object, prefer using the UUID if it is present on the entity",
+          "format": "int64",
+          "readOnly": true
+        },
+        "fileId": {
+          "type": "string",
+          "description": "The id of the file",
+          "readOnly": true
+        },
+        "fileName": {
+          "type": "string",
+          "description": "The documents file name"
+        },
+        "mimeType": {
+          "type": "string",
+          "description": "The documents mime type"
+        },
+        "size": {
+          "type": "integer",
+          "description": "The documents size in bytes",
+          "format": "int64"
+        },
+        "url": {
+          "type": "string",
+          "description": "Download url for the binary file",
+          "readOnly": true
+        },
+        "fileStoreLocations": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "description": "Locations of the binary file in file stores.",
+            "readOnly": true
+          },
+          "description": "Locations of the binary file in file stores.",
+          "readOnly": true
+        },
+        "uploadedFile": {
+          "$ref": "#/$defs/UploadedFile"
+        },
+        "remoteFile": {
+          "$ref": "#/$defs/RemoteFile"
+        },
+        "fileData": {
+          "type": "string",
+          "description": "Base64 encoded file data for new files. This property can be used instead of uploadedFile for small files",
+          "format": "byte",
+          "writeOnly": true
+        },
+        "type": {
+          "$ref": "#/$defs/ClassificationRef"
+        },
+        "copyrightConfirmation": {
+          "type": "boolean",
+          "description": "Indicates whether this file has been confirmed to adhere to the appropriate copyrights",
+          "nullable": true
+        },
+        "caption": {
+          "$ref": "#/$defs/LocalizedString"
+        },
+        "altText": {
+          "$ref": "#/$defs/LocalizedString"
+        },
+        "copyrightStatement": {
+          "$ref": "#/$defs/LocalizedString"
+        }
+      },
+      "description": "An image file"
+    },
+    "FundingDetails": {
+      "type": "object",
+      "properties": {
+        "pureId": {
+          "type": "integer",
+          "description": "Pure database ID of the object, prefer using the UUID if it is present on the entity",
+          "format": "int64",
+          "readOnly": true
+        },
+        "fundingOrganizations": {
+          "maxItems": 1,
+          "type": "array",
+          "description": "The internal or external funding organizations",
+          "nullable": true,
+          "items": {
+            "$ref": "#/$defs/OrganizationOrExternalOrganizationRef"
+          }
+        },
+        "fundingOrganizationAcronym": {
+          "type": "string",
+          "description": "The acronym of the funding organization",
+          "nullable": true
+        },
+        "fundingNumbers": {
+          "type": "array",
+          "description": "Funding numbers/IDs",
+          "nullable": true,
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "Details about funding."
+    },
+    "OrganizationOrExternalOrganizationRef": {
+      "type": "object",
+      "properties": {
+        "organizationRef": {
+          "$ref": "#/$defs/OrganizationRef"
+        },
+        "externalOrganizationRef": {
+          "$ref": "#/$defs/ExternalOrganizationRef"
+        }
+      },
+      "description": "A reference to an organization in the institution or an external organization",
+      "nullable": true
+    },
+    "CustomDefinedFields": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/CustomDefinedField"
+      },
+      "description": "Map of CustomDefinedField values, where the key is the field identifier",
+      "nullable": true,
+      "example": "{ \"fieldName1\": \"typeDiscriminator\": \"Integer\", \"value\" : 1}"
+    },
+    "CustomDefinedField": {
+      "required": [
+        "typeDiscriminator"
+      ],
+      "type": "object",
+      "properties": {
+        "typeDiscriminator": {
+          "type": "string"
+        }
+      },
+      "description": "Map of CustomDefinedField values, where the key is the field identifier",
+      "nullable": true,
+      "example": "{ \"fieldName1\": \"typeDiscriminator\": \"Integer\", \"value\" : 1}",
+      "discriminator": {
+        "propertyName": "typeDiscriminator",
+        "mapping": {
+          "Integer": "#/components/schemas/CustomDefinedFieldInteger",
+          "String": "#/components/schemas/CustomDefinedFieldString",
+          "Date": "#/components/schemas/CustomDefinedFieldDate",
+          "Classification": "#/components/schemas/CustomDefinedFieldClassification",
+          "Boolean": "#/components/schemas/CustomDefinedFieldBoolean",
+          "Decimal": "#/components/schemas/CustomDefinedFieldDecimal"
+        }
+      }
+    },
+    "Workflow": {
+      "required": [
+        "step"
+      ],
+      "type": "object",
+      "properties": {
+        "step": {
+          "type": "string",
+          "description": "Current workflow step"
+        },
+        "description": {
+          "$ref": "#/$defs/SystemLocalizedString"
+        }
+      },
+      "description": "Information about workflow"
+    }
+  }
+}

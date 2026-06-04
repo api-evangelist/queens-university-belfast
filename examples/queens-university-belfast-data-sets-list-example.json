@@ -1,0 +1,35 @@
+{
+  "count": 1875,
+  "pageInformation": {
+    "offset": 0,
+    "size": 1
+  },
+  "items": [
+    {
+      "pureId": 7700231,
+      "uuid": "c3d4e5f6-2222-4aaa-9cde-3456789012cd",
+      "createdDate": "2023-06-20T11:45:00.000Z",
+      "modifiedDate": "2023-07-01T09:00:00.000Z",
+      "portalUrl": "https://pure.qub.ac.uk/en/datasets/c3d4e5f6",
+      "title": {
+        "value": "Tidal gauge measurements, Belfast Lough 2018-2022"
+      },
+      "type": {
+        "uri": "/dk/atira/pure/dataset/datasettypes/dataset/dataset"
+      },
+      "doi": {
+        "doi": "10.17034/c3d4e5f6-2222-4aaa-9cde-3456789012cd"
+      },
+      "publisher": {
+        "name": {
+          "text": [
+            {
+              "locale": "en_GB",
+              "value": "Queen's University Belfast"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

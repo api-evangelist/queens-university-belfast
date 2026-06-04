@@ -1,0 +1,23 @@
+{
+  "count": 3120,
+  "pageInformation": {
+    "offset": 0,
+    "size": 1
+  },
+  "items": [
+    {
+      "pureId": 9004412,
+      "uuid": "b2c3d4e5-1111-4fff-8bcd-2345678901bc",
+      "createdDate": "2019-09-01T08:00:00.000Z",
+      "modifiedDate": "2025-02-11T10:30:00.000Z",
+      "portalUrl": "https://pure.qub.ac.uk/en/persons/b2c3d4e5",
+      "name": {
+        "firstName": "Jane",
+        "lastName": "Doe"
+      },
+      "orcid": "0000-0002-1825-0097",
+      "orcidAuthenticated": true,
+      "startDateAsResearcher": "2010-09-01"
+    }
+  ]
+}

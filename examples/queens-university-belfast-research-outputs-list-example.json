@@ -1,0 +1,55 @@
+{
+  "count": 84213,
+  "pageInformation": {
+    "offset": 0,
+    "size": 1
+  },
+  "items": [
+    {
+      "pureId": 1052481,
+      "uuid": "a1b2c3d4-0000-4eee-9abc-1234567890ab",
+      "createdDate": "2024-01-15T09:22:10.000Z",
+      "modifiedDate": "2024-03-02T14:05:00.000Z",
+      "portalUrl": "https://pure.qub.ac.uk/en/publications/a1b2c3d4",
+      "title": {
+        "value": "Machine learning approaches to coastal flood prediction in Northern Ireland"
+      },
+      "type": {
+        "uri": "/dk/atira/pure/researchoutput/researchoutputtypes/contributiontojournal/article",
+        "term": {
+          "text": [
+            {
+              "locale": "en_GB",
+              "value": "Article"
+            }
+          ]
+        }
+      },
+      "peerReview": true,
+      "totalNumberOfContributors": 4,
+      "contributors": [
+        {
+          "name": {
+            "firstName": "Jane",
+            "lastName": "Doe"
+          },
+          "role": {
+            "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author"
+          }
+        }
+      ],
+      "organizations": [
+        {
+          "name": {
+            "text": [
+              {
+                "locale": "en_GB",
+                "value": "School of Natural and Built Environment"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

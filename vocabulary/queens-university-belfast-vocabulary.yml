@@ -1,0 +1,68 @@
+vocabulary:
+  name: Queen's University Belfast Pure API Vocabulary
+  description: >-
+    Controlled terms observed in the Queen's University Belfast Research Portal
+    Pure API (Elsevier Pure 5.35.3-4). The Pure API exposes research information
+    data — outputs, persons, datasets, projects, activities and the
+    organizational units behind them — and uses a consistent set of identity,
+    classification, and paging conventions across all content families.
+  version: 5.35.3-4
+  terms:
+    - term: Pure
+      definition: >-
+        Elsevier's Current Research Information System (CRIS) that powers the
+        Queen's University Belfast Research Portal and exposes the Pure API.
+      tags: [platform, cris, elsevier]
+    - term: ResearchOutput
+      definition: >-
+        A publication or research output record (article, book, conference
+        contribution, etc.), including contributors, organizations and peer
+        review status.
+      tags: [object, publication]
+    - term: Person
+      definition: >-
+        A researcher or staff member, including name variants, ORCID,
+        affiliations, and expertise.
+      tags: [object, researcher]
+    - term: DataSet
+      definition: >-
+        A research dataset record with title, descriptions, DOI, publisher and
+        data production period.
+      tags: [object, dataset]
+    - term: Project
+      definition: A research project, including funding, milestones and participants.
+      tags: [object, project]
+    - term: Activity
+      definition: >-
+        A research activity such as an editorial role, talk, visit or membership.
+      tags: [object, activity]
+    - term: Organization
+      definition: An internal organizational unit (school, faculty, centre).
+      tags: [object, organization]
+    - term: uuid
+      definition: The UUID that is the primary identity of every Pure entity.
+      tags: [identity, field]
+    - term: pureId
+      definition: The internal Pure database ID of an object.
+      tags: [identity, field]
+    - term: portalUrl
+      definition: The public URL of the content item on the Pure Portal.
+      tags: [field, url]
+    - term: ClassificationRef
+      definition: >-
+        A reference into a Pure classification scheme (controlled vocabulary)
+        used for types, categories, languages and roles.
+      tags: [classification, field]
+    - term: PageInformation
+      definition: >-
+        The paging envelope (offset and size) returned alongside a count and
+        items array in every list result.
+      tags: [paging, field]
+    - term: api-key
+      definition: The security scheme used to authenticate Pure API requests.
+      tags: [security, auth]
+    - term: OAI-PMH
+      definition: >-
+        The Open Archives Initiative Protocol for Metadata Harvesting also
+        exposed by the same Pure instance for bulk metadata harvesting.
+      tags: [protocol, harvesting]
