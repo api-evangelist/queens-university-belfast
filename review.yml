@@ -1,0 +1,38 @@
+---
+name: Queen's University Belfast
+description: Queen's University Belfast public developer/API footprint review for APIs.json cataloging.
+url: https://raw.githubusercontent.com/api-evangelist/queens-university-belfast/refs/heads/main/review.yml
+created: '2026-06-03'
+modified: '2026-06-03'
+reviews:
+  - date: '2026-06-03'
+    rating: 2
+    summary: >-
+      Queen's University Belfast has a thin public API surface. The one
+      confirmed, openly accessible programmatic interface is the Elsevier Pure
+      Research Portal OAI-PMH endpoint, which I verified live (ListMetadataFormats
+      returned valid OAI-PMH XML advertising oai_dc and OpenAIRE CERIF formats).
+      No dedicated developer portal, no open REST API catalog, and no SignUp/API
+      key flow were found. Student, applications, and library (Alma/Primo)
+      systems are authentication-gated with no public docs. The Qmulus open data
+      API belongs to Queen's University in Canada, not Belfast, and was excluded
+      to avoid fabrication. Rating reflects a single niche research-metadata API.
+    endpoints:
+      - url: https://pureadmin.qub.ac.uk/ws/oai?verb=ListMetadataFormats
+        status: 200
+        note: Live OAI-PMH endpoint; returns valid XML with oai_dc and CERIF formats.
+      - url: https://pureadmin.qub.ac.uk/ws/oai
+        status: 200
+        note: Base OAI-PMH endpoint for the Pure Research Portal resolves.
+      - url: https://pureadmin.qub.ac.uk/ws/oai?verb=Identify
+        status: 500
+        note: Bare Identify verb errors on this Pure instance; other verbs work.
+      - url: https://pure.qub.ac.uk/
+        status: 200
+        note: Public human-facing Research Portal (Pure) homepage.
+      - url: https://www.qub.ac.uk/
+        status: 403
+        note: Official site live but bot-blocks automated requests; not an API.
+      - url: https://www.linkedin.com/school/queen's-university-belfast/
+        status: 200
+        note: Official university LinkedIn school page.

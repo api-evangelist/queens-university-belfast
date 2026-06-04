@@ -1,0 +1,66 @@
+---
+aid: queens-university-belfast
+name: Queen's University Belfast
+description: >-
+  Queen's University Belfast is a Russell Group research-intensive university in
+  Northern Ireland, United Kingdom, founded in 1845, and ranked #206 in the QS
+  World University Rankings 2025. Its public, machine-readable developer
+  footprint is limited and centered on research dissemination: the Queen's
+  University Belfast Research Portal runs on Elsevier Pure and exposes an
+  OAI-PMH harvesting endpoint for institutional research outputs, datasets, and
+  theses. Most other digital services (student portal, applications portal,
+  library discovery via Ex Libris Alma/Primo) are gated behind authentication
+  and do not publish open developer documentation.
+type: Index
+position: Consumer
+access: 3rd-Party
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/queens-university-belfast/refs/heads/main/apis.yml
+tags:
+  - Education
+  - Higher Education
+  - University
+  - Research
+  - Open Access
+  - OAI-PMH
+  - United Kingdom
+  - Northern Ireland
+created: '2026-06-03'
+modified: '2026-06-03'
+specificationVersion: '0.19'
+apis:
+  - aid: queens-university-belfast:research-portal-oai
+    name: Queen's University Belfast Research Portal (Pure OAI-PMH)
+    description: >-
+      OAI-PMH metadata harvesting endpoint for the Queen's University Belfast
+      Research Portal, the institutional repository built on Elsevier Pure. It
+      exposes research outputs, datasets, theses, and research activity metadata
+      in standard OAI-PMH formats (including oai_dc and OpenAIRE CERIF). The
+      endpoint responds to standard verbs such as ListMetadataFormats,
+      ListRecords, ListSets, and GetRecord.
+    humanURL: https://pure.qub.ac.uk/
+    baseURL: https://pureadmin.qub.ac.uk/ws/oai
+    tags: [ Research, Open Access, OAI-PMH, Repository, Pure, Metadata ]
+    properties:
+      - type: Documentation
+        url: https://www.openarchives.org/OAI/openarchivesprotocol.html
+      - type: HumanURL
+        url: https://pure.qub.ac.uk/
+common:
+  - type: Website
+    url: https://www.qub.ac.uk/
+  - type: ResearchPortal
+    url: https://pure.qub.ac.uk/
+  - type: LinkedIn
+    url: https://www.linkedin.com/school/queen's-university-belfast/
+  - type: Plans
+    url: plans/queens-university-belfast-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/queens-university-belfast-rate-limits.yml
+  - type: FinOps
+    url: finops/queens-university-belfast-finops.yml
+  - type: Review
+    url: review.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
