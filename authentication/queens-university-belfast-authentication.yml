@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/queens-university-belfast-pure-api.yaml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: api-key
+  type: apiKey
+  in: header
+  parameter: api-key
+  description: Security mechanism for the API
+  sources:
+  - openapi/queens-university-belfast-pure-api.yaml

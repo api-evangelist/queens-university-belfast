@@ -87,6 +87,10 @@ apis:
       - type: HumanURL
         url: https://pure.qub.ac.uk/
 common:
+  - type: DomainSecurity
+    url: security/queens-university-belfast-domain-security.yml
+  - type: Authentication
+    url: authentication/queens-university-belfast-authentication.yml
   - type: Website
     url: https://www.qub.ac.uk/
   - type: ResearchPortal
