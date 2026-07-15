@@ -87,6 +87,8 @@ apis:
       - type: HumanURL
         url: https://pure.qub.ac.uk/
 common:
+  - type: AgenticAccess
+    url: agentic-access/queens-university-belfast-agentic-access.yml
   - type: DomainSecurity
     url: security/queens-university-belfast-domain-security.yml
   - type: Authentication
