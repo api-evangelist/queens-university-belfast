@@ -1,0 +1,692 @@
+openapi: 3.0.1
+info:
+  title: Pure activity keywordGroupConfiguration API
+  description: The Pure API provides a secure and complete web services API for using and managing research information data in Pure. The API enables a broad range of use-cases for interacting with research information, from anonymous Open Data scenarios to enabling the next generation Pure admin.
+  termsOfService: ''
+  contact:
+    name: ''
+    url: ''
+    email: pure-support@elsevier.com
+  license:
+    name: ''
+    url: ''
+  version: 5.35.3-4
+servers:
+- url: https://pure.qub.ac.uk/ws/api
+  description: Queen's University Belfast Pure API
+security:
+- api-key: []
+tags:
+- name: keywordGroupConfiguration
+paths:
+  /keyword-group-configurations:
+    get:
+      tags:
+      - keywordGroupConfiguration
+      summary: Lists all keyword group configurations
+      description: Lists all keyword group configurations in the Pure instance.
+      operationId: keywordGroupConfiguration_list
+      parameters:
+      - name: size
+        in: query
+        description: Number of returned keyword group configurations per request.
+        schema:
+          maximum: 1000
+          type: integer
+          format: int32
+          default: 10
+      - name: offset
+        in: query
+        description: The offset for the returned list. 0 or null value is from the start
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - name: order
+        in: query
+        description: The order of the list, must be a value from keywordGroupConfigurations_getOrderings
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeywordGroupConfigurationList'
+      x-badges:
+      - label: Vendor Only
+        color: orange
+    put:
+      tags:
+      - keywordGroupConfiguration
+      summary: Create keyword group configuration
+      description: Create keyword group configuration
+      operationId: keywordGroupConfiguration_create
+      requestBody:
+        description: The content to create
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KeywordGroupConfiguration'
+        required: true
+      responses:
+        '201':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeywordGroupConfiguration'
+        '400':
+          description: Bad Request
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+      x-badges:
+      - label: Vendor Only
+        color: orange
+  /keyword-group-configurations/allowed-locales:
+    get:
+      tags:
+      - keywordGroupConfiguration
+      summary: A list of allowed locales in localized strings
+      description: Get a list of allowed locales that can be used when submitting localized string entities.
+      operationId: keywordGroupConfiguration_getAllowedLocales
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LocalesList'
+      x-badges:
+      - label: Vendor Only
+        color: orange
+  /keyword-group-configurations/allowed-relation-types:
+    get:
+      tags:
+      - keywordGroupConfiguration
+      summary: A map of allowed relation types
+      description: The map key is the target system name and the value is the list of possible values to assign to relation type. Apart from the allowed values here, relation type can also be set to null (see description of relationType on KeywordGroupConfiguration).
+      operationId: keywordGroupConfiguration_getAllowedRelationTypes
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIStringToStringListMapResult'
+      x-badges:
+      - label: Vendor Only
+        color: orange
+  /keyword-group-configurations/allowed-target-system-names:
+    get:
+      tags:
+      - keywordGroupConfiguration
+      summary: A list of allowed target system names
+      description: Get a list of allowed target system names this keyword group configuration is associated with.
+      operationId: keywordGroupConfiguration_getAllowedTargetSystemNames
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIStringListResult'
+      x-badges:
+      - label: Vendor Only
+        color: orange
+  /keyword-group-configurations/{uuid}:
+    get:
+      tags:
+      - keywordGroupConfiguration
+      summary: Get keyword group configuration
+      description: Get keyword group configuration with specific UUID.
+      operationId: keywordGroupConfiguration_get
+      parameters:
+      - name: uuid
+        in: path
+        description: UUID of the desired keyword group configuration
+        required: true
+        schema:
+          pattern: .+
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeywordGroupConfiguration'
+        '301':
+          description: The requested content have changed UUID
+        '404':
+          description: Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+      x-badges:
+      - label: Vendor Only
+        color: orange
+    put:
+      tags:
+      - keywordGroupConfiguration
+      summary: Update keyword group configuration
+      description: Update keyword group configuration with specific UUID.
+      operationId: keywordGroupConfiguration_update
+      parameters:
+      - name: uuid
+        in: path
+        description: UUID of the keyword group configuration to update.
+        required: true
+        schema:
+          pattern: .+
+          type: string
+          format: uuid
+      requestBody:
+        description: The content to update
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KeywordGroupConfiguration'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeywordGroupConfiguration'
+        '400':
+          description: Bad Request
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '404':
+          description: Resource not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '409':
+          description: Version conflict
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ConflictProblemDetails'
+      x-badges:
+      - label: Vendor Only
+        color: orange
+    delete:
+      tags:
+      - keywordGroupConfiguration
+      summary: Delete keyword group configuration
+      description: Delete keyword group configuration with specific UUID.
+      operationId: keywordGroupConfiguration_delete
+      parameters:
+      - name: uuid
+        in: path
+        description: UUID of the keyword group configuration
+        required: true
+        schema:
+          pattern: .+
+          type: string
+          format: uuid
+      responses:
+        '204':
+          description: Successful operation
+        '404':
+          description: Resource not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '409':
+          description: Conflict
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ConflictProblemDetails'
+      x-badges:
+      - label: Vendor Only
+        color: orange
+  /keyword-group-configurations/{uuid}/actions/lock:
+    post:
+      tags:
+      - keywordGroupConfiguration
+      summary: Lock the content
+      description: Mark the content as external (used when content contains synchronised data). This has no effect on interactions with the content through the API.
+      operationId: keywordGroupConfiguration_lock
+      parameters:
+      - name: uuid
+        in: path
+        description: UUID of the content to lock
+        required: true
+        schema:
+          pattern: .+
+          type: string
+          format: uuid
+      responses:
+        '204':
+          description: Content marked as locked
+        '404':
+          description: Resource not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '409':
+          description: Content already locked
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ConflictProblemDetails'
+      x-badges:
+      - label: Vendor Only
+        color: orange
+  /keyword-group-configurations/{uuid}/actions/unlock:
+    post:
+      tags:
+      - keywordGroupConfiguration
+      summary: Unlock the content
+      description: Remove the external mark on the content (used when content contains synchronised data). This has no effect on interactions with the content through the API.
+      operationId: keywordGroupConfiguration_unlock
+      parameters:
+      - name: uuid
+        in: path
+        description: UUID of the content to unlock
+        required: true
+        schema:
+          pattern: .+
+          type: string
+          format: uuid
+      responses:
+        '204':
+          description: Content marked as unlocked
+        '404':
+          description: Resource not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '409':
+          description: Content already unlocked
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ConflictProblemDetails'
+      x-badges:
+      - label: Vendor Only
+        color: orange
+components:
+  schemas:
+    Identifier:
+      required:
+      - typeDiscriminator
+      type: object
+      properties:
+        typeDiscriminator:
+          type: string
+      discriminator:
+        propertyName: typeDiscriminator
+        mapping:
+          ClassifiedId: '#/components/schemas/ClassifiedId'
+          PrimaryId: '#/components/schemas/PrimaryId'
+          Id: '#/components/schemas/Id'
+    LocalesList:
+      type: object
+      properties:
+        locales:
+          pattern: /^[a-z]{2}_[A-Z]{2}$/
+          type: array
+          description: Allowed locale values for use in localized string entities. The locale format consists of lower-case ISO 639 alpha-2 language code and upper-cased ISO 3166 alpha-2 country code.
+          items:
+            pattern: /^[a-z]{2}_[A-Z]{2}$/
+            type: string
+            description: Allowed locale values for use in localized string entities. The locale format consists of lower-case ISO 639 alpha-2 language code and upper-cased ISO 3166 alpha-2 country code.
+      description: List of available locales
+    KeywordGroupConfiguration:
+      required:
+      - logicalName
+      - targetSystemName
+      - weight
+      type: object
+      properties:
+        pureId:
+          type: integer
+          description: Pure database ID of the object, prefer using the UUID if it is present on the entity
+          format: int64
+          readOnly: true
+        uuid:
+          type: string
+          description: UUID, this is the primary identity of the entity
+          format: uuid
+          readOnly: true
+        createdBy:
+          type: string
+          description: Username of creator
+          readOnly: true
+        createdDate:
+          type: string
+          description: Date and time of creation
+          format: date-time
+          readOnly: true
+        modifiedBy:
+          type: string
+          description: Username of the user that performed a modification
+          readOnly: true
+        modifiedDate:
+          type: string
+          description: Date and time of last modification
+          format: date-time
+          readOnly: true
+        portalUrl:
+          type: string
+          description: URL of the content on the Pure Portal
+          readOnly: true
+        prettyUrlIdentifiers:
+          type: array
+          description: All pretty URLs
+          readOnly: true
+          items:
+            type: string
+            description: All pretty URLs
+            readOnly: true
+        previousUuids:
+          type: array
+          description: UUIDs of other content items which have been merged into this content item (or similar)
+          readOnly: true
+          items:
+            type: string
+            description: UUIDs of other content items which have been merged into this content item (or similar)
+            readOnly: true
+        version:
+          type: string
+          description: Used to guard against conflicting updates. For new content this is null, and for existing content the current value. The property should never be modified by a client, except in the rare case where the client wants to perform an update irrespective of if other clients have made updates in the meantime, also known as a "dirty write". A dirty write is performed by not including the property value or setting the property to null
+          nullable: true
+        identifiers:
+          type: array
+          description: Identifiers related to the KeywordGroupConfiguration.
+          nullable: true
+          items:
+            $ref: '#/components/schemas/Identifier'
+        targetSystemName:
+          type: string
+          description: The content system name this configuration applies to
+        keywordGroupType:
+          type: string
+          description: The OpenAPI schema type of this keyword configuration
+          readOnly: true
+        name:
+          $ref: '#/components/schemas/LocalizedString'
+        description:
+          $ref: '#/components/schemas/FormattedLocalizedString'
+        classificationScheme:
+          $ref: '#/components/schemas/ClassificationSchemeRef'
+        allowUserdefinedKeywords:
+          type: boolean
+          description: Defines if user defined keywords are allowed
+        limitToLeafSelection:
+          type: boolean
+          description: Defines if selection of classifications is limited to leafs or also intermediate nodes
+        logicalName:
+          type: string
+          description: Defines a logical name for the group that makes it easy to find
+        weight:
+          type: integer
+          description: Used to order keyword group configurations for the target family. Keyword groups will also be ordered in the contexts they appear in. The kKeyword group configuration with the highest weight value comes first.
+          format: int32
+        minAmountOfKeywords:
+          type: integer
+          description: Used to set the minimum amount of keywords that has to be chosen from this keyword group
+          format: int32
+          nullable: true
+        maxAmountOfKeywords:
+          type: integer
+          description: Used to set the maximum amount of keywords that can to be chosen from this keyword group
+          format: int32
+          nullable: true
+        modifyingRoles:
+          type: array
+          description: List of roles that may modify this keyword group where it is in use on some content. An empty set indicates there is no limit on which roles may edit the group
+          nullable: true
+          items:
+            type: string
+            description: List of roles that may modify this keyword group where it is in use on some content. An empty set indicates there is no limit on which roles may edit the group
+            nullable: true
+        userdefinedKeywordEditMode:
+          type: string
+          description: User defined keyword edit mode
+          enum:
+          - SUBMISSION_LOCALE
+          - ALL_SUPPORTED_SUBMISSION_LOCALES
+          - ALL_SUPPORTED_LOCALES
+        selectionModeSortingOrder:
+          type: string
+          description: Select sorting order of in the selection mode
+          enum:
+          - ASCENDING
+          - DESCENDING
+          - SCHEMA_INDEX
+        tags:
+          type: array
+          description: 'A list of tags that can be used to identify this group. Any string can be used as a tag, but there are a few strings that have a special interpretation: 1) ''visible-on-portal'' - keywords are shown in the portal, 2) ''visible-in-ws'' - keywords are accessible through the web service, 3) ''visible-in-long-renderers'' - keywords are shown in long renderings of content, 4) ''show-filter-on-portal'' - there will be a filter option for keywords of this group on the portal.'
+          items:
+            type: string
+            description: 'A list of tags that can be used to identify this group. Any string can be used as a tag, but there are a few strings that have a special interpretation: 1) ''visible-on-portal'' - keywords are shown in the portal, 2) ''visible-in-ws'' - keywords are accessible through the web service, 3) ''visible-in-long-renderers'' - keywords are shown in long renderings of content, 4) ''show-filter-on-portal'' - there will be a filter option for keywords of this group on the portal.'
+        relationType:
+          type: string
+          description: The schema name of the type (with the ability to associate keywords) on which the keyword group configuration is related to, e.g. StaffOrganizationAssociation. It can also be set to null (default value), which means the keyword group configuration is related to the main type (the target system name) and not a relation of the main type.
+          nullable: true
+        systemName:
+          type: string
+          description: The content system name
+          readOnly: true
+      description: A specification of the allowed behavior of a specified keyword group
+    ClassificationSchemeRef:
+      required:
+      - uuid
+      type: object
+      description: A reference to a classification scheme
+      nullable: true
+      allOf:
+      - $ref: '#/components/schemas/ContentRef'
+    FormattedLocalizedString:
+      type: object
+      additionalProperties:
+        type: string
+        description: A set of localized strings that support formatting. Invalid locale values will be ignored.
+        nullable: true
+        example: '{"en_GB":"Some text"}'
+      description: A set of localized strings that support formatting. Invalid locale values will be ignored.
+      nullable: true
+      example:
+        en_GB: Some text
+    PageInformation:
+      type: object
+      properties:
+        offset:
+          type: integer
+          description: Offset that returned items start at
+          format: int32
+        size:
+          type: integer
+          description: The requested number of items. May be higher than the actual number of items in the result if there are fewer items in the store than requested
+          format: int32
+      description: Information about pages
+    APIStringToStringListMapResult:
+      type: object
+      properties:
+        items:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+              xml:
+                name: item
+        count:
+          type: integer
+          format: int32
+    ContentRef:
+      required:
+      - systemName
+      - uuid
+      type: object
+      properties:
+        uuid:
+          type: string
+          description: UUID of the referred content
+          format: uuid
+        systemName:
+          type: string
+      nullable: true
+      discriminator:
+        propertyName: systemName
+        mapping:
+          AccessDefinition: '#/components/schemas/AccessDefinitionRef'
+          Activity: '#/components/schemas/ActivityRef'
+          Application: '#/components/schemas/ApplicationRef'
+          AuthorCollaboration: '#/components/schemas/AuthorCollaborationRef'
+          Award: '#/components/schemas/AwardRef'
+          ClassificationScheme: '#/components/schemas/ClassificationSchemeRef'
+          ConferenceSeries: '#/components/schemas/ConferenceSeriesRef'
+          DataSet: '#/components/schemas/DataSetRef'
+          Equipment: '#/components/schemas/EquipmentRef'
+          Event: '#/components/schemas/EventRef'
+          ExternalOrganization: '#/components/schemas/ExternalOrganizationRef'
+          ExternalPerson: '#/components/schemas/ExternalPersonRef'
+          Impact: '#/components/schemas/ImpactRef'
+          Journal: '#/components/schemas/JournalRef'
+          Organization: '#/components/schemas/OrganizationRef'
+          Person: '#/components/schemas/PersonRef'
+          Publisher: '#/components/schemas/PublisherRef'
+          PressMedia: '#/components/schemas/PressMediaRef'
+          Prize: '#/components/schemas/PrizeRef'
+          Project: '#/components/schemas/ProjectRef'
+          ResearchOutput: '#/components/schemas/ResearchOutputRef'
+          StudentThesis: '#/components/schemas/StudentThesisRef'
+          FundingOpportunity: '#/components/schemas/FundingOpportunityRef'
+          EthicalReview: '#/components/schemas/EthicalReviewRef'
+          ApplicationCluster: '#/components/schemas/ApplicationClusterRef'
+          AwardCluster: '#/components/schemas/AwardClusterRef'
+          User: '#/components/schemas/UserRef'
+          ERA2018FieldOfResearch: '#/components/schemas/Anzsrc2008FieldOfResearchRef'
+          UnitOfAssessmentREF2014: '#/components/schemas/Ref2014UnitOfAssessmentRef'
+          UnitOfAssessmentREF2020: '#/components/schemas/Ref2020UnitOfAssessmentRef'
+          ANZSRCTypeOfActivity: '#/components/schemas/Anzsrc2020TypeOfActivityRef'
+          ANZSRCFieldOfResearch: '#/components/schemas/Anzsrc2020FieldOfResearchRef'
+          ANZSRCSocioEconomicObjective: '#/components/schemas/Anzsrc2020SocioEconomicObjectiveRef'
+          Semester: '#/components/schemas/SemesterRef'
+          Education: '#/components/schemas/EducationRef'
+          Course: '#/components/schemas/CourseRef'
+          CurriculumVitae: '#/components/schemas/CurriculumVitaeRef'
+          CustomDefinedFieldConfiguration: '#/components/schemas/CustomDefinedFieldConfigurationRef'
+          KeywordGroupConfiguration: '#/components/schemas/KeywordGroupConfigurationRef'
+          Review: '#/components/schemas/ReviewRef'
+          GenericContentRef: '#/components/schemas/GenericContentRef'
+          UserProfile: '#/components/schemas/UserProfileRef'
+          Thesaurus: '#/components/schemas/ThesaurusRef'
+          Concept: '#/components/schemas/ConceptRef'
+          PersonExpertise: '#/components/schemas/PersonExpertiseRef'
+          Contract: '#/components/schemas/ContractRef'
+          Milestone: '#/components/schemas/MilestoneRef'
+          Fingerprint: '#/components/schemas/FingerprintRef'
+          Specialization: '#/components/schemas/SpecializationRef'
+          StudentProject: '#/components/schemas/StudentProjectRef'
+    ProblemDetails:
+      type: object
+      properties:
+        type:
+          type: string
+          description: A URI reference [RFC3986] that identifies the problem type.
+        title:
+          type: string
+          description: A short, human-readable summary of the problem type. It SHOULD NOT change from occurrence to occurrence of the problem, except for purposes of localization (e.g., using proactive content negotiation; see [RFC7231], Section 3.4).
+        status:
+          type: integer
+          description: The HTTP status code ([RFC7231], Section 6) generated by the origin server for this occurrence of the problem.
+          format: int32
+        detail:
+          type: string
+          description: A human-readable explanation specific to this occurrence of the problem.
+        instance:
+          type: string
+          description: A URI reference that identifies the specific occurrence of the problem.  It may or may not yield further information if dereferenced.
+      description: RFC7807 Error details
+      discriminator:
+        propertyName: type
+        mapping:
+          /error: '#/components/schemas/GenericProblemDetails'
+          /validation-error: '#/components/schemas/ValidationProblemDetails'
+          /dependency-violation-error: '#/components/schemas/DependencyViolationProblemDetails'
+    KeywordGroupConfigurationList:
+      type: object
+      properties:
+        count:
+          type: integer
+          description: The full count, ignoring paging
+          format: int32
+        pageInformation:
+          $ref: '#/components/schemas/PageInformation'
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/KeywordGroupConfiguration'
+      description: List of keyword group configurations
+    ConflictProblemDetails:
+      type: object
+      properties:
+        type:
+          type: string
+          description: A URI reference [RFC3986] that identifies the problem type.
+        title:
+          type: string
+          description: A short, human-readable summary of the problem type. It SHOULD NOT change from occurrence to occurrence of the problem, except for purposes of localization (e.g., using proactive content negotiation; see [RFC7231], Section 3.4).
+        status:
+          type: integer
+          description: The HTTP status code ([RFC7231], Section 6) generated by the origin server for this occurrence of the problem.
+          format: int32
+        detail:
+          type: string
+          description: A human-readable explanation specific to this occurrence of the problem.
+        instance:
+          type: string
+          description: A URI reference that identifies the specific occurrence of the problem.  It may or may not yield further information if dereferenced.
+        modified:
+          type: string
+          format: date-time
+        modifiedBy:
+          type: string
+      description: Problem details for state conflict failures
+    APIStringListResult:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: string
+        count:
+          type: integer
+          format: int32
+    LocalizedString:
+      type: object
+      additionalProperties:
+        type: string
+        description: 'A set of string values, one for each submission locale. Note: invalid locale values will be ignored.'
+        nullable: true
+        example: '{"en_GB":"Some text"}'
+      description: 'A set of string values, one for each submission locale. Note: invalid locale values will be ignored.'
+      nullable: true
+      example:
+        en_GB: Some text
+  securitySchemes:
+    api-key:
+      type: apiKey
+      description: Security mechanism for the API
+      name: api-key
+      in: header

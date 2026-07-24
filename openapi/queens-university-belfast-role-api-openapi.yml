@@ -1,0 +1,93 @@
+openapi: 3.0.1
+info:
+  title: Pure activity role API
+  description: The Pure API provides a secure and complete web services API for using and managing research information data in Pure. The API enables a broad range of use-cases for interacting with research information, from anonymous Open Data scenarios to enabling the next generation Pure admin.
+  termsOfService: ''
+  contact:
+    name: ''
+    url: ''
+    email: pure-support@elsevier.com
+  license:
+    name: ''
+    url: ''
+  version: 5.35.3-4
+servers:
+- url: https://pure.qub.ac.uk/ws/api
+  description: Queen's University Belfast Pure API
+security:
+- api-key: []
+tags:
+- name: role
+paths:
+  /roles:
+    get:
+      tags:
+      - role
+      summary: Lists all assignable roles
+      description: Lists all assignable roles that are currently available
+      operationId: role_get_assignable_roles
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AssignableRole'
+  /roles/{assignableRoleName}:
+    get:
+      tags:
+      - role
+      summary: Returns an assignable role
+      description: Returns an assignable role if it is currently available
+      operationId: role_get_assignable_role
+      parameters:
+      - name: assignableRoleName
+        in: path
+        description: Get assignable role from assignable role name.
+        required: true
+        schema:
+          pattern: .+
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssignableRole'
+components:
+  schemas:
+    AssignableRole:
+      required:
+      - assignableRoleName
+      type: object
+      properties:
+        assignableRoleName:
+          type: string
+          description: The name of the assignable role
+        targetSystemName:
+          type: string
+          description: The name of the target system
+          nullable: true
+        title:
+          $ref: '#/components/schemas/LocalizedString'
+      description: An assignable role
+    LocalizedString:
+      type: object
+      additionalProperties:
+        type: string
+        description: 'A set of string values, one for each submission locale. Note: invalid locale values will be ignored.'
+        nullable: true
+        example: '{"en_GB":"Some text"}'
+      description: 'A set of string values, one for each submission locale. Note: invalid locale values will be ignored.'
+      nullable: true
+      example:
+        en_GB: Some text
+  securitySchemes:
+    api-key:
+      type: apiKey
+      description: Security mechanism for the API
+      name: api-key
+      in: header

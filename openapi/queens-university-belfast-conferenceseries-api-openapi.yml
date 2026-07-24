@@ -1,0 +1,1091 @@
+openapi: 3.0.1
+info:
+  title: Pure activity conferenceSeries API
+  description: The Pure API provides a secure and complete web services API for using and managing research information data in Pure. The API enables a broad range of use-cases for interacting with research information, from anonymous Open Data scenarios to enabling the next generation Pure admin.
+  termsOfService: ''
+  contact:
+    name: ''
+    url: ''
+    email: pure-support@elsevier.com
+  license:
+    name: ''
+    url: ''
+  version: 5.35.3-4
+servers:
+- url: https://pure.qub.ac.uk/ws/api
+  description: Queen's University Belfast Pure API
+security:
+- api-key: []
+tags:
+- name: conferenceSeries
+paths:
+  /conference-series:
+    get:
+      tags:
+      - conferenceSeries
+      summary: Lists all conference series
+      description: Lists all conference series in the Pure instance. If you need to filter the conference series returned, see the POST version which supports additional filtering.
+      operationId: conferenceSeries_list
+      parameters:
+      - name: size
+        in: query
+        description: Number of returned conference series per request.
+        schema:
+          maximum: 1000
+          type: integer
+          format: int32
+          default: 10
+      - name: offset
+        in: query
+        description: The offset for the returned list. 0 or null value is from the start
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - name: order
+        in: query
+        description: The order of the list, must be a value from /conference-series/orderings
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConferenceSeriesListResult'
+    put:
+      tags:
+      - conferenceSeries
+      summary: Create conference series
+      description: Create conference series
+      operationId: conferenceSeries_create
+      requestBody:
+        description: The content to create
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Conference series'
+        required: true
+      responses:
+        '201':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Conference series'
+        '400':
+          description: Bad Request
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+  /conference-series/allowed-keyword-group-configurations:
+    get:
+      tags:
+      - conferenceSeries
+      summary: A list of keyword group configurations
+      description: Get a list of allowed keyword group configurations that can be used when submitting keyword groups.
+      operationId: conferenceSeries_getAllowedKeywordGroupConfigurations
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AllowedKeywordGroupConfigurationList'
+  /conference-series/allowed-keyword-group-configurations/{id}/classifications:
+    get:
+      tags:
+      - conferenceSeries
+      summary: A list of allowed classifications for the specified keyword group
+      description: Get a list of allowed classifications that can be used when submitting a specified keyword group.
+      operationId: conferenceSeries_getAllowedKeywordGroupConfigurationClassifications
+      parameters:
+      - name: id
+        in: path
+        description: Pure id of the keyword group configuration
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationRefList'
+  /conference-series/allowed-locales:
+    get:
+      tags:
+      - conferenceSeries
+      summary: A list of allowed locales in localized strings
+      description: Get a list of allowed locales that can be used when submitting localized string entities.
+      operationId: conferenceSeries_getAllowedLocales
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LocalesList'
+  /conference-series/allowed-metric-collections:
+    get:
+      tags:
+      - conferenceSeries
+      summary: A list of allowed metric collections
+      description: Get a list of metric collections allowed on conference series
+      operationId: conferenceSeries_getAllowedMetricCollections
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetricCollectionDefinitionList'
+  /conference-series/allowed-types:
+    get:
+      tags:
+      - conferenceSeries
+      summary: A list of allowed classifications for the type property
+      description: Get a list of classifications that can be used when submitting a type.
+      operationId: conferenceSeries_getAllowedTypes
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationRefList'
+  /conference-series/orderings:
+    get:
+      tags:
+      - conferenceSeries
+      summary: Lists available orderings
+      description: Lists all orderings available to the conference series endpoint. These values can be used by the order parameter when listing conference series.
+      operationId: conferenceSeries_getOrderings
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderingsList'
+  /conference-series/search:
+    post:
+      tags:
+      - conferenceSeries
+      summary: Query operation for conference series
+      description: Lists conference series in the Pure instance that matches the provided query, similar to the GET version, instead of using parameters to alter the response, an JSON document is posted with the request. The JSON document contains fields for all the parameters available for the GET version, but also additional filtering options.
+      operationId: conferenceSeries_query
+      requestBody:
+        description: The query to perform
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConferenceSeriesQuery'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConferenceSeriesListResult'
+        '400':
+          description: Bad request
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+  /conference-series/{uuid}:
+    get:
+      tags:
+      - conferenceSeries
+      summary: Get conference series
+      description: Get conference series with specific UUID.
+      operationId: conferenceSeries_get
+      parameters:
+      - name: uuid
+        in: path
+        description: UUID of the desired conference series
+        required: true
+        schema:
+          pattern: .+
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Conference series'
+        '301':
+          description: The requested content have changed UUID
+        '404':
+          description: Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+    put:
+      tags:
+      - conferenceSeries
+      summary: Update conference series
+      description: Update conference series with specific UUID.
+      operationId: conferenceSeries_update
+      parameters:
+      - name: uuid
+        in: path
+        description: UUID of the conference series to update
+        required: true
+        schema:
+          pattern: .+
+          type: string
+          format: uuid
+      requestBody:
+        description: The content to update
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Conference series'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Conference series'
+        '400':
+          description: Bad Request
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '404':
+          description: Resource not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '409':
+          description: Version conflict
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ConflictProblemDetails'
+    delete:
+      tags:
+      - conferenceSeries
+      summary: Delete conference series
+      description: Delete conference series with specific UUID.
+      operationId: conferenceSeries_delete
+      parameters:
+      - name: uuid
+        in: path
+        description: UUID of the conference series
+        required: true
+        schema:
+          pattern: .+
+          type: string
+          format: uuid
+      responses:
+        '204':
+          description: Successful operation
+        '404':
+          description: Resource not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '409':
+          description: Conflict
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ConflictProblemDetails'
+  /conference-series/{uuid}/actions/lock:
+    post:
+      tags:
+      - conferenceSeries
+      summary: Lock the content
+      description: Mark the content as external (used when content contains synchronised data). This has no effect on interactions with the content through the API.
+      operationId: conferenceSeries_lock
+      parameters:
+      - name: uuid
+        in: path
+        description: UUID of the content to lock
+        required: true
+        schema:
+          pattern: .+
+          type: string
+          format: uuid
+      responses:
+        '204':
+          description: Content marked as locked
+        '404':
+          description: Resource not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '409':
+          description: Content already locked
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ConflictProblemDetails'
+  /conference-series/{uuid}/actions/unlock:
+    post:
+      tags:
+      - conferenceSeries
+      summary: Unlock the content
+      description: Remove the external mark on the content (used when content contains synchronised data). This has no effect on interactions with the content through the API.
+      operationId: conferenceSeries_unlock
+      parameters:
+      - name: uuid
+        in: path
+        description: UUID of the content to unlock
+        required: true
+        schema:
+          pattern: .+
+          type: string
+          format: uuid
+      responses:
+        '204':
+          description: Content marked as unlocked
+        '404':
+          description: Resource not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '409':
+          description: Content already unlocked
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ConflictProblemDetails'
+  /conference-series/{uuid}/dependents:
+    get:
+      tags:
+      - conferenceSeries
+      summary: Lists all dependents to the conference series
+      description: 'Lists all dependents to the conference series with the specified UUID. If the user does not have access to view all the dependent content, an authorization error will be thrown. '
+      operationId: conferenceSeries_dependents
+      parameters:
+      - name: uuid
+        in: path
+        description: UUID of the conference series
+        required: true
+        schema:
+          pattern: .+
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContentRefListResult'
+  /conference-series/{uuid}/metrics/{collection-id}:
+    get:
+      tags:
+      - conferenceSeries
+      summary: Lists metrics with collection id
+      description: Lists metrics from a specific metrics collection that associated with a conference series.
+      operationId: conferenceSeries_listMetricsFromCollection
+      parameters:
+      - name: uuid
+        in: path
+        description: UUID of the conference series to get metrics for
+        required: true
+        schema:
+          pattern: .+
+          type: string
+          format: uuid
+      - name: collection-id
+        in: path
+        description: ID of the metrics collection to get metrics for
+        required: true
+        schema:
+          pattern: .+
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetricCollection'
+        '404':
+          description: Conference Series or metrics collection not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+  /conference-series/{uuid}/notes:
+    get:
+      tags:
+      - conferenceSeries
+      summary: Lists notes
+      description: Lists notes associated with a conferenceSeries ordered by date (nulls last)
+      operationId: conferenceSeries_listNotes
+      parameters:
+      - name: uuid
+        in: path
+        description: UUID of the conferenceSeries to get notes for
+        required: true
+        schema:
+          pattern: .+
+          type: string
+          format: uuid
+      - name: size
+        in: query
+        description: Number of returned notes per request
+        schema:
+          maximum: 1000
+          type: integer
+          format: int32
+          default: 10
+      - name: offset
+        in: query
+        description: The offset for the returned list. 0 or null value is from the start
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoteListResult'
+        '404':
+          description: conferenceSeries not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+    put:
+      tags:
+      - conferenceSeries
+      summary: Create note
+      description: Create note and associate it with a conferenceSeries
+      operationId: conferenceSeries_createNote
+      parameters:
+      - name: uuid
+        in: path
+        description: UUID of the conferenceSeries to add note to
+        required: true
+        schema:
+          pattern: .+
+          type: string
+          format: uuid
+      requestBody:
+        description: The note to create
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Note'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Note'
+        '400':
+          description: Bad Request
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+components:
+  schemas:
+    SystemLocalizedString:
+      type: object
+      additionalProperties:
+        type: string
+        description: A set of localized string values each for a specific UI locale.
+        nullable: true
+        example: '{"en_GB":"Some text"}'
+      description: A set of localized string values each for a specific UI locale.
+      nullable: true
+      example:
+        en_GB: Some text
+    MetricCollectionDefinition:
+      required:
+      - collectionId
+      - name
+      type: object
+      properties:
+        metrics:
+          type: array
+          description: Information about each metric in the collection
+          items:
+            $ref: '#/components/schemas/MetricDefinition'
+        collectionId:
+          type: string
+          description: ID of the metric collection
+        name:
+          $ref: '#/components/schemas/LocalizedString'
+      description: Information about a set of related metrics, usually from a single provider
+    ConflictProblemDetails:
+      type: object
+      properties:
+        type:
+          type: string
+          description: A URI reference [RFC3986] that identifies the problem type.
+        title:
+          type: string
+          description: A short, human-readable summary of the problem type. It SHOULD NOT change from occurrence to occurrence of the problem, except for purposes of localization (e.g., using proactive content negotiation; see [RFC7231], Section 3.4).
+        status:
+          type: integer
+          description: The HTTP status code ([RFC7231], Section 6) generated by the origin server for this occurrence of the problem.
+          format: int32
+        detail:
+          type: string
+          description: A human-readable explanation specific to this occurrence of the problem.
+        instance:
+          type: string
+          description: A URI reference that identifies the specific occurrence of the problem.  It may or may not yield further information if dereferenced.
+        modified:
+          type: string
+          format: date-time
+        modifiedBy:
+          type: string
+      description: Problem details for state conflict failures
+    Identifier:
+      required:
+      - typeDiscriminator
+      type: object
+      properties:
+        typeDiscriminator:
+          type: string
+      discriminator:
+        propertyName: typeDiscriminator
+        mapping:
+          ClassifiedId: '#/components/schemas/ClassifiedId'
+          PrimaryId: '#/components/schemas/PrimaryId'
+          Id: '#/components/schemas/Id'
+    MetricCollectionItem:
+      required:
+      - metricValues
+      type: object
+      properties:
+        source:
+          $ref: '#/components/schemas/ClassificationRef'
+        category:
+          $ref: '#/components/schemas/ClassificationRef'
+        year:
+          type: integer
+          description: The year of the metric, if applicable.
+          format: int32
+          nullable: true
+        metricValues:
+          type: array
+          description: List of metric values.
+          items:
+            $ref: '#/components/schemas/MetricValue'
+      description: A metric collection. Contents a list of metric values.
+    Note:
+      required:
+      - text
+      type: object
+      properties:
+        date:
+          type: string
+          description: Date and time of when the note was created, an event occurred or similar. Can be any point in time, but <now> is normally preferred
+          format: date-time
+          nullable: true
+        username:
+          type: string
+          description: Username related to the note. Usually a username of the user creating the note. Does not have to be a username of a Pure user
+          nullable: true
+        text:
+          type: string
+          description: Note text
+      description: A note
+    AllowedKeywordGroupConfigurationList:
+      type: object
+      properties:
+        configurations:
+          type: array
+          items:
+            $ref: '#/components/schemas/AllowedKeywordGroupConfiguration'
+      description: List of allowed keyword group configurations
+    ClassificationRef:
+      required:
+      - uri
+      type: object
+      properties:
+        uri:
+          type: string
+          description: Classification URI of the referred classification
+        term:
+          $ref: '#/components/schemas/SystemLocalizedString'
+      description: A reference to a classification value
+      nullable: true
+    ConferenceSeriesQuery:
+      type: object
+      properties:
+        uuids:
+          type: array
+          items:
+            type: string
+            format: uuid
+        size:
+          type: integer
+          format: int32
+        offset:
+          type: integer
+          format: int32
+        orderings:
+          type: array
+          items:
+            type: string
+        searchString:
+          type: string
+          description: String used to perform search
+        orderBy:
+          type: string
+          writeOnly: true
+      description: Create a query for conference series
+    Conference series:
+      required:
+      - title
+      - type
+      type: object
+      properties:
+        pureId:
+          type: integer
+          description: Pure database ID of the object, prefer using the UUID if it is present on the entity
+          format: int64
+          readOnly: true
+        uuid:
+          type: string
+          description: UUID, this is the primary identity of the entity
+          format: uuid
+          readOnly: true
+        createdBy:
+          type: string
+          description: Username of creator
+          readOnly: true
+        createdDate:
+          type: string
+          description: Date and time of creation
+          format: date-time
+          readOnly: true
+        modifiedBy:
+          type: string
+          description: Username of the user that performed a modification
+          readOnly: true
+        modifiedDate:
+          type: string
+          description: Date and time of last modification
+          format: date-time
+          readOnly: true
+        portalUrl:
+          type: string
+          description: URL of the content on the Pure Portal
+          readOnly: true
+        prettyUrlIdentifiers:
+          type: array
+          description: All pretty URLs
+          readOnly: true
+          items:
+            type: string
+            description: All pretty URLs
+            readOnly: true
+        previousUuids:
+          type: array
+          description: UUIDs of other content items which have been merged into this content item (or similar)
+          readOnly: true
+          items:
+            type: string
+            description: UUIDs of other content items which have been merged into this content item (or similar)
+            readOnly: true
+        version:
+          type: string
+          description: Used to guard against conflicting updates. For new content this is null, and for existing content the current value. The property should never be modified by a client, except in the rare case where the client wants to perform an update irrespective of if other clients have made updates in the meantime, also known as a "dirty write". A dirty write is performed by not including the property value or setting the property to null
+          nullable: true
+        type:
+          $ref: '#/components/schemas/ClassificationRef'
+        keywordGroups:
+          type: array
+          description: A group for each type of keyword present.
+          nullable: true
+          items:
+            $ref: '#/components/schemas/KeywordGroup'
+        identifiers:
+          type: array
+          description: IDs that this object corresponds to in external systems. Such as a Scopus ID. Used by Pure where it is necessary to identify objects to specific external systems
+          nullable: true
+          items:
+            $ref: '#/components/schemas/Identifier'
+        title:
+          type: string
+          description: The current primary title of the conference series.
+        shortTitle:
+          type: string
+          description: Short title of the conference series.
+          nullable: true
+        alternativeTitles:
+          type: array
+          description: List of alternative titles of the conference series.
+          items:
+            type: string
+            description: List of alternative titles of the conference series.
+        frequency:
+          type: string
+          description: Frequency of the conference series.
+          nullable: true
+        systemName:
+          type: string
+          description: The content system name
+          readOnly: true
+      description: Information about a conference series
+    ProblemDetails:
+      type: object
+      properties:
+        type:
+          type: string
+          description: A URI reference [RFC3986] that identifies the problem type.
+        title:
+          type: string
+          description: A short, human-readable summary of the problem type. It SHOULD NOT change from occurrence to occurrence of the problem, except for purposes of localization (e.g., using proactive content negotiation; see [RFC7231], Section 3.4).
+        status:
+          type: integer
+          description: The HTTP status code ([RFC7231], Section 6) generated by the origin server for this occurrence of the problem.
+          format: int32
+        detail:
+          type: string
+          description: A human-readable explanation specific to this occurrence of the problem.
+        instance:
+          type: string
+          description: A URI reference that identifies the specific occurrence of the problem.  It may or may not yield further information if dereferenced.
+      description: RFC7807 Error details
+      discriminator:
+        propertyName: type
+        mapping:
+          /error: '#/components/schemas/GenericProblemDetails'
+          /validation-error: '#/components/schemas/ValidationProblemDetails'
+          /dependency-violation-error: '#/components/schemas/DependencyViolationProblemDetails'
+    ContentRefListResult:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContentRef'
+      description: List of Content Refs
+    ContentRef:
+      required:
+      - systemName
+      - uuid
+      type: object
+      properties:
+        uuid:
+          type: string
+          description: UUID of the referred content
+          format: uuid
+        systemName:
+          type: string
+      nullable: true
+      discriminator:
+        propertyName: systemName
+        mapping:
+          AccessDefinition: '#/components/schemas/AccessDefinitionRef'
+          Activity: '#/components/schemas/ActivityRef'
+          Application: '#/components/schemas/ApplicationRef'
+          AuthorCollaboration: '#/components/schemas/AuthorCollaborationRef'
+          Award: '#/components/schemas/AwardRef'
+          ClassificationScheme: '#/components/schemas/ClassificationSchemeRef'
+          ConferenceSeries: '#/components/schemas/ConferenceSeriesRef'
+          DataSet: '#/components/schemas/DataSetRef'
+          Equipment: '#/components/schemas/EquipmentRef'
+          Event: '#/components/schemas/EventRef'
+          ExternalOrganization: '#/components/schemas/ExternalOrganizationRef'
+          ExternalPerson: '#/components/schemas/ExternalPersonRef'
+          Impact: '#/components/schemas/ImpactRef'
+          Journal: '#/components/schemas/JournalRef'
+          Organization: '#/components/schemas/OrganizationRef'
+          Person: '#/components/schemas/PersonRef'
+          Publisher: '#/components/schemas/PublisherRef'
+          PressMedia: '#/components/schemas/PressMediaRef'
+          Prize: '#/components/schemas/PrizeRef'
+          Project: '#/components/schemas/ProjectRef'
+          ResearchOutput: '#/components/schemas/ResearchOutputRef'
+          StudentThesis: '#/components/schemas/StudentThesisRef'
+          FundingOpportunity: '#/components/schemas/FundingOpportunityRef'
+          EthicalReview: '#/components/schemas/EthicalReviewRef'
+          ApplicationCluster: '#/components/schemas/ApplicationClusterRef'
+          AwardCluster: '#/components/schemas/AwardClusterRef'
+          User: '#/components/schemas/UserRef'
+          ERA2018FieldOfResearch: '#/components/schemas/Anzsrc2008FieldOfResearchRef'
+          UnitOfAssessmentREF2014: '#/components/schemas/Ref2014UnitOfAssessmentRef'
+          UnitOfAssessmentREF2020: '#/components/schemas/Ref2020UnitOfAssessmentRef'
+          ANZSRCTypeOfActivity: '#/components/schemas/Anzsrc2020TypeOfActivityRef'
+          ANZSRCFieldOfResearch: '#/components/schemas/Anzsrc2020FieldOfResearchRef'
+          ANZSRCSocioEconomicObjective: '#/components/schemas/Anzsrc2020SocioEconomicObjectiveRef'
+          Semester: '#/components/schemas/SemesterRef'
+          Education: '#/components/schemas/EducationRef'
+          Course: '#/components/schemas/CourseRef'
+          CurriculumVitae: '#/components/schemas/CurriculumVitaeRef'
+          CustomDefinedFieldConfiguration: '#/components/schemas/CustomDefinedFieldConfigurationRef'
+          KeywordGroupConfiguration: '#/components/schemas/KeywordGroupConfigurationRef'
+          Review: '#/components/schemas/ReviewRef'
+          GenericContentRef: '#/components/schemas/GenericContentRef'
+          UserProfile: '#/components/schemas/UserProfileRef'
+          Thesaurus: '#/components/schemas/ThesaurusRef'
+          Concept: '#/components/schemas/ConceptRef'
+          PersonExpertise: '#/components/schemas/PersonExpertiseRef'
+          Contract: '#/components/schemas/ContractRef'
+          Milestone: '#/components/schemas/MilestoneRef'
+          Fingerprint: '#/components/schemas/FingerprintRef'
+          Specialization: '#/components/schemas/SpecializationRef'
+          StudentProject: '#/components/schemas/StudentProjectRef'
+    MetricCollectionDefinitionList:
+      type: object
+      properties:
+        items:
+          type: array
+          description: Information about each metric collection
+          items:
+            $ref: '#/components/schemas/MetricCollectionDefinition'
+      description: List of metric collection definitions
+    FormattedLocalizedString:
+      type: object
+      additionalProperties:
+        type: string
+        description: A set of localized strings that support formatting. Invalid locale values will be ignored.
+        nullable: true
+        example: '{"en_GB":"Some text"}'
+      description: A set of localized strings that support formatting. Invalid locale values will be ignored.
+      nullable: true
+      example:
+        en_GB: Some text
+    PageInformation:
+      type: object
+      properties:
+        offset:
+          type: integer
+          description: Offset that returned items start at
+          format: int32
+        size:
+          type: integer
+          description: The requested number of items. May be higher than the actual number of items in the result if there are fewer items in the store than requested
+          format: int32
+      description: Information about pages
+    ClassificationSchemeRef:
+      required:
+      - uuid
+      type: object
+      description: A reference to a classification scheme
+      nullable: true
+      allOf:
+      - $ref: '#/components/schemas/ContentRef'
+    MetricCollection:
+      required:
+      - collectionId
+      type: object
+      properties:
+        owner:
+          $ref: '#/components/schemas/ContentRef'
+        collectionId:
+          type: string
+          description: Collection ID is the unique id of the provider for the metrics. A collection of metrics is a list of metrics that have a shared data structure and provider.
+        items:
+          type: array
+          description: Metric collection items
+          items:
+            $ref: '#/components/schemas/MetricCollectionItem'
+      description: List of metrics
+    ClassificationRefList:
+      type: object
+      properties:
+        classifications:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClassificationRef'
+      description: List of classification references
+    ConferenceSeriesListResult:
+      type: object
+      properties:
+        count:
+          type: integer
+          description: The full count, ignoring paging
+          format: int32
+        pageInformation:
+          $ref: '#/components/schemas/PageInformation'
+        items:
+          type: array
+          description: Conference series
+          items:
+            $ref: '#/components/schemas/Conference series'
+      description: List of conference series. Can contain a subset of all items along with the full count
+    AllowedKeywordGroupConfiguration:
+      required:
+      - targetSystemName
+      type: object
+      properties:
+        pureId:
+          type: integer
+          description: Pure database ID of the object, prefer using the UUID if it is present on the entity
+          format: int64
+          readOnly: true
+        targetSystemName:
+          type: string
+          description: The content system name this configuration applies to
+        keywordGroupType:
+          type: string
+          description: The OpenAPI schema type of this keyword configuration
+          readOnly: true
+        name:
+          $ref: '#/components/schemas/LocalizedString'
+        description:
+          $ref: '#/components/schemas/FormattedLocalizedString'
+        classificationScheme:
+          $ref: '#/components/schemas/ClassificationSchemeRef'
+        allowUserdefinedKeywords:
+          type: boolean
+          description: Defines if user defined keywords are allowed
+        limitToLeafSelection:
+          type: boolean
+        logicalName:
+          type: string
+        relationType:
+          type: string
+          description: The schema name of the type (with the ability to associate keywords) on which the keyword group configuration is related to, e.g. StaffOrganizationAssociation. It can also be set to null (default value), which means the keyword group configuration is related to the main type (the target system name) and not a relation of the main type.
+          nullable: true
+      description: A specification of the allowed behavior of a specified keyword group
+    LocalizedString:
+      type: object
+      additionalProperties:
+        type: string
+        description: 'A set of string values, one for each submission locale. Note: invalid locale values will be ignored.'
+        nullable: true
+        example: '{"en_GB":"Some text"}'
+      description: 'A set of string values, one for each submission locale. Note: invalid locale values will be ignored.'
+      nullable: true
+      example:
+        en_GB: Some text
+    KeywordGroup:
+      required:
+      - logicalName
+      - typeDiscriminator
+      type: object
+      properties:
+        pureId:
+          type: integer
+          description: Pure database ID of the object, prefer using the UUID if it is present on the entity
+          format: int64
+          readOnly: true
+        logicalName:
+          type: string
+          description: Unique name of the configuration that specifies this keyword group
+        name:
+          $ref: '#/components/schemas/LocalizedString'
+        typeDiscriminator:
+          type: string
+      discriminator:
+        propertyName: typeDiscriminator
+        mapping:
+          ClassificationsKeywordGroup: '#/components/schemas/ClassificationsKeywordGroup'
+          FreeKeywordsKeywordGroup: '#/components/schemas/FreeKeywordsKeywordGroup'
+          FullKeywordGroup: '#/components/schemas/FullKeywordGroup'
+    LocalesList:
+      type: object
+      properties:
+        locales:
+          pattern: /^[a-z]{2}_[A-Z]{2}$/
+          type: array
+          description: Allowed locale values for use in localized string entities. The locale format consists of lower-case ISO 639 alpha-2 language code and upper-cased ISO 3166 alpha-2 country code.
+          items:
+            pattern: /^[a-z]{2}_[A-Z]{2}$/
+            type: string
+            description: Allowed locale values for use in localized string entities. The locale format consists of lower-case ISO 639 alpha-2 language code and upper-cased ISO 3166 alpha-2 country code.
+      description: List of available locales
+    NoteListResult:
+      type: object
+      properties:
+        count:
+          type: integer
+          description: The full count, ignoring paging
+          format: int32
+        pageInformation:
+          $ref: '#/components/schemas/PageInformation'
+        items:
+          type: array
+          description: Notes
+          items:
+            $ref: '#/components/schemas/Note'
+      description: List of notes
+    MetricDefinition:
+      required:
+      - metricId
+      - valueType
+      type: object
+      properties:
+        metricId:
+          type: string
+          description: Unique identifier of metric definition
+        valueType:
+          type: string
+          description: Type of value handled by the metric
+          x-extensible-enum:
+          - INTEGER
+        name:
+          $ref: '#/components/schemas/LocalizedString'
+      description: Information about how a specific metric is defined; how data of the metric is structured
+    MetricValue:
+      required:
+      - metricId
+      type: object
+      properties:
+        metricId:
+          type: string
+          description: ID of the metric that defines this metric value (this controls for example the type returned).
+        integerValue:
+          type: integer
+          description: The integer value of the metric.
+          format: int32
+          nullable: true
+        decimalValue:
+          type: number
+          description: The decimal value of the metric.
+          nullable: true
+        stringValue:
+          type: string
+          description: The string value of the metric.
+          nullable: true
+        booleanValue:
+          type: boolean
+          description: The boolean value of the metric.
+          nullable: true
+        classificationValue:
+          $ref: '#/components/schemas/ClassificationRef'
+      description: A metric value, that contains one piece of data. Only one type of value can be set at a time, and it must match the specification of the metric definition.
+    OrderingsList:
+      type: object
+      properties:
+        orderings:
+          type: array
+          description: IDs of ways content can be ordered
+          items:
+            type: string
+            description: IDs of ways content can be ordered
+      description: List of available orderings
+  securitySchemes:
+    api-key:
+      type: apiKey
+      description: Security mechanism for the API
+      name: api-key
+      in: header

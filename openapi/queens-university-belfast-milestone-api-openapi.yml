@@ -1,0 +1,1243 @@
+openapi: 3.0.1
+info:
+  title: Pure activity milestone API
+  description: The Pure API provides a secure and complete web services API for using and managing research information data in Pure. The API enables a broad range of use-cases for interacting with research information, from anonymous Open Data scenarios to enabling the next generation Pure admin.
+  termsOfService: ''
+  contact:
+    name: ''
+    url: ''
+    email: pure-support@elsevier.com
+  license:
+    name: ''
+    url: ''
+  version: 5.35.3-4
+servers:
+- url: https://pure.qub.ac.uk/ws/api
+  description: Queen's University Belfast Pure API
+security:
+- api-key: []
+tags:
+- name: milestone
+paths:
+  /milestones:
+    get:
+      tags:
+      - milestone
+      summary: Lists all milestones
+      description: Lists all milestones in the Pure instance. If you need to filter the milestones returned, see the POST version which supports additional filtering.
+      operationId: milestone_list
+      parameters:
+      - name: size
+        in: query
+        description: Number of returned milestones per request.
+        schema:
+          maximum: 1000
+          type: integer
+          format: int32
+          default: 10
+      - name: offset
+        in: query
+        description: The offset for the returned list. 0 or null value is from the start
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - name: order
+        in: query
+        description: The order of the list, must be a value from /milestones/orderings
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MilestoneListResult'
+    put:
+      tags:
+      - milestone
+      summary: Create milestone
+      description: Create milestone
+      operationId: milestone_create
+      requestBody:
+        description: The content to create
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Milestone'
+        required: true
+      responses:
+        '201':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Milestone'
+        '400':
+          description: Bad Request
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+  /milestones/allowed-categories:
+    get:
+      tags:
+      - milestone
+      summary: A list of allowed classifications for the category property
+      description: Get a list of classifications that can be used when submitting a category.
+      operationId: milestone_getAllowedCategories
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationRefList'
+  /milestones/allowed-completion-states:
+    get:
+      tags:
+      - milestone
+      summary: A list of allowed completion states
+      description: Get a list of allowed completion state types that can be used for the 'completionState' attribute of milestones
+      operationId: milestone_getAllowedCompletionStates
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationRefList'
+  /milestones/allowed-document-types:
+    get:
+      tags:
+      - milestone
+      summary: A list of allowed document types
+      description: Get a list of allowed license types that can be used for the 'documents.type' attribute of milestones
+      operationId: milestone_getAllowedDocumentTypes
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationRefList'
+  /milestones/allowed-locales:
+    get:
+      tags:
+      - milestone
+      summary: A list of allowed locales in localized strings
+      description: Get a list of allowed locales that can be used when submitting localized string entities.
+      operationId: milestone_getAllowedLocales
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LocalesList'
+  /milestones/allowed-milestone-states:
+    get:
+      tags:
+      - milestone
+      summary: A list of allowed milestone states
+      description: Get a list of allowed milestone state types that can be used for the 'milestoneState' attribute of milestones
+      operationId: milestone_getAllowedMilestoneStates
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationRefList'
+  /milestones/application/allowed-academic-roles:
+    get:
+      tags:
+      - milestone
+      summary: A list of allowed academic roles for milestones which have a related application
+      description: Get a list of allowed academic role types that can be used for the 'academicRole' attribute of milestones
+      operationId: milestone_getAllowedAcademicRolesRelatedToApplications
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationRefList'
+  /milestones/application/allowed-administrative-roles:
+    get:
+      tags:
+      - milestone
+      summary: A list of allowed administrative roles for milestones which have a related application
+      description: Get a list of allowed administrative role types that can be used for the 'administrativeRole' attribute of milestones which have a related application
+      operationId: milestone_getAllowedAdministrativeRolesRelatedToApplications
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIStringListResult'
+  /milestones/award/allowed-academic-roles:
+    get:
+      tags:
+      - milestone
+      summary: A list of allowed academic roles for milestones which have a related award
+      description: Get a list of allowed academic role types that can be used for the 'academicRole' attribute of milestones
+      operationId: milestone_getAllowedAcademicRolesRelatedToAwards
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationRefList'
+  /milestones/award/allowed-administrative-roles:
+    get:
+      tags:
+      - milestone
+      summary: A list of allowed administrative roles for milestones which have a related award
+      description: Get a list of allowed administrative role types that can be used for the 'administrativeRole' attribute of milestones which have a related award
+      operationId: milestone_getAllowedAdministrativeRolesRelatedToAwards
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIStringListResult'
+  /milestones/contract/allowed-academic-roles:
+    get:
+      tags:
+      - milestone
+      summary: A list of allowed academic roles for milestones which have a related contract
+      description: Get a list of allowed academic role types that can be used for the 'academicRole' attribute of milestones
+      operationId: milestone_getAllowedAcademicRolesRelatedToContract
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationRefList'
+  /milestones/contract/allowed-administrative-roles:
+    get:
+      tags:
+      - milestone
+      summary: A list of allowed administrative roles for milestones which have a related contract
+      description: Get a list of allowed administrative role types that can be used for the 'administrativeRole' attribute of milestones which have a related contract
+      operationId: milestone_getAllowedAdministrativeRolesRelatedToContract
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIStringListResult'
+  /milestones/ethical-review/allowed-academic-roles:
+    get:
+      tags:
+      - milestone
+      summary: A list of allowed academic roles for milestones which have a related ethical review
+      description: Get a list of allowed academic role types that can be used for the 'academicRole' attribute of milestones
+      operationId: milestone_getAllowedAcademicRolesRelatedToEthicalReview
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationRefList'
+  /milestones/ethical-review/allowed-administrative-roles:
+    get:
+      tags:
+      - milestone
+      summary: A list of allowed administrative roles for milestones which have a related ethical review
+      description: Get a list of allowed administrative role types that can be used for the 'administrativeRole' attribute of milestones which have a related ethical review
+      operationId: milestone_getAllowedAdministrativeRolesRelatedToEthicalReview
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIStringListResult'
+  /milestones/file-uploads:
+    put:
+      tags:
+      - milestone
+      summary: Upload file for a specific milestone
+      description: Uploads file for the milestone
+      operationId: milestone_fileUploads
+      parameters:
+      - name: Content-Type
+        in: header
+        description: Set the mime type for the file
+        schema:
+          type: string
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              type: string
+              format: binary
+        required: true
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UploadedFile'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/UploadedFile'
+  /milestones/orderings:
+    get:
+      tags:
+      - milestone
+      summary: Lists available orderings
+      description: Lists all orderings available to the milestones endpoint. These values can be used by the order parameter when listing milestones.
+      operationId: milestone_getOrderings
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderingsList'
+  /milestones/project/allowed-academic-roles:
+    get:
+      tags:
+      - milestone
+      summary: A list of allowed academic roles for milestones which have a related project
+      description: Get a list of allowed academic role types that can be used for the 'academicRole' attribute of milestones
+      operationId: milestone_getAllowedAcademicRolesRelatedToProjects
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationRefList'
+  /milestones/project/allowed-administrative-roles:
+    get:
+      tags:
+      - milestone
+      summary: A list of allowed administrative roles for milestones which have a related project
+      description: Get a list of allowed administrative role types that can be used for the 'administrativeRole' attribute of milestones which have a related project
+      operationId: milestone_getAllowedAdministrativeRolesRelatedToProject
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIStringListResult'
+  /milestones/search:
+    post:
+      tags:
+      - milestone
+      summary: Query operation for milestones
+      description: Lists milestones in the Pure instance that matches the provided query, similar to the GET version, instead of using parameters to alter the response, an JSON document is posted with the request. The JSON document contains fields for all the parameters available for the GET version, but also additional filtering options.
+      operationId: milestone_query
+      requestBody:
+        description: The query to perform
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MilestoneQuery'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MilestoneListResult'
+        '400':
+          description: Bad request
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+  /milestones/{uuid}:
+    get:
+      tags:
+      - milestone
+      summary: Get milestone
+      description: Get milestone with specific UUID.
+      operationId: milestone_get
+      parameters:
+      - name: uuid
+        in: path
+        description: UUID of the desired milestone
+        required: true
+        schema:
+          pattern: .+
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Milestone'
+        '301':
+          description: The requested content have changed UUID
+        '404':
+          description: Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+    put:
+      tags:
+      - milestone
+      summary: Update milestone
+      description: Update milestone with specific UUID.
+      operationId: milestone_update
+      parameters:
+      - name: uuid
+        in: path
+        description: UUID of the milestone to update
+        required: true
+        schema:
+          pattern: .+
+          type: string
+          format: uuid
+      requestBody:
+        description: The content to update
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Milestone'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Milestone'
+        '400':
+          description: Bad Request
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '404':
+          description: Resource not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '409':
+          description: Version conflict
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ConflictProblemDetails'
+    delete:
+      tags:
+      - milestone
+      summary: Delete milestone
+      description: Delete milestone with specific UUID.
+      operationId: milestone_delete
+      parameters:
+      - name: uuid
+        in: path
+        description: UUID of the milestone
+        required: true
+        schema:
+          pattern: .+
+          type: string
+          format: uuid
+      responses:
+        '204':
+          description: Successful operation
+        '404':
+          description: Resource not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '409':
+          description: Conflict
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ConflictProblemDetails'
+  /milestones/{uuid}/actions/lock:
+    post:
+      tags:
+      - milestone
+      summary: Lock the content
+      description: Mark the content as external (used when content contains synchronised data). This has no effect on interactions with the content through the API.
+      operationId: milestone_lock
+      parameters:
+      - name: uuid
+        in: path
+        description: UUID of the content to lock
+        required: true
+        schema:
+          pattern: .+
+          type: string
+          format: uuid
+      responses:
+        '204':
+          description: Content marked as locked
+        '404':
+          description: Resource not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '409':
+          description: Content already locked
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ConflictProblemDetails'
+  /milestones/{uuid}/actions/unlock:
+    post:
+      tags:
+      - milestone
+      summary: Unlock the content
+      description: Remove the external mark on the content (used when content contains synchronised data). This has no effect on interactions with the content through the API.
+      operationId: milestone_unlock
+      parameters:
+      - name: uuid
+        in: path
+        description: UUID of the content to unlock
+        required: true
+        schema:
+          pattern: .+
+          type: string
+          format: uuid
+      responses:
+        '204':
+          description: Content marked as unlocked
+        '404':
+          description: Resource not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '409':
+          description: Content already unlocked
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ConflictProblemDetails'
+  /milestones/{uuid}/dependents:
+    get:
+      tags:
+      - milestone
+      summary: Lists all dependents to a milestone
+      description: 'Lists all dependents to a milestone with the specified UUID. If the user does not have access to view all the dependent content, an authorization error will be thrown. '
+      operationId: milestone_dependents
+      parameters:
+      - name: uuid
+        in: path
+        description: UUID of the milestone
+        required: true
+        schema:
+          pattern: .+
+          type: string
+          format: uuid
+      - name: verbose
+        in: query
+        description: DEPRECATED - Parameter has no effect.
+        deprecated: true
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContentRefListResult'
+  /milestones/{uuid}/files/{fileId}:
+    get:
+      tags:
+      - milestone
+      summary: Get file from the milestone
+      description: Get file from the milestone
+      operationId: milestone_getFile
+      parameters:
+      - name: uuid
+        in: path
+        description: UUID of the milestone
+        required: true
+        schema:
+          pattern: .+
+          type: string
+          format: uuid
+      - name: fileId
+        in: path
+        description: 'File id '
+        required: true
+        schema:
+          pattern: .+
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            '*/*':
+              schema:
+                type: string
+                format: binary
+components:
+  schemas:
+    SystemLocalizedString:
+      type: object
+      additionalProperties:
+        type: string
+        description: A set of localized string values each for a specific UI locale.
+        nullable: true
+        example: '{"en_GB":"Some text"}'
+      description: A set of localized string values each for a specific UI locale.
+      nullable: true
+      example:
+        en_GB: Some text
+    RemoteFile:
+      required:
+      - fileId
+      - fileState
+      - sourceId
+      - storeName
+      type: object
+      properties:
+        sourceId:
+          type: string
+          description: The remote source ID
+        storeName:
+          type: string
+          description: The name of the remote store
+        timeStamp:
+          type: string
+          description: The timestamp at which the file was stored
+          format: date-time
+        fileId:
+          type: string
+          description: The remote file ID
+        fileState:
+          type: string
+          description: The remote file state
+          enum:
+          - AWAITING_CREATION
+          - CREATION_IN_PROGRESS
+          - CREATION_FAILED
+          - STORED
+          - AWAITING_DELETE
+          - DELETE_IN_PROGRESS
+          - DELETE_FAILED
+          - DELETED
+        metadataUpdateRequired:
+          type: boolean
+          description: Whether the file's metadata should be updated
+          default: false
+      description: Information about a remote file (Elsevier only)
+    UploadedFile:
+      required:
+      - key
+      type: object
+      properties:
+        digest:
+          type: string
+          description: The calculated digest for the file in Pure
+          readOnly: true
+        digestType:
+          type: string
+          description: The digest type
+          readOnly: true
+        size:
+          type: integer
+          description: The file size of the file in Pure
+          format: int64
+          readOnly: true
+        mimeType:
+          type: string
+          description: The mime type detected for the file
+          readOnly: true
+        timeStamp:
+          type: string
+          description: The timestamp Pure received the file
+          format: date-time
+          readOnly: true
+        expires:
+          type: string
+          description: The timestamp where Pure deletes the uploaded file if it has not been attached to any content
+          format: date-time
+          readOnly: true
+        key:
+          type: string
+          description: Pure key identifer for the file upload
+          readOnly: true
+      description: Information about the uploaded file
+    UserRef:
+      required:
+      - uuid
+      type: object
+      description: A reference to an user
+      nullable: true
+      allOf:
+      - $ref: '#/components/schemas/ContentRef'
+    ConflictProblemDetails:
+      type: object
+      properties:
+        type:
+          type: string
+          description: A URI reference [RFC3986] that identifies the problem type.
+        title:
+          type: string
+          description: A short, human-readable summary of the problem type. It SHOULD NOT change from occurrence to occurrence of the problem, except for purposes of localization (e.g., using proactive content negotiation; see [RFC7231], Section 3.4).
+        status:
+          type: integer
+          description: The HTTP status code ([RFC7231], Section 6) generated by the origin server for this occurrence of the problem.
+          format: int32
+        detail:
+          type: string
+          description: A human-readable explanation specific to this occurrence of the problem.
+        instance:
+          type: string
+          description: A URI reference that identifies the specific occurrence of the problem.  It may or may not yield further information if dereferenced.
+        modified:
+          type: string
+          format: date-time
+        modifiedBy:
+          type: string
+      description: Problem details for state conflict failures
+    MilestoneQuery:
+      type: object
+      properties:
+        uuids:
+          type: array
+          items:
+            type: string
+            format: uuid
+        size:
+          type: integer
+          format: int32
+        offset:
+          type: integer
+          format: int32
+        orderings:
+          type: array
+          items:
+            type: string
+        searchString:
+          type: string
+          description: String used to perform search
+        relatedContentSystemName:
+          type: string
+          description: The related content system name to perform search
+        relatedContentUuid:
+          type: string
+          description: The related content uuid to perform search
+        orderBy:
+          type: string
+          writeOnly: true
+      description: Create a query for milestone
+    Identifier:
+      required:
+      - typeDiscriminator
+      type: object
+      properties:
+        typeDiscriminator:
+          type: string
+      discriminator:
+        propertyName: typeDiscriminator
+        mapping:
+          ClassifiedId: '#/components/schemas/ClassifiedId'
+          PrimaryId: '#/components/schemas/PrimaryId'
+          Id: '#/components/schemas/Id'
+    Visibility:
+      required:
+      - key
+      type: object
+      properties:
+        key:
+          type: string
+          description: Visibility value
+          enum:
+          - FREE
+          - CAMPUS
+          - BACKEND
+          - CONFIDENTIAL
+        description:
+          $ref: '#/components/schemas/SystemLocalizedString'
+      description: Visibility of an object
+    ClassificationRef:
+      required:
+      - uri
+      type: object
+      properties:
+        uri:
+          type: string
+          description: Classification URI of the referred classification
+        term:
+          $ref: '#/components/schemas/SystemLocalizedString'
+      description: A reference to a classification value
+      nullable: true
+    ContentRefListResult:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContentRef'
+      description: List of Content Refs
+    ProjectRef:
+      required:
+      - uuid
+      type: object
+      description: A reference to project
+      nullable: true
+      allOf:
+      - $ref: '#/components/schemas/ContentRef'
+    ProblemDetails:
+      type: object
+      properties:
+        type:
+          type: string
+          description: A URI reference [RFC3986] that identifies the problem type.
+        title:
+          type: string
+          description: A short, human-readable summary of the problem type. It SHOULD NOT change from occurrence to occurrence of the problem, except for purposes of localization (e.g., using proactive content negotiation; see [RFC7231], Section 3.4).
+        status:
+          type: integer
+          description: The HTTP status code ([RFC7231], Section 6) generated by the origin server for this occurrence of the problem.
+          format: int32
+        detail:
+          type: string
+          description: A human-readable explanation specific to this occurrence of the problem.
+        instance:
+          type: string
+          description: A URI reference that identifies the specific occurrence of the problem.  It may or may not yield further information if dereferenced.
+      description: RFC7807 Error details
+      discriminator:
+        propertyName: type
+        mapping:
+          /error: '#/components/schemas/GenericProblemDetails'
+          /validation-error: '#/components/schemas/ValidationProblemDetails'
+          /dependency-violation-error: '#/components/schemas/DependencyViolationProblemDetails'
+    ApplicationRef:
+      required:
+      - uuid
+      type: object
+      description: A reference to an application
+      nullable: true
+      allOf:
+      - $ref: '#/components/schemas/ContentRef'
+    ContentRef:
+      required:
+      - systemName
+      - uuid
+      type: object
+      properties:
+        uuid:
+          type: string
+          description: UUID of the referred content
+          format: uuid
+        systemName:
+          type: string
+      nullable: true
+      discriminator:
+        propertyName: systemName
+        mapping:
+          AccessDefinition: '#/components/schemas/AccessDefinitionRef'
+          Activity: '#/components/schemas/ActivityRef'
+          Application: '#/components/schemas/ApplicationRef'
+          AuthorCollaboration: '#/components/schemas/AuthorCollaborationRef'
+          Award: '#/components/schemas/AwardRef'
+          ClassificationScheme: '#/components/schemas/ClassificationSchemeRef'
+          ConferenceSeries: '#/components/schemas/ConferenceSeriesRef'
+          DataSet: '#/components/schemas/DataSetRef'
+          Equipment: '#/components/schemas/EquipmentRef'
+          Event: '#/components/schemas/EventRef'
+          ExternalOrganization: '#/components/schemas/ExternalOrganizationRef'
+          ExternalPerson: '#/components/schemas/ExternalPersonRef'
+          Impact: '#/components/schemas/ImpactRef'
+          Journal: '#/components/schemas/JournalRef'
+          Organization: '#/components/schemas/OrganizationRef'
+          Person: '#/components/schemas/PersonRef'
+          Publisher: '#/components/schemas/PublisherRef'
+          PressMedia: '#/components/schemas/PressMediaRef'
+          Prize: '#/components/schemas/PrizeRef'
+          Project: '#/components/schemas/ProjectRef'
+          ResearchOutput: '#/components/schemas/ResearchOutputRef'
+          StudentThesis: '#/components/schemas/StudentThesisRef'
+          FundingOpportunity: '#/components/schemas/FundingOpportunityRef'
+          EthicalReview: '#/components/schemas/EthicalReviewRef'
+          ApplicationCluster: '#/components/schemas/ApplicationClusterRef'
+          AwardCluster: '#/components/schemas/AwardClusterRef'
+          User: '#/components/schemas/UserRef'
+          ERA2018FieldOfResearch: '#/components/schemas/Anzsrc2008FieldOfResearchRef'
+          UnitOfAssessmentREF2014: '#/components/schemas/Ref2014UnitOfAssessmentRef'
+          UnitOfAssessmentREF2020: '#/components/schemas/Ref2020UnitOfAssessmentRef'
+          ANZSRCTypeOfActivity: '#/components/schemas/Anzsrc2020TypeOfActivityRef'
+          ANZSRCFieldOfResearch: '#/components/schemas/Anzsrc2020FieldOfResearchRef'
+          ANZSRCSocioEconomicObjective: '#/components/schemas/Anzsrc2020SocioEconomicObjectiveRef'
+          Semester: '#/components/schemas/SemesterRef'
+          Education: '#/components/schemas/EducationRef'
+          Course: '#/components/schemas/CourseRef'
+          CurriculumVitae: '#/components/schemas/CurriculumVitaeRef'
+          CustomDefinedFieldConfiguration: '#/components/schemas/CustomDefinedFieldConfigurationRef'
+          KeywordGroupConfiguration: '#/components/schemas/KeywordGroupConfigurationRef'
+          Review: '#/components/schemas/ReviewRef'
+          GenericContentRef: '#/components/schemas/GenericContentRef'
+          UserProfile: '#/components/schemas/UserProfileRef'
+          Thesaurus: '#/components/schemas/ThesaurusRef'
+          Concept: '#/components/schemas/ConceptRef'
+          PersonExpertise: '#/components/schemas/PersonExpertiseRef'
+          Contract: '#/components/schemas/ContractRef'
+          Milestone: '#/components/schemas/MilestoneRef'
+          Fingerprint: '#/components/schemas/FingerprintRef'
+          Specialization: '#/components/schemas/SpecializationRef'
+          StudentProject: '#/components/schemas/StudentProjectRef'
+    MilestoneListResult:
+      type: object
+      properties:
+        count:
+          type: integer
+          description: The full count, ignoring paging
+          format: int32
+        pageInformation:
+          $ref: '#/components/schemas/PageInformation'
+        items:
+          type: array
+          description: Milestones
+          items:
+            $ref: '#/components/schemas/Milestone'
+      description: List of milestones. Can contain a subset of all items along with the full count
+    FormattedLocalizedString:
+      type: object
+      additionalProperties:
+        type: string
+        description: A set of localized strings that support formatting. Invalid locale values will be ignored.
+        nullable: true
+        example: '{"en_GB":"Some text"}'
+      description: A set of localized strings that support formatting. Invalid locale values will be ignored.
+      nullable: true
+      example:
+        en_GB: Some text
+    PageInformation:
+      type: object
+      properties:
+        offset:
+          type: integer
+          description: Offset that returned items start at
+          format: int32
+        size:
+          type: integer
+          description: The requested number of items. May be higher than the actual number of items in the result if there are fewer items in the store than requested
+          format: int32
+      description: Information about pages
+    AwardRef:
+      required:
+      - uuid
+      type: object
+      description: A reference to an award
+      nullable: true
+      allOf:
+      - $ref: '#/components/schemas/ContentRef'
+    ClassificationRefList:
+      type: object
+      properties:
+        classifications:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClassificationRef'
+      description: List of classification references
+    MilestoneReminder:
+      required:
+      - timeUnit
+      - value
+      type: object
+      properties:
+        pureId:
+          type: integer
+          description: Pure database ID of the object, prefer using the UUID if it is present on the entity
+          format: int64
+          readOnly: true
+        value:
+          type: integer
+          description: Number of units in reminder period.
+          format: int32
+        timeUnit:
+          type: string
+          description: The time unit of the reminder.
+          enum:
+          - MONTH
+          - WEEK
+          - DAY
+      description: A milestone reminder.
+    MilestoneDocument:
+      required:
+      - fileName
+      - mimeType
+      - type
+      - visibility
+      type: object
+      properties:
+        pureId:
+          type: integer
+          description: Pure database ID of the object, prefer using the UUID if it is present on the entity
+          format: int64
+          readOnly: true
+        fileId:
+          type: string
+          description: The id of the file
+          readOnly: true
+        fileName:
+          type: string
+          description: The documents file name
+        mimeType:
+          type: string
+          description: The documents mime type
+        size:
+          type: integer
+          description: The documents size in bytes
+          format: int64
+        url:
+          type: string
+          description: Download url for the binary file
+          readOnly: true
+        fileStoreLocations:
+          type: object
+          additionalProperties:
+            type: string
+            description: Locations of the binary file in file stores.
+            readOnly: true
+          description: Locations of the binary file in file stores.
+          readOnly: true
+        uploadedFile:
+          $ref: '#/components/schemas/UploadedFile'
+        remoteFile:
+          $ref: '#/components/schemas/RemoteFile'
+        fileData:
+          type: string
+          description: Base64 encoded file data for new files. This property can be used instead of uploadedFile for small files
+          format: byte
+          writeOnly: true
+        title:
+          type: string
+          description: Document title
+          nullable: true
+        type:
+          $ref: '#/components/schemas/ClassificationRef'
+        visibility:
+          $ref: '#/components/schemas/Visibility'
+        creator:
+          type: string
+          description: The user that created the document
+          readOnly: true
+        created:
+          type: string
+          description: Create date for the document
+          format: date-time
+          readOnly: true
+      description: A milestone document
+    APIStringListResult:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: string
+        count:
+          type: integer
+          format: int32
+    ContractRef:
+      required:
+      - uuid
+      type: object
+      description: A reference to a contract
+      nullable: true
+      allOf:
+      - $ref: '#/components/schemas/ContentRef'
+    LocalizedString:
+      type: object
+      additionalProperties:
+        type: string
+        description: 'A set of string values, one for each submission locale. Note: invalid locale values will be ignored.'
+        nullable: true
+        example: '{"en_GB":"Some text"}'
+      description: 'A set of string values, one for each submission locale. Note: invalid locale values will be ignored.'
+      nullable: true
+      example:
+        en_GB: Some text
+    LocalesList:
+      type: object
+      properties:
+        locales:
+          pattern: /^[a-z]{2}_[A-Z]{2}$/
+          type: array
+          description: Allowed locale values for use in localized string entities. The locale format consists of lower-case ISO 639 alpha-2 language code and upper-cased ISO 3166 alpha-2 country code.
+          items:
+            pattern: /^[a-z]{2}_[A-Z]{2}$/
+            type: string
+            description: Allowed locale values for use in localized string entities. The locale format consists of lower-case ISO 639 alpha-2 language code and upper-cased ISO 3166 alpha-2 country code.
+      description: List of available locales
+    OrderingsList:
+      type: object
+      properties:
+        orderings:
+          type: array
+          description: IDs of ways content can be ordered
+          items:
+            type: string
+            description: IDs of ways content can be ordered
+      description: List of available orderings
+    Milestone:
+      required:
+      - milestoneType
+      - title
+      type: object
+      properties:
+        pureId:
+          type: integer
+          description: Pure database ID of the object, prefer using the UUID if it is present on the entity
+          format: int64
+          readOnly: true
+        uuid:
+          type: string
+          description: UUID, this is the primary identity of the entity
+          format: uuid
+          readOnly: true
+        createdBy:
+          type: string
+          description: Username of creator
+          readOnly: true
+        createdDate:
+          type: string
+          description: Date and time of creation
+          format: date-time
+          readOnly: true
+        modifiedBy:
+          type: string
+          description: Username of the user that performed a modification
+          readOnly: true
+        modifiedDate:
+          type: string
+          description: Date and time of last modification
+          format: date-time
+          readOnly: true
+        portalUrl:
+          type: string
+          description: URL of the content on the Pure Portal
+          readOnly: true
+        prettyUrlIdentifiers:
+          type: array
+          description: All pretty URLs
+          readOnly: true
+          items:
+            type: string
+            description: All pretty URLs
+            readOnly: true
+        previousUuids:
+          type: array
+          description: UUIDs of other content items which have been merged into this content item (or similar)
+          readOnly: true
+          items:
+            type: string
+            description: UUIDs of other content items which have been merged into this content item (or similar)
+            readOnly: true
+        version:
+          type: string
+          description: Used to guard against conflicting updates. For new content this is null, and for existing content the current value. The property should never be modified by a client, except in the rare case where the client wants to perform an update irrespective of if other clients have made updates in the meantime, also known as a "dirty write". A dirty write is performed by not including the property value or setting the property to null
+          nullable: true
+        deadline:
+          type: string
+          description: The deadline date of the milestone.
+          format: date
+          nullable: true
+        completionState:
+          $ref: '#/components/schemas/ClassificationRef'
+        completedDate:
+          type: string
+          description: The date when the milestone was completed. This can only be set when 'completionState' property value is 'completed'
+          format: date
+          nullable: true
+        award:
+          $ref: '#/components/schemas/AwardRef'
+        application:
+          $ref: '#/components/schemas/ApplicationRef'
+        project:
+          $ref: '#/components/schemas/ProjectRef'
+        ethicalReview:
+          $ref: '#/components/schemas/EthicalReviewRef'
+        contract:
+          $ref: '#/components/schemas/ContractRef'
+        completedBy:
+          $ref: '#/components/schemas/UserRef'
+        title:
+          $ref: '#/components/schemas/LocalizedString'
+        reminders:
+          type: array
+          description: List of reminders
+          items:
+            $ref: '#/components/schemas/MilestoneReminder'
+        administrativeRole:
+          type: string
+          description: The user role for the milestone for administrative milestones
+          nullable: true
+        academicRole:
+          $ref: '#/components/schemas/ClassificationRef'
+        description:
+          $ref: '#/components/schemas/FormattedLocalizedString'
+        category:
+          $ref: '#/components/schemas/ClassificationRef'
+        milestoneType:
+          type: string
+          description: Selected milestone type. Based on the value used for 'milestoneType', it is mandatory to fill either 'academicRole' or 'administrativeRole' property as well.
+          enum:
+          - ACADEMIC
+          - ADMINISTRATIVE
+        documents:
+          type: array
+          description: A collection of documents related to the milestone.
+          nullable: true
+          items:
+            $ref: '#/components/schemas/MilestoneDocument'
+        responsibleUsers:
+          type: array
+          description: 'The specific users chosen to be responsible for the content.
+
+            When milestone type is ''Academic'', responsible user can be one of the associated academic, that have a role on the content, that matches the responsible role.
+
+            When the type is ''Administrative'', responsible user must have an administrator role, that matches the selected role.
+
+            When the milestone role is an editor role, the selected user must have an editorial role that matches the owner or related organizations of the milestone.'
+          items:
+            $ref: '#/components/schemas/UserRef'
+        identifiers:
+          type: array
+          description: Identifiers related to the milestone.
+          nullable: true
+          items:
+            $ref: '#/components/schemas/Identifier'
+        systemName:
+          type: string
+          description: The content system name
+          readOnly: true
+      description: A milestone.
+    EthicalReviewRef:
+      required:
+      - uuid
+      type: object
+      description: A reference to an ethical review
+      nullable: true
+      allOf:
+      - $ref: '#/components/schemas/ContentRef'
+  securitySchemes:
+    api-key:
+      type: apiKey
+      description: Security mechanism for the API
+      name: api-key
+      in: header

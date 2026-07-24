@@ -1,0 +1,2376 @@
+openapi: 3.0.1
+info:
+  title: Pure activity application API
+  description: The Pure API provides a secure and complete web services API for using and managing research information data in Pure. The API enables a broad range of use-cases for interacting with research information, from anonymous Open Data scenarios to enabling the next generation Pure admin.
+  termsOfService: ''
+  contact:
+    name: ''
+    url: ''
+    email: pure-support@elsevier.com
+  license:
+    name: ''
+    url: ''
+  version: 5.35.3-4
+servers:
+- url: https://pure.qub.ac.uk/ws/api
+  description: Queen's University Belfast Pure API
+security:
+- api-key: []
+tags:
+- name: application
+paths:
+  /applications:
+    get:
+      tags:
+      - application
+      summary: Lists all applications
+      description: Lists all applications in the Pure instance. If you need to filter the applications returned, see the POST version which supports additional filtering.
+      operationId: application_list
+      parameters:
+      - name: size
+        in: query
+        description: Number of returned applications per request.
+        schema:
+          maximum: 1000
+          type: integer
+          format: int32
+          default: 10
+      - name: offset
+        in: query
+        description: The offset for the returned list. 0 or null value is from the start
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - name: order
+        in: query
+        description: The order of the list, must be a value from application_getOrderings
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationListResult'
+    put:
+      tags:
+      - application
+      summary: Create application
+      description: Create application
+      operationId: application_create
+      requestBody:
+        description: The content to create
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Application'
+        required: true
+      responses:
+        '201':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Application'
+        '400':
+          description: Bad Request
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+  /applications/allowed-applicant-roles:
+    get:
+      tags:
+      - application
+      summary: A list of allowed applicant roles
+      description: Get a list of allowed applicant roles on applications
+      operationId: application_getAllowedApplicantRoles
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationRefList'
+  /applications/allowed-application-statuses:
+    get:
+      tags:
+      - application
+      summary: A list of allowed application statuses
+      description: Get a list of allowed application statuses that can be used for the 'applicationStatuses.status' attribute of applications
+      operationId: application_getAllowedApplicationStatuses
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationRefList'
+  /applications/allowed-budget-account-classifications:
+    get:
+      tags:
+      - application
+      summary: A list of allowed account classifications
+      description: Get a list of allowed account classifications for application budgets
+      operationId: application_getAllowedBudgetAccountClassifications
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationRefList'
+  /applications/allowed-classified-identifier-types:
+    get:
+      tags:
+      - application
+      summary: A list of allowed classified identifier types
+      description: Get a list of allowed classified identifier types that can be used for the 'identifiers.type' attribute of applications
+      operationId: application_getAllowedClassifiedIdentifierTypes
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationRefList'
+  /applications/allowed-collaborator-types:
+    get:
+      tags:
+      - application
+      summary: A list of allowed collaborators types
+      description: Get a list of allowed collaborator types on applications
+      operationId: application_getAllowedCollaboratorTypes
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationRefList'
+  /applications/allowed-custom-defined-field-values/{propertyName}/classifications:
+    get:
+      tags:
+      - application
+      summary: Get allowed classifications for the custom-defined field associated with the application
+      description: Get allowed classifications for the custom-defined field associated with the application.
+      operationId: application_getAllowedCustomDefinedFieldClassifications
+      parameters:
+      - name: propertyName
+        in: path
+        description: PropertyName for the desired custom-defined field
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationRefList'
+        '400':
+          description: Bad request
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '404':
+          description: Resource not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+  /applications/allowed-description-types:
+    get:
+      tags:
+      - application
+      summary: A list of allowed description types
+      description: Get a list of allowed description types on applications
+      operationId: application_getAllowedDescriptionTypes
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationRefList'
+  /applications/allowed-document-licenses:
+    get:
+      tags:
+      - application
+      summary: A list of allowed document licenses
+      description: Get a list of allowed document licenses for applications
+      operationId: application_getAllowedDocumentLicenses
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationRefList'
+  /applications/allowed-document-types:
+    get:
+      tags:
+      - application
+      summary: A list of allowed document types
+      description: Get a list of allowed document types on applications
+      operationId: application_getAllowedDocumentTypes
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationRefList'
+  /applications/allowed-document-version-types:
+    get:
+      tags:
+      - application
+      summary: A list of allowed document version types
+      description: Get a list of allowed document version types for applications
+      operationId: application_getAllowedDocumentVersionTypes
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationRefList'
+  /applications/allowed-funding-classifications:
+    get:
+      tags:
+      - application
+      summary: A list of allowed fundings classifications
+      description: Get a list of allowed funding classifications for fundings on applications
+      operationId: application_getAllowedFundingClassifications
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationRefList'
+  /applications/allowed-keyword-group-configurations:
+    get:
+      tags:
+      - application
+      summary: A list of keyword group configurations
+      description: Get a list of allowed keyword group configurations that can be used when submitting keyword groups.
+      operationId: application_getAllowedKeywordGroupConfigurations
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AllowedKeywordGroupConfigurationList'
+  /applications/allowed-keyword-group-configurations/{id}/classifications:
+    get:
+      tags:
+      - application
+      summary: A list of allowed classifications for the specified keyword group
+      description: Get a list of allowed classifications that can be used when submitting a specified keyword group.
+      operationId: application_getAllowedKeywordGroupConfigurationClassifications
+      parameters:
+      - name: id
+        in: path
+        description: Pure id of the keyword group configuration
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationRefList'
+  /applications/allowed-link-types:
+    get:
+      tags:
+      - application
+      summary: A list of allowed link types
+      description: Get a list of allowed link types for applications
+      operationId: application_getAllowedLinkTypes
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationRefList'
+  /applications/allowed-locales:
+    get:
+      tags:
+      - application
+      summary: A list of allowed locales in localized strings
+      description: Get a list of allowed locales that can be used when submitting localized string entities.
+      operationId: application_getAllowedLocales
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LocalesList'
+  /applications/allowed-nature-types:
+    get:
+      tags:
+      - application
+      summary: A list of allowed nature types
+      description: Get a list of allowed nature types for applications
+      operationId: application_getAllowedNatureTypes
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationRefList'
+  /applications/allowed-templates:
+    get:
+      tags:
+      - application
+      summary: A list of allowed application templates
+      description: Get a list of allowed templates that can be used for applications. Some of the templates that exists in the API specification may be disabled for the Pure installation.
+      operationId: application_getAllowedTemplates
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AllowedTemplateListResult'
+  /applications/allowed-types:
+    get:
+      tags:
+      - application
+      summary: A list of allowed application types
+      description: Get a list of allowed types that can be used for the 'type' attribute of applications
+      operationId: application_getAllowedTypes
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationRefList'
+  /applications/allowed-workflow-steps:
+    get:
+      tags:
+      - application
+      summary: A list of allowed workflow steps
+      description: Get a list of allowed workflow steps that can be used for the 'workflow' attribute of applications
+      operationId: application_getAllowedWorkflowSteps
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowListResult'
+  /applications/disciplines/allowed-discipline-schemes:
+    get:
+      tags:
+      - application
+      summary: A list of allowed discipline schemes
+      description: Get a list fo a allowed discipline schemes for applications
+      operationId: application_getAllowedDisciplineSchemes
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DisciplinesDisciplineSchemeListResult'
+  /applications/disciplines/{discipline-scheme}/allowed-disciplines:
+    get:
+      tags:
+      - application
+      summary: A list of allowed disciplines for a specific discipline scheme
+      description: Get a list of a allowed disciplines for specific discipline scheme for applications
+      operationId: application_getAllowedDisciplines
+      parameters:
+      - name: discipline-scheme
+        in: path
+        description: Identifier for the discipline scheme for application
+        required: true
+        schema:
+          type: string
+      - name: size
+        in: query
+        description: Number of returned disciplines per request
+        schema:
+          maximum: 1000
+          type: integer
+          format: int32
+          default: 10
+      - name: offset
+        in: query
+        description: The offset for the returned list. 0 or null value is from the start
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DisciplinesDisciplineListResult'
+  /applications/disciplines/{discipline-scheme}/search:
+    post:
+      tags:
+      - application
+      summary: Query operation for disciplines associated with applications
+      description: Lists disciplines from the discipline scheme associated with applications in the Pure instance that matches the provided query.
+      operationId: application_listDisciplineAssociations
+      parameters:
+      - name: discipline-scheme
+        in: path
+        description: Identifier for the discipline scheme
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: The query to perform
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DisciplinesAssociationsQuery'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DisciplinesAssociationListResult'
+        '400':
+          description: Bad request
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+  /applications/file-uploads:
+    put:
+      tags:
+      - application
+      summary: Upload file to a specific application
+      description: Uploads file for the application
+      operationId: application_fileUploads
+      parameters:
+      - name: Content-Type
+        in: header
+        description: Set the mime type for the file
+        schema:
+          type: string
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              type: string
+              format: binary
+        required: true
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UploadedFile'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/UploadedFile'
+  /applications/orderings:
+    get:
+      tags:
+      - application
+      summary: Lists available orderings
+      description: Lists all orderings available to the application endpoint. These values can be used by the order parameter.
+      operationId: application_getOrderings
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderingsList'
+  /applications/search:
+    post:
+      tags:
+      - application
+      summary: Query operation for applications
+      description: Lists applications in the Pure instance that matches the provided query, similar to the GET version, instead of using parameters to alter the response, an JSON document is posted with the request. The JSON document contains fields for all the parameters available for the GET version, but also additional filtering options.
+      operationId: application_query
+      requestBody:
+        description: The query to perform
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApplicationsQuery'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationListResult'
+        '400':
+          description: Bad request
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+  /applications/{uuid}:
+    get:
+      tags:
+      - application
+      summary: Get application
+      description: Get application with specific UUID.
+      operationId: application_get
+      parameters:
+      - name: uuid
+        in: path
+        description: UUID of the desired application
+        required: true
+        schema:
+          pattern: .+
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Application'
+        '301':
+          description: The requested content have changed UUID
+        '404':
+          description: Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+    put:
+      tags:
+      - application
+      summary: Update application
+      description: Update application with specific UUID.
+      operationId: application_update
+      parameters:
+      - name: uuid
+        in: path
+        description: UUID of the application to update
+        required: true
+        schema:
+          pattern: .+
+          type: string
+          format: uuid
+      requestBody:
+        description: The content to update
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Application'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Application'
+        '400':
+          description: Bad Request
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '404':
+          description: Resource not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '409':
+          description: Version conflict
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ConflictProblemDetails'
+    delete:
+      tags:
+      - application
+      summary: Delete application
+      description: Delete application with specific UUID.
+      operationId: application_delete
+      parameters:
+      - name: uuid
+        in: path
+        description: UUID of the application
+        required: true
+        schema:
+          pattern: .+
+          type: string
+          format: uuid
+      responses:
+        '204':
+          description: Successful operation
+        '404':
+          description: Resource not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '409':
+          description: Conflict
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ConflictProblemDetails'
+  /applications/{uuid}/actions/lock:
+    post:
+      tags:
+      - application
+      summary: Lock the content
+      description: Mark the content as external (used when content contains synchronised data). This has no effect on interactions with the content through the API.
+      operationId: application_lock
+      parameters:
+      - name: uuid
+        in: path
+        description: UUID of the content to lock
+        required: true
+        schema:
+          pattern: .+
+          type: string
+          format: uuid
+      responses:
+        '204':
+          description: Content marked as locked
+        '404':
+          description: Resource not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '409':
+          description: Content already locked
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ConflictProblemDetails'
+  /applications/{uuid}/actions/unlock:
+    post:
+      tags:
+      - application
+      summary: Unlock the content
+      description: Remove the external mark on the content (used when content contains synchronised data). This has no effect on interactions with the content through the API.
+      operationId: application_unlock
+      parameters:
+      - name: uuid
+        in: path
+        description: UUID of the content to unlock
+        required: true
+        schema:
+          pattern: .+
+          type: string
+          format: uuid
+      responses:
+        '204':
+          description: Content marked as unlocked
+        '404':
+          description: Resource not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '409':
+          description: Content already unlocked
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ConflictProblemDetails'
+  /applications/{uuid}/budgets:
+    get:
+      tags:
+      - application
+      summary: Get the budgets for the application
+      description: Get the budgets for the application with the specified UUID.
+      operationId: application_getBudgets
+      parameters:
+      - name: uuid
+        in: path
+        description: UUID of the application
+        required: true
+        schema:
+          pattern: .+
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationBudgetResult'
+        '404':
+          description: Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+  /applications/{uuid}/budgets/{id}:
+    get:
+      tags:
+      - application
+      summary: Get a specific budget for the application
+      description: Get a specific budget for the application with the specified UUID.
+      operationId: application_getBudget
+      parameters:
+      - name: uuid
+        in: path
+        description: UUID of the application
+        required: true
+        schema:
+          pattern: .+
+          type: string
+          format: uuid
+      - name: id
+        in: path
+        description: ID of the budget
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationBudget'
+        '404':
+          description: Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+    put:
+      tags:
+      - application
+      summary: Update budget for an application
+      description: Update budget for an application with specific UUID.
+      operationId: application_updateBudget
+      parameters:
+      - name: uuid
+        in: path
+        description: UUID of the application with the budget
+        required: true
+        schema:
+          pattern: .+
+          type: string
+          format: uuid
+      - name: id
+        in: path
+        description: ID of the budget to update
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: The content to update
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApplicationBudget'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationBudget'
+        '400':
+          description: Bad Request
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '404':
+          description: Resource not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '409':
+          description: Version conflict
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ConflictProblemDetails'
+  /applications/{uuid}/cluster:
+    get:
+      tags:
+      - application
+      summary: Get the application cluster for the application
+      description: Get the application cluster for the application with the specified UUID.
+      operationId: application_getCluster
+      parameters:
+      - name: uuid
+        in: path
+        description: UUID of the application
+        required: true
+        schema:
+          pattern: .+
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationCluster'
+        '404':
+          description: Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+  /applications/{uuid}/dependents:
+    get:
+      tags:
+      - application
+      summary: Lists all dependents to an application
+      description: 'Lists all dependents to an application with the specified UUID. If the user does not have access to view all the dependent content, an authorization error will be thrown. '
+      operationId: application_dependents
+      parameters:
+      - name: uuid
+        in: path
+        description: UUID of the application
+        required: true
+        schema:
+          pattern: .+
+          type: string
+          format: uuid
+      - name: verbose
+        in: query
+        description: DEPRECATED - Parameter has no effect.
+        deprecated: true
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContentRefListResult'
+  /applications/{uuid}/disciplines/{discipline-scheme}:
+    get:
+      tags:
+      - application
+      summary: Get disciplines from the discipline scheme associated with the application
+      description: Get disciplines from the discipline scheme associated with the application with specific UUID.
+      operationId: application_getDisciplineAssociation
+      parameters:
+      - name: uuid
+        in: path
+        description: UUID of the desired application
+        required: true
+        schema:
+          pattern: .+
+          type: string
+          format: uuid
+      - name: discipline-scheme
+        in: path
+        description: Identifier for the discipline scheme
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DisciplinesAssociation'
+        '404':
+          description: Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+    put:
+      tags:
+      - application
+      summary: Update disciplines from the discipline scheme associated with the application
+      description: Update disciplines from the discipline scheme associated with the application with specific UUID.
+      operationId: application_putDisciplineAssociation
+      parameters:
+      - name: uuid
+        in: path
+        description: UUID of the application to update
+        required: true
+        schema:
+          pattern: .+
+          type: string
+          format: uuid
+      - name: discipline-scheme
+        in: path
+        description: Identifier for the discipline scheme
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: The disciplines association to create
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DisciplinesAssociation'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DisciplinesAssociation'
+        '400':
+          description: Bad Request
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '404':
+          description: Resource not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+  /applications/{uuid}/files/{fileId}:
+    get:
+      tags:
+      - application
+      summary: Get file from the application
+      description: Get file from the application
+      operationId: application_getFile
+      parameters:
+      - name: uuid
+        in: path
+        description: UUID of the application
+        required: true
+        schema:
+          pattern: .+
+          type: string
+          format: uuid
+      - name: fileId
+        in: path
+        description: 'File id '
+        required: true
+        schema:
+          pattern: .+
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            '*/*':
+              schema:
+                type: string
+                format: binary
+  /applications/{uuid}/notes:
+    get:
+      tags:
+      - application
+      summary: Lists notes
+      description: Lists notes associated with an application ordered by date (nulls last)
+      operationId: application_listNotes
+      parameters:
+      - name: uuid
+        in: path
+        description: UUID of the application to get notes for
+        required: true
+        schema:
+          pattern: .+
+          type: string
+          format: uuid
+      - name: size
+        in: query
+        description: Number of returned notes per request
+        schema:
+          maximum: 1000
+          type: integer
+          format: int32
+          default: 10
+      - name: offset
+        in: query
+        description: The offset for the returned list. 0 or null value is from the start
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoteListResult'
+        '404':
+          description: Application not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+    put:
+      tags:
+      - application
+      summary: Create note
+      description: Create note and associate it with the application
+      operationId: application_createNote
+      parameters:
+      - name: uuid
+        in: path
+        description: UUID of the application to add note to
+        required: true
+        schema:
+          pattern: .+
+          type: string
+          format: uuid
+      requestBody:
+        description: The note to create
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Note'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Note'
+        '400':
+          description: Bad Request
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+components:
+  schemas:
+    YearlyBudget:
+      type: object
+      properties:
+        pureId:
+          type: integer
+          description: Pure database ID of the object, prefer using the UUID if it is present on the entity
+          format: int64
+          readOnly: true
+        budget:
+          $ref: '#/components/schemas/SystemCurrencyAmount'
+        year:
+          type: integer
+          description: The year of the yearly budget.
+          format: int32
+          nullable: true
+      description: A yearly budget of an account.
+    DisciplinesDisciplineScheme:
+      required:
+      - disciplineScheme
+      - title
+      type: object
+      properties:
+        disciplineScheme:
+          type: string
+          description: The discipline scheme identifier
+        title:
+          type: string
+          description: The discipline title
+      description: A discipline scheme
+    SystemLocalizedString:
+      type: object
+      additionalProperties:
+        type: string
+        description: A set of localized string values each for a specific UI locale.
+        nullable: true
+        example: '{"en_GB":"Some text"}'
+      description: A set of localized string values each for a specific UI locale.
+      nullable: true
+      example:
+        en_GB: Some text
+    ApplicationClusterRef:
+      required:
+      - uuid
+      type: object
+      description: A reference to an application cluster
+      nullable: true
+      allOf:
+      - $ref: '#/components/schemas/ContentRef'
+    UploadedFile:
+      required:
+      - key
+      type: object
+      properties:
+        digest:
+          type: string
+          description: The calculated digest for the file in Pure
+          readOnly: true
+        digestType:
+          type: string
+          description: The digest type
+          readOnly: true
+        size:
+          type: integer
+          description: The file size of the file in Pure
+          format: int64
+          readOnly: true
+        mimeType:
+          type: string
+          description: The mime type detected for the file
+          readOnly: true
+        timeStamp:
+          type: string
+          description: The timestamp Pure received the file
+          format: date-time
+          readOnly: true
+        expires:
+          type: string
+          description: The timestamp where Pure deletes the uploaded file if it has not been attached to any content
+          format: date-time
+          readOnly: true
+        key:
+          type: string
+          description: Pure key identifer for the file upload
+          readOnly: true
+      description: Information about the uploaded file
+    DisciplinesDisciplineListResult:
+      type: object
+      properties:
+        count:
+          type: integer
+          description: The full count, ignoring paging
+          format: int32
+        pageInformation:
+          $ref: '#/components/schemas/PageInformation'
+        items:
+          type: array
+          description: Disciplines
+          items:
+            $ref: '#/components/schemas/DisciplinesDiscipline'
+      description: List of disciplines for a specific discipline scheme
+    ApplicationFundingAssociation:
+      required:
+      - typeDiscriminator
+      type: object
+      properties:
+        pureId:
+          type: integer
+          description: Pure database ID of the object, prefer using the UUID if it is present on the entity
+          format: int64
+          readOnly: true
+        costCode:
+          type: string
+          description: The cost code of the funding.
+          nullable: true
+        funder:
+          $ref: '#/components/schemas/ExternalOrganizationRef'
+        internalFunder:
+          $ref: '#/components/schemas/OrganizationRef'
+        classifications:
+          type: array
+          description: Related classifications of the funding.
+          nullable: true
+          items:
+            $ref: '#/components/schemas/ClassificationRef'
+        fundingProjectScheme:
+          type: string
+          description: The funding project scheme of the funding, also known as research program.
+          nullable: true
+        visibility:
+          $ref: '#/components/schemas/Visibility'
+        typeDiscriminator:
+          type: string
+      description: Funding associations exists in two variants, financial or non-financial.
+      discriminator:
+        propertyName: typeDiscriminator
+        mapping:
+          ApplicationFinancialFundingAssociation: '#/components/schemas/ApplicationFinancialFundingAssociation'
+          ApplicationNonFinancialFundingAssociation: '#/components/schemas/ApplicationNonFinancialFundingAssociation'
+    ApplicationListResult:
+      type: object
+      properties:
+        count:
+          type: integer
+          description: The full count, ignoring paging
+          format: int32
+        pageInformation:
+          $ref: '#/components/schemas/PageInformation'
+        items:
+          type: array
+          description: Applications
+          items:
+            $ref: '#/components/schemas/Application'
+      description: List of applications. Can contain a subset of all items along with the full count
+    Link:
+      required:
+      - url
+      type: object
+      properties:
+        pureId:
+          type: integer
+          description: Pure database ID of the object, prefer using the UUID if it is present on the entity
+          format: int64
+          readOnly: true
+        url:
+          type: string
+          description: The URL (Uniform Resource Locator) of the link
+        alias:
+          type: string
+          description: A user-friendly text to show instead of the URL
+          nullable: true
+        description:
+          $ref: '#/components/schemas/LocalizedString'
+        linkType:
+          $ref: '#/components/schemas/ClassificationRef'
+      description: A hyperlink describing a location on the web.
+    ConflictProblemDetails:
+      type: object
+      properties:
+        type:
+          type: string
+          description: A URI reference [RFC3986] that identifies the problem type.
+        title:
+          type: string
+          description: A short, human-readable summary of the problem type. It SHOULD NOT change from occurrence to occurrence of the problem, except for purposes of localization (e.g., using proactive content negotiation; see [RFC7231], Section 3.4).
+        status:
+          type: integer
+          description: The HTTP status code ([RFC7231], Section 6) generated by the origin server for this occurrence of the problem.
+          format: int32
+        detail:
+          type: string
+          description: A human-readable explanation specific to this occurrence of the problem.
+        instance:
+          type: string
+          description: A URI reference that identifies the specific occurrence of the problem.  It may or may not yield further information if dereferenced.
+        modified:
+          type: string
+          format: date-time
+        modifiedBy:
+          type: string
+      description: Problem details for state conflict failures
+    ApplicationsQuery:
+      type: object
+      properties:
+        uuids:
+          type: array
+          items:
+            type: string
+            format: uuid
+        size:
+          type: integer
+          format: int32
+        offset:
+          type: integer
+          format: int32
+        orderings:
+          type: array
+          items:
+            type: string
+        searchString:
+          type: string
+          description: String used to perform search
+        orderBy:
+          type: string
+          writeOnly: true
+      description: Create a query for applications
+    ExternalOrganizationRef:
+      required:
+      - uuid
+      type: object
+      description: A reference to an organization external to the institution
+      nullable: true
+      allOf:
+      - $ref: '#/components/schemas/ContentRef'
+    Identifier:
+      required:
+      - typeDiscriminator
+      type: object
+      properties:
+        typeDiscriminator:
+          type: string
+      discriminator:
+        propertyName: typeDiscriminator
+        mapping:
+          ClassifiedId: '#/components/schemas/ClassifiedId'
+          PrimaryId: '#/components/schemas/PrimaryId'
+          Id: '#/components/schemas/Id'
+    Visibility:
+      required:
+      - key
+      type: object
+      properties:
+        key:
+          type: string
+          description: Visibility value
+          enum:
+          - FREE
+          - CAMPUS
+          - BACKEND
+          - CONFIDENTIAL
+        description:
+          $ref: '#/components/schemas/SystemLocalizedString'
+      description: Visibility of an object
+    Name:
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+      description: A name describing a person, made up of given- and family name
+    DisciplinesDisciplineSchemeListResult:
+      type: object
+      properties:
+        count:
+          type: integer
+          description: The amount of discipline schemes
+          format: int32
+        items:
+          type: array
+          description: Discipline schemes
+          items:
+            $ref: '#/components/schemas/DisciplinesDisciplineScheme'
+      description: List of discipline schemes
+    AllowedTemplateListResult:
+      type: object
+      properties:
+        items:
+          type: array
+          description: Allowed templates.
+          items:
+            $ref: '#/components/schemas/AllowedTemplate'
+      description: List of allowed templates.
+    DisciplinesDisciplineAssignment:
+      required:
+      - disciplineId
+      - splitPercentage
+      type: object
+      properties:
+        disciplineId:
+          type: string
+          description: The assigned discipline
+        splitPercentage:
+          type: number
+          description: The split percentages within an assigned discipline scheme must sum up to 100%
+          format: double
+      description: The assigned discipline and its split percentage
+    DisciplinesAssociationsQuery:
+      type: object
+      properties:
+        uuids:
+          type: array
+          items:
+            type: string
+            format: uuid
+        size:
+          type: integer
+          format: int32
+        offset:
+          type: integer
+          format: int32
+      description: Create a query for discipline associations
+    AbstractApplicantAssociation:
+      required:
+      - role
+      - typeDiscriminator
+      type: object
+      properties:
+        pureId:
+          type: integer
+          description: Pure database ID of the object, prefer using the UUID if it is present on the entity
+          format: int64
+          readOnly: true
+        externalOrganizations:
+          type: array
+          description: A collection of external organization affiliations.
+          nullable: true
+          items:
+            $ref: '#/components/schemas/ExternalOrganizationRef'
+        academicOwnershipPercentage:
+          maximum: 1
+          minimum: 0
+          type: number
+          description: Academic ownership of the applicant.
+          format: double
+          nullable: true
+        plannedResearcherCommitmentPercentage:
+          maximum: 1
+          minimum: 0
+          type: number
+          description: Planned researcher commitment of the applicant.
+          format: double
+          nullable: true
+        researcherCommitments:
+          type: array
+          description: Planned and actual research commitment for the applicant.
+          nullable: true
+          items:
+            $ref: '#/components/schemas/ResearcherCommitment'
+        name:
+          $ref: '#/components/schemas/Name'
+        role:
+          $ref: '#/components/schemas/ClassificationRef'
+        typeDiscriminator:
+          type: string
+      description: An association between an application and a person that has applied for it.
+      discriminator:
+        propertyName: typeDiscriminator
+        mapping:
+          InternalApplicantAssociation: '#/components/schemas/InternalApplicantAssociation'
+          ExternalApplicantAssociation: '#/components/schemas/ExternalApplicantAssociation'
+    Note:
+      required:
+      - text
+      type: object
+      properties:
+        date:
+          type: string
+          description: Date and time of when the note was created, an event occurred or similar. Can be any point in time, but <now> is normally preferred
+          format: date-time
+          nullable: true
+        username:
+          type: string
+          description: Username related to the note. Usually a username of the user creating the note. Does not have to be a username of a Pure user
+          nullable: true
+        text:
+          type: string
+          description: Note text
+      description: A note
+    AllowedKeywordGroupConfigurationList:
+      type: object
+      properties:
+        configurations:
+          type: array
+          items:
+            $ref: '#/components/schemas/AllowedKeywordGroupConfiguration'
+      description: List of allowed keyword group configurations
+    ClassificationRef:
+      required:
+      - uri
+      type: object
+      properties:
+        uri:
+          type: string
+          description: Classification URI of the referred classification
+        term:
+          $ref: '#/components/schemas/SystemLocalizedString'
+      description: A reference to a classification value
+      nullable: true
+    CollaboratorAssociation:
+      required:
+      - typeDiscriminator
+      type: object
+      properties:
+        pureId:
+          type: integer
+          description: Pure database ID of the object, prefer using the UUID if it is present on the entity
+          format: int64
+          readOnly: true
+        type:
+          $ref: '#/components/schemas/ClassificationRef'
+        leadCollaborator:
+          type: boolean
+          description: Whether this collaborator is lead collaborator or not.
+          nullable: true
+        typeDiscriminator:
+          type: string
+      description: A collaborator associated with the content.
+      discriminator:
+        propertyName: typeDiscriminator
+        mapping:
+          InternalCollaboratorAssociation: '#/components/schemas/InternalCollaboratorAssociation'
+          ExternalCollaboratorAssociation: '#/components/schemas/ExternalCollaboratorAssociation'
+    ResearcherCommitment:
+      required:
+      - yearMonth
+      type: object
+      properties:
+        pureId:
+          type: integer
+          description: Pure database ID of the object, prefer using the UUID if it is present on the entity
+          format: int64
+          readOnly: true
+        actualResearcherCommitment:
+          maximum: 1
+          minimum: 0
+          type: number
+          description: The actual researcher commitment.
+          format: double
+          nullable: true
+        plannedResearcherCommitment:
+          maximum: 1
+          minimum: 0
+          type: number
+          description: The planned researcher commitment.
+          format: double
+          nullable: true
+        yearMonth:
+          $ref: '#/components/schemas/YearMonth'
+      description: Planned and actual research commitment.
+    AccountEntry:
+      type: object
+      properties:
+        pureId:
+          type: integer
+          description: Pure database ID of the object, prefer using the UUID if it is present on the entity
+          format: int64
+          readOnly: true
+        amount:
+          $ref: '#/components/schemas/SystemCurrencyAmount'
+        yearMonth:
+          $ref: '#/components/schemas/YearMonth'
+        commitment:
+          type: boolean
+          description: Is the entry only a commitment?
+      description: An account entry of an account.
+    ContentRefListResult:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContentRef'
+      description: List of Content Refs
+    ProjectRef:
+      required:
+      - uuid
+      type: object
+      description: A reference to project
+      nullable: true
+      allOf:
+      - $ref: '#/components/schemas/ContentRef'
+    ProblemDetails:
+      type: object
+      properties:
+        type:
+          type: string
+          description: A URI reference [RFC3986] that identifies the problem type.
+        title:
+          type: string
+          description: A short, human-readable summary of the problem type. It SHOULD NOT change from occurrence to occurrence of the problem, except for purposes of localization (e.g., using proactive content negotiation; see [RFC7231], Section 3.4).
+        status:
+          type: integer
+          description: The HTTP status code ([RFC7231], Section 6) generated by the origin server for this occurrence of the problem.
+          format: int32
+        detail:
+          type: string
+          description: A human-readable explanation specific to this occurrence of the problem.
+        instance:
+          type: string
+          description: A URI reference that identifies the specific occurrence of the problem.  It may or may not yield further information if dereferenced.
+      description: RFC7807 Error details
+      discriminator:
+        propertyName: type
+        mapping:
+          /error: '#/components/schemas/GenericProblemDetails'
+          /validation-error: '#/components/schemas/ValidationProblemDetails'
+          /dependency-violation-error: '#/components/schemas/DependencyViolationProblemDetails'
+    ApplicationRef:
+      required:
+      - uuid
+      type: object
+      description: A reference to an application
+      nullable: true
+      allOf:
+      - $ref: '#/components/schemas/ContentRef'
+    ContentRef:
+      required:
+      - systemName
+      - uuid
+      type: object
+      properties:
+        uuid:
+          type: string
+          description: UUID of the referred content
+          format: uuid
+        systemName:
+          type: string
+      nullable: true
+      discriminator:
+        propertyName: systemName
+        mapping:
+          AccessDefinition: '#/components/schemas/AccessDefinitionRef'
+          Activity: '#/components/schemas/ActivityRef'
+          Application: '#/components/schemas/ApplicationRef'
+          AuthorCollaboration: '#/components/schemas/AuthorCollaborationRef'
+          Award: '#/components/schemas/AwardRef'
+          ClassificationScheme: '#/components/schemas/ClassificationSchemeRef'
+          ConferenceSeries: '#/components/schemas/ConferenceSeriesRef'
+          DataSet: '#/components/schemas/DataSetRef'
+          Equipment: '#/components/schemas/EquipmentRef'
+          Event: '#/components/schemas/EventRef'
+          ExternalOrganization: '#/components/schemas/ExternalOrganizationRef'
+          ExternalPerson: '#/components/schemas/ExternalPersonRef'
+          Impact: '#/components/schemas/ImpactRef'
+          Journal: '#/components/schemas/JournalRef'
+          Organization: '#/components/schemas/OrganizationRef'
+          Person: '#/components/schemas/PersonRef'
+          Publisher: '#/components/schemas/PublisherRef'
+          PressMedia: '#/components/schemas/PressMediaRef'
+          Prize: '#/components/schemas/PrizeRef'
+          Project: '#/components/schemas/ProjectRef'
+          ResearchOutput: '#/components/schemas/ResearchOutputRef'
+          StudentThesis: '#/components/schemas/StudentThesisRef'
+          FundingOpportunity: '#/components/schemas/FundingOpportunityRef'
+          EthicalReview: '#/components/schemas/EthicalReviewRef'
+          ApplicationCluster: '#/components/schemas/ApplicationClusterRef'
+          AwardCluster: '#/components/schemas/AwardClusterRef'
+          User: '#/components/schemas/UserRef'
+          ERA2018FieldOfResearch: '#/components/schemas/Anzsrc2008FieldOfResearchRef'
+          UnitOfAssessmentREF2014: '#/components/schemas/Ref2014UnitOfAssessmentRef'
+          UnitOfAssessmentREF2020: '#/components/schemas/Ref2020UnitOfAssessmentRef'
+          ANZSRCTypeOfActivity: '#/components/schemas/Anzsrc2020TypeOfActivityRef'
+          ANZSRCFieldOfResearch: '#/components/schemas/Anzsrc2020FieldOfResearchRef'
+          ANZSRCSocioEconomicObjective: '#/components/schemas/Anzsrc2020SocioEconomicObjectiveRef'
+          Semester: '#/components/schemas/SemesterRef'
+          Education: '#/components/schemas/EducationRef'
+          Course: '#/components/schemas/CourseRef'
+          CurriculumVitae: '#/components/schemas/CurriculumVitaeRef'
+          CustomDefinedFieldConfiguration: '#/components/schemas/CustomDefinedFieldConfigurationRef'
+          KeywordGroupConfiguration: '#/components/schemas/KeywordGroupConfigurationRef'
+          Review: '#/components/schemas/ReviewRef'
+          GenericContentRef: '#/components/schemas/GenericContentRef'
+          UserProfile: '#/components/schemas/UserProfileRef'
+          Thesaurus: '#/components/schemas/ThesaurusRef'
+          Concept: '#/components/schemas/ConceptRef'
+          PersonExpertise: '#/components/schemas/PersonExpertiseRef'
+          Contract: '#/components/schemas/ContractRef'
+          Milestone: '#/components/schemas/MilestoneRef'
+          Fingerprint: '#/components/schemas/FingerprintRef'
+          Specialization: '#/components/schemas/SpecializationRef'
+          StudentProject: '#/components/schemas/StudentProjectRef'
+    Account:
+      type: object
+      properties:
+        pureId:
+          type: integer
+          description: Pure database ID of the object, prefer using the UUID if it is present on the entity
+          format: int64
+          readOnly: true
+        budget:
+          $ref: '#/components/schemas/SystemCurrencyAmount'
+        classification:
+          $ref: '#/components/schemas/ClassificationRef'
+        costCenter:
+          $ref: '#/components/schemas/ClassificationRef'
+        entries:
+          type: array
+          description: Associated account entries of the account.
+          nullable: true
+          items:
+            $ref: '#/components/schemas/AccountEntry'
+        funderContribution:
+          $ref: '#/components/schemas/SystemCurrencyAmount'
+        recoveryPercentage:
+          type: number
+          description: The recovery percentage of the budget.
+          format: double
+          nullable: true
+        specification:
+          type: string
+          description: The specification of the budget.
+          nullable: true
+        yearlyBudgets:
+          type: array
+          description: Yearly budgets of the account.
+          nullable: true
+          items:
+            $ref: '#/components/schemas/YearlyBudget'
+      description: An account of a budget.
+    ApplicationBudgetResult:
+      type: object
+      properties:
+        count:
+          type: integer
+          description: The full count, ignoring paging
+          format: int32
+        pageInformation:
+          $ref: '#/components/schemas/PageInformation'
+        items:
+          type: array
+          description: ApplicationBudgets
+          items:
+            $ref: '#/components/schemas/ApplicationBudget'
+      description: List of application budgets. Can contain a subset of all items along with the full count
+    DisciplinesDiscipline:
+      type: object
+      properties:
+        disciplineId:
+          type: string
+          description: The discipline identifier
+          readOnly: true
+        title:
+          type: string
+          description: The discipline title
+          readOnly: true
+        description:
+          type: string
+          description: The discipline description
+          readOnly: true
+      description: A discipline within a specific discipline scheme
+    FundingOpportunityRef:
+      required:
+      - uuid
+      type: object
+      description: A reference to a funding opportunity
+      nullable: true
+      allOf:
+      - $ref: '#/components/schemas/ContentRef'
+    CustomDefinedField:
+      required:
+      - typeDiscriminator
+      type: object
+      properties:
+        typeDiscriminator:
+          type: string
+      description: Map of CustomDefinedField values, where the key is the field identifier
+      nullable: true
+      example: '{ "fieldName1": "typeDiscriminator": "Integer", "value" : 1}'
+      discriminator:
+        propertyName: typeDiscriminator
+        mapping:
+          Integer: '#/components/schemas/CustomDefinedFieldInteger'
+          String: '#/components/schemas/CustomDefinedFieldString'
+          Date: '#/components/schemas/CustomDefinedFieldDate'
+          Classification: '#/components/schemas/CustomDefinedFieldClassification'
+          Boolean: '#/components/schemas/CustomDefinedFieldBoolean'
+          Decimal: '#/components/schemas/CustomDefinedFieldDecimal'
+    OrganizationRef:
+      required:
+      - uuid
+      type: object
+      description: A reference to an organization in the institution
+      nullable: true
+      allOf:
+      - $ref: '#/components/schemas/ContentRef'
+    CustomDefinedFields:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/CustomDefinedField'
+      description: Map of CustomDefinedField values, where the key is the field identifier
+      nullable: true
+      example: '{ "fieldName1": "typeDiscriminator": "Integer", "value" : 1}'
+    AwardRef:
+      required:
+      - uuid
+      type: object
+      description: A reference to an award
+      nullable: true
+      allOf:
+      - $ref: '#/components/schemas/ContentRef'
+    PageInformation:
+      type: object
+      properties:
+        offset:
+          type: integer
+          description: Offset that returned items start at
+          format: int32
+        size:
+          type: integer
+          description: The requested number of items. May be higher than the actual number of items in the result if there are fewer items in the store than requested
+          format: int32
+      description: Information about pages
+    ApplicationFundingBudgetAssociation:
+      required:
+      - visibility
+      type: object
+      properties:
+        pureId:
+          type: integer
+          description: Pure database ID of the object, prefer using the UUID if it is present on the entity
+          format: int64
+          readOnly: true
+        accounts:
+          type: array
+          description: Associated accounts of the budget.
+          nullable: true
+          items:
+            $ref: '#/components/schemas/Account'
+        costCenter:
+          $ref: '#/components/schemas/ClassificationRef'
+        costCode:
+          type: string
+          description: The cost code of the budget.
+          nullable: true
+        organization:
+          $ref: '#/components/schemas/OrganizationRef'
+        visibility:
+          $ref: '#/components/schemas/Visibility'
+      description: A budget for a financial funding of an application.
+    ApplicationCluster:
+      type: object
+      properties:
+        pureId:
+          type: integer
+          description: Pure database ID of the object, prefer using the UUID if it is present on the entity
+          format: int64
+          readOnly: true
+        uuid:
+          type: string
+          description: UUID, this is the primary identity of the entity
+          format: uuid
+          readOnly: true
+        createdBy:
+          type: string
+          description: Username of creator
+          readOnly: true
+        createdDate:
+          type: string
+          description: Date and time of creation
+          format: date-time
+          readOnly: true
+        modifiedBy:
+          type: string
+          description: Username of the user that performed a modification
+          readOnly: true
+        modifiedDate:
+          type: string
+          description: Date and time of last modification
+          format: date-time
+          readOnly: true
+        portalUrl:
+          type: string
+          description: URL of the content on the Pure Portal
+          readOnly: true
+        prettyUrlIdentifiers:
+          type: array
+          description: All pretty URLs
+          readOnly: true
+          items:
+            type: string
+            description: All pretty URLs
+            readOnly: true
+        previousUuids:
+          type: array
+          description: UUIDs of other content items which have been merged into this content item (or similar)
+          readOnly: true
+          items:
+            type: string
+            description: UUIDs of other content items which have been merged into this content item (or similar)
+            readOnly: true
+        version:
+          type: string
+          description: Used to guard against conflicting updates. For new content this is null, and for existing content the current value. The property should never be modified by a client, except in the rare case where the client wants to perform an update irrespective of if other clients have made updates in the meantime, also known as a "dirty write". A dirty write is performed by not including the property value or setting the property to null
+          nullable: true
+        title:
+          type: string
+          description: The title of the application cluster.
+          readOnly: true
+        containedApplications:
+          type: array
+          description: The applications grouped in the application cluster. Applications are automatically added when related to other applications in this cluster.
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/ApplicationRef'
+        project:
+          $ref: '#/components/schemas/ProjectRef'
+        status:
+          type: string
+          description: Application cluster status value
+          readOnly: true
+          enum:
+          - PENDING
+          - AWARDED
+          - REJECTED
+        dateOfStatusChange:
+          type: string
+          description: The date of the last status change of the application cluster.
+          format: date
+          readOnly: true
+        systemName:
+          type: string
+          description: The content system name
+          readOnly: true
+      description: An application cluster groups related applications from their individual relations.
+    FormattedLocalizedString:
+      type: object
+      additionalProperties:
+        type: string
+        description: A set of localized strings that support formatting. Invalid locale values will be ignored.
+        nullable: true
+        example: '{"en_GB":"Some text"}'
+      description: A set of localized strings that support formatting. Invalid locale values will be ignored.
+      nullable: true
+      example:
+        en_GB: Some text
+    SystemCurrencyAmount:
+      required:
+      - value
+      type: object
+      properties:
+        currency:
+          type: string
+          description: 'An ISO-4217 3-letter alphabetic code representing the Pure installation''s system currency as defined by the W3C''s Payment Request standard: https://www.w3.org/TR/payment-request/#dom-paymentcurrencyamount-currency'
+          readOnly: true
+        value:
+          type: string
+          description: 'A valid decimal monetary value as defined by the W3C''s Payment Request standard: https://www.w3.org/TR/payment-request/#dom-paymentcurrencyamount-value'
+          format: ^-?[0-9]+(\.[0-9]+)?$
+      description: 'A monetary value in the Pure installation''s system currency as defined by the W3C''s Payment Request standard: https://www.w3.org/TR/payment-request/#paymentcurrencyamount-dictionary'
+    ClassificationRefList:
+      type: object
+      properties:
+        classifications:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClassificationRef'
+      description: List of classification references
+    ApplicationBudget:
+      required:
+      - visibility
+      type: object
+      properties:
+        pureId:
+          type: integer
+          description: Pure database ID of the object, prefer using the UUID if it is present on the entity
+          format: int64
+          readOnly: true
+        budgets:
+          type: array
+          description: Individual entries of the budget.
+          nullable: true
+          items:
+            $ref: '#/components/schemas/ApplicationFundingBudgetAssociation'
+        visibility:
+          $ref: '#/components/schemas/Visibility'
+      description: A budget for an application.
+    ClassificationSchemeRef:
+      required:
+      - uuid
+      type: object
+      description: A reference to a classification scheme
+      nullable: true
+      allOf:
+      - $ref: '#/components/schemas/ContentRef'
+    DateRange:
+      type: object
+      properties:
+        startDate:
+          type: string
+          description: Start date
+          format: date
+          nullable: true
+        endDate:
+          type: string
+          description: End date
+          format: date
+          nullable: true
+      description: A date range
+    AllowedKeywordGroupConfiguration:
+      required:
+      - targetSystemName
+      type: object
+      properties:
+        pureId:
+          type: integer
+          description: Pure database ID of the object, prefer using the UUID if it is present on the entity
+          format: int64
+          readOnly: true
+        targetSystemName:
+          type: string
+          description: The content system name this configuration applies to
+        keywordGroupType:
+          type: string
+          description: The OpenAPI schema type of this keyword configuration
+          readOnly: true
+        name:
+          $ref: '#/components/schemas/LocalizedString'
+        description:
+          $ref: '#/components/schemas/FormattedLocalizedString'
+        classificationScheme:
+          $ref: '#/components/schemas/ClassificationSchemeRef'
+        allowUserdefinedKeywords:
+          type: boolean
+          description: Defines if user defined keywords are allowed
+        limitToLeafSelection:
+          type: boolean
+        logicalName:
+          type: string
+        relationType:
+          type: string
+          description: The schema name of the type (with the ability to associate keywords) on which the keyword group configuration is related to, e.g. StaffOrganizationAssociation. It can also be set to null (default value), which means the keyword group configuration is related to the main type (the target system name) and not a relation of the main type.
+          nullable: true
+      description: A specification of the allowed behavior of a specified keyword group
+    DisciplinesAssociation:
+      required:
+      - disciplineAssignments
+      type: object
+      properties:
+        content:
+          $ref: '#/components/schemas/ContentRef'
+        disciplineScheme:
+          type: string
+          description: The discipline scheme these disciplines are assigned from
+          readOnly: true
+        disciplineAssignments:
+          type: array
+          description: A collection of assigned disciplines
+          items:
+            $ref: '#/components/schemas/DisciplinesDisciplineAssignment'
+      description: An association between a content and a number of discipline assignments
+    WorkflowListResult:
+      type: object
+      properties:
+        workflows:
+          type: array
+          description: Allowed workflow steps.
+          items:
+            $ref: '#/components/schemas/Workflow'
+      description: List of workflow steps.
+    LocalizedString:
+      type: object
+      additionalProperties:
+        type: string
+        description: 'A set of string values, one for each submission locale. Note: invalid locale values will be ignored.'
+        nullable: true
+        example: '{"en_GB":"Some text"}'
+      description: 'A set of string values, one for each submission locale. Note: invalid locale values will be ignored.'
+      nullable: true
+      example:
+        en_GB: Some text
+    KeywordGroup:
+      required:
+      - logicalName
+      - typeDiscriminator
+      type: object
+      properties:
+        pureId:
+          type: integer
+          description: Pure database ID of the object, prefer using the UUID if it is present on the entity
+          format: int64
+          readOnly: true
+        logicalName:
+          type: string
+          description: Unique name of the configuration that specifies this keyword group
+        name:
+          $ref: '#/components/schemas/LocalizedString'
+        typeDiscriminator:
+          type: string
+      discriminator:
+        propertyName: typeDiscriminator
+        mapping:
+          ClassificationsKeywordGroup: '#/components/schemas/ClassificationsKeywordGroup'
+          FreeKeywordsKeywordGroup: '#/components/schemas/FreeKeywordsKeywordGroup'
+          FullKeywordGroup: '#/components/schemas/FullKeywordGroup'
+    LocalesList:
+      type: object
+      properties:
+        locales:
+          pattern: /^[a-z]{2}_[A-Z]{2}$/
+          type: array
+          description: Allowed locale values for use in localized string entities. The locale format consists of lower-case ISO 639 alpha-2 language code and upper-cased ISO 3166 alpha-2 country code.
+          items:
+            pattern: /^[a-z]{2}_[A-Z]{2}$/
+            type: string
+            description: Allowed locale values for use in localized string entities. The locale format consists of lower-case ISO 639 alpha-2 language code and upper-cased ISO 3166 alpha-2 country code.
+      description: List of available locales
+    YearMonth:
+      required:
+      - month
+      - year
+      type: object
+      properties:
+        year:
+          maximum: 4000
+          minimum: 0
+          type: integer
+          format: int32
+        month:
+          maximum: 12
+          minimum: 1
+          type: integer
+          format: int32
+      description: A date that can be defined by only year and month
+      nullable: true
+    NoteListResult:
+      type: object
+      properties:
+        count:
+          type: integer
+          description: The full count, ignoring paging
+          format: int32
+        pageInformation:
+          $ref: '#/components/schemas/PageInformation'
+        items:
+          type: array
+          description: Notes
+          items:
+            $ref: '#/components/schemas/Note'
+      description: List of notes
+    DisciplinesAssociationListResult:
+      type: object
+      properties:
+        count:
+          type: integer
+          description: The full count, ignoring paging
+          format: int32
+        pageInformation:
+          $ref: '#/components/schemas/PageInformation'
+        items:
+          type: array
+          description: Discipline associations
+          items:
+            $ref: '#/components/schemas/DisciplinesAssociation'
+      description: List of discipline associations. Can contain a subset of all items along with the full count
+    Workflow:
+      required:
+      - step
+      type: object
+      properties:
+        step:
+          type: string
+          description: Current workflow step
+        description:
+          $ref: '#/components/schemas/SystemLocalizedString'
+      description: Information about workflow
+    AllowedTemplate:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the template.
+          readOnly: true
+        description:
+          type: string
+          description: The description of the template.
+          readOnly: true
+      description: An allowed template, such as 'ContributionToJournal' or 'BookAnthology' for research outputs.
+    OrderingsList:
+      type: object
+      properties:
+        orderings:
+          type: array
+          description: IDs of ways content can be ordered
+          items:
+            type: string
+            description: IDs of ways content can be ordered
+      description: List of available orderings
+    ClassifiedLocalizedValue:
+      required:
+      - type
+      type: object
+      properties:
+        pureId:
+          type: integer
+          description: Pure database ID of the object, prefer using the UUID if it is present on the entity
+          format: int64
+          readOnly: true
+        value:
+          $ref: '#/components/schemas/LocalizedString'
+        type:
+          $ref: '#/components/schemas/ClassificationRef'
+      description: A classified localized value
+    Application:
+      required:
+      - fundings
+      - managingOrganization
+      - organizations
+      - title
+      - type
+      - typeDiscriminator
+      type: object
+      properties:
+        pureId:
+          type: integer
+          description: Pure database ID of the object, prefer using the UUID if it is present on the entity
+          format: int64
+          readOnly: true
+        uuid:
+          type: string
+          description: UUID, this is the primary identity of the entity
+          format: uuid
+          readOnly: true
+        createdBy:
+          type: string
+          description: Username of creator
+          readOnly: true
+        createdDate:
+          type: string
+          description: Date and time of creation
+          format: date-time
+          readOnly: true
+        modifiedBy:
+          type: string
+          description: Username of the user that performed a modification
+          readOnly: true
+        modifiedDate:
+          type: string
+          description: Date and time of last modification
+          format: date-time
+          readOnly: true
+        portalUrl:
+          type: string
+          description: URL of the content on the Pure Portal
+          readOnly: true
+        prettyUrlIdentifiers:
+          type: array
+          description: All pretty URLs
+          readOnly: true
+          items:
+            type: string
+            description: All pretty URLs
+            readOnly: true
+        previousUuids:
+          type: array
+          description: UUIDs of other content items which have been merged into this content item (or similar)
+          readOnly: true
+          items:
+            type: string
+            description: UUIDs of other content items which have been merged into this content item (or similar)
+            readOnly: true
+        version:
+          type: string
+          description: Used to guard against conflicting updates. For new content this is null, and for existing content the current value. The property should never be modified by a client, except in the rare case where the client wants to perform an update irrespective of if other clients have made updates in the meantime, also known as a "dirty write". A dirty write is performed by not including the property value or setting the property to null
+          nullable: true
+        acronym:
+          type: string
+          description: The acronym of the application
+          nullable: true
+        applicants:
+          type: array
+          description: Related applicants and their affiliations.
+          items:
+            $ref: '#/components/schemas/AbstractApplicantAssociation'
+        externalOrganizations:
+          type: array
+          description: A collection of external organization affiliations.
+          nullable: true
+          items:
+            $ref: '#/components/schemas/ExternalOrganizationRef'
+        applicationDate:
+          type: string
+          description: The date of application, ie. the date it was submitted to the funder.
+          format: date
+          readOnly: true
+        awards:
+          type: array
+          description: A collection of related grants.
+          nullable: true
+          items:
+            $ref: '#/components/schemas/AwardRef'
+        budgetAppliedAmountDifference:
+          $ref: '#/components/schemas/SystemCurrencyAmount'
+        coManagingOrganizations:
+          type: array
+          description: A collection of co-managing organizational unit affiliations.
+          nullable: true
+          items:
+            $ref: '#/components/schemas/OrganizationRef'
+        collaborators:
+          type: array
+          description: A collection of collaborators.
+          nullable: true
+          items:
+            $ref: '#/components/schemas/CollaboratorAssociation'
+        descriptions:
+          type: array
+          description: A collection of descriptions for the application. Query the /applications/allowed-description-types endpoint for allowed types.
+          nullable: true
+          items:
+            $ref: '#/components/schemas/ClassifiedLocalizedValue'
+        expectedPeriod:
+          $ref: '#/components/schemas/DateRange'
+        identifiers:
+          type: array
+          description: Identifiers related to the application.
+          nullable: true
+          items:
+            $ref: '#/components/schemas/Identifier'
+        fundingOpportunity:
+          $ref: '#/components/schemas/FundingOpportunityRef'
+        fundings:
+          type: array
+          description: A collection of funding information for the application.
+          items:
+            $ref: '#/components/schemas/ApplicationFundingAssociation'
+        natureTypes:
+          type: array
+          description: Nature of activity types for the application.
+          nullable: true
+          items:
+            $ref: '#/components/schemas/ClassificationRef'
+        organizations:
+          type: array
+          description: A collection of organizational unit affiliations.
+          items:
+            $ref: '#/components/schemas/OrganizationRef'
+        managingOrganization:
+          $ref: '#/components/schemas/OrganizationRef'
+        applications:
+          type: array
+          description: A collection of related applications.
+          nullable: true
+          items:
+            $ref: '#/components/schemas/ApplicationRef'
+        shortTitle:
+          $ref: '#/components/schemas/LocalizedString'
+        title:
+          $ref: '#/components/schemas/LocalizedString'
+        totalAcademicOwnership:
+          type: number
+          description: Total academic ownership of the application.
+          format: double
+          readOnly: true
+        totalAppliedAmount:
+          $ref: '#/components/schemas/SystemCurrencyAmount'
+        type:
+          $ref: '#/components/schemas/ClassificationRef'
+        workflow:
+          $ref: '#/components/schemas/Workflow'
+        visibility:
+          $ref: '#/components/schemas/Visibility'
+        links:
+          type: array
+          description: Links associated with the application.
+          nullable: true
+          items:
+            $ref: '#/components/schemas/Link'
+        keywordGroups:
+          type: array
+          description: Groups of keywords associated with the application.
+          nullable: true
+          items:
+            $ref: '#/components/schemas/KeywordGroup'
+        customDefinedFields:
+          $ref: '#/components/schemas/CustomDefinedFields'
+        cluster:
+          $ref: '#/components/schemas/ApplicationClusterRef'
+        systemName:
+          type: string
+          description: The content system name
+          readOnly: true
+        typeDiscriminator:
+          type: string
+      description: Applications exists in two variations depending on the functionality enabled in the Pure installation.
+      discriminator:
+        propertyName: typeDiscriminator
+        mapping:
+          BasicApplication: '#/components/schemas/BasicApplication'
+          AwardManagementApplication: '#/components/schemas/AwardManagementApplication'
+  securitySchemes:
+    api-key:
+      type: apiKey
+      description: Security mechanism for the API
+      name: api-key
+      in: header

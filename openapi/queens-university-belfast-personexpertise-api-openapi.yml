@@ -1,0 +1,609 @@
+openapi: 3.0.1
+info:
+  title: Pure activity personExpertise API
+  description: The Pure API provides a secure and complete web services API for using and managing research information data in Pure. The API enables a broad range of use-cases for interacting with research information, from anonymous Open Data scenarios to enabling the next generation Pure admin.
+  termsOfService: ''
+  contact:
+    name: ''
+    url: ''
+    email: pure-support@elsevier.com
+  license:
+    name: ''
+    url: ''
+  version: 5.35.3-4
+servers:
+- url: https://pure.qub.ac.uk/ws/api
+  description: Queen's University Belfast Pure API
+security:
+- api-key: []
+tags:
+- name: personExpertise
+paths:
+  /person-expertises:
+    get:
+      tags:
+      - personExpertise
+      summary: Lists all person expertises
+      description: Lists all person expertises in the Pure instance. If you need to filter the person expertises returned, see the POST version which supports additional filtering.
+      operationId: personExpertise_list
+      parameters:
+      - name: size
+        in: query
+        description: Number of returned person expertises per request.
+        schema:
+          maximum: 1000
+          type: integer
+          format: int32
+          default: 10
+      - name: offset
+        in: query
+        description: The offset for the returned list. 0 or null value is from the start
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - name: order
+        in: query
+        description: The order of the list, must be a value from /person-expertises/orderings
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonExpertiseListResult'
+    put:
+      tags:
+      - personExpertise
+      summary: Create person expertise
+      description: Create person expertise
+      operationId: personExpertise_create
+      requestBody:
+        description: The content to create
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonExpertise'
+        required: true
+      responses:
+        '201':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonExpertise'
+        '400':
+          description: Bad Request
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+  /person-expertises/allowed-area-of-expertise-classifications:
+    get:
+      tags:
+      - personExpertise
+      summary: A list of allowed area of expertise classifications
+      description: Get a list of allowed area of expertise classifications that can be used for the 'allowedAreaOfExpertiseClassifications' attribute of person expertises
+      operationId: personExpertise_getAllowedAreaOfExpertiseClassifications
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationRefList'
+  /person-expertises/allowed-types:
+    get:
+      tags:
+      - personExpertise
+      summary: A list of allowed classifications for the type property
+      description: Get a list of classifications that can be used when submitting a type.
+      operationId: personExpertise_getAllowedTypes
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationRefList'
+  /person-expertises/allowed-workflow-steps:
+    get:
+      tags:
+      - personExpertise
+      summary: A list of allowed workflow steps
+      description: Get a list of allowed workflow steps that can be used for the 'workflow' attribute of person expertises
+      operationId: personExpertise_getAllowedWorkflowSteps
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowListResult'
+  /person-expertises/orderings:
+    get:
+      tags:
+      - personExpertise
+      summary: Lists available orderings
+      description: Lists all orderings available to the person expertises endpoint. These values can be used by the order parameter when listing person expertises.
+      operationId: personExpertise_getOrderings
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderingsList'
+  /person-expertises/search:
+    post:
+      tags:
+      - personExpertise
+      summary: Query operation for person expertises
+      description: Lists person expertises in the Pure instance that matches the provided query, similar to the GET version, instead of using parameters to alter the response, an JSON document is posted with the request. The JSON document contains fields for all the parameters available for the GET version, but also additional filtering options.
+      operationId: personExpertise_query
+      requestBody:
+        description: The query to perform
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonExpertiseQuery'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonExpertiseListResult'
+        '400':
+          description: Bad request
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+  /person-expertises/{uuid}:
+    get:
+      tags:
+      - personExpertise
+      summary: Get person expertise
+      description: Get person expertise with specific UUID.
+      operationId: personExpertise_get
+      parameters:
+      - name: uuid
+        in: path
+        description: UUID of the desired person expertise
+        required: true
+        schema:
+          pattern: .+
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonExpertise'
+        '301':
+          description: The requested content have changed UUID
+        '404':
+          description: Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+    put:
+      tags:
+      - personExpertise
+      summary: Update person expertise
+      description: Update person expertise with specific UUID.
+      operationId: personExpertise_update
+      parameters:
+      - name: uuid
+        in: path
+        description: UUID of the person expertise to update
+        required: true
+        schema:
+          pattern: .+
+          type: string
+          format: uuid
+      requestBody:
+        description: The content to update
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonExpertise'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonExpertise'
+        '400':
+          description: Bad Request
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '404':
+          description: Resource not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '409':
+          description: Version conflict
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ConflictProblemDetails'
+    delete:
+      tags:
+      - personExpertise
+      summary: Delete person expertise
+      description: Delete person expertise with specific UUID.
+      operationId: personExpertise_delete
+      parameters:
+      - name: uuid
+        in: path
+        description: UUID of the person expertise
+        required: true
+        schema:
+          pattern: .+
+          type: string
+          format: uuid
+      responses:
+        '204':
+          description: Successful operation
+        '404':
+          description: Resource not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '409':
+          description: Conflict
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ConflictProblemDetails'
+components:
+  schemas:
+    SystemLocalizedString:
+      type: object
+      additionalProperties:
+        type: string
+        description: A set of localized string values each for a specific UI locale.
+        nullable: true
+        example: '{"en_GB":"Some text"}'
+      description: A set of localized string values each for a specific UI locale.
+      nullable: true
+      example:
+        en_GB: Some text
+    PersonExpertise:
+      required:
+      - type
+      type: object
+      properties:
+        pureId:
+          type: integer
+          description: Pure database ID of the object, prefer using the UUID if it is present on the entity
+          format: int64
+          readOnly: true
+        uuid:
+          type: string
+          description: UUID, this is the primary identity of the entity
+          format: uuid
+          readOnly: true
+        createdBy:
+          type: string
+          description: Username of creator
+          readOnly: true
+        createdDate:
+          type: string
+          description: Date and time of creation
+          format: date-time
+          readOnly: true
+        modifiedBy:
+          type: string
+          description: Username of the user that performed a modification
+          readOnly: true
+        modifiedDate:
+          type: string
+          description: Date and time of last modification
+          format: date-time
+          readOnly: true
+        portalUrl:
+          type: string
+          description: URL of the content on the Pure Portal
+          readOnly: true
+        prettyUrlIdentifiers:
+          type: array
+          description: All pretty URLs
+          readOnly: true
+          items:
+            type: string
+            description: All pretty URLs
+            readOnly: true
+        previousUuids:
+          type: array
+          description: UUIDs of other content items which have been merged into this content item (or similar)
+          readOnly: true
+          items:
+            type: string
+            description: UUIDs of other content items which have been merged into this content item (or similar)
+            readOnly: true
+        version:
+          type: string
+          description: Used to guard against conflicting updates. For new content this is null, and for existing content the current value. The property should never be modified by a client, except in the rare case where the client wants to perform an update irrespective of if other clients have made updates in the meantime, also known as a "dirty write". A dirty write is performed by not including the property value or setting the property to null
+          nullable: true
+        type:
+          $ref: '#/components/schemas/ClassificationRef'
+        workflow:
+          $ref: '#/components/schemas/Workflow'
+        areaOfExpertise:
+          type: array
+          description: A collection of area of expertise.
+          nullable: true
+          readOnly: true
+          items:
+            type: string
+        areaOfExpertiseClassifications:
+          type: array
+          description: A collection of area of expertise classifications.
+          nullable: true
+          items:
+            $ref: '#/components/schemas/ClassificationRef'
+        willingnessToMedia:
+          type: boolean
+          description: Indicates willingness to media.
+          nullable: true
+          readOnly: true
+        moderatedWillingnessToMedia:
+          type: boolean
+          description: Indicates moderated willingness to media.
+          nullable: true
+        person:
+          $ref: '#/components/schemas/PersonRef'
+        systemName:
+          type: string
+          description: The content system name
+          readOnly: true
+      description: The expertise of the person.
+    PageInformation:
+      type: object
+      properties:
+        offset:
+          type: integer
+          description: Offset that returned items start at
+          format: int32
+        size:
+          type: integer
+          description: The requested number of items. May be higher than the actual number of items in the result if there are fewer items in the store than requested
+          format: int32
+      description: Information about pages
+    Workflow:
+      required:
+      - step
+      type: object
+      properties:
+        step:
+          type: string
+          description: Current workflow step
+        description:
+          $ref: '#/components/schemas/SystemLocalizedString'
+      description: Information about workflow
+    PersonExpertiseQuery:
+      type: object
+      properties:
+        uuids:
+          type: array
+          items:
+            type: string
+            format: uuid
+        size:
+          type: integer
+          format: int32
+        offset:
+          type: integer
+          format: int32
+        orderings:
+          type: array
+          items:
+            type: string
+        searchString:
+          type: string
+          description: String used to perform search
+        orderBy:
+          type: string
+          writeOnly: true
+      description: Create a query for person expertise
+    PersonExpertiseListResult:
+      type: object
+      properties:
+        count:
+          type: integer
+          description: The full count, ignoring paging
+          format: int32
+        pageInformation:
+          $ref: '#/components/schemas/PageInformation'
+        items:
+          type: array
+          description: List of Persons Expertise
+          items:
+            $ref: '#/components/schemas/PersonExpertise'
+      description: List of Persons Expertise. Can contain a subset of all items along with the full count
+    PersonRef:
+      required:
+      - uuid
+      type: object
+      description: A reference to a person internal to the institution
+      nullable: true
+      allOf:
+      - $ref: '#/components/schemas/ContentRef'
+    ClassificationRefList:
+      type: object
+      properties:
+        classifications:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClassificationRef'
+      description: List of classification references
+    ClassificationRef:
+      required:
+      - uri
+      type: object
+      properties:
+        uri:
+          type: string
+          description: Classification URI of the referred classification
+        term:
+          $ref: '#/components/schemas/SystemLocalizedString'
+      description: A reference to a classification value
+      nullable: true
+    OrderingsList:
+      type: object
+      properties:
+        orderings:
+          type: array
+          description: IDs of ways content can be ordered
+          items:
+            type: string
+            description: IDs of ways content can be ordered
+      description: List of available orderings
+    ProblemDetails:
+      type: object
+      properties:
+        type:
+          type: string
+          description: A URI reference [RFC3986] that identifies the problem type.
+        title:
+          type: string
+          description: A short, human-readable summary of the problem type. It SHOULD NOT change from occurrence to occurrence of the problem, except for purposes of localization (e.g., using proactive content negotiation; see [RFC7231], Section 3.4).
+        status:
+          type: integer
+          description: The HTTP status code ([RFC7231], Section 6) generated by the origin server for this occurrence of the problem.
+          format: int32
+        detail:
+          type: string
+          description: A human-readable explanation specific to this occurrence of the problem.
+        instance:
+          type: string
+          description: A URI reference that identifies the specific occurrence of the problem.  It may or may not yield further information if dereferenced.
+      description: RFC7807 Error details
+      discriminator:
+        propertyName: type
+        mapping:
+          /error: '#/components/schemas/GenericProblemDetails'
+          /validation-error: '#/components/schemas/ValidationProblemDetails'
+          /dependency-violation-error: '#/components/schemas/DependencyViolationProblemDetails'
+    ContentRef:
+      required:
+      - systemName
+      - uuid
+      type: object
+      properties:
+        uuid:
+          type: string
+          description: UUID of the referred content
+          format: uuid
+        systemName:
+          type: string
+      nullable: true
+      discriminator:
+        propertyName: systemName
+        mapping:
+          AccessDefinition: '#/components/schemas/AccessDefinitionRef'
+          Activity: '#/components/schemas/ActivityRef'
+          Application: '#/components/schemas/ApplicationRef'
+          AuthorCollaboration: '#/components/schemas/AuthorCollaborationRef'
+          Award: '#/components/schemas/AwardRef'
+          ClassificationScheme: '#/components/schemas/ClassificationSchemeRef'
+          ConferenceSeries: '#/components/schemas/ConferenceSeriesRef'
+          DataSet: '#/components/schemas/DataSetRef'
+          Equipment: '#/components/schemas/EquipmentRef'
+          Event: '#/components/schemas/EventRef'
+          ExternalOrganization: '#/components/schemas/ExternalOrganizationRef'
+          ExternalPerson: '#/components/schemas/ExternalPersonRef'
+          Impact: '#/components/schemas/ImpactRef'
+          Journal: '#/components/schemas/JournalRef'
+          Organization: '#/components/schemas/OrganizationRef'
+          Person: '#/components/schemas/PersonRef'
+          Publisher: '#/components/schemas/PublisherRef'
+          PressMedia: '#/components/schemas/PressMediaRef'
+          Prize: '#/components/schemas/PrizeRef'
+          Project: '#/components/schemas/ProjectRef'
+          ResearchOutput: '#/components/schemas/ResearchOutputRef'
+          StudentThesis: '#/components/schemas/StudentThesisRef'
+          FundingOpportunity: '#/components/schemas/FundingOpportunityRef'
+          EthicalReview: '#/components/schemas/EthicalReviewRef'
+          ApplicationCluster: '#/components/schemas/ApplicationClusterRef'
+          AwardCluster: '#/components/schemas/AwardClusterRef'
+          User: '#/components/schemas/UserRef'
+          ERA2018FieldOfResearch: '#/components/schemas/Anzsrc2008FieldOfResearchRef'
+          UnitOfAssessmentREF2014: '#/components/schemas/Ref2014UnitOfAssessmentRef'
+          UnitOfAssessmentREF2020: '#/components/schemas/Ref2020UnitOfAssessmentRef'
+          ANZSRCTypeOfActivity: '#/components/schemas/Anzsrc2020TypeOfActivityRef'
+          ANZSRCFieldOfResearch: '#/components/schemas/Anzsrc2020FieldOfResearchRef'
+          ANZSRCSocioEconomicObjective: '#/components/schemas/Anzsrc2020SocioEconomicObjectiveRef'
+          Semester: '#/components/schemas/SemesterRef'
+          Education: '#/components/schemas/EducationRef'
+          Course: '#/components/schemas/CourseRef'
+          CurriculumVitae: '#/components/schemas/CurriculumVitaeRef'
+          CustomDefinedFieldConfiguration: '#/components/schemas/CustomDefinedFieldConfigurationRef'
+          KeywordGroupConfiguration: '#/components/schemas/KeywordGroupConfigurationRef'
+          Review: '#/components/schemas/ReviewRef'
+          GenericContentRef: '#/components/schemas/GenericContentRef'
+          UserProfile: '#/components/schemas/UserProfileRef'
+          Thesaurus: '#/components/schemas/ThesaurusRef'
+          Concept: '#/components/schemas/ConceptRef'
+          PersonExpertise: '#/components/schemas/PersonExpertiseRef'
+          Contract: '#/components/schemas/ContractRef'
+          Milestone: '#/components/schemas/MilestoneRef'
+          Fingerprint: '#/components/schemas/FingerprintRef'
+          Specialization: '#/components/schemas/SpecializationRef'
+          StudentProject: '#/components/schemas/StudentProjectRef'
+    ConflictProblemDetails:
+      type: object
+      properties:
+        type:
+          type: string
+          description: A URI reference [RFC3986] that identifies the problem type.
+        title:
+          type: string
+          description: A short, human-readable summary of the problem type. It SHOULD NOT change from occurrence to occurrence of the problem, except for purposes of localization (e.g., using proactive content negotiation; see [RFC7231], Section 3.4).
+        status:
+          type: integer
+          description: The HTTP status code ([RFC7231], Section 6) generated by the origin server for this occurrence of the problem.
+          format: int32
+        detail:
+          type: string
+          description: A human-readable explanation specific to this occurrence of the problem.
+        instance:
+          type: string
+          description: A URI reference that identifies the specific occurrence of the problem.  It may or may not yield further information if dereferenced.
+        modified:
+          type: string
+          format: date-time
+        modifiedBy:
+          type: string
+      description: Problem details for state conflict failures
+    WorkflowListResult:
+      type: object
+      properties:
+        workflows:
+          type: array
+          description: Allowed workflow steps.
+          items:
+            $ref: '#/components/schemas/Workflow'
+      description: List of workflow steps.
+  securitySchemes:
+    api-key:
+      type: apiKey
+      description: Security mechanism for the API
+      name: api-key
+      in: header
