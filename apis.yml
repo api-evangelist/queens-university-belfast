@@ -12,9 +12,22 @@ description: >-
   library discovery via Ex Libris Alma/Primo) are gated behind authentication
   and do not publish open developer documentation.
 type: Index
+accessModel:
+  pricing: free
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Free · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/queens-university-belfast.png
 url: https://raw.githubusercontent.com/api-evangelist/queens-university-belfast/refs/heads/main/apis.yml
 tags:
   - Education
@@ -30,62 +43,1298 @@ modified: '2026-06-03'
 
 specificationVersion: '0.19'
 apis:
-  - aid: queens-university-belfast:research-portal-oai
-    name: Queen's University Belfast Research Portal (Pure OAI-PMH)
-    description: >-
-      OAI-PMH metadata harvesting endpoint for the Queen's University Belfast
-      Research Portal, the institutional repository built on Elsevier Pure. It
-      exposes research outputs, datasets, theses, and research activity metadata
-      in standard OAI-PMH formats (including oai_dc and OpenAIRE CERIF). The
-      endpoint responds to standard verbs such as ListMetadataFormats,
-      ListRecords, ListSets, and GetRecord.
-    humanURL: https://pure.qub.ac.uk/
-    baseURL: https://pureadmin.qub.ac.uk/ws/oai
-    tags: [ Research, Open Access, OAI-PMH, Repository, Pure, Metadata ]
-    properties:
-      - type: Documentation
-        url: https://www.openarchives.org/OAI/openarchivesprotocol.html
-      - type: HumanURL
-        url: https://pure.qub.ac.uk/
-  - aid: queens-university-belfast:pure-api
-    name: Queen's University Belfast Research Portal (Pure REST API)
-    description: >-
-      The Elsevier Pure REST API deployed on the Queen's University Belfast
-      Research Portal. It exposes a complete, machine-readable web services API
-      (OpenAPI 3.0.1, Pure 5.35.3-4) for research information data — research
-      outputs, persons, datasets, projects, activities, awards, organizations,
-      and the classification schemes behind them. Requests are authenticated
-      with an api-key security scheme.
-    humanURL: https://pure.qub.ac.uk/
-    baseURL: https://pure.qub.ac.uk/ws/api
-    tags: [ Research, Pure, REST, OpenAPI, Repository, Metadata ]
-    properties:
-      - type: OpenAPI
-        url: openapi/queens-university-belfast-pure-api.yaml
-      - type: x-json-schema
-        url: json-schema/queens-university-belfast-research-output-schema.json
-      - type: x-json-schema
-        url: json-schema/queens-university-belfast-person-schema.json
-      - type: x-json-schema
-        url: json-schema/queens-university-belfast-dataset-schema.json
-      - type: x-json-structure
-        url: json-structure/queens-university-belfast-research-output-structure.json
-      - type: x-json-structure
-        url: json-structure/queens-university-belfast-person-structure.json
-      - type: x-json-structure
-        url: json-structure/queens-university-belfast-dataset-structure.json
-      - type: x-examples
-        url: examples/queens-university-belfast-research-outputs-list-example.json
-      - type: x-rules
-        url: rules/queens-university-belfast-rules.yml
-      - type: x-vocabulary
-        url: vocabulary/queens-university-belfast-vocabulary.yml
-      - type: x-json-ld
-        url: json-ld/queens-university-belfast-context.jsonld
-      - type: Documentation
-        url: https://doc.pure.elsevier.com/display/PureClient/Pure+API
-      - type: HumanURL
-        url: https://pure.qub.ac.uk/
+- aid: queens-university-belfast:research-portal-oai
+  name: Queen's University Belfast Research Portal (Pure OAI-PMH)
+  description: >-
+    OAI-PMH metadata harvesting endpoint for the Queen's University Belfast Research Portal, the institutional
+    repository built on Elsevier Pure. It exposes research outputs, datasets, theses, and research activity
+    metadata in standard OAI-PMH formats (including oai_dc and OpenAIRE CERIF). The endpoint responds
+    to standard verbs such as ListMetadataFormats, ListRecords, ListSets, and GetRecord.
+  humanURL: https://pure.qub.ac.uk/
+  baseURL: https://pureadmin.qub.ac.uk/ws/oai
+  tags:
+  - Research
+  - Open Access
+  - OAI-PMH
+  - Repository
+  - Pure
+  - Metadata
+  properties:
+  - type: Documentation
+    url: https://www.openarchives.org/OAI/openarchivesprotocol.html
+  - type: HumanURL
+    url: https://pure.qub.ac.uk/
+- aid: queens-university-belfast:queens-university-belfast-activity-api
+  name: Queen's University Belfast activity API
+  description: The activity API from Queen's University Belfast — 39 operation(s) for activity.
+  humanURL: https://pure.qub.ac.uk/
+  baseURL: https://pureadmin.qub.ac.uk/ws/oai
+  tags:
+  - activity
+  properties:
+  - type: OpenAPI
+    url: openapi/queens-university-belfast-activity-api-openapi.yml
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-research-output-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-person-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-dataset-schema.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-research-output-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-person-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-dataset-structure.json
+  - type: x-examples
+    url: examples/queens-university-belfast-research-outputs-list-example.json
+  - type: x-rules
+    url: rules/queens-university-belfast-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/queens-university-belfast-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/queens-university-belfast-context.jsonld
+  - type: Documentation
+    url: https://doc.pure.elsevier.com/display/PureClient/Pure+API
+  - type: HumanURL
+    url: https://pure.qub.ac.uk/
+- aid: queens-university-belfast:queens-university-belfast-application-api
+  name: Queen's University Belfast application API
+  description: The application API from Queen's University Belfast — 36 operation(s) for application.
+  humanURL: https://pure.qub.ac.uk/
+  baseURL: https://pureadmin.qub.ac.uk/ws/oai
+  tags:
+  - application
+  properties:
+  - type: OpenAPI
+    url: openapi/queens-university-belfast-application-api-openapi.yml
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-research-output-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-person-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-dataset-schema.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-research-output-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-person-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-dataset-structure.json
+  - type: x-examples
+    url: examples/queens-university-belfast-research-outputs-list-example.json
+  - type: x-rules
+    url: rules/queens-university-belfast-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/queens-university-belfast-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/queens-university-belfast-context.jsonld
+  - type: Documentation
+    url: https://doc.pure.elsevier.com/display/PureClient/Pure+API
+  - type: HumanURL
+    url: https://pure.qub.ac.uk/
+- aid: queens-university-belfast:queens-university-belfast-authorcollaboration-api
+  name: Queen's University Belfast authorCollaboration API
+  description: >-
+    The authorCollaboration API from Queen's University Belfast — 9 operation(s) for authorcollaboration.
+  humanURL: https://pure.qub.ac.uk/
+  baseURL: https://pureadmin.qub.ac.uk/ws/oai
+  tags:
+  - authorCollaboration
+  properties:
+  - type: OpenAPI
+    url: openapi/queens-university-belfast-authorcollaboration-api-openapi.yml
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-research-output-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-person-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-dataset-schema.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-research-output-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-person-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-dataset-structure.json
+  - type: x-examples
+    url: examples/queens-university-belfast-research-outputs-list-example.json
+  - type: x-rules
+    url: rules/queens-university-belfast-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/queens-university-belfast-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/queens-university-belfast-context.jsonld
+  - type: Documentation
+    url: https://doc.pure.elsevier.com/display/PureClient/Pure+API
+  - type: HumanURL
+    url: https://pure.qub.ac.uk/
+- aid: queens-university-belfast:queens-university-belfast-award-api
+  name: Queen's University Belfast award API
+  description: The award API from Queen's University Belfast — 37 operation(s) for award.
+  humanURL: https://pure.qub.ac.uk/
+  baseURL: https://pureadmin.qub.ac.uk/ws/oai
+  tags:
+  - award
+  properties:
+  - type: OpenAPI
+    url: openapi/queens-university-belfast-award-api-openapi.yml
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-research-output-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-person-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-dataset-schema.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-research-output-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-person-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-dataset-structure.json
+  - type: x-examples
+    url: examples/queens-university-belfast-research-outputs-list-example.json
+  - type: x-rules
+    url: rules/queens-university-belfast-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/queens-university-belfast-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/queens-university-belfast-context.jsonld
+  - type: Documentation
+    url: https://doc.pure.elsevier.com/display/PureClient/Pure+API
+  - type: HumanURL
+    url: https://pure.qub.ac.uk/
+- aid: queens-university-belfast:queens-university-belfast-classificationscheme-api
+  name: Queen's University Belfast classificationScheme API
+  description: >-
+    The classificationScheme API from Queen's University Belfast — 7 operation(s) for classificationscheme.
+  humanURL: https://pure.qub.ac.uk/
+  baseURL: https://pureadmin.qub.ac.uk/ws/oai
+  tags:
+  - classificationScheme
+  properties:
+  - type: OpenAPI
+    url: openapi/queens-university-belfast-classificationscheme-api-openapi.yml
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-research-output-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-person-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-dataset-schema.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-research-output-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-person-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-dataset-structure.json
+  - type: x-examples
+    url: examples/queens-university-belfast-research-outputs-list-example.json
+  - type: x-rules
+    url: rules/queens-university-belfast-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/queens-university-belfast-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/queens-university-belfast-context.jsonld
+  - type: Documentation
+    url: https://doc.pure.elsevier.com/display/PureClient/Pure+API
+  - type: HumanURL
+    url: https://pure.qub.ac.uk/
+- aid: queens-university-belfast:queens-university-belfast-concept-api
+  name: Queen's University Belfast concept API
+  description: The concept API from Queen's University Belfast — 4 operation(s) for concept.
+  humanURL: https://pure.qub.ac.uk/
+  baseURL: https://pureadmin.qub.ac.uk/ws/oai
+  tags:
+  - concept
+  properties:
+  - type: OpenAPI
+    url: openapi/queens-university-belfast-concept-api-openapi.yml
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-research-output-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-person-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-dataset-schema.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-research-output-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-person-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-dataset-structure.json
+  - type: x-examples
+    url: examples/queens-university-belfast-research-outputs-list-example.json
+  - type: x-rules
+    url: rules/queens-university-belfast-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/queens-university-belfast-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/queens-university-belfast-context.jsonld
+  - type: Documentation
+    url: https://doc.pure.elsevier.com/display/PureClient/Pure+API
+  - type: HumanURL
+    url: https://pure.qub.ac.uk/
+- aid: queens-university-belfast:queens-university-belfast-conferenceseries-api
+  name: Queen's University Belfast conferenceSeries API
+  description: >-
+    The conferenceSeries API from Queen's University Belfast — 14 operation(s) for conferenceseries.
+  humanURL: https://pure.qub.ac.uk/
+  baseURL: https://pureadmin.qub.ac.uk/ws/oai
+  tags:
+  - conferenceSeries
+  properties:
+  - type: OpenAPI
+    url: openapi/queens-university-belfast-conferenceseries-api-openapi.yml
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-research-output-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-person-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-dataset-schema.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-research-output-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-person-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-dataset-structure.json
+  - type: x-examples
+    url: examples/queens-university-belfast-research-outputs-list-example.json
+  - type: x-rules
+    url: rules/queens-university-belfast-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/queens-university-belfast-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/queens-university-belfast-context.jsonld
+  - type: Documentation
+    url: https://doc.pure.elsevier.com/display/PureClient/Pure+API
+  - type: HumanURL
+    url: https://pure.qub.ac.uk/
+- aid: queens-university-belfast:queens-university-belfast-contract-api
+  name: Queen's University Belfast contract API
+  description: The contract API from Queen's University Belfast — 26 operation(s) for contract.
+  humanURL: https://pure.qub.ac.uk/
+  baseURL: https://pureadmin.qub.ac.uk/ws/oai
+  tags:
+  - contract
+  properties:
+  - type: OpenAPI
+    url: openapi/queens-university-belfast-contract-api-openapi.yml
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-research-output-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-person-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-dataset-schema.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-research-output-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-person-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-dataset-structure.json
+  - type: x-examples
+    url: examples/queens-university-belfast-research-outputs-list-example.json
+  - type: x-rules
+    url: rules/queens-university-belfast-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/queens-university-belfast-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/queens-university-belfast-context.jsonld
+  - type: Documentation
+    url: https://doc.pure.elsevier.com/display/PureClient/Pure+API
+  - type: HumanURL
+    url: https://pure.qub.ac.uk/
+- aid: queens-university-belfast:queens-university-belfast-course-api
+  name: Queen's University Belfast course API
+  description: The course API from Queen's University Belfast — 27 operation(s) for course.
+  humanURL: https://pure.qub.ac.uk/
+  baseURL: https://pureadmin.qub.ac.uk/ws/oai
+  tags:
+  - course
+  properties:
+  - type: OpenAPI
+    url: openapi/queens-university-belfast-course-api-openapi.yml
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-research-output-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-person-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-dataset-schema.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-research-output-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-person-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-dataset-structure.json
+  - type: x-examples
+    url: examples/queens-university-belfast-research-outputs-list-example.json
+  - type: x-rules
+    url: rules/queens-university-belfast-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/queens-university-belfast-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/queens-university-belfast-context.jsonld
+  - type: Documentation
+    url: https://doc.pure.elsevier.com/display/PureClient/Pure+API
+  - type: HumanURL
+    url: https://pure.qub.ac.uk/
+- aid: queens-university-belfast:queens-university-belfast-dataset-api
+  name: Queen's University Belfast dataSet API
+  description: The dataSet API from Queen's University Belfast — 30 operation(s) for dataset.
+  humanURL: https://pure.qub.ac.uk/
+  baseURL: https://pureadmin.qub.ac.uk/ws/oai
+  tags:
+  - dataSet
+  properties:
+  - type: OpenAPI
+    url: openapi/queens-university-belfast-dataset-api-openapi.yml
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-research-output-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-person-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-dataset-schema.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-research-output-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-person-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-dataset-structure.json
+  - type: x-examples
+    url: examples/queens-university-belfast-research-outputs-list-example.json
+  - type: x-rules
+    url: rules/queens-university-belfast-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/queens-university-belfast-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/queens-university-belfast-context.jsonld
+  - type: Documentation
+    url: https://doc.pure.elsevier.com/display/PureClient/Pure+API
+  - type: HumanURL
+    url: https://pure.qub.ac.uk/
+- aid: queens-university-belfast:queens-university-belfast-education-api
+  name: Queen's University Belfast education API
+  description: The education API from Queen's University Belfast — 14 operation(s) for education.
+  humanURL: https://pure.qub.ac.uk/
+  baseURL: https://pureadmin.qub.ac.uk/ws/oai
+  tags:
+  - education
+  properties:
+  - type: OpenAPI
+    url: openapi/queens-university-belfast-education-api-openapi.yml
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-research-output-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-person-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-dataset-schema.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-research-output-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-person-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-dataset-structure.json
+  - type: x-examples
+    url: examples/queens-university-belfast-research-outputs-list-example.json
+  - type: x-rules
+    url: rules/queens-university-belfast-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/queens-university-belfast-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/queens-university-belfast-context.jsonld
+  - type: Documentation
+    url: https://doc.pure.elsevier.com/display/PureClient/Pure+API
+  - type: HumanURL
+    url: https://pure.qub.ac.uk/
+- aid: queens-university-belfast:queens-university-belfast-equipment-api
+  name: Queen's University Belfast equipment API
+  description: The equipment API from Queen's University Belfast — 28 operation(s) for equipment.
+  humanURL: https://pure.qub.ac.uk/
+  baseURL: https://pureadmin.qub.ac.uk/ws/oai
+  tags:
+  - equipment
+  properties:
+  - type: OpenAPI
+    url: openapi/queens-university-belfast-equipment-api-openapi.yml
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-research-output-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-person-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-dataset-schema.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-research-output-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-person-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-dataset-structure.json
+  - type: x-examples
+    url: examples/queens-university-belfast-research-outputs-list-example.json
+  - type: x-rules
+    url: rules/queens-university-belfast-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/queens-university-belfast-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/queens-university-belfast-context.jsonld
+  - type: Documentation
+    url: https://doc.pure.elsevier.com/display/PureClient/Pure+API
+  - type: HumanURL
+    url: https://pure.qub.ac.uk/
+- aid: queens-university-belfast:queens-university-belfast-ethicalreview-api
+  name: Queen's University Belfast ethicalReview API
+  description: >-
+    The ethicalReview API from Queen's University Belfast — 22 operation(s) for ethicalreview.
+  humanURL: https://pure.qub.ac.uk/
+  baseURL: https://pureadmin.qub.ac.uk/ws/oai
+  tags:
+  - ethicalReview
+  properties:
+  - type: OpenAPI
+    url: openapi/queens-university-belfast-ethicalreview-api-openapi.yml
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-research-output-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-person-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-dataset-schema.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-research-output-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-person-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-dataset-structure.json
+  - type: x-examples
+    url: examples/queens-university-belfast-research-outputs-list-example.json
+  - type: x-rules
+    url: rules/queens-university-belfast-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/queens-university-belfast-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/queens-university-belfast-context.jsonld
+  - type: Documentation
+    url: https://doc.pure.elsevier.com/display/PureClient/Pure+API
+  - type: HumanURL
+    url: https://pure.qub.ac.uk/
+- aid: queens-university-belfast:queens-university-belfast-event-api
+  name: Queen's University Belfast event API
+  description: The event API from Queen's University Belfast — 22 operation(s) for event.
+  humanURL: https://pure.qub.ac.uk/
+  baseURL: https://pureadmin.qub.ac.uk/ws/oai
+  tags:
+  - event
+  properties:
+  - type: OpenAPI
+    url: openapi/queens-university-belfast-event-api-openapi.yml
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-research-output-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-person-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-dataset-schema.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-research-output-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-person-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-dataset-structure.json
+  - type: x-examples
+    url: examples/queens-university-belfast-research-outputs-list-example.json
+  - type: x-rules
+    url: rules/queens-university-belfast-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/queens-university-belfast-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/queens-university-belfast-context.jsonld
+  - type: Documentation
+    url: https://doc.pure.elsevier.com/display/PureClient/Pure+API
+  - type: HumanURL
+    url: https://pure.qub.ac.uk/
+- aid: queens-university-belfast:queens-university-belfast-externalorganization-api
+  name: Queen's University Belfast externalOrganization API
+  description: >-
+    The externalOrganization API from Queen's University Belfast — 29 operation(s) for externalorganization.
+  humanURL: https://pure.qub.ac.uk/
+  baseURL: https://pureadmin.qub.ac.uk/ws/oai
+  tags:
+  - externalOrganization
+  properties:
+  - type: OpenAPI
+    url: openapi/queens-university-belfast-externalorganization-api-openapi.yml
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-research-output-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-person-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-dataset-schema.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-research-output-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-person-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-dataset-structure.json
+  - type: x-examples
+    url: examples/queens-university-belfast-research-outputs-list-example.json
+  - type: x-rules
+    url: rules/queens-university-belfast-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/queens-university-belfast-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/queens-university-belfast-context.jsonld
+  - type: Documentation
+    url: https://doc.pure.elsevier.com/display/PureClient/Pure+API
+  - type: HumanURL
+    url: https://pure.qub.ac.uk/
+- aid: queens-university-belfast:queens-university-belfast-externalperson-api
+  name: Queen's University Belfast externalPerson API
+  description: >-
+    The externalPerson API from Queen's University Belfast — 22 operation(s) for externalperson.
+  humanURL: https://pure.qub.ac.uk/
+  baseURL: https://pureadmin.qub.ac.uk/ws/oai
+  tags:
+  - externalPerson
+  properties:
+  - type: OpenAPI
+    url: openapi/queens-university-belfast-externalperson-api-openapi.yml
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-research-output-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-person-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-dataset-schema.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-research-output-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-person-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-dataset-structure.json
+  - type: x-examples
+    url: examples/queens-university-belfast-research-outputs-list-example.json
+  - type: x-rules
+    url: rules/queens-university-belfast-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/queens-university-belfast-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/queens-university-belfast-context.jsonld
+  - type: Documentation
+    url: https://doc.pure.elsevier.com/display/PureClient/Pure+API
+  - type: HumanURL
+    url: https://pure.qub.ac.uk/
+- aid: queens-university-belfast:queens-university-belfast-fingerprint-api
+  name: Queen's University Belfast fingerprint API
+  description: The fingerprint API from Queen's University Belfast — 3 operation(s) for fingerprint.
+  humanURL: https://pure.qub.ac.uk/
+  baseURL: https://pureadmin.qub.ac.uk/ws/oai
+  tags:
+  - fingerprint
+  properties:
+  - type: OpenAPI
+    url: openapi/queens-university-belfast-fingerprint-api-openapi.yml
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-research-output-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-person-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-dataset-schema.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-research-output-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-person-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-dataset-structure.json
+  - type: x-examples
+    url: examples/queens-university-belfast-research-outputs-list-example.json
+  - type: x-rules
+    url: rules/queens-university-belfast-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/queens-university-belfast-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/queens-university-belfast-context.jsonld
+  - type: Documentation
+    url: https://doc.pure.elsevier.com/display/PureClient/Pure+API
+  - type: HumanURL
+    url: https://pure.qub.ac.uk/
+- aid: queens-university-belfast:queens-university-belfast-fundingopportunity-api
+  name: Queen's University Belfast fundingOpportunity API
+  description: >-
+    The fundingOpportunity API from Queen's University Belfast — 21 operation(s) for fundingopportunity.
+  humanURL: https://pure.qub.ac.uk/
+  baseURL: https://pureadmin.qub.ac.uk/ws/oai
+  tags:
+  - fundingOpportunity
+  properties:
+  - type: OpenAPI
+    url: openapi/queens-university-belfast-fundingopportunity-api-openapi.yml
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-research-output-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-person-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-dataset-schema.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-research-output-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-person-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-dataset-structure.json
+  - type: x-examples
+    url: examples/queens-university-belfast-research-outputs-list-example.json
+  - type: x-rules
+    url: rules/queens-university-belfast-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/queens-university-belfast-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/queens-university-belfast-context.jsonld
+  - type: Documentation
+    url: https://doc.pure.elsevier.com/display/PureClient/Pure+API
+  - type: HumanURL
+    url: https://pure.qub.ac.uk/
+- aid: queens-university-belfast:queens-university-belfast-impact-api
+  name: Queen's University Belfast impact API
+  description: The impact API from Queen's University Belfast — 31 operation(s) for impact.
+  humanURL: https://pure.qub.ac.uk/
+  baseURL: https://pureadmin.qub.ac.uk/ws/oai
+  tags:
+  - impact
+  properties:
+  - type: OpenAPI
+    url: openapi/queens-university-belfast-impact-api-openapi.yml
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-research-output-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-person-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-dataset-schema.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-research-output-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-person-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-dataset-structure.json
+  - type: x-examples
+    url: examples/queens-university-belfast-research-outputs-list-example.json
+  - type: x-rules
+    url: rules/queens-university-belfast-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/queens-university-belfast-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/queens-university-belfast-context.jsonld
+  - type: Documentation
+    url: https://doc.pure.elsevier.com/display/PureClient/Pure+API
+  - type: HumanURL
+    url: https://pure.qub.ac.uk/
+- aid: queens-university-belfast:queens-university-belfast-journal-api
+  name: Queen's University Belfast journal API
+  description: The journal API from Queen's University Belfast — 22 operation(s) for journal.
+  humanURL: https://pure.qub.ac.uk/
+  baseURL: https://pureadmin.qub.ac.uk/ws/oai
+  tags:
+  - journal
+  properties:
+  - type: OpenAPI
+    url: openapi/queens-university-belfast-journal-api-openapi.yml
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-research-output-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-person-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-dataset-schema.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-research-output-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-person-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-dataset-structure.json
+  - type: x-examples
+    url: examples/queens-university-belfast-research-outputs-list-example.json
+  - type: x-rules
+    url: rules/queens-university-belfast-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/queens-university-belfast-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/queens-university-belfast-context.jsonld
+  - type: Documentation
+    url: https://doc.pure.elsevier.com/display/PureClient/Pure+API
+  - type: HumanURL
+    url: https://pure.qub.ac.uk/
+- aid: queens-university-belfast:queens-university-belfast-keywordgroupconfiguration-api
+  name: Queen's University Belfast keywordGroupConfiguration API
+  description: >-
+    The keywordGroupConfiguration API from Queen's University Belfast — 7 operation(s) for keywordgroupconfiguration.
+  humanURL: https://pure.qub.ac.uk/
+  baseURL: https://pureadmin.qub.ac.uk/ws/oai
+  tags:
+  - keywordGroupConfiguration
+  properties:
+  - type: OpenAPI
+    url: openapi/queens-university-belfast-keywordgroupconfiguration-api-openapi.yml
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-research-output-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-person-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-dataset-schema.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-research-output-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-person-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-dataset-structure.json
+  - type: x-examples
+    url: examples/queens-university-belfast-research-outputs-list-example.json
+  - type: x-rules
+    url: rules/queens-university-belfast-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/queens-university-belfast-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/queens-university-belfast-context.jsonld
+  - type: Documentation
+    url: https://doc.pure.elsevier.com/display/PureClient/Pure+API
+  - type: HumanURL
+    url: https://pure.qub.ac.uk/
+- aid: queens-university-belfast:queens-university-belfast-milestone-api
+  name: Queen's University Belfast milestone API
+  description: The milestone API from Queen's University Belfast — 24 operation(s) for milestone.
+  humanURL: https://pure.qub.ac.uk/
+  baseURL: https://pureadmin.qub.ac.uk/ws/oai
+  tags:
+  - milestone
+  properties:
+  - type: OpenAPI
+    url: openapi/queens-university-belfast-milestone-api-openapi.yml
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-research-output-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-person-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-dataset-schema.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-research-output-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-person-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-dataset-structure.json
+  - type: x-examples
+    url: examples/queens-university-belfast-research-outputs-list-example.json
+  - type: x-rules
+    url: rules/queens-university-belfast-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/queens-university-belfast-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/queens-university-belfast-context.jsonld
+  - type: Documentation
+    url: https://doc.pure.elsevier.com/display/PureClient/Pure+API
+  - type: HumanURL
+    url: https://pure.qub.ac.uk/
+- aid: queens-university-belfast:queens-university-belfast-organization-api
+  name: Queen's University Belfast organization API
+  description: The organization API from Queen's University Belfast — 34 operation(s) for organization.
+  humanURL: https://pure.qub.ac.uk/
+  baseURL: https://pureadmin.qub.ac.uk/ws/oai
+  tags:
+  - organization
+  properties:
+  - type: OpenAPI
+    url: openapi/queens-university-belfast-organization-api-openapi.yml
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-research-output-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-person-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-dataset-schema.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-research-output-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-person-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-dataset-structure.json
+  - type: x-examples
+    url: examples/queens-university-belfast-research-outputs-list-example.json
+  - type: x-rules
+    url: rules/queens-university-belfast-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/queens-university-belfast-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/queens-university-belfast-context.jsonld
+  - type: Documentation
+    url: https://doc.pure.elsevier.com/display/PureClient/Pure+API
+  - type: HumanURL
+    url: https://pure.qub.ac.uk/
+- aid: queens-university-belfast:queens-university-belfast-person-api
+  name: Queen's University Belfast person API
+  description: The person API from Queen's University Belfast — 58 operation(s) for person.
+  humanURL: https://pure.qub.ac.uk/
+  baseURL: https://pureadmin.qub.ac.uk/ws/oai
+  tags:
+  - person
+  properties:
+  - type: OpenAPI
+    url: openapi/queens-university-belfast-person-api-openapi.yml
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-research-output-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-person-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-dataset-schema.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-research-output-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-person-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-dataset-structure.json
+  - type: x-examples
+    url: examples/queens-university-belfast-research-outputs-list-example.json
+  - type: x-rules
+    url: rules/queens-university-belfast-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/queens-university-belfast-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/queens-university-belfast-context.jsonld
+  - type: Documentation
+    url: https://doc.pure.elsevier.com/display/PureClient/Pure+API
+  - type: HumanURL
+    url: https://pure.qub.ac.uk/
+- aid: queens-university-belfast:queens-university-belfast-personexpertise-api
+  name: Queen's University Belfast personExpertise API
+  description: >-
+    The personExpertise API from Queen's University Belfast — 7 operation(s) for personexpertise.
+  humanURL: https://pure.qub.ac.uk/
+  baseURL: https://pureadmin.qub.ac.uk/ws/oai
+  tags:
+  - personExpertise
+  properties:
+  - type: OpenAPI
+    url: openapi/queens-university-belfast-personexpertise-api-openapi.yml
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-research-output-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-person-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-dataset-schema.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-research-output-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-person-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-dataset-structure.json
+  - type: x-examples
+    url: examples/queens-university-belfast-research-outputs-list-example.json
+  - type: x-rules
+    url: rules/queens-university-belfast-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/queens-university-belfast-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/queens-university-belfast-context.jsonld
+  - type: Documentation
+    url: https://doc.pure.elsevier.com/display/PureClient/Pure+API
+  - type: HumanURL
+    url: https://pure.qub.ac.uk/
+- aid: queens-university-belfast:queens-university-belfast-pressmedia-api
+  name: Queen's University Belfast pressMedia API
+  description: The pressMedia API from Queen's University Belfast — 24 operation(s) for pressmedia.
+  humanURL: https://pure.qub.ac.uk/
+  baseURL: https://pureadmin.qub.ac.uk/ws/oai
+  tags:
+  - pressMedia
+  properties:
+  - type: OpenAPI
+    url: openapi/queens-university-belfast-pressmedia-api-openapi.yml
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-research-output-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-person-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-dataset-schema.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-research-output-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-person-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-dataset-structure.json
+  - type: x-examples
+    url: examples/queens-university-belfast-research-outputs-list-example.json
+  - type: x-rules
+    url: rules/queens-university-belfast-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/queens-university-belfast-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/queens-university-belfast-context.jsonld
+  - type: Documentation
+    url: https://doc.pure.elsevier.com/display/PureClient/Pure+API
+  - type: HumanURL
+    url: https://pure.qub.ac.uk/
+- aid: queens-university-belfast:queens-university-belfast-prize-api
+  name: Queen's University Belfast prize API
+  description: The prize API from Queen's University Belfast — 29 operation(s) for prize.
+  humanURL: https://pure.qub.ac.uk/
+  baseURL: https://pureadmin.qub.ac.uk/ws/oai
+  tags:
+  - prize
+  properties:
+  - type: OpenAPI
+    url: openapi/queens-university-belfast-prize-api-openapi.yml
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-research-output-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-person-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-dataset-schema.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-research-output-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-person-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-dataset-structure.json
+  - type: x-examples
+    url: examples/queens-university-belfast-research-outputs-list-example.json
+  - type: x-rules
+    url: rules/queens-university-belfast-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/queens-university-belfast-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/queens-university-belfast-context.jsonld
+  - type: Documentation
+    url: https://doc.pure.elsevier.com/display/PureClient/Pure+API
+  - type: HumanURL
+    url: https://pure.qub.ac.uk/
+- aid: queens-university-belfast:queens-university-belfast-project-api
+  name: Queen's University Belfast project API
+  description: The project API from Queen's University Belfast — 33 operation(s) for project.
+  humanURL: https://pure.qub.ac.uk/
+  baseURL: https://pureadmin.qub.ac.uk/ws/oai
+  tags:
+  - project
+  properties:
+  - type: OpenAPI
+    url: openapi/queens-university-belfast-project-api-openapi.yml
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-research-output-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-person-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-dataset-schema.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-research-output-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-person-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-dataset-structure.json
+  - type: x-examples
+    url: examples/queens-university-belfast-research-outputs-list-example.json
+  - type: x-rules
+    url: rules/queens-university-belfast-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/queens-university-belfast-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/queens-university-belfast-context.jsonld
+  - type: Documentation
+    url: https://doc.pure.elsevier.com/display/PureClient/Pure+API
+  - type: HumanURL
+    url: https://pure.qub.ac.uk/
+- aid: queens-university-belfast:queens-university-belfast-publisher-api
+  name: Queen's University Belfast publisher API
+  description: The publisher API from Queen's University Belfast — 18 operation(s) for publisher.
+  humanURL: https://pure.qub.ac.uk/
+  baseURL: https://pureadmin.qub.ac.uk/ws/oai
+  tags:
+  - publisher
+  properties:
+  - type: OpenAPI
+    url: openapi/queens-university-belfast-publisher-api-openapi.yml
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-research-output-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-person-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-dataset-schema.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-research-output-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-person-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-dataset-structure.json
+  - type: x-examples
+    url: examples/queens-university-belfast-research-outputs-list-example.json
+  - type: x-rules
+    url: rules/queens-university-belfast-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/queens-university-belfast-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/queens-university-belfast-context.jsonld
+  - type: Documentation
+    url: https://doc.pure.elsevier.com/display/PureClient/Pure+API
+  - type: HumanURL
+    url: https://pure.qub.ac.uk/
+- aid: queens-university-belfast:queens-university-belfast-researchoutput-api
+  name: Queen's University Belfast researchOutput API
+  description: >-
+    The researchOutput API from Queen's University Belfast — 67 operation(s) for researchoutput.
+  humanURL: https://pure.qub.ac.uk/
+  baseURL: https://pureadmin.qub.ac.uk/ws/oai
+  tags:
+  - researchOutput
+  properties:
+  - type: OpenAPI
+    url: openapi/queens-university-belfast-researchoutput-api-openapi.yml
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-research-output-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-person-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-dataset-schema.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-research-output-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-person-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-dataset-structure.json
+  - type: x-examples
+    url: examples/queens-university-belfast-research-outputs-list-example.json
+  - type: x-rules
+    url: rules/queens-university-belfast-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/queens-university-belfast-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/queens-university-belfast-context.jsonld
+  - type: Documentation
+    url: https://doc.pure.elsevier.com/display/PureClient/Pure+API
+  - type: HumanURL
+    url: https://pure.qub.ac.uk/
+- aid: queens-university-belfast:queens-university-belfast-role-api
+  name: Queen's University Belfast role API
+  description: The role API from Queen's University Belfast — 2 operation(s) for role.
+  humanURL: https://pure.qub.ac.uk/
+  baseURL: https://pureadmin.qub.ac.uk/ws/oai
+  tags:
+  - role
+  properties:
+  - type: OpenAPI
+    url: openapi/queens-university-belfast-role-api-openapi.yml
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-research-output-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-person-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-dataset-schema.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-research-output-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-person-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-dataset-structure.json
+  - type: x-examples
+    url: examples/queens-university-belfast-research-outputs-list-example.json
+  - type: x-rules
+    url: rules/queens-university-belfast-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/queens-university-belfast-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/queens-university-belfast-context.jsonld
+  - type: Documentation
+    url: https://doc.pure.elsevier.com/display/PureClient/Pure+API
+  - type: HumanURL
+    url: https://pure.qub.ac.uk/
+- aid: queens-university-belfast:queens-university-belfast-semester-api
+  name: Queen's University Belfast semester API
+  description: The semester API from Queen's University Belfast — 8 operation(s) for semester.
+  humanURL: https://pure.qub.ac.uk/
+  baseURL: https://pureadmin.qub.ac.uk/ws/oai
+  tags:
+  - semester
+  properties:
+  - type: OpenAPI
+    url: openapi/queens-university-belfast-semester-api-openapi.yml
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-research-output-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-person-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-dataset-schema.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-research-output-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-person-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-dataset-structure.json
+  - type: x-examples
+    url: examples/queens-university-belfast-research-outputs-list-example.json
+  - type: x-rules
+    url: rules/queens-university-belfast-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/queens-university-belfast-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/queens-university-belfast-context.jsonld
+  - type: Documentation
+    url: https://doc.pure.elsevier.com/display/PureClient/Pure+API
+  - type: HumanURL
+    url: https://pure.qub.ac.uk/
+- aid: queens-university-belfast:queens-university-belfast-specialization-api
+  name: Queen's University Belfast specialization API
+  description: >-
+    The specialization API from Queen's University Belfast — 8 operation(s) for specialization.
+  humanURL: https://pure.qub.ac.uk/
+  baseURL: https://pureadmin.qub.ac.uk/ws/oai
+  tags:
+  - specialization
+  properties:
+  - type: OpenAPI
+    url: openapi/queens-university-belfast-specialization-api-openapi.yml
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-research-output-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-person-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-dataset-schema.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-research-output-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-person-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-dataset-structure.json
+  - type: x-examples
+    url: examples/queens-university-belfast-research-outputs-list-example.json
+  - type: x-rules
+    url: rules/queens-university-belfast-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/queens-university-belfast-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/queens-university-belfast-context.jsonld
+  - type: Documentation
+    url: https://doc.pure.elsevier.com/display/PureClient/Pure+API
+  - type: HumanURL
+    url: https://pure.qub.ac.uk/
+- aid: queens-university-belfast:queens-university-belfast-studentproject-api
+  name: Queen's University Belfast studentProject API
+  description: >-
+    The studentProject API from Queen's University Belfast — 26 operation(s) for studentproject.
+  humanURL: https://pure.qub.ac.uk/
+  baseURL: https://pureadmin.qub.ac.uk/ws/oai
+  tags:
+  - studentProject
+  properties:
+  - type: OpenAPI
+    url: openapi/queens-university-belfast-studentproject-api-openapi.yml
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-research-output-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-person-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-dataset-schema.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-research-output-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-person-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-dataset-structure.json
+  - type: x-examples
+    url: examples/queens-university-belfast-research-outputs-list-example.json
+  - type: x-rules
+    url: rules/queens-university-belfast-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/queens-university-belfast-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/queens-university-belfast-context.jsonld
+  - type: Documentation
+    url: https://doc.pure.elsevier.com/display/PureClient/Pure+API
+  - type: HumanURL
+    url: https://pure.qub.ac.uk/
+- aid: queens-university-belfast:queens-university-belfast-studentthesis-api
+  name: Queen's University Belfast studentThesis API
+  description: >-
+    The studentThesis API from Queen's University Belfast — 26 operation(s) for studentthesis.
+  humanURL: https://pure.qub.ac.uk/
+  baseURL: https://pureadmin.qub.ac.uk/ws/oai
+  tags:
+  - studentThesis
+  properties:
+  - type: OpenAPI
+    url: openapi/queens-university-belfast-studentthesis-api-openapi.yml
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-research-output-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-person-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-dataset-schema.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-research-output-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-person-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-dataset-structure.json
+  - type: x-examples
+    url: examples/queens-university-belfast-research-outputs-list-example.json
+  - type: x-rules
+    url: rules/queens-university-belfast-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/queens-university-belfast-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/queens-university-belfast-context.jsonld
+  - type: Documentation
+    url: https://doc.pure.elsevier.com/display/PureClient/Pure+API
+  - type: HumanURL
+    url: https://pure.qub.ac.uk/
+- aid: queens-university-belfast:queens-university-belfast-thesaurus-api
+  name: Queen's University Belfast thesaurus API
+  description: The thesaurus API from Queen's University Belfast — 5 operation(s) for thesaurus.
+  humanURL: https://pure.qub.ac.uk/
+  baseURL: https://pureadmin.qub.ac.uk/ws/oai
+  tags:
+  - thesaurus
+  properties:
+  - type: OpenAPI
+    url: openapi/queens-university-belfast-thesaurus-api-openapi.yml
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-research-output-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-person-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-dataset-schema.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-research-output-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-person-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-dataset-structure.json
+  - type: x-examples
+    url: examples/queens-university-belfast-research-outputs-list-example.json
+  - type: x-rules
+    url: rules/queens-university-belfast-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/queens-university-belfast-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/queens-university-belfast-context.jsonld
+  - type: Documentation
+    url: https://doc.pure.elsevier.com/display/PureClient/Pure+API
+  - type: HumanURL
+    url: https://pure.qub.ac.uk/
+- aid: queens-university-belfast:queens-university-belfast-user-api
+  name: Queen's University Belfast user API
+  description: The user API from Queen's University Belfast — 7 operation(s) for user.
+  humanURL: https://pure.qub.ac.uk/
+  baseURL: https://pureadmin.qub.ac.uk/ws/oai
+  tags:
+  - user
+  properties:
+  - type: OpenAPI
+    url: openapi/queens-university-belfast-user-api-openapi.yml
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-research-output-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-person-schema.json
+  - type: x-json-schema
+    url: json-schema/queens-university-belfast-dataset-schema.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-research-output-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-person-structure.json
+  - type: x-json-structure
+    url: json-structure/queens-university-belfast-dataset-structure.json
+  - type: x-examples
+    url: examples/queens-university-belfast-research-outputs-list-example.json
+  - type: x-rules
+    url: rules/queens-university-belfast-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/queens-university-belfast-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/queens-university-belfast-context.jsonld
+  - type: Documentation
+    url: https://doc.pure.elsevier.com/display/PureClient/Pure+API
+  - type: HumanURL
+    url: https://pure.qub.ac.uk/
 common:
   - type: AgenticAccess
     url: agentic-access/queens-university-belfast-agentic-access.yml
