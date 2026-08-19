@@ -41,7 +41,7 @@ tags:
 created: '2026-06-03'
 modified: '2026-06-03'
 
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: queens-university-belfast:research-portal-oai
   name: Queen's University Belfast Research Portal (Pure OAI-PMH)
