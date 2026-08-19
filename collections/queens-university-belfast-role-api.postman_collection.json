@@ -1,0 +1,223 @@
+{
+  "item": [
+    {
+      "id": "2574b680-54b2-4eab-89f9-9c1985c2446a",
+      "name": "role",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ab7fdd17-8816-4cc2-bc9f-475bc464ad1e",
+          "name": "Lists all assignable roles",
+          "request": {
+            "name": "Lists all assignable roles",
+            "description": {
+              "content": "Lists all assignable roles that are currently available",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "roles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cb805063-b984-4682-9707-69f9bfe23420",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"assignableRoleName\": \"string\",\n    \"targetSystemName\": \"string\",\n    \"title\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  {\n    \"assignableRoleName\": \"string\",\n    \"targetSystemName\": \"string\",\n    \"title\": {\n      \"en_GB\": \"Some text\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b1137937-445c-46e1-8adb-7e6beded77d4",
+          "name": "Returns an assignable role",
+          "request": {
+            "name": "Returns an assignable role",
+            "description": {
+              "content": "Returns an assignable role if it is currently available",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "roles",
+                ":assignableRoleName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "assignableRoleName",
+                  "description": "(Required) Get assignable role from assignable role name."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4a66b9e6-b7f5-46f0-af68-e3f28f3b5f8f",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "roles",
+                    ":assignableRoleName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assignableRoleName",
+                      "description": "(Required) Get assignable role from assignable role name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assignableRoleName\": \"string\",\n  \"targetSystemName\": \"string\",\n  \"title\": {\n    \"en_GB\": \"Some text\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://pure.qub.ac.uk/ws/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "284ed2ca-77de-49b7-81f0-dd2b5b2e3ef6",
+    "name": "Pure activity role API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Pure API provides a secure and complete web services API for using and managing research information data in Pure. The API enables a broad range of use-cases for interacting with research information, from anonymous Open Data scenarios to enabling the next generation Pure admin.\n\nContact Support:\n Email: pure-support@elsevier.com",
+      "type": "text/plain"
+    }
+  }
+}

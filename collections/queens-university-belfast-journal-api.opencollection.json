@@ -1,0 +1,527 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pure activity journal API",
+    "version": "5.35.3-4"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api-key",
+      "value": "{{api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "journal",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Lists all journals",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/journals",
+            "params": [
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Number of returned journals per request."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset for the returned list. 0 or null value is from the start"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "The order of the list, must be a value from /journals/orderings"
+              }
+            ]
+          },
+          "docs": "Lists all journals in the Pure instance. If you need to filter the journals returned, see the POST version which supports additional filtering."
+        },
+        {
+          "info": {
+            "name": "Create journal",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://pure.qub.ac.uk/ws/api/journals",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create journal"
+        },
+        {
+          "info": {
+            "name": "A list of allowed classified identifier types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/journals/allowed-classified-identifier-types"
+          },
+          "docs": "Get a list of allowed classified identifier types that can be used for the 'identifiers.type' attribute of journals"
+        },
+        {
+          "info": {
+            "name": "A list of allowed countries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/journals/allowed-countries"
+          },
+          "docs": "Get a list of allowed countries that can be used for the 'journal.country' attribute of journals"
+        },
+        {
+          "info": {
+            "name": "A list of keyword group configurations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/journals/allowed-keyword-group-configurations"
+          },
+          "docs": "Get a list of allowed keyword group configurations that can be used when submitting keyword groups."
+        },
+        {
+          "info": {
+            "name": "A list of allowed classifications for the specified keyword group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/journals/allowed-keyword-group-configurations/:id/classifications",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Pure id of the keyword group configuration"
+              }
+            ]
+          },
+          "docs": "Get a list of allowed classifications that can be used when submitting a specified keyword group."
+        },
+        {
+          "info": {
+            "name": "A list of allowed link types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/journals/allowed-link-types"
+          },
+          "docs": "Get a list of allowed link types that can be used for the 'links.linkType' attribute of journals"
+        },
+        {
+          "info": {
+            "name": "A list of allowed locales in localized strings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/journals/allowed-locales"
+          },
+          "docs": "Get a list of allowed locales that can be used when submitting localized string entities."
+        },
+        {
+          "info": {
+            "name": "A list of allowed metric collections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/journals/allowed-metric-collections"
+          },
+          "docs": "Get a list of metric collections allowed on journals"
+        },
+        {
+          "info": {
+            "name": "A list of allowed journal types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/journals/allowed-types"
+          },
+          "docs": "Get a list of allowed types that can be used for the 'type' attribute of journal"
+        },
+        {
+          "info": {
+            "name": "A list of allowed workflow steps",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/journals/allowed-workflow-steps"
+          },
+          "docs": "Get a list of allowed workflow steps that can be used for the 'workflow' attribute of journals"
+        },
+        {
+          "info": {
+            "name": "A list of allowed discipline schemes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/journals/disciplines/allowed-discipline-schemes"
+          },
+          "docs": "Get a list fo a allowed discipline schemes for journals"
+        },
+        {
+          "info": {
+            "name": "A list of allowed disciplines for a specific discipline scheme",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/journals/disciplines/:discipline-scheme/allowed-disciplines",
+            "params": [
+              {
+                "name": "discipline-scheme",
+                "value": "",
+                "type": "path",
+                "description": "Identifier for the discipline scheme for journals"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Number of returned disciplines per request"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset for the returned list. 0 or null value is from the start"
+              }
+            ]
+          },
+          "docs": "Get a list of a allowed disciplines for specific discipline scheme for journals"
+        },
+        {
+          "info": {
+            "name": "Query operation for disciplines associated with journals",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://pure.qub.ac.uk/ws/api/journals/disciplines/:discipline-scheme/search",
+            "params": [
+              {
+                "name": "discipline-scheme",
+                "value": "",
+                "type": "path",
+                "description": "Identifier for the discipline scheme"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Lists disciplines from the discipline scheme associated with journals in the Pure instance that matches the provided query."
+        },
+        {
+          "info": {
+            "name": "Lists available orderings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/journals/orderings"
+          },
+          "docs": "Lists all orderings available to the journal endpoint. These values can be used by the order parameter."
+        },
+        {
+          "info": {
+            "name": "Query operation for journals",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://pure.qub.ac.uk/ws/api/journals/search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Lists journals in the Pure instance that matches the provided query, similar to the GET version, instead of using parameters to alter the response, an JSON document is posted with the request. The JSON document contains fields for all the parameters available for the GET version, but also additional filtering options."
+        },
+        {
+          "info": {
+            "name": "Get journal",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/journals/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the desired journal"
+              }
+            ]
+          },
+          "docs": "Get journal with specific UUID."
+        },
+        {
+          "info": {
+            "name": "Update journal",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://pure.qub.ac.uk/ws/api/journals/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the journal to update"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update journal with specific UUID."
+        },
+        {
+          "info": {
+            "name": "Delete journal",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://pure.qub.ac.uk/ws/api/journals/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the journal"
+              }
+            ]
+          },
+          "docs": "Delete journal with specific UUID."
+        },
+        {
+          "info": {
+            "name": "Lock the content",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://pure.qub.ac.uk/ws/api/journals/:uuid/actions/lock",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the content to lock"
+              }
+            ]
+          },
+          "docs": "Mark the content as external (used when content contains synchronised data). This has no effect on interactions with the content through the API."
+        },
+        {
+          "info": {
+            "name": "Unlock the content",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://pure.qub.ac.uk/ws/api/journals/:uuid/actions/unlock",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the content to unlock"
+              }
+            ]
+          },
+          "docs": "Remove the external mark on the content (used when content contains synchronised data). This has no effect on interactions with the content through the API."
+        },
+        {
+          "info": {
+            "name": "Lists all dependents to a journal",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/journals/:uuid/dependents",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the journal"
+              },
+              {
+                "name": "verbose",
+                "value": "",
+                "type": "query",
+                "description": "DEPRECATED - Parameter has no effect."
+              }
+            ]
+          },
+          "docs": "Lists all dependents to a journal with the specified UUID. If the user does not have access to view all the dependent content, an authorization error will be thrown. "
+        },
+        {
+          "info": {
+            "name": "Get disciplines from the discipline scheme associated with the journal",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/journals/:uuid/disciplines/:discipline-scheme",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the desired journal"
+              },
+              {
+                "name": "discipline-scheme",
+                "value": "",
+                "type": "path",
+                "description": "Identifier for the discipline scheme"
+              }
+            ]
+          },
+          "docs": "Get disciplines from the discipline scheme associated with the journal with specific UUID."
+        },
+        {
+          "info": {
+            "name": "Update disciplines from the discipline scheme associated with the journal",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://pure.qub.ac.uk/ws/api/journals/:uuid/disciplines/:discipline-scheme",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the journal to update"
+              },
+              {
+                "name": "discipline-scheme",
+                "value": "",
+                "type": "path",
+                "description": "Identifier for the discipline scheme"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update disciplines from the discipline scheme associated with the journal with specific UUID."
+        },
+        {
+          "info": {
+            "name": "Lists metrics with collection id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/journals/:uuid/metrics/:collection-id",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the journal to get metrics for"
+              },
+              {
+                "name": "collection-id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the metrics collection to get metrics for"
+              }
+            ]
+          },
+          "docs": "Lists metrics from a specific metrics collection that associated with a journal."
+        },
+        {
+          "info": {
+            "name": "Lists notes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/journals/:uuid/notes",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the journal to get notes for"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Number of returned notes per request"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset for the returned list. 0 or null value is from the start"
+              }
+            ]
+          },
+          "docs": "Lists notes associated with the journal ordered by date (nulls last)"
+        },
+        {
+          "info": {
+            "name": "Create note",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://pure.qub.ac.uk/ws/api/journals/:uuid/notes",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the journal to add note to"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create note and associate it with a journal"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

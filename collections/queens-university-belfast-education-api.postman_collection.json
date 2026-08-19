@@ -1,0 +1,2602 @@
+{
+  "item": [
+    {
+      "id": "5b04b53f-b746-4911-a849-6507607870c6",
+      "name": "education",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "73d87d52-cf1e-4cc8-8892-89adad013563",
+          "name": "Lists all educations",
+          "request": {
+            "name": "Lists all educations",
+            "description": {
+              "content": "Lists all educations in the Pure instance. If you need to filter the educations returned, see the POST version which supports additional filtering.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "educations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "10",
+                  "description": "Number of returned educations per request."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "The offset for the returned list. 0 or null value is from the start"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>",
+                  "description": "The order of the list, must be a value from /educations/orderings"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7c068324-afb2-40bd-99d0-604dcd485041",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "educations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "size",
+                      "value": "10"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 8062,\n  \"pageInformation\": {\n    \"offset\": 1488,\n    \"size\": 8507\n  },\n  \"items\": [\n    {\n      \"name\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"period\": {\n        \"startDate\": \"1967-12-26\",\n        \"endDate\": \"1994-08-11\"\n      },\n      \"type\": {\n        \"uri\": \"string\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"visibility\": {\n        \"key\": \"BACKEND\",\n        \"description\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"pureId\": 2904,\n      \"uuid\": \"f44966d9-92f3-f17e-e0c7-3e4a8fd31576\",\n      \"createdBy\": \"string\",\n      \"createdDate\": \"1976-01-12T11:27:50.500Z\",\n      \"modifiedBy\": \"string\",\n      \"modifiedDate\": \"1990-04-23T00:20:35.929Z\",\n      \"portalUrl\": \"string\",\n      \"prettyUrlIdentifiers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"previousUuids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"version\": \"string\",\n      \"semesters\": [\n        {\n          \"systemName\": \"string\",\n          \"uuid\": \"6e97234d-9b3f-f634-53ee-5ef91a1e4451\"\n        },\n        {\n          \"systemName\": \"string\",\n          \"uuid\": \"35dc190b-9051-319e-dada-434dceb122e9\"\n        }\n      ],\n      \"links\": [\n        {\n          \"url\": \"string\",\n          \"pureId\": 1261,\n          \"alias\": \"string\",\n          \"description\": {\n            \"en_GB\": \"Some text\"\n          },\n          \"linkType\": {\n            \"uri\": \"string\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"url\": \"string\",\n          \"pureId\": 6828,\n          \"alias\": \"string\",\n          \"description\": {\n            \"en_GB\": \"Some text\"\n          },\n          \"linkType\": {\n            \"uri\": \"string\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ],\n      \"organizations\": [\n        {\n          \"systemName\": \"string\",\n          \"uuid\": \"ea720261-51c1-f4f9-f38c-b9137beeea04\"\n        },\n        {\n          \"systemName\": \"string\",\n          \"uuid\": \"6071c13c-b4ca-d14c-be17-783c947c7f4d\"\n        }\n      ],\n      \"educationType\": {\n        \"uri\": \"string\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"specializations\": [\n        {\n          \"systemName\": \"string\",\n          \"uuid\": \"3b2b0e8c-ce7d-5894-fba5-e9fa43252513\"\n        },\n        {\n          \"systemName\": \"string\",\n          \"uuid\": \"a46eefb5-29ce-7176-c589-e0c08a6b81aa\"\n        }\n      ],\n      \"sortName\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"profile\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"educationId\": \"string\",\n      \"parent\": {\n        \"systemName\": \"string\",\n        \"uuid\": \"867276d6-c1f0-8238-31f8-62c9a3a2db55\"\n      },\n      \"linkIdentifiers\": [\n        {\n          \"pureId\": 7743,\n          \"linkIdentifier\": \"string\"\n        },\n        {\n          \"pureId\": 1892,\n          \"linkIdentifier\": \"string\"\n        }\n      ],\n      \"keywordGroups\": [\n        {\n          \"logicalName\": \"string\",\n          \"typeDiscriminator\": \"string\",\n          \"pureId\": 8336,\n          \"name\": {\n            \"en_GB\": \"Some text\"\n          }\n        },\n        {\n          \"logicalName\": \"string\",\n          \"typeDiscriminator\": \"string\",\n          \"pureId\": 2364,\n          \"name\": {\n            \"en_GB\": \"Some text\"\n          }\n        }\n      ],\n      \"identifiers\": [\n        {\n          \"typeDiscriminator\": \"string\"\n        },\n        {\n          \"typeDiscriminator\": \"string\"\n        }\n      ],\n      \"systemName\": \"string\"\n    },\n    {\n      \"name\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"period\": {\n        \"startDate\": \"1954-07-20\",\n        \"endDate\": \"1993-12-19\"\n      },\n      \"type\": {\n        \"uri\": \"string\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"visibility\": {\n        \"key\": \"CONFIDENTIAL\",\n        \"description\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"pureId\": 9362,\n      \"uuid\": \"fdb5c4e9-36f9-db7d-dd13-f9effac1d868\",\n      \"createdBy\": \"string\",\n      \"createdDate\": \"2002-09-22T00:11:34.500Z\",\n      \"modifiedBy\": \"string\",\n      \"modifiedDate\": \"1972-10-29T17:50:21.127Z\",\n      \"portalUrl\": \"string\",\n      \"prettyUrlIdentifiers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"previousUuids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"version\": \"string\",\n      \"semesters\": [\n        {\n          \"systemName\": \"string\",\n          \"uuid\": \"6d6dfe58-acec-5592-5952-b3ce0fd59f63\"\n        },\n        {\n          \"systemName\": \"string\",\n          \"uuid\": \"ddfd4ce7-2927-e4a0-5d36-b524c166f17f\"\n        }\n      ],\n      \"links\": [\n        {\n          \"url\": \"string\",\n          \"pureId\": 204,\n          \"alias\": \"string\",\n          \"description\": {\n            \"en_GB\": \"Some text\"\n          },\n          \"linkType\": {\n            \"uri\": \"string\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"url\": \"string\",\n          \"pureId\": 8746,\n          \"alias\": \"string\",\n          \"description\": {\n            \"en_GB\": \"Some text\"\n          },\n          \"linkType\": {\n            \"uri\": \"string\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ],\n      \"organizations\": [\n        {\n          \"systemName\": \"string\",\n          \"uuid\": \"119be05f-2364-ccfd-ee23-499fdac8e59f\"\n        },\n        {\n          \"systemName\": \"string\",\n          \"uuid\": \"d5431cb8-9afc-942c-9d42-792372451786\"\n        }\n      ],\n      \"educationType\": {\n        \"uri\": \"string\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"specializations\": [\n        {\n          \"systemName\": \"string\",\n          \"uuid\": \"8d07531b-abda-c458-76b1-a4c3e67b4aa0\"\n        },\n        {\n          \"systemName\": \"string\",\n          \"uuid\": \"f9e9f82f-d3b2-1e72-a810-bae4342c4b06\"\n        }\n      ],\n      \"sortName\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"profile\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"educationId\": \"string\",\n      \"parent\": {\n        \"systemName\": \"string\",\n        \"uuid\": \"880a754e-1f2d-5c11-8ed3-ef810714767d\"\n      },\n      \"linkIdentifiers\": [\n        {\n          \"pureId\": 6878,\n          \"linkIdentifier\": \"string\"\n        },\n        {\n          \"pureId\": 4049,\n          \"linkIdentifier\": \"string\"\n        }\n      ],\n      \"keywordGroups\": [\n        {\n          \"logicalName\": \"string\",\n          \"typeDiscriminator\": \"string\",\n          \"pureId\": 2155,\n          \"name\": {\n            \"en_GB\": \"Some text\"\n          }\n        },\n        {\n          \"logicalName\": \"string\",\n          \"typeDiscriminator\": \"string\",\n          \"pureId\": 1155,\n          \"name\": {\n            \"en_GB\": \"Some text\"\n          }\n        }\n      ],\n      \"identifiers\": [\n        {\n          \"typeDiscriminator\": \"string\"\n        },\n        {\n          \"typeDiscriminator\": \"string\"\n        }\n      ],\n      \"systemName\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "92994a59-da2b-4fb0-bd88-ad8d4acf7d79",
+          "name": "Create education",
+          "request": {
+            "name": "Create education",
+            "description": {
+              "content": "Create education",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "educations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": {\n    \"key_0\": \"<string>\"\n  },\n  \"period\": {\n    \"startDate\": \"<date>\",\n    \"endDate\": \"<date>\"\n  },\n  \"type\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"key_0\": \"<string>\"\n    }\n  },\n  \"visibility\": {\n    \"key\": \"<string>\",\n    \"description\": {\n      \"key_0\": \"<string>\"\n    }\n  },\n  \"version\": \"<string>\",\n  \"semesters\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"links\": [\n    {\n      \"url\": \"<string>\",\n      \"alias\": \"<string>\",\n      \"description\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\",\n        \"key_3\": \"<string>\",\n        \"key_4\": \"<string>\"\n      },\n      \"linkType\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"key_0\": \"<string>\"\n        }\n      }\n    },\n    {\n      \"url\": \"<string>\",\n      \"alias\": \"<string>\",\n      \"description\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\"\n      },\n      \"linkType\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        }\n      }\n    }\n  ],\n  \"organizations\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"educationType\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    }\n  },\n  \"specializations\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"sortName\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"profile\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  },\n  \"educationId\": \"<string>\",\n  \"parent\": \"<object>\",\n  \"linkIdentifiers\": [\n    {\n      \"linkIdentifier\": \"<string>\"\n    },\n    {\n      \"linkIdentifier\": \"<string>\"\n    }\n  ],\n  \"keywordGroups\": [\n    {\n      \"logicalName\": \"<string>\",\n      \"typeDiscriminator\": \"<string>\",\n      \"name\": {\n        \"key_0\": \"<string>\"\n      }\n    },\n    {\n      \"logicalName\": \"<string>\",\n      \"typeDiscriminator\": \"<string>\",\n      \"name\": {\n        \"key_0\": \"<string>\"\n      }\n    }\n  ],\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "892191b5-1237-4bc6-b50c-1f88f68bb899",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "educations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"period\": {\n    \"startDate\": \"<date>\",\n    \"endDate\": \"<date>\"\n  },\n  \"type\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"visibility\": {\n    \"key\": \"<string>\",\n    \"description\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"version\": \"<string>\",\n  \"semesters\": [\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    },\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    }\n  ],\n  \"links\": [\n    {\n      \"url\": \"<string>\",\n      \"alias\": \"<string>\",\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"linkType\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      }\n    },\n    {\n      \"url\": \"<string>\",\n      \"alias\": \"<string>\",\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"linkType\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      }\n    }\n  ],\n  \"organizations\": [\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    },\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    }\n  ],\n  \"educationType\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"specializations\": [\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    },\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    }\n  ],\n  \"sortName\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"profile\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"educationId\": \"<string>\",\n  \"parent\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"linkIdentifiers\": [\n    {\n      \"linkIdentifier\": \"<string>\"\n    },\n    {\n      \"linkIdentifier\": \"<string>\"\n    }\n  ],\n  \"keywordGroups\": [\n    {\n      \"logicalName\": \"<string>\",\n      \"typeDiscriminator\": \"<string>\",\n      \"name\": {\n        \"en_GB\": \"Some text\"\n      }\n    },\n    {\n      \"logicalName\": \"<string>\",\n      \"typeDiscriminator\": \"<string>\",\n      \"name\": {\n        \"en_GB\": \"Some text\"\n      }\n    }\n  ],\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"period\": {\n    \"startDate\": \"<date>\",\n    \"endDate\": \"<date>\"\n  },\n  \"type\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"visibility\": {\n    \"key\": \"<string>\",\n    \"description\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"pureId\": 4940,\n  \"uuid\": \"c9089b18-f452-1122-589e-82159ae89c88\",\n  \"createdBy\": \"string\",\n  \"createdDate\": \"2009-11-02T14:05:42.370Z\",\n  \"modifiedBy\": \"string\",\n  \"modifiedDate\": \"2005-07-06T13:19:28.430Z\",\n  \"portalUrl\": \"string\",\n  \"prettyUrlIdentifiers\": [\n    \"string\",\n    \"string\"\n  ],\n  \"previousUuids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"version\": \"<string>\",\n  \"semesters\": [\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    },\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    }\n  ],\n  \"links\": [\n    {\n      \"url\": \"<string>\",\n      \"pureId\": 9293,\n      \"alias\": \"<string>\",\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"linkType\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      }\n    },\n    {\n      \"url\": \"<string>\",\n      \"pureId\": 5850,\n      \"alias\": \"<string>\",\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"linkType\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      }\n    }\n  ],\n  \"organizations\": [\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    },\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    }\n  ],\n  \"educationType\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"specializations\": [\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    },\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    }\n  ],\n  \"sortName\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"profile\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"educationId\": \"<string>\",\n  \"parent\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"linkIdentifiers\": [\n    {\n      \"pureId\": 2782,\n      \"linkIdentifier\": \"<string>\"\n    },\n    {\n      \"pureId\": 2355,\n      \"linkIdentifier\": \"<string>\"\n    }\n  ],\n  \"keywordGroups\": [\n    {\n      \"logicalName\": \"<string>\",\n      \"typeDiscriminator\": \"<string>\",\n      \"pureId\": 2609,\n      \"name\": {\n        \"en_GB\": \"Some text\"\n      }\n    },\n    {\n      \"logicalName\": \"<string>\",\n      \"typeDiscriminator\": \"<string>\",\n      \"pureId\": 3720,\n      \"name\": {\n        \"en_GB\": \"Some text\"\n      }\n    }\n  ],\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ],\n  \"systemName\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9da285cf-b647-469a-9b22-bbecdeb3b9fb",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "educations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"period\": {\n    \"startDate\": \"<date>\",\n    \"endDate\": \"<date>\"\n  },\n  \"type\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"visibility\": {\n    \"key\": \"<string>\",\n    \"description\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"version\": \"<string>\",\n  \"semesters\": [\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    },\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    }\n  ],\n  \"links\": [\n    {\n      \"url\": \"<string>\",\n      \"alias\": \"<string>\",\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"linkType\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      }\n    },\n    {\n      \"url\": \"<string>\",\n      \"alias\": \"<string>\",\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"linkType\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      }\n    }\n  ],\n  \"organizations\": [\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    },\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    }\n  ],\n  \"educationType\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"specializations\": [\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    },\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    }\n  ],\n  \"sortName\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"profile\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"educationId\": \"<string>\",\n  \"parent\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"linkIdentifiers\": [\n    {\n      \"linkIdentifier\": \"<string>\"\n    },\n    {\n      \"linkIdentifier\": \"<string>\"\n    }\n  ],\n  \"keywordGroups\": [\n    {\n      \"logicalName\": \"<string>\",\n      \"typeDiscriminator\": \"<string>\",\n      \"name\": {\n        \"en_GB\": \"Some text\"\n      }\n    },\n    {\n      \"logicalName\": \"<string>\",\n      \"typeDiscriminator\": \"<string>\",\n      \"name\": {\n        \"en_GB\": \"Some text\"\n      }\n    }\n  ],\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 8524,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1ec919ae-dc31-480e-aa8f-575f18dd014e",
+              "name": "Version conflict",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "educations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"period\": {\n    \"startDate\": \"<date>\",\n    \"endDate\": \"<date>\"\n  },\n  \"type\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"visibility\": {\n    \"key\": \"<string>\",\n    \"description\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"version\": \"<string>\",\n  \"semesters\": [\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    },\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    }\n  ],\n  \"links\": [\n    {\n      \"url\": \"<string>\",\n      \"alias\": \"<string>\",\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"linkType\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      }\n    },\n    {\n      \"url\": \"<string>\",\n      \"alias\": \"<string>\",\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"linkType\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      }\n    }\n  ],\n  \"organizations\": [\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    },\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    }\n  ],\n  \"educationType\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"specializations\": [\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    },\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    }\n  ],\n  \"sortName\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"profile\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"educationId\": \"<string>\",\n  \"parent\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"linkIdentifiers\": [\n    {\n      \"linkIdentifier\": \"<string>\"\n    },\n    {\n      \"linkIdentifier\": \"<string>\"\n    }\n  ],\n  \"keywordGroups\": [\n    {\n      \"logicalName\": \"<string>\",\n      \"typeDiscriminator\": \"<string>\",\n      \"name\": {\n        \"en_GB\": \"Some text\"\n      }\n    },\n    {\n      \"logicalName\": \"<string>\",\n      \"typeDiscriminator\": \"<string>\",\n      \"name\": {\n        \"en_GB\": \"Some text\"\n      }\n    }\n  ],\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6188,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"modified\": \"1985-06-16T09:00:25.881Z\",\n  \"modifiedBy\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1377942d-2712-4c78-b1ae-4d0abdf81dcc",
+          "name": "A list of allowed funding classifications",
+          "request": {
+            "name": "A list of allowed funding classifications",
+            "description": {
+              "content": "Get a list of allowed education types for property 'educationType' on educations",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "educations",
+                "allowed-education-types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e3a7e6e3-7613-452c-a4fe-85ff5f959028",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "educations",
+                    "allowed-education-types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"classifications\": [\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      }\n    },\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9dc87bad-b05e-4ec9-a383-8b7feef59bbb",
+          "name": "A list of keyword group configurations",
+          "request": {
+            "name": "A list of keyword group configurations",
+            "description": {
+              "content": "Get a list of allowed keyword group configurations that can be used when submitting keyword groups.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "educations",
+                "allowed-keyword-group-configurations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2d914a59-dbcb-446f-be6e-10720c6c7591",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "educations",
+                    "allowed-keyword-group-configurations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"configurations\": [\n    {\n      \"targetSystemName\": \"string\",\n      \"pureId\": 1997,\n      \"keywordGroupType\": \"string\",\n      \"name\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"classificationScheme\": {\n        \"systemName\": \"<string>\",\n        \"uuid\": \"<uuid>\"\n      },\n      \"allowUserdefinedKeywords\": true,\n      \"limitToLeafSelection\": true,\n      \"logicalName\": \"string\",\n      \"relationType\": \"string\"\n    },\n    {\n      \"targetSystemName\": \"string\",\n      \"pureId\": 2254,\n      \"keywordGroupType\": \"string\",\n      \"name\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"classificationScheme\": {\n        \"systemName\": \"<string>\",\n        \"uuid\": \"<uuid>\"\n      },\n      \"allowUserdefinedKeywords\": true,\n      \"limitToLeafSelection\": false,\n      \"logicalName\": \"string\",\n      \"relationType\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6d533db3-e26b-4548-803e-b059a7c975c5",
+          "name": "A list of allowed classifications for the specified keyword group",
+          "request": {
+            "name": "A list of allowed classifications for the specified keyword group",
+            "description": {
+              "content": "Get a list of allowed classifications that can be used when submitting a specified keyword group.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "educations",
+                "allowed-keyword-group-configurations",
+                ":id",
+                "classifications"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) Pure id of the keyword group configuration"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5437c6c6-4cb1-452b-bd8c-8e0619bb2e7d",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "educations",
+                    "allowed-keyword-group-configurations",
+                    ":id",
+                    "classifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) Pure id of the keyword group configuration"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"classifications\": [\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      }\n    },\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cd1c4956-34fb-4d52-af75-a9bc5cc71867",
+          "name": "A list of allowed link types",
+          "request": {
+            "name": "A list of allowed link types",
+            "description": {
+              "content": "Get a list of allowed link types that can be used for the 'links.linkType' attribute of education",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "educations",
+                "allowed-link-types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "228ae1cb-5b5f-41a6-b41a-92ee6e21405b",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "educations",
+                    "allowed-link-types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"classifications\": [\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      }\n    },\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "732f623f-a174-4a04-9059-c3d36aef9219",
+          "name": "A list of allowed locales in localized strings",
+          "request": {
+            "name": "A list of allowed locales in localized strings",
+            "description": {
+              "content": "Get a list of allowed locales that can be used when submitting localized string entities.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "educations",
+                "allowed-locales"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6b241f75-288b-4e7d-8977-0a3aef251f65",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "educations",
+                    "allowed-locales"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"locales\": \"/mu_KI/\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0ac1c486-af69-40be-94d5-a2eb51369e9d",
+          "name": "A list of allowed education types",
+          "request": {
+            "name": "A list of allowed education types",
+            "description": {
+              "content": "Get a list of allowed types that can be used for the 'type' attribute of education",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "educations",
+                "allowed-types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "afcba3c0-559c-41d4-8116-e98cefeedeba",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "educations",
+                    "allowed-types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"classifications\": [\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      }\n    },\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f9c1011a-c39c-4390-ba2e-79ca900dae16",
+          "name": "Lists available orderings",
+          "request": {
+            "name": "Lists available orderings",
+            "description": {
+              "content": "Lists all orderings available to the education endpoint. These values can be used by the order parameter.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "educations",
+                "orderings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "540c813a-05a3-4005-94bd-6feb6fe1965f",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "educations",
+                    "orderings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"orderings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "54e601fc-cff6-46c0-98b9-ba41a6b05378",
+          "name": "Query operation for education",
+          "request": {
+            "name": "Query operation for education",
+            "description": {
+              "content": "Lists educations in the Pure instance that matches the provided query, similar to the GET version, instead of using parameters to alter the response, an JSON document is posted with the request. The JSON document contains fields for all the parameters available for the GET version, but also additional filtering options.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "educations",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"uuids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"size\": \"<integer>\",\n  \"offset\": \"<integer>\",\n  \"orderings\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"searchString\": \"<string>\",\n  \"orderBy\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "232f6486-9bec-4aef-8e5b-7f10673bbed5",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "educations",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"uuids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"size\": \"<integer>\",\n  \"offset\": \"<integer>\",\n  \"orderings\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"searchString\": \"<string>\",\n  \"orderBy\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 8584,\n  \"pageInformation\": {\n    \"offset\": 6525,\n    \"size\": 7841\n  },\n  \"items\": [\n    {\n      \"name\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"period\": {\n        \"startDate\": \"<date>\",\n        \"endDate\": \"<date>\"\n      },\n      \"type\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"visibility\": {\n        \"key\": \"<string>\",\n        \"description\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"pureId\": 9163,\n      \"uuid\": \"e1b375d6-06cd-8b11-5edd-40d61c042c11\",\n      \"createdBy\": \"string\",\n      \"createdDate\": \"1991-07-20T10:19:13.372Z\",\n      \"modifiedBy\": \"string\",\n      \"modifiedDate\": \"1996-04-07T16:05:42.499Z\",\n      \"portalUrl\": \"string\",\n      \"prettyUrlIdentifiers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"previousUuids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"version\": \"<string>\",\n      \"semesters\": [\n        {\n          \"systemName\": \"<string>\",\n          \"uuid\": \"<uuid>\"\n        },\n        {\n          \"systemName\": \"<string>\",\n          \"uuid\": \"<uuid>\"\n        }\n      ],\n      \"links\": [\n        {\n          \"url\": \"<string>\",\n          \"pureId\": 4140,\n          \"alias\": \"<string>\",\n          \"description\": {\n            \"en_GB\": \"Some text\"\n          },\n          \"linkType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"url\": \"<string>\",\n          \"pureId\": 5336,\n          \"alias\": \"<string>\",\n          \"description\": {\n            \"en_GB\": \"Some text\"\n          },\n          \"linkType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ],\n      \"organizations\": [\n        {\n          \"systemName\": \"<string>\",\n          \"uuid\": \"<uuid>\"\n        },\n        {\n          \"systemName\": \"<string>\",\n          \"uuid\": \"<uuid>\"\n        }\n      ],\n      \"educationType\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"specializations\": [\n        {\n          \"systemName\": \"<string>\",\n          \"uuid\": \"<uuid>\"\n        },\n        {\n          \"systemName\": \"<string>\",\n          \"uuid\": \"<uuid>\"\n        }\n      ],\n      \"sortName\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"profile\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"educationId\": \"<string>\",\n      \"parent\": {\n        \"systemName\": \"<string>\",\n        \"uuid\": \"<uuid>\"\n      },\n      \"linkIdentifiers\": [\n        {\n          \"pureId\": 8732,\n          \"linkIdentifier\": \"<string>\"\n        },\n        {\n          \"pureId\": 9387,\n          \"linkIdentifier\": \"<string>\"\n        }\n      ],\n      \"keywordGroups\": [\n        {\n          \"logicalName\": \"<string>\",\n          \"typeDiscriminator\": \"<string>\",\n          \"pureId\": 6388,\n          \"name\": {\n            \"en_GB\": \"Some text\"\n          }\n        },\n        {\n          \"logicalName\": \"<string>\",\n          \"typeDiscriminator\": \"<string>\",\n          \"pureId\": 6789,\n          \"name\": {\n            \"en_GB\": \"Some text\"\n          }\n        }\n      ],\n      \"identifiers\": [\n        {\n          \"typeDiscriminator\": \"<string>\"\n        },\n        {\n          \"typeDiscriminator\": \"<string>\"\n        }\n      ],\n      \"systemName\": \"string\"\n    },\n    {\n      \"name\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"period\": {\n        \"startDate\": \"<date>\",\n        \"endDate\": \"<date>\"\n      },\n      \"type\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"visibility\": {\n        \"key\": \"<string>\",\n        \"description\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"pureId\": 1908,\n      \"uuid\": \"5aaf5049-a64f-780d-96a7-1e92fbc70479\",\n      \"createdBy\": \"string\",\n      \"createdDate\": \"1970-09-30T12:20:06.808Z\",\n      \"modifiedBy\": \"string\",\n      \"modifiedDate\": \"1975-09-19T12:18:53.606Z\",\n      \"portalUrl\": \"string\",\n      \"prettyUrlIdentifiers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"previousUuids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"version\": \"<string>\",\n      \"semesters\": [\n        {\n          \"systemName\": \"<string>\",\n          \"uuid\": \"<uuid>\"\n        },\n        {\n          \"systemName\": \"<string>\",\n          \"uuid\": \"<uuid>\"\n        }\n      ],\n      \"links\": [\n        {\n          \"url\": \"<string>\",\n          \"pureId\": 6140,\n          \"alias\": \"<string>\",\n          \"description\": {\n            \"en_GB\": \"Some text\"\n          },\n          \"linkType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"url\": \"<string>\",\n          \"pureId\": 9461,\n          \"alias\": \"<string>\",\n          \"description\": {\n            \"en_GB\": \"Some text\"\n          },\n          \"linkType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ],\n      \"organizations\": [\n        {\n          \"systemName\": \"<string>\",\n          \"uuid\": \"<uuid>\"\n        },\n        {\n          \"systemName\": \"<string>\",\n          \"uuid\": \"<uuid>\"\n        }\n      ],\n      \"educationType\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"specializations\": [\n        {\n          \"systemName\": \"<string>\",\n          \"uuid\": \"<uuid>\"\n        },\n        {\n          \"systemName\": \"<string>\",\n          \"uuid\": \"<uuid>\"\n        }\n      ],\n      \"sortName\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"profile\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"educationId\": \"<string>\",\n      \"parent\": {\n        \"systemName\": \"<string>\",\n        \"uuid\": \"<uuid>\"\n      },\n      \"linkIdentifiers\": [\n        {\n          \"pureId\": 3367,\n          \"linkIdentifier\": \"<string>\"\n        },\n        {\n          \"pureId\": 9768,\n          \"linkIdentifier\": \"<string>\"\n        }\n      ],\n      \"keywordGroups\": [\n        {\n          \"logicalName\": \"<string>\",\n          \"typeDiscriminator\": \"<string>\",\n          \"pureId\": 5889,\n          \"name\": {\n            \"en_GB\": \"Some text\"\n          }\n        },\n        {\n          \"logicalName\": \"<string>\",\n          \"typeDiscriminator\": \"<string>\",\n          \"pureId\": 3543,\n          \"name\": {\n            \"en_GB\": \"Some text\"\n          }\n        }\n      ],\n      \"identifiers\": [\n        {\n          \"typeDiscriminator\": \"<string>\"\n        },\n        {\n          \"typeDiscriminator\": \"<string>\"\n        }\n      ],\n      \"systemName\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f7e763c0-3e44-4597-87cb-cb8466856cf4",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "educations",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"uuids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"size\": \"<integer>\",\n  \"offset\": \"<integer>\",\n  \"orderings\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"searchString\": \"<string>\",\n  \"orderBy\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 8524,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3e419516-1638-479d-a514-8ee6acdfa0cd",
+          "name": "Get education",
+          "request": {
+            "name": "Get education",
+            "description": {
+              "content": "Get education with specific UUID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "educations",
+                ":uuid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) UUID of the desired education"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "afcf46c9-11ba-4b7c-86fd-b5c1b54c9aa0",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "educations",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the desired education"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"period\": {\n    \"startDate\": \"<date>\",\n    \"endDate\": \"<date>\"\n  },\n  \"type\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"visibility\": {\n    \"key\": \"<string>\",\n    \"description\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"pureId\": 4940,\n  \"uuid\": \"c9089b18-f452-1122-589e-82159ae89c88\",\n  \"createdBy\": \"string\",\n  \"createdDate\": \"2009-11-02T14:05:42.370Z\",\n  \"modifiedBy\": \"string\",\n  \"modifiedDate\": \"2005-07-06T13:19:28.430Z\",\n  \"portalUrl\": \"string\",\n  \"prettyUrlIdentifiers\": [\n    \"string\",\n    \"string\"\n  ],\n  \"previousUuids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"version\": \"<string>\",\n  \"semesters\": [\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    },\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    }\n  ],\n  \"links\": [\n    {\n      \"url\": \"<string>\",\n      \"pureId\": 9293,\n      \"alias\": \"<string>\",\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"linkType\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      }\n    },\n    {\n      \"url\": \"<string>\",\n      \"pureId\": 5850,\n      \"alias\": \"<string>\",\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"linkType\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      }\n    }\n  ],\n  \"organizations\": [\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    },\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    }\n  ],\n  \"educationType\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"specializations\": [\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    },\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    }\n  ],\n  \"sortName\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"profile\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"educationId\": \"<string>\",\n  \"parent\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"linkIdentifiers\": [\n    {\n      \"pureId\": 2782,\n      \"linkIdentifier\": \"<string>\"\n    },\n    {\n      \"pureId\": 2355,\n      \"linkIdentifier\": \"<string>\"\n    }\n  ],\n  \"keywordGroups\": [\n    {\n      \"logicalName\": \"<string>\",\n      \"typeDiscriminator\": \"<string>\",\n      \"pureId\": 2609,\n      \"name\": {\n        \"en_GB\": \"Some text\"\n      }\n    },\n    {\n      \"logicalName\": \"<string>\",\n      \"typeDiscriminator\": \"<string>\",\n      \"pureId\": 3720,\n      \"name\": {\n        \"en_GB\": \"Some text\"\n      }\n    }\n  ],\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ],\n  \"systemName\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "47f6b2e5-4c99-41b1-8f69-695712c67548",
+              "name": "The requested content have changed UUID",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "educations",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the desired education"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Moved Permanently",
+              "code": 301,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b82b79fc-eeeb-44f5-8c89-214db2d192ac",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "educations",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the desired education"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 8524,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ff0da6b5-69c5-4a37-9182-9480378202dd",
+          "name": "Update education",
+          "request": {
+            "name": "Update education",
+            "description": {
+              "content": "Update education with specific UUID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "educations",
+                ":uuid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) UUID of the education to update"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": {\n    \"key_0\": \"<string>\"\n  },\n  \"period\": {\n    \"startDate\": \"<date>\",\n    \"endDate\": \"<date>\"\n  },\n  \"type\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"key_0\": \"<string>\"\n    }\n  },\n  \"visibility\": {\n    \"key\": \"<string>\",\n    \"description\": {\n      \"key_0\": \"<string>\"\n    }\n  },\n  \"version\": \"<string>\",\n  \"semesters\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"links\": [\n    {\n      \"url\": \"<string>\",\n      \"alias\": \"<string>\",\n      \"description\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\",\n        \"key_3\": \"<string>\",\n        \"key_4\": \"<string>\"\n      },\n      \"linkType\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"key_0\": \"<string>\"\n        }\n      }\n    },\n    {\n      \"url\": \"<string>\",\n      \"alias\": \"<string>\",\n      \"description\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\"\n      },\n      \"linkType\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        }\n      }\n    }\n  ],\n  \"organizations\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"educationType\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    }\n  },\n  \"specializations\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"sortName\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"profile\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  },\n  \"educationId\": \"<string>\",\n  \"parent\": \"<object>\",\n  \"linkIdentifiers\": [\n    {\n      \"linkIdentifier\": \"<string>\"\n    },\n    {\n      \"linkIdentifier\": \"<string>\"\n    }\n  ],\n  \"keywordGroups\": [\n    {\n      \"logicalName\": \"<string>\",\n      \"typeDiscriminator\": \"<string>\",\n      \"name\": {\n        \"key_0\": \"<string>\"\n      }\n    },\n    {\n      \"logicalName\": \"<string>\",\n      \"typeDiscriminator\": \"<string>\",\n      \"name\": {\n        \"key_0\": \"<string>\"\n      }\n    }\n  ],\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a8166b1a-95cc-469a-b7a4-5a86f9bb286b",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "educations",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the education to update"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"period\": {\n    \"startDate\": \"<date>\",\n    \"endDate\": \"<date>\"\n  },\n  \"type\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"visibility\": {\n    \"key\": \"<string>\",\n    \"description\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"version\": \"<string>\",\n  \"semesters\": [\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    },\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    }\n  ],\n  \"links\": [\n    {\n      \"url\": \"<string>\",\n      \"alias\": \"<string>\",\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"linkType\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      }\n    },\n    {\n      \"url\": \"<string>\",\n      \"alias\": \"<string>\",\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"linkType\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      }\n    }\n  ],\n  \"organizations\": [\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    },\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    }\n  ],\n  \"educationType\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"specializations\": [\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    },\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    }\n  ],\n  \"sortName\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"profile\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"educationId\": \"<string>\",\n  \"parent\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"linkIdentifiers\": [\n    {\n      \"linkIdentifier\": \"<string>\"\n    },\n    {\n      \"linkIdentifier\": \"<string>\"\n    }\n  ],\n  \"keywordGroups\": [\n    {\n      \"logicalName\": \"<string>\",\n      \"typeDiscriminator\": \"<string>\",\n      \"name\": {\n        \"en_GB\": \"Some text\"\n      }\n    },\n    {\n      \"logicalName\": \"<string>\",\n      \"typeDiscriminator\": \"<string>\",\n      \"name\": {\n        \"en_GB\": \"Some text\"\n      }\n    }\n  ],\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"period\": {\n    \"startDate\": \"<date>\",\n    \"endDate\": \"<date>\"\n  },\n  \"type\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"visibility\": {\n    \"key\": \"<string>\",\n    \"description\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"pureId\": 4940,\n  \"uuid\": \"c9089b18-f452-1122-589e-82159ae89c88\",\n  \"createdBy\": \"string\",\n  \"createdDate\": \"2009-11-02T14:05:42.370Z\",\n  \"modifiedBy\": \"string\",\n  \"modifiedDate\": \"2005-07-06T13:19:28.430Z\",\n  \"portalUrl\": \"string\",\n  \"prettyUrlIdentifiers\": [\n    \"string\",\n    \"string\"\n  ],\n  \"previousUuids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"version\": \"<string>\",\n  \"semesters\": [\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    },\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    }\n  ],\n  \"links\": [\n    {\n      \"url\": \"<string>\",\n      \"pureId\": 9293,\n      \"alias\": \"<string>\",\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"linkType\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      }\n    },\n    {\n      \"url\": \"<string>\",\n      \"pureId\": 5850,\n      \"alias\": \"<string>\",\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"linkType\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      }\n    }\n  ],\n  \"organizations\": [\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    },\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    }\n  ],\n  \"educationType\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"specializations\": [\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    },\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    }\n  ],\n  \"sortName\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"profile\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"educationId\": \"<string>\",\n  \"parent\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"linkIdentifiers\": [\n    {\n      \"pureId\": 2782,\n      \"linkIdentifier\": \"<string>\"\n    },\n    {\n      \"pureId\": 2355,\n      \"linkIdentifier\": \"<string>\"\n    }\n  ],\n  \"keywordGroups\": [\n    {\n      \"logicalName\": \"<string>\",\n      \"typeDiscriminator\": \"<string>\",\n      \"pureId\": 2609,\n      \"name\": {\n        \"en_GB\": \"Some text\"\n      }\n    },\n    {\n      \"logicalName\": \"<string>\",\n      \"typeDiscriminator\": \"<string>\",\n      \"pureId\": 3720,\n      \"name\": {\n        \"en_GB\": \"Some text\"\n      }\n    }\n  ],\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ],\n  \"systemName\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bb080d1b-214f-4648-a4b2-6f5ce3194091",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "educations",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the education to update"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"period\": {\n    \"startDate\": \"<date>\",\n    \"endDate\": \"<date>\"\n  },\n  \"type\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"visibility\": {\n    \"key\": \"<string>\",\n    \"description\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"version\": \"<string>\",\n  \"semesters\": [\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    },\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    }\n  ],\n  \"links\": [\n    {\n      \"url\": \"<string>\",\n      \"alias\": \"<string>\",\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"linkType\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      }\n    },\n    {\n      \"url\": \"<string>\",\n      \"alias\": \"<string>\",\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"linkType\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      }\n    }\n  ],\n  \"organizations\": [\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    },\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    }\n  ],\n  \"educationType\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"specializations\": [\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    },\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    }\n  ],\n  \"sortName\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"profile\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"educationId\": \"<string>\",\n  \"parent\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"linkIdentifiers\": [\n    {\n      \"linkIdentifier\": \"<string>\"\n    },\n    {\n      \"linkIdentifier\": \"<string>\"\n    }\n  ],\n  \"keywordGroups\": [\n    {\n      \"logicalName\": \"<string>\",\n      \"typeDiscriminator\": \"<string>\",\n      \"name\": {\n        \"en_GB\": \"Some text\"\n      }\n    },\n    {\n      \"logicalName\": \"<string>\",\n      \"typeDiscriminator\": \"<string>\",\n      \"name\": {\n        \"en_GB\": \"Some text\"\n      }\n    }\n  ],\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 8524,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "647d919c-45d3-4819-8053-9e1551f161ab",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "educations",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the education to update"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"period\": {\n    \"startDate\": \"<date>\",\n    \"endDate\": \"<date>\"\n  },\n  \"type\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"visibility\": {\n    \"key\": \"<string>\",\n    \"description\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"version\": \"<string>\",\n  \"semesters\": [\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    },\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    }\n  ],\n  \"links\": [\n    {\n      \"url\": \"<string>\",\n      \"alias\": \"<string>\",\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"linkType\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      }\n    },\n    {\n      \"url\": \"<string>\",\n      \"alias\": \"<string>\",\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"linkType\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      }\n    }\n  ],\n  \"organizations\": [\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    },\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    }\n  ],\n  \"educationType\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"specializations\": [\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    },\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    }\n  ],\n  \"sortName\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"profile\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"educationId\": \"<string>\",\n  \"parent\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"linkIdentifiers\": [\n    {\n      \"linkIdentifier\": \"<string>\"\n    },\n    {\n      \"linkIdentifier\": \"<string>\"\n    }\n  ],\n  \"keywordGroups\": [\n    {\n      \"logicalName\": \"<string>\",\n      \"typeDiscriminator\": \"<string>\",\n      \"name\": {\n        \"en_GB\": \"Some text\"\n      }\n    },\n    {\n      \"logicalName\": \"<string>\",\n      \"typeDiscriminator\": \"<string>\",\n      \"name\": {\n        \"en_GB\": \"Some text\"\n      }\n    }\n  ],\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 8524,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c7d3e7ea-2aa2-47b6-b590-6665f8e154d9",
+          "name": "Delete education",
+          "request": {
+            "name": "Delete education",
+            "description": {
+              "content": "Delete education with specific UUID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "educations",
+                ":uuid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) UUID of the education"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/problem+json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fb82e42a-b563-402e-9619-aa41e82e8a46",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "educations",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the education"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5555fca4-1798-46e1-9eff-4917c3df4841",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "educations",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the education"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 8524,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f0661e33-587b-4a69-b59f-1492e028d80e",
+              "name": "Conflict",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "educations",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the education"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6188,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"modified\": \"1985-06-16T09:00:25.881Z\",\n  \"modifiedBy\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "23129d0c-58d1-49a1-ab19-78427bc348de",
+          "name": "Lock the content",
+          "request": {
+            "name": "Lock the content",
+            "description": {
+              "content": "Mark the content as external (used when content contains synchronised data). This has no effect on interactions with the content through the API.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "educations",
+                ":uuid",
+                "actions",
+                "lock"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) UUID of the content to lock"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/problem+json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6959a8b7-14e1-4c4b-9b2c-5999bad66174",
+              "name": "Content marked as locked",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "educations",
+                    ":uuid",
+                    "actions",
+                    "lock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the content to lock"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3af2c55c-2215-441d-956b-f5aa4605b13d",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "educations",
+                    ":uuid",
+                    "actions",
+                    "lock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the content to lock"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 8524,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d8e42028-813a-4805-b8cf-eaec25dd8571",
+              "name": "Content already locked",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "educations",
+                    ":uuid",
+                    "actions",
+                    "lock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the content to lock"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6188,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"modified\": \"1985-06-16T09:00:25.881Z\",\n  \"modifiedBy\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "17c8eecc-951d-4349-87df-3de598640489",
+          "name": "Unlock the content",
+          "request": {
+            "name": "Unlock the content",
+            "description": {
+              "content": "Remove the external mark on the content (used when content contains synchronised data). This has no effect on interactions with the content through the API.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "educations",
+                ":uuid",
+                "actions",
+                "unlock"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) UUID of the content to unlock"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/problem+json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5e5001ea-5680-4bb3-b470-1acda3d01703",
+              "name": "Content marked as unlocked",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "educations",
+                    ":uuid",
+                    "actions",
+                    "unlock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the content to unlock"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "784096a4-6ec0-4258-af49-bf91c706c59e",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "educations",
+                    ":uuid",
+                    "actions",
+                    "unlock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the content to unlock"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 8524,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ed886192-eaeb-45bd-b314-9937f80fc2c3",
+              "name": "Content already unlocked",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "educations",
+                    ":uuid",
+                    "actions",
+                    "unlock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the content to unlock"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6188,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"modified\": \"1985-06-16T09:00:25.881Z\",\n  \"modifiedBy\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "af74ecb4-9a6f-465c-8ca2-06a364ffd4ef",
+          "name": "Lists all dependents to the education",
+          "request": {
+            "name": "Lists all dependents to the education",
+            "description": {
+              "content": "Lists all dependents to the education with the specified UUID. If the user does not have access to view all the dependent content, an authorization error will be thrown. ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "educations",
+                ":uuid",
+                "dependents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "verbose",
+                  "value": "<boolean>",
+                  "description": "DEPRECATED - Parameter has no effect."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) UUID of the education"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ddcf77bd-6c85-48f4-bbf1-58393d12d987",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "educations",
+                    ":uuid",
+                    "dependents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "verbose",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the education"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    },\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a98f865d-acf9-4938-807b-02015a52f716",
+          "name": "Lists notes",
+          "request": {
+            "name": "Lists notes",
+            "description": {
+              "content": "Lists notes associated with an education ordered by date (nulls last)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "educations",
+                ":uuid",
+                "notes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "10",
+                  "description": "Number of returned notes per request"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "The offset for the returned list. 0 or null value is from the start"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) UUID of the education to get notes for"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "932f83a0-b6d3-4cdb-af91-6f4c8dbfe077",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "educations",
+                    ":uuid",
+                    "notes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "size",
+                      "value": "10"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the education to get notes for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 3784,\n  \"pageInformation\": {\n    \"offset\": 6059,\n    \"size\": 1003\n  },\n  \"items\": [\n    {\n      \"text\": \"string\",\n      \"date\": \"1984-03-05T08:43:57.927Z\",\n      \"username\": \"string\"\n    },\n    {\n      \"text\": \"string\",\n      \"date\": \"2010-09-20T10:48:50.591Z\",\n      \"username\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "17cef9c4-c00d-4e1f-b5d5-9e44710942ad",
+              "name": "education not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "educations",
+                    ":uuid",
+                    "notes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "size",
+                      "value": "10"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the education to get notes for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 8524,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "238fb140-ead6-45be-b77c-1ab8a92fbc27",
+          "name": "Create note",
+          "request": {
+            "name": "Create note",
+            "description": {
+              "content": "Create note and associate it with an education",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "educations",
+                ":uuid",
+                "notes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) UUID of the education to add note to"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text\": \"<string>\",\n  \"date\": \"<dateTime>\",\n  \"username\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e159ac96-8db0-41d9-9944-62c0f682b4c2",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "educations",
+                    ":uuid",
+                    "notes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the education to add note to"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"text\": \"<string>\",\n  \"date\": \"<dateTime>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"<string>\",\n  \"date\": \"<dateTime>\",\n  \"username\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "953dd2c0-1d89-4559-a043-7f8dfb4e9334",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "educations",
+                    ":uuid",
+                    "notes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the education to add note to"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"text\": \"<string>\",\n  \"date\": \"<dateTime>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 8524,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://pure.qub.ac.uk/ws/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "833571dd-ba0a-4fef-9bbe-865f1c5fa457",
+    "name": "Pure activity education API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Pure API provides a secure and complete web services API for using and managing research information data in Pure. The API enables a broad range of use-cases for interacting with research information, from anonymous Open Data scenarios to enabling the next generation Pure admin.\n\nContact Support:\n Email: pure-support@elsevier.com",
+      "type": "text/plain"
+    }
+  }
+}

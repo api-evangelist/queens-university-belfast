@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pure activity role API",
+    "version": "5.35.3-4"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api-key",
+      "value": "{{api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "role",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Lists all assignable roles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/roles"
+          },
+          "docs": "Lists all assignable roles that are currently available"
+        },
+        {
+          "info": {
+            "name": "Returns an assignable role",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/roles/:assignableRoleName",
+            "params": [
+              {
+                "name": "assignableRoleName",
+                "value": "",
+                "type": "path",
+                "description": "Get assignable role from assignable role name."
+              }
+            ]
+          },
+          "docs": "Returns an assignable role if it is currently available"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

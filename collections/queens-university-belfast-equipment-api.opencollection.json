@@ -1,0 +1,540 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pure activity equipment API",
+    "version": "5.35.3-4"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api-key",
+      "value": "{{api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "equipment",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Lists all equipment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/equipment",
+            "params": [
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Number of returned equipment per request."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset for the returned list. 0 or null value is from the start"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "The order of the list, must be a value from /equipment/orderings"
+              }
+            ]
+          },
+          "docs": "Lists all equipment in the Pure instance. If you need to filter the equipment returned, see the POST version which supports additional filtering."
+        },
+        {
+          "info": {
+            "name": "Create equipment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://pure.qub.ac.uk/ws/api/equipment",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create equipment"
+        },
+        {
+          "info": {
+            "name": "A list of allowed address countries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/equipment/allowed-address-countries"
+          },
+          "docs": "Get a list of allowed countries that can be used for the 'addresses.country' attribute of equipment"
+        },
+        {
+          "info": {
+            "name": "A list of allowed address subdivisions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/equipment/allowed-address-subdivision"
+          },
+          "docs": "Get a list of allowed subdivisions that can be used for the 'addresses.subdivisions' attribute of equipment"
+        },
+        {
+          "info": {
+            "name": "A list of allowed address types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/equipment/allowed-address-types"
+          },
+          "docs": "Get a list of allowed address types that can be used for the 'addresses.type' attribute of equipment"
+        },
+        {
+          "info": {
+            "name": "A list of allowed categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/equipment/allowed-categories"
+          },
+          "docs": "Get a list of allowed categories on equipment"
+        },
+        {
+          "info": {
+            "name": "A list of allowed classified identifier types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/equipment/allowed-classified-identifier-types"
+          },
+          "docs": "Get a list of allowed classified identifier types that can be used for the 'identifiers.type' attribute of equipment"
+        },
+        {
+          "info": {
+            "name": "Get allowed classifications for the custom-defined field associated with the equipment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/equipment/allowed-custom-defined-field-values/:propertyName/classifications",
+            "params": [
+              {
+                "name": "propertyName",
+                "value": "",
+                "type": "path",
+                "description": "PropertyName for the desired custom-defined field"
+              }
+            ]
+          },
+          "docs": "Get allowed classifications for the custom-defined field associated with the equipment."
+        },
+        {
+          "info": {
+            "name": "A list of allowed classifications for the descriptions property",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/equipment/allowed-description-types"
+          },
+          "docs": "Get a list of classifications that can be used when submitting a description."
+        },
+        {
+          "info": {
+            "name": "A list of allowed e-mail types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/equipment/allowed-email-types"
+          },
+          "docs": "Get a list of allowed e-mail types that can be used for the 'emails.type' attribute of equipment"
+        },
+        {
+          "info": {
+            "name": "A list of allowed image types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/equipment/allowed-image-types"
+          },
+          "docs": "Get a list of allowed image types that can be used for the 'images.type' attribute of equipment"
+        },
+        {
+          "info": {
+            "name": "A list of keyword group configurations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/equipment/allowed-keyword-group-configurations"
+          },
+          "docs": "Get a list of allowed keyword group configurations that can be used when submitting keyword groups."
+        },
+        {
+          "info": {
+            "name": "A list of allowed classifications for the specified keyword group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/equipment/allowed-keyword-group-configurations/:id/classifications",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Pure id of the keyword group configuration"
+              }
+            ]
+          },
+          "docs": "Get a list of allowed classifications that can be used when submitting a specified keyword group."
+        },
+        {
+          "info": {
+            "name": "A list of allowed loan types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/equipment/allowed-loan-types"
+          },
+          "docs": "Get a list of allowed loan types that can be used for the 'loan type' attribute of equipment"
+        },
+        {
+          "info": {
+            "name": "A list of allowed locales in localized strings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/equipment/allowed-locales"
+          },
+          "docs": "Get a list of allowed locales that can be used when submitting localized string entities."
+        },
+        {
+          "info": {
+            "name": "A list of allowed persons roles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/equipment/allowed-persons-roles"
+          },
+          "docs": "Get a list of allowed persons roles"
+        },
+        {
+          "info": {
+            "name": "A list of allowed phone number types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/equipment/allowed-phone-number-types"
+          },
+          "docs": "Get a list of allowed phone number types that can be used for the 'phoneNumbers.type' attribute of equipment"
+        },
+        {
+          "info": {
+            "name": "A list of allowed equipment types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/equipment/allowed-types"
+          },
+          "docs": "Get a list of allowed types that can be used for the 'type' attribute of equipment"
+        },
+        {
+          "info": {
+            "name": "A list of allowed web address types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/equipment/allowed-web-address-types"
+          },
+          "docs": "Get a list of allowed web address types that can be used for the 'webAddresses.type' attribute of equipment"
+        },
+        {
+          "info": {
+            "name": "A list of allowed workflow steps in localized strings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/equipment/allowed-workflow-steps"
+          },
+          "docs": "Get a list of allowed workflow steps."
+        },
+        {
+          "info": {
+            "name": "Upload file to a specific equipment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://pure.qub.ac.uk/ws/api/equipment/file-uploads",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Uploads file for the equipment"
+        },
+        {
+          "info": {
+            "name": "Query operation for equipment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://pure.qub.ac.uk/ws/api/equipment/search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Lists equipment in the Pure instance that matches the provided query, similar to the GET version, instead of using parameters to alter the response, an JSON document is posted with the request. The JSON document contains fields for all the parameters available for the GET version, but also additional filtering options."
+        },
+        {
+          "info": {
+            "name": "Get equipment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/equipment/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the desired equipment"
+              }
+            ]
+          },
+          "docs": "Get equipment with specific UUID."
+        },
+        {
+          "info": {
+            "name": "Update equipment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://pure.qub.ac.uk/ws/api/equipment/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the equipment to update"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update equipment with specific UUID."
+        },
+        {
+          "info": {
+            "name": "Delete equipment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://pure.qub.ac.uk/ws/api/equipment/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the equipment"
+              }
+            ]
+          },
+          "docs": "Delete equipment with specific UUID."
+        },
+        {
+          "info": {
+            "name": "Lock the content",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://pure.qub.ac.uk/ws/api/equipment/:uuid/actions/lock",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the content to lock"
+              }
+            ]
+          },
+          "docs": "Mark the content as external (used when content contains synchronised data). This has no effect on interactions with the content through the API."
+        },
+        {
+          "info": {
+            "name": "Unlock the content",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://pure.qub.ac.uk/ws/api/equipment/:uuid/actions/unlock",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the content to unlock"
+              }
+            ]
+          },
+          "docs": "Remove the external mark on the content (used when content contains synchronised data). This has no effect on interactions with the content through the API."
+        },
+        {
+          "info": {
+            "name": "Lists all dependents to a piece of equipment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/equipment/:uuid/dependents",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the equipment"
+              },
+              {
+                "name": "verbose",
+                "value": "",
+                "type": "query",
+                "description": "DEPRECATED - Parameter has no effect."
+              }
+            ]
+          },
+          "docs": "Lists all dependents to a piece of equipment with the specified UUID. If the user does not have access to view all the dependent content, an authorization error will be thrown. "
+        },
+        {
+          "info": {
+            "name": "Get file from the equipment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/equipment/:uuid/files/:fileId",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the equipment"
+              },
+              {
+                "name": "fileId",
+                "value": "",
+                "type": "path",
+                "description": "File id "
+              }
+            ]
+          },
+          "docs": "Get file from the equipment"
+        },
+        {
+          "info": {
+            "name": "Get the fingerprints for the equipment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/equipment/:uuid/fingerprints",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the equipment"
+              }
+            ]
+          },
+          "docs": "Get the fingerprints for the equipment with the specified UUID."
+        },
+        {
+          "info": {
+            "name": "Lists notes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/equipment/:uuid/notes",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the equipment to get notes for"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Number of returned notes per request"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset for the returned list. 0 or null value is from the start"
+              }
+            ]
+          },
+          "docs": "Lists notes associated with an equipment ordered by date (nulls last)"
+        },
+        {
+          "info": {
+            "name": "Create note",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://pure.qub.ac.uk/ws/api/equipment/:uuid/notes",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the equipment to add note to"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create note and associate it with the equipment"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

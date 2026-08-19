@@ -1,0 +1,998 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pure activity person API",
+    "version": "5.35.3-4"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api-key",
+      "value": "{{api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "person",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Lists all persons",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons",
+            "params": [
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Number of returned persons per request."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset for the returned list. 0 or null value is from the start"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "The order of the list, must be a value from /persons/orderings"
+              }
+            ]
+          },
+          "docs": "Lists all persons in the Pure instance. If you need to filter the persons returned, see the POST version which supports additional filtering."
+        },
+        {
+          "info": {
+            "name": "Create person",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://pure.qub.ac.uk/ws/api/persons",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create person"
+        },
+        {
+          "info": {
+            "name": "A list of allowed academic qualification types for persons",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/allowed-academic-qualification-types"
+          },
+          "docs": "Get a list of allowed academic qualification types for persons"
+        },
+        {
+          "info": {
+            "name": "A list of the allowed values for education distinction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/allowed-academic-qualifications-distinctions"
+          },
+          "docs": "Get a list of classifications that can be used for the 'academicQualifications.distinction' attribute of persons"
+        },
+        {
+          "info": {
+            "name": "A list of the allowed values for field of study",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/allowed-academic-qualifications-field-of-studies"
+          },
+          "docs": "Get a list of classifications that can be used for the 'academicQualifications.fieldOfStudy' attribute of persons"
+        },
+        {
+          "info": {
+            "name": "A list of allowed address countries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/allowed-address-countries"
+          },
+          "docs": "Get a list of allowed countries that can be used for the 'addresses.country' attribute of persons"
+        },
+        {
+          "info": {
+            "name": "A list of allowed subdivisions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/allowed-address-subdivisions"
+          },
+          "docs": "Get a list of allowed subdivisions can be used for the 'subdivision' attribute of person organization associations"
+        },
+        {
+          "info": {
+            "name": "A list of allowed address types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/allowed-address-types"
+          },
+          "docs": "Get a list of allowed address types that can be used for the 'addresses.type' attribute of persons"
+        },
+        {
+          "info": {
+            "name": "A list of allowed classified identifier types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/allowed-classified-identifier-types"
+          },
+          "docs": "Get a list of allowed classified identifier types that can be used for the 'identifiers.type' attribute of persons"
+        },
+        {
+          "info": {
+            "name": "Get allowed classifications for the custom-defined field associated with the person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/allowed-custom-defined-field-values/:propertyName/classifications",
+            "params": [
+              {
+                "name": "propertyName",
+                "value": "",
+                "type": "path",
+                "description": "PropertyName for the desired custom-defined field"
+              }
+            ]
+          },
+          "docs": "Get allowed classifications for the custom-defined field associated with the person."
+        },
+        {
+          "info": {
+            "name": "A list of allowed document licenses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/allowed-document-licenses"
+          },
+          "docs": "Get a list of allowed licenses for documents on persons"
+        },
+        {
+          "info": {
+            "name": "A list of allowed document types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/allowed-document-types"
+          },
+          "docs": "Get a list of allowed types for documents on persons"
+        },
+        {
+          "info": {
+            "name": "A list of the allowed values for appointments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/allowed-external-positions-appointments"
+          },
+          "docs": "Get a list of classifications that can be used for the 'externalPositions.appointment' attribute of persons"
+        },
+        {
+          "info": {
+            "name": "A list of allowed classifications for the gender property",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/allowed-genders"
+          },
+          "docs": "Get a list of classifications that can be used when submitting the person gender property."
+        },
+        {
+          "info": {
+            "name": "A list of keyword group configurations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/allowed-keyword-group-configurations"
+          },
+          "docs": "Get a list of allowed keyword group configurations that can be used when submitting keyword groups."
+        },
+        {
+          "info": {
+            "name": "A list of allowed classifications for the specified keyword group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/allowed-keyword-group-configurations/:id/classifications",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Pure id of the keyword group configuration"
+              }
+            ]
+          },
+          "docs": "Get a list of allowed classifications that can be used when submitting a specified keyword group."
+        },
+        {
+          "info": {
+            "name": "A list of allowed classifications for the leave of absence property",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/allowed-leave-of-absense"
+          },
+          "docs": "Get a list of classifications that can be used when submitting the leaveOfAbsence property."
+        },
+        {
+          "info": {
+            "name": "A list of allowed link types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/allowed-link-types"
+          },
+          "docs": "Get a list of allowed link types that can be used for the 'links.linkType' attribute of persons"
+        },
+        {
+          "info": {
+            "name": "A list of allowed locales in localized strings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/allowed-locales"
+          },
+          "docs": "Get a list of allowed locales that can be used when submitting localized string entities."
+        },
+        {
+          "info": {
+            "name": "A list of allowed main research areas",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/allowed-main-research-areas"
+          },
+          "docs": "Get a list of allowed main research areas associated with the person"
+        },
+        {
+          "info": {
+            "name": "A list of allowed metric collections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/allowed-metric-collections"
+          },
+          "docs": "Get a list of metric collections allowed on persons"
+        },
+        {
+          "info": {
+            "name": "A list of allowed classifications for classified names",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/allowed-names-types"
+          },
+          "docs": "Get a list of allowed classifications that can be used when submitting a classified name."
+        },
+        {
+          "info": {
+            "name": "A list of allowed classifications for the nationalities property",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/allowed-nationalities"
+          },
+          "docs": "Get a list of classifications that can be used when submitting the nationality property."
+        },
+        {
+          "info": {
+            "name": "A list of allowed email types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/allowed-person-organization-associations-email-types"
+          },
+          "docs": "Get a list of allowed email types for person organization associations on persons"
+        },
+        {
+          "info": {
+            "name": "A list of allowed employment types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/allowed-person-organization-associations-employment-types"
+          },
+          "docs": "Get a list of allowed employment types for person organization associations on persons"
+        },
+        {
+          "info": {
+            "name": "A list of allowed job titles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/allowed-person-organization-associations-job-titles"
+          },
+          "docs": "Get a list of allowed job titles for person organization associations on persons"
+        },
+        {
+          "info": {
+            "name": "A list of allowed phone number types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/allowed-person-organization-associations-phonenumber-types"
+          },
+          "docs": "Get a list of allowed phone numbers types for person organization associations on persons"
+        },
+        {
+          "info": {
+            "name": "A list of allowed supervisor roles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/allowed-person-organization-associations-supervisor-roles"
+          },
+          "docs": "Get a list of allowed supervisor roles for person organization associations on persons"
+        },
+        {
+          "info": {
+            "name": "A list of allowed web address types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/allowed-person-organization-associations-webaddress-types"
+          },
+          "docs": "Get a list of allowed web address types for person organization associations on persons"
+        },
+        {
+          "info": {
+            "name": "DEPRECATED - use 'allowed-address-countries' - A list of allowed country classifications for private address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/allowed-private-address-countries"
+          },
+          "docs": "DEPRECATED - use 'allowed-address-countries' - Get a list of allowed country classifications for private address on persons"
+        },
+        {
+          "info": {
+            "name": "A list of allowed classifications for the profile information property",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/allowed-profile-information-types"
+          },
+          "docs": "Get a list of classifications that can be used when submitting an entry in profile information."
+        },
+        {
+          "info": {
+            "name": "A list of allowed photo types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/allowed-profile-photo-types"
+          },
+          "docs": "Get a list of allowed photo types that can be used for the 'profilePhotos.type' attribute of persons"
+        },
+        {
+          "info": {
+            "name": "A list of allowed contract types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/allowed-staff-organization-associations-contract-types"
+          },
+          "docs": "Get a list of allowed contract types for staff organization associations on persons"
+        },
+        {
+          "info": {
+            "name": "A list of allowed staff types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/allowed-staff-organization-associations-staff-types"
+          },
+          "docs": "Get a list of allowed staff types for staff organization associations on persons"
+        },
+        {
+          "info": {
+            "name": "A list of allowed student attendance status types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/allowed-student-organization-associations-attendance-status-types"
+          },
+          "docs": "Get a list of allowed student attendance status types for student organization associations on persons"
+        },
+        {
+          "info": {
+            "name": "A list of allowed student country of domicile types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/allowed-student-organization-associations-country-of-domicile-types"
+          },
+          "docs": "Get a list of allowed student country of domicile types for student organization associations on persons"
+        },
+        {
+          "info": {
+            "name": "A list of allowed employment types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/allowed-student-organization-associations-employment-types"
+          },
+          "docs": "Get a list of allowed employment types for student organization associations on persons"
+        },
+        {
+          "info": {
+            "name": "A list of allowed student nationality types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/allowed-student-organization-associations-nationality-types"
+          },
+          "docs": "Get a list of allowed student nationality types for student organization associations on persons"
+        },
+        {
+          "info": {
+            "name": "A list of allowed student type description types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/allowed-student-organization-associations-type-description-types"
+          },
+          "docs": "Get a list of allowed student type description types for student organization associations on persons"
+        },
+        {
+          "info": {
+            "name": "A list of allowed classifications for the titles property",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/allowed-titles-types"
+          },
+          "docs": "Get a list of classifications that can be used when submitting a title."
+        },
+        {
+          "info": {
+            "name": "A list of allowed employment types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/allowed-visiting-scholar-organization-associations-employment-types"
+          },
+          "docs": "Get a list of allowed employment types for visiting scholar organization associations on persons"
+        },
+        {
+          "info": {
+            "name": "A list of allowed workflow steps",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/allowed-workflow-steps"
+          },
+          "docs": "Get a list of allowed workflow steps that can be used for the 'workflow' attribute of persons"
+        },
+        {
+          "info": {
+            "name": "A list of allowed discipline schemes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/disciplines/allowed-discipline-schemes"
+          },
+          "docs": "Get a list fo a allowed discipline schemes for persons"
+        },
+        {
+          "info": {
+            "name": "A list of allowed disciplines for a specific discipline scheme",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/disciplines/:discipline-scheme/allowed-disciplines",
+            "params": [
+              {
+                "name": "discipline-scheme",
+                "value": "",
+                "type": "path",
+                "description": "Identifier for the discipline scheme for persons"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Number of returned disciplines per request"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset for the returned list. 0 or null value is from the start"
+              }
+            ]
+          },
+          "docs": "Get a list of a allowed disciplines for specific discipline scheme for persons"
+        },
+        {
+          "info": {
+            "name": "Query operation for disciplines associated with persons",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/disciplines/:discipline-scheme/search",
+            "params": [
+              {
+                "name": "discipline-scheme",
+                "value": "",
+                "type": "path",
+                "description": "Identifier for the discipline scheme"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Lists disciplines from the discipline scheme associated with persons in the Pure instance that matches the provided query."
+        },
+        {
+          "info": {
+            "name": "Upload file to a specific person",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/file-uploads",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Uploads file for the person"
+        },
+        {
+          "info": {
+            "name": "Lists available orderings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/orderings"
+          },
+          "docs": "Lists all orderings available to the person endpoint. These values can be used by the order parameter."
+        },
+        {
+          "info": {
+            "name": "Query operation for persons",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Lists persons in the Pure instance that matches the provided query, similar to the GET version, instead of using parameters to alter the response, an JSON document is posted with the request. The JSON document contains fields for all the parameters available for the GET version, but also additional filtering options."
+        },
+        {
+          "info": {
+            "name": "Get person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the desired person"
+              }
+            ]
+          },
+          "docs": "Get person with specific UUID."
+        },
+        {
+          "info": {
+            "name": "Update person",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the person to update"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update person with specific UUID."
+        },
+        {
+          "info": {
+            "name": "Delete person",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the person"
+              }
+            ]
+          },
+          "docs": "Delete person with specific UUID."
+        },
+        {
+          "info": {
+            "name": "Lock the content",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/:uuid/actions/lock",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the content to lock"
+              }
+            ]
+          },
+          "docs": "Mark the content as external (used when content contains synchronised data). This has no effect on interactions with the content through the API."
+        },
+        {
+          "info": {
+            "name": "Unlock the content",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/:uuid/actions/unlock",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the content to unlock"
+              }
+            ]
+          },
+          "docs": "Remove the external mark on the content (used when content contains synchronised data). This has no effect on interactions with the content through the API."
+        },
+        {
+          "info": {
+            "name": "Lists all dependents to the person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/:uuid/dependents",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the person"
+              },
+              {
+                "name": "verbose",
+                "value": "",
+                "type": "query",
+                "description": "DEPRECATED - Parameter has no effect."
+              }
+            ]
+          },
+          "docs": "Lists all dependents to the person with the specified UUID. If the user does not have access to view all the dependent content, an authorization error will be thrown. "
+        },
+        {
+          "info": {
+            "name": "Get disciplines from the discipline scheme associated with the person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/:uuid/disciplines/:discipline-scheme",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the desired person"
+              },
+              {
+                "name": "discipline-scheme",
+                "value": "",
+                "type": "path",
+                "description": "Identifier for the discipline scheme"
+              }
+            ]
+          },
+          "docs": "Get disciplines from the discipline scheme associated with the person with specific UUID."
+        },
+        {
+          "info": {
+            "name": "Update disciplines from the discipline scheme associated with the person",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/:uuid/disciplines/:discipline-scheme",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the person to update"
+              },
+              {
+                "name": "discipline-scheme",
+                "value": "",
+                "type": "path",
+                "description": "Identifier for the discipline scheme"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update disciplines from the discipline scheme associated with the person with specific UUID."
+        },
+        {
+          "info": {
+            "name": "Get file from the person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/:uuid/files/:fileId",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the person"
+              },
+              {
+                "name": "fileId",
+                "value": "",
+                "type": "path",
+                "description": "File id "
+              }
+            ]
+          },
+          "docs": "Get file from the person"
+        },
+        {
+          "info": {
+            "name": "Get the fingerprints for the person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/:uuid/fingerprints",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the person"
+              }
+            ]
+          },
+          "docs": "Get the fingerprints for the person with the specified UUID."
+        },
+        {
+          "info": {
+            "name": "Get highlighted content",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/:uuid/highlighted-content",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the owner (person) of the highlighted content"
+              }
+            ]
+          },
+          "docs": "Get highlighted content for the person with the specific UUID. Highlights are only available for editorial types"
+        },
+        {
+          "info": {
+            "name": "Update highlighted content",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/:uuid/highlighted-content",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the person to update highlighted content for"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update highlighted content references. Add an empty array of references for a content type to not highlight any items of this type. Types that are not present will be ignored. Highlights can only be updated for editorial types"
+        },
+        {
+          "info": {
+            "name": "Lists metrics with collection id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/:uuid/metrics/:collection-id",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the person to get metrics for"
+              },
+              {
+                "name": "collection-id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the metrics collection to get metrics for"
+              }
+            ]
+          },
+          "docs": "Lists metrics from a specific metrics collection that associated with a person."
+        },
+        {
+          "info": {
+            "name": "Lists notes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/:uuid/notes",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the person to get notes for"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Number of returned notes per request"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset for the returned list. 0 or null value is from the start"
+              }
+            ]
+          },
+          "docs": "Lists notes associated with an person ordered by date (nulls last)"
+        },
+        {
+          "info": {
+            "name": "Create note",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/:uuid/notes",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the person to add note to"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create note and associate it with a person"
+        },
+        {
+          "info": {
+            "name": "person supervisees",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/persons/:uuid/supervisee",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the person"
+              }
+            ]
+          },
+          "docs": "Find supervisees of a person by their specific UUID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

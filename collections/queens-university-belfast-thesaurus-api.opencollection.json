@@ -1,0 +1,113 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pure activity thesaurus API",
+    "version": "5.35.3-4"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api-key",
+      "value": "{{api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "thesaurus",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Lists all thesauri",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/thesauri",
+            "params": [
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Number of returned thesauri per request."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset for the returned list. 0 or null value is from the start"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "The order of the list, must be a value from /thesauri/orderings"
+              }
+            ]
+          },
+          "docs": "Lists all thesauri in the Pure instance. If you need to filter the thesauri returned, see the POST version which supports additional filtering."
+        },
+        {
+          "info": {
+            "name": "A list of allowed locales in localized strings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/thesauri/allowed-locales"
+          },
+          "docs": "Get a list of allowed locales that can be used when submitting localized string entities."
+        },
+        {
+          "info": {
+            "name": "Lists available orderings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/thesauri/orderings"
+          },
+          "docs": "Lists all orderings available to the thesaurus endpoint. These values can be used by the order parameter."
+        },
+        {
+          "info": {
+            "name": "Query operation for thesauri",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://pure.qub.ac.uk/ws/api/thesauri/search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Lists thesauri in the Pure instance that matches the provided query, similar to the GET version, instead of using parameters to alter the response, an JSON document is posted with the request. The JSON document contains fields for all the parameters available for the GET version, but also additional filtering options."
+        },
+        {
+          "info": {
+            "name": "Get thesaurus",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/thesauri/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the desired thesaurus"
+              }
+            ]
+          },
+          "docs": "Get thesaurus with specific UUID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

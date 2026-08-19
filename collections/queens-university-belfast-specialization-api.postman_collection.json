@@ -1,0 +1,1820 @@
+{
+  "item": [
+    {
+      "id": "0d98de8b-a2e6-4aad-b307-4c149f6117b0",
+      "name": "specialization",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e6652638-98a0-4994-988f-41418975eeee",
+          "name": "Lists all specializations",
+          "request": {
+            "name": "Lists all specializations",
+            "description": {
+              "content": "Lists all specializations in the Pure instance. If you need to filter the specializations returned, see the POST version which supports additional filtering.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "specializations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "10",
+                  "description": "Number of returned specializations per request."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "The offset for the returned list. 0 or null value is from the start"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>",
+                  "description": "The order of the list, must be a value from /specializations/orderings"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3f2c6717-da32-49d3-a5ad-96f993b21594",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "specializations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "size",
+                      "value": "10"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 9249,\n  \"pageInformation\": {\n    \"offset\": 8128,\n    \"size\": 4296\n  },\n  \"items\": [\n    {\n      \"active\": false,\n      \"name\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"pureId\": 6657,\n      \"uuid\": \"db84173e-1ca8-351d-bab7-d739b79411c5\",\n      \"createdBy\": \"string\",\n      \"createdDate\": \"1985-01-31T18:56:29.039Z\",\n      \"modifiedBy\": \"string\",\n      \"modifiedDate\": \"1963-05-22T10:27:58.678Z\",\n      \"portalUrl\": \"string\",\n      \"prettyUrlIdentifiers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"previousUuids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"version\": \"string\",\n      \"education\": {\n        \"systemName\": \"string\",\n        \"uuid\": \"1cef91f5-3350-8288-86e4-f269c2bf1a31\"\n      },\n      \"identifiers\": [\n        {\n          \"typeDiscriminator\": \"string\"\n        },\n        {\n          \"typeDiscriminator\": \"string\"\n        }\n      ],\n      \"systemName\": \"string\"\n    },\n    {\n      \"active\": false,\n      \"name\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"pureId\": 6772,\n      \"uuid\": \"db5522f3-13c6-c20e-16e3-163c46329ef4\",\n      \"createdBy\": \"string\",\n      \"createdDate\": \"1972-03-18T01:12:20.195Z\",\n      \"modifiedBy\": \"string\",\n      \"modifiedDate\": \"2000-10-12T08:06:48.381Z\",\n      \"portalUrl\": \"string\",\n      \"prettyUrlIdentifiers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"previousUuids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"version\": \"string\",\n      \"education\": {\n        \"systemName\": \"string\",\n        \"uuid\": \"a4436f10-df68-0425-a675-f3342a30c769\"\n      },\n      \"identifiers\": [\n        {\n          \"typeDiscriminator\": \"string\"\n        },\n        {\n          \"typeDiscriminator\": \"string\"\n        }\n      ],\n      \"systemName\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8702eded-9ecf-413e-b825-41fe8041d4c8",
+          "name": "Create specialization",
+          "request": {
+            "name": "Create specialization",
+            "description": {
+              "content": "Create specialization",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "specializations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"active\": \"<boolean>\",\n  \"name\": {\n    \"key_0\": \"<string>\"\n  },\n  \"version\": \"<string>\",\n  \"education\": \"<object>\",\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ea31dd80-0a13-4e9c-baf2-bd43da02751b",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "specializations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"active\": \"<boolean>\",\n  \"name\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"version\": \"<string>\",\n  \"education\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"active\": \"<boolean>\",\n  \"name\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"pureId\": 580,\n  \"uuid\": \"6546d4ec-f364-d0f4-ad14-498d8b4c5d77\",\n  \"createdBy\": \"string\",\n  \"createdDate\": \"1985-10-22T12:45:36.985Z\",\n  \"modifiedBy\": \"string\",\n  \"modifiedDate\": \"1953-11-21T06:44:31.422Z\",\n  \"portalUrl\": \"string\",\n  \"prettyUrlIdentifiers\": [\n    \"string\",\n    \"string\"\n  ],\n  \"previousUuids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"version\": \"<string>\",\n  \"education\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ],\n  \"systemName\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a6b6079e-98f9-4da9-a820-b71251d66366",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "specializations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"active\": \"<boolean>\",\n  \"name\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"version\": \"<string>\",\n  \"education\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 853,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8813197d-5314-4930-930c-dc35dd1727d2",
+              "name": "Version conflict",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "specializations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"active\": \"<boolean>\",\n  \"name\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"version\": \"<string>\",\n  \"education\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 8900,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"modified\": \"1956-01-25T18:30:40.017Z\",\n  \"modifiedBy\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "61963ae1-4adf-4005-8c28-ad84433a77ab",
+          "name": "A list of allowed locales in localized strings",
+          "request": {
+            "name": "A list of allowed locales in localized strings",
+            "description": {
+              "content": "Get a list of allowed locales that can be used when submitting localized string entities.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "specializations",
+                "allowed-locales"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "deb84515-99bd-403e-a96b-590dd91a11a2",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "specializations",
+                    "allowed-locales"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"locales\": \"/fh_ZL/\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0b0aa310-6968-4c48-87a3-260dbf6b2cd6",
+          "name": "Lists available orderings",
+          "request": {
+            "name": "Lists available orderings",
+            "description": {
+              "content": "Lists all orderings available to the specialization endpoint. These values can be used by the order parameter.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "specializations",
+                "orderings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "462fbd27-574f-4ff0-899b-ccf2dee6e2fd",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "specializations",
+                    "orderings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"orderings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8f4ad005-ac02-42ab-94a2-96aa48278f7f",
+          "name": "Query operation for specialization",
+          "request": {
+            "name": "Query operation for specialization",
+            "description": {
+              "content": "Lists specializations in the Pure instance that matches the provided query, similar to the GET version, instead of using parameters to alter the response, an JSON document is posted with the request. The JSON document contains fields for all the parameters available for the GET version, but also additional filtering options.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "specializations",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"uuids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"size\": \"<integer>\",\n  \"offset\": \"<integer>\",\n  \"orderings\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"searchString\": \"<string>\",\n  \"orderBy\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b5cf9801-436b-4682-b647-44d6c675b204",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "specializations",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"uuids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"size\": \"<integer>\",\n  \"offset\": \"<integer>\",\n  \"orderings\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"searchString\": \"<string>\",\n  \"orderBy\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 7176,\n  \"pageInformation\": {\n    \"offset\": 5540,\n    \"size\": 6016\n  },\n  \"items\": [\n    {\n      \"active\": \"<boolean>\",\n      \"name\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"pureId\": 1072,\n      \"uuid\": \"5627080b-86ee-e1a9-e83f-823518134f6b\",\n      \"createdBy\": \"string\",\n      \"createdDate\": \"1967-03-08T11:19:56.030Z\",\n      \"modifiedBy\": \"string\",\n      \"modifiedDate\": \"1985-04-21T21:00:15.154Z\",\n      \"portalUrl\": \"string\",\n      \"prettyUrlIdentifiers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"previousUuids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"version\": \"<string>\",\n      \"education\": {\n        \"systemName\": \"<string>\",\n        \"uuid\": \"<uuid>\"\n      },\n      \"identifiers\": [\n        {\n          \"typeDiscriminator\": \"<string>\"\n        },\n        {\n          \"typeDiscriminator\": \"<string>\"\n        }\n      ],\n      \"systemName\": \"string\"\n    },\n    {\n      \"active\": \"<boolean>\",\n      \"name\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"pureId\": 1031,\n      \"uuid\": \"bcb7fd94-4709-bd99-2056-6c3c15332f8d\",\n      \"createdBy\": \"string\",\n      \"createdDate\": \"2010-04-02T02:11:40.639Z\",\n      \"modifiedBy\": \"string\",\n      \"modifiedDate\": \"1961-04-24T15:15:57.327Z\",\n      \"portalUrl\": \"string\",\n      \"prettyUrlIdentifiers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"previousUuids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"version\": \"<string>\",\n      \"education\": {\n        \"systemName\": \"<string>\",\n        \"uuid\": \"<uuid>\"\n      },\n      \"identifiers\": [\n        {\n          \"typeDiscriminator\": \"<string>\"\n        },\n        {\n          \"typeDiscriminator\": \"<string>\"\n        }\n      ],\n      \"systemName\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2c8ce7ba-ee70-4ed0-9aa5-7f721bd108a3",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "specializations",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"uuids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"size\": \"<integer>\",\n  \"offset\": \"<integer>\",\n  \"orderings\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"searchString\": \"<string>\",\n  \"orderBy\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 853,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b7ebbe74-c4c0-412d-9a7c-c12b1f4cd56a",
+          "name": "Get specialization",
+          "request": {
+            "name": "Get specialization",
+            "description": {
+              "content": "Get specialization with specific UUID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "specializations",
+                ":uuid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) UUID of the desired specialization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2a51c6d9-d18d-4416-ad7b-4aa6549a40a7",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "specializations",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the desired specialization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"active\": \"<boolean>\",\n  \"name\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"pureId\": 580,\n  \"uuid\": \"6546d4ec-f364-d0f4-ad14-498d8b4c5d77\",\n  \"createdBy\": \"string\",\n  \"createdDate\": \"1985-10-22T12:45:36.985Z\",\n  \"modifiedBy\": \"string\",\n  \"modifiedDate\": \"1953-11-21T06:44:31.422Z\",\n  \"portalUrl\": \"string\",\n  \"prettyUrlIdentifiers\": [\n    \"string\",\n    \"string\"\n  ],\n  \"previousUuids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"version\": \"<string>\",\n  \"education\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ],\n  \"systemName\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "41fdbf6a-74e7-4786-acd1-dd799576ef92",
+              "name": "The requested content have changed UUID",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "specializations",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the desired specialization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Moved Permanently",
+              "code": 301,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fa1b8031-041a-4381-92ba-356c0fcfe571",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "specializations",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the desired specialization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 853,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2acd593c-46e7-4ff3-9500-dd2c4ec7d07b",
+          "name": "Update specialization",
+          "request": {
+            "name": "Update specialization",
+            "description": {
+              "content": "Update specialization with specific UUID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "specializations",
+                ":uuid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) UUID of the specialization to update"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"active\": \"<boolean>\",\n  \"name\": {\n    \"key_0\": \"<string>\"\n  },\n  \"version\": \"<string>\",\n  \"education\": \"<object>\",\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a2fe1d53-4470-4be1-ae20-ce59b5551468",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "specializations",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the specialization to update"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"active\": \"<boolean>\",\n  \"name\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"version\": \"<string>\",\n  \"education\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"active\": \"<boolean>\",\n  \"name\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"pureId\": 580,\n  \"uuid\": \"6546d4ec-f364-d0f4-ad14-498d8b4c5d77\",\n  \"createdBy\": \"string\",\n  \"createdDate\": \"1985-10-22T12:45:36.985Z\",\n  \"modifiedBy\": \"string\",\n  \"modifiedDate\": \"1953-11-21T06:44:31.422Z\",\n  \"portalUrl\": \"string\",\n  \"prettyUrlIdentifiers\": [\n    \"string\",\n    \"string\"\n  ],\n  \"previousUuids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"version\": \"<string>\",\n  \"education\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ],\n  \"systemName\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9aa47112-f4ab-44ab-846f-3e1c606d286e",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "specializations",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the specialization to update"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"active\": \"<boolean>\",\n  \"name\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"version\": \"<string>\",\n  \"education\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 853,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b45ad43e-e1cd-4ccb-b846-7a19f6b68469",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "specializations",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the specialization to update"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"active\": \"<boolean>\",\n  \"name\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"version\": \"<string>\",\n  \"education\": {\n    \"systemName\": \"<string>\",\n    \"uuid\": \"<uuid>\"\n  },\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 853,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9309e43c-0803-4e1f-9465-80e24ffeeed1",
+          "name": "Delete specialization",
+          "request": {
+            "name": "Delete specialization",
+            "description": {
+              "content": "Delete specialization with specific UUID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "specializations",
+                ":uuid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) UUID of the specialization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/problem+json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2c49e63b-7a6b-4629-869a-93ad1d0e26b5",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "specializations",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the specialization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fc483244-1fd1-4314-a37e-c10a7ea9d895",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "specializations",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the specialization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 853,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "25d967da-846f-4291-979a-0e1979f95a03",
+              "name": "Conflict",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "specializations",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the specialization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 8900,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"modified\": \"1956-01-25T18:30:40.017Z\",\n  \"modifiedBy\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "851d5a51-150e-4c61-b10d-e52bb52292f4",
+          "name": "Lock the content",
+          "request": {
+            "name": "Lock the content",
+            "description": {
+              "content": "Mark the content as external (used when content contains synchronised data). This has no effect on interactions with the content through the API.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "specializations",
+                ":uuid",
+                "actions",
+                "lock"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) UUID of the content to lock"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/problem+json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ecc2d0f0-27f6-4f57-91a4-dd6c1c092d1b",
+              "name": "Content marked as locked",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "specializations",
+                    ":uuid",
+                    "actions",
+                    "lock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the content to lock"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "46aa0000-3215-473b-b673-86d2a714351e",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "specializations",
+                    ":uuid",
+                    "actions",
+                    "lock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the content to lock"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 853,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b6139332-0578-4982-8902-0523e443a3da",
+              "name": "Content already locked",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "specializations",
+                    ":uuid",
+                    "actions",
+                    "lock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the content to lock"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 8900,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"modified\": \"1956-01-25T18:30:40.017Z\",\n  \"modifiedBy\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b44e02a9-c9dc-4247-bc4c-c70ff2dbc5d4",
+          "name": "Unlock the content",
+          "request": {
+            "name": "Unlock the content",
+            "description": {
+              "content": "Remove the external mark on the content (used when content contains synchronised data). This has no effect on interactions with the content through the API.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "specializations",
+                ":uuid",
+                "actions",
+                "unlock"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) UUID of the content to unlock"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/problem+json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dbfe59b5-73a7-4e58-bb76-8a3765b95930",
+              "name": "Content marked as unlocked",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "specializations",
+                    ":uuid",
+                    "actions",
+                    "unlock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the content to unlock"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "543b42bf-e348-4bb8-b98c-abbe9109f1e9",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "specializations",
+                    ":uuid",
+                    "actions",
+                    "unlock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the content to unlock"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 853,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b89b668c-ee15-4c11-8d68-d9368ffbd3dd",
+              "name": "Content already unlocked",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "specializations",
+                    ":uuid",
+                    "actions",
+                    "unlock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the content to unlock"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 8900,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"modified\": \"1956-01-25T18:30:40.017Z\",\n  \"modifiedBy\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8d283f03-41f9-407a-b9bd-d9117944bdd7",
+          "name": "Lists all dependents to the specialization",
+          "request": {
+            "name": "Lists all dependents to the specialization",
+            "description": {
+              "content": "Lists all dependents to the specialization with the specified UUID. If the user does not have access to view all the dependent content, an authorization error will be thrown. ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "specializations",
+                ":uuid",
+                "dependents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "verbose",
+                  "value": "<boolean>",
+                  "description": "DEPRECATED - Parameter has no effect."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) UUID of the specialization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d1428cfe-11bf-4dc5-88a8-02b3e6d9eaaf",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "specializations",
+                    ":uuid",
+                    "dependents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "verbose",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the specialization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    },\n    {\n      \"systemName\": \"<string>\",\n      \"uuid\": \"<uuid>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://pure.qub.ac.uk/ws/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ecfb1b82-80e5-4a85-aec2-f2e3931ece68",
+    "name": "Pure activity specialization API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Pure API provides a secure and complete web services API for using and managing research information data in Pure. The API enables a broad range of use-cases for interacting with research information, from anonymous Open Data scenarios to enabling the next generation Pure admin.\n\nContact Support:\n Email: pure-support@elsevier.com",
+      "type": "text/plain"
+    }
+  }
+}

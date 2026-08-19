@@ -1,0 +1,1646 @@
+{
+  "item": [
+    {
+      "id": "34d55ba4-cca3-4da3-882d-54bef5a3eaa0",
+      "name": "classificationScheme",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a19083d6-0b02-48a4-b0d6-7cc35ed763ef",
+          "name": "Lists all classification schemes",
+          "request": {
+            "name": "Lists all classification schemes",
+            "description": {
+              "content": "Lists all classification schemes in the Pure instance.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "classification-schemes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "10",
+                  "description": "Number of returned classification schemes per request."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "The offset for the returned list. 0 or null value is from the start"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>",
+                  "description": "The order of the list, must be a value from classificationSchemes_getOrderings"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "afc8b491-9f8a-4590-868a-44f8b75a4daa",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "classification-schemes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "size",
+                      "value": "10"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 6672,\n  \"pageInformation\": {\n    \"offset\": 9990,\n    \"size\": 3786\n  },\n  \"items\": [\n    {\n      \"pureId\": 4634,\n      \"uuid\": \"119ba3ad-da79-55eb-ed33-637d5d3a2e6a\",\n      \"createdBy\": \"string\",\n      \"createdDate\": \"1964-07-29T06:14:19.705Z\",\n      \"modifiedBy\": \"string\",\n      \"modifiedDate\": \"1954-07-25T01:53:04.207Z\",\n      \"portalUrl\": \"string\",\n      \"prettyUrlIdentifiers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"previousUuids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"version\": \"string\",\n      \"baseUri\": \"string\",\n      \"typeClassification\": {\n        \"uri\": \"string\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"associatedSchemes\": [\n        {\n          \"pureId\": 1191,\n          \"classification\": {\n            \"uri\": \"string\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"title\": {\n            \"en_GB\": \"Some text\"\n          },\n          \"classificationScheme\": {\n            \"uuid\": 4926.114156825028\n          }\n        },\n        {\n          \"pureId\": 5319,\n          \"classification\": {\n            \"uri\": \"string\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"title\": {\n            \"en_GB\": \"Some text\"\n          },\n          \"classificationScheme\": {\n            \"uuid\": true\n          }\n        }\n      ],\n      \"containedClassifications\": [\n        {\n          \"uri\": \"string\",\n          \"pureId\": 6258,\n          \"term\": {\n            \"en_GB\": \"Some text\"\n          },\n          \"disabled\": false,\n          \"description\": {\n            \"en_GB\": \"Some text\"\n          },\n          \"classificationRelations\": [\n            {\n              \"pureId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"relatedTo\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"relationType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"pureId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"relatedTo\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"relationType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"uri\": \"string\",\n          \"pureId\": 1421,\n          \"term\": {\n            \"en_GB\": \"Some text\"\n          },\n          \"disabled\": false,\n          \"description\": {\n            \"en_GB\": \"Some text\"\n          },\n          \"classificationRelations\": [\n            {\n              \"pureId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"relatedTo\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"relationType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"pureId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"relatedTo\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"relationType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"identifiers\": [\n        {\n          \"typeDiscriminator\": \"string\"\n        },\n        {\n          \"typeDiscriminator\": \"string\"\n        }\n      ],\n      \"systemName\": \"string\"\n    },\n    {\n      \"pureId\": 473,\n      \"uuid\": \"8d763b56-20e1-c368-96f4-c4c51a7ef801\",\n      \"createdBy\": \"string\",\n      \"createdDate\": \"1951-12-24T14:44:18.766Z\",\n      \"modifiedBy\": \"string\",\n      \"modifiedDate\": \"1982-02-03T19:01:35.681Z\",\n      \"portalUrl\": \"string\",\n      \"prettyUrlIdentifiers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"previousUuids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"version\": \"string\",\n      \"baseUri\": \"string\",\n      \"typeClassification\": {\n        \"uri\": \"string\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"associatedSchemes\": [\n        {\n          \"pureId\": 9508,\n          \"classification\": {\n            \"uri\": \"string\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"title\": {\n            \"en_GB\": \"Some text\"\n          },\n          \"classificationScheme\": {\n            \"uuid\": 4379\n          }\n        },\n        {\n          \"pureId\": 1705,\n          \"classification\": {\n            \"uri\": \"string\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"title\": {\n            \"en_GB\": \"Some text\"\n          },\n          \"classificationScheme\": {\n            \"uuid\": \"string\"\n          }\n        }\n      ],\n      \"containedClassifications\": [\n        {\n          \"uri\": \"string\",\n          \"pureId\": 5813,\n          \"term\": {\n            \"en_GB\": \"Some text\"\n          },\n          \"disabled\": true,\n          \"description\": {\n            \"en_GB\": \"Some text\"\n          },\n          \"classificationRelations\": [\n            {\n              \"pureId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"relatedTo\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"relationType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"pureId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"relatedTo\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"relationType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"uri\": \"string\",\n          \"pureId\": 7198,\n          \"term\": {\n            \"en_GB\": \"Some text\"\n          },\n          \"disabled\": false,\n          \"description\": {\n            \"en_GB\": \"Some text\"\n          },\n          \"classificationRelations\": [\n            {\n              \"pureId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"relatedTo\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"relationType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"pureId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"relatedTo\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"relationType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"identifiers\": [\n        {\n          \"typeDiscriminator\": \"string\"\n        },\n        {\n          \"typeDiscriminator\": \"string\"\n        }\n      ],\n      \"systemName\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2ab1f3ae-eb15-477e-b798-593c948bde34",
+          "name": "Create classification scheme",
+          "request": {
+            "name": "Create classification scheme",
+            "description": {
+              "content": "Create classification scheme",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "classification-schemes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"version\": \"<string>\",\n  \"baseUri\": \"<string>\",\n  \"typeClassification\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"key_0\": \"<string>\"\n    }\n  },\n  \"description\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"associatedSchemes\": [\n    {\n      \"classification\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        }\n      },\n      \"title\": {\n        \"key_0\": \"<string>\"\n      },\n      \"classificationScheme\": \"<object>\"\n    },\n    {\n      \"classification\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        }\n      },\n      \"title\": {\n        \"key_0\": \"<string>\"\n      },\n      \"classificationScheme\": \"<object>\"\n    }\n  ],\n  \"containedClassifications\": [\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\",\n        \"key_3\": \"<string>\"\n      },\n      \"disabled\": \"<boolean>\",\n      \"description\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"classificationRelations\": [\n        {\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ]\n    },\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"disabled\": \"<boolean>\",\n      \"description\": {\n        \"key_0\": \"<string>\"\n      },\n      \"classificationRelations\": [\n        {\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ]\n    }\n  ],\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f5722f49-a323-4904-9642-e822eb9b5f70",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "classification-schemes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"version\": \"<string>\",\n  \"baseUri\": \"<string>\",\n  \"typeClassification\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"description\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"associatedSchemes\": [\n    {\n      \"classification\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"title\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"classificationScheme\": {\n        \"systemName\": \"<string>\",\n        \"uuid\": \"<uuid>\"\n      }\n    },\n    {\n      \"classification\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"title\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"classificationScheme\": {\n        \"systemName\": \"<string>\",\n        \"uuid\": \"<uuid>\"\n      }\n    }\n  ],\n  \"containedClassifications\": [\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"disabled\": \"<boolean>\",\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"classificationRelations\": [\n        {\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ]\n    },\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"disabled\": \"<boolean>\",\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"classificationRelations\": [\n        {\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ]\n    }\n  ],\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pureId\": 225,\n  \"uuid\": \"3f07635a-9b95-fa0e-ded1-611e6133aaeb\",\n  \"createdBy\": \"string\",\n  \"createdDate\": \"2021-01-17T11:21:36.198Z\",\n  \"modifiedBy\": \"string\",\n  \"modifiedDate\": \"1967-09-11T02:43:21.018Z\",\n  \"portalUrl\": \"string\",\n  \"prettyUrlIdentifiers\": [\n    \"string\",\n    \"string\"\n  ],\n  \"previousUuids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"version\": \"<string>\",\n  \"baseUri\": \"<string>\",\n  \"typeClassification\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"description\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"associatedSchemes\": [\n    {\n      \"pureId\": 2336,\n      \"classification\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"title\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"classificationScheme\": {\n        \"systemName\": \"<string>\",\n        \"uuid\": \"<uuid>\"\n      }\n    },\n    {\n      \"pureId\": 1282,\n      \"classification\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"title\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"classificationScheme\": {\n        \"systemName\": \"<string>\",\n        \"uuid\": \"<uuid>\"\n      }\n    }\n  ],\n  \"containedClassifications\": [\n    {\n      \"uri\": \"<string>\",\n      \"pureId\": 2953,\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"disabled\": \"<boolean>\",\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"classificationRelations\": [\n        {\n          \"pureId\": 5970,\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"pureId\": 2083,\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ]\n    },\n    {\n      \"uri\": \"<string>\",\n      \"pureId\": 5611,\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"disabled\": \"<boolean>\",\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"classificationRelations\": [\n        {\n          \"pureId\": 9027,\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"pureId\": 9520,\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ]\n    }\n  ],\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ],\n  \"systemName\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3991f0bd-7b18-479f-b068-3ddc95ff4fe9",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "classification-schemes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"version\": \"<string>\",\n  \"baseUri\": \"<string>\",\n  \"typeClassification\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"description\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"associatedSchemes\": [\n    {\n      \"classification\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"title\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"classificationScheme\": {\n        \"systemName\": \"<string>\",\n        \"uuid\": \"<uuid>\"\n      }\n    },\n    {\n      \"classification\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"title\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"classificationScheme\": {\n        \"systemName\": \"<string>\",\n        \"uuid\": \"<uuid>\"\n      }\n    }\n  ],\n  \"containedClassifications\": [\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"disabled\": \"<boolean>\",\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"classificationRelations\": [\n        {\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ]\n    },\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"disabled\": \"<boolean>\",\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"classificationRelations\": [\n        {\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ]\n    }\n  ],\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2750,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b50b4d88-0f8f-4d56-be36-1a65a3c4d575",
+          "name": "A list of allowed associated schemes classifications",
+          "request": {
+            "name": "A list of allowed associated schemes classifications",
+            "description": {
+              "content": "Get a list of allowed types of associated classification schemes that can be used for the getAssociatedSchemes.classification attribute on classification scheme",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "classification-schemes",
+                "allowed-associated-schemes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "93a2f7d9-8ef6-4570-87a9-e02cf3de1ffd",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "classification-schemes",
+                    "allowed-associated-schemes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"classifications\": [\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      }\n    },\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d249bc5a-05b2-4cb3-8f08-1dcef6ad9eba",
+          "name": "A list of allowed locales in localized strings",
+          "request": {
+            "name": "A list of allowed locales in localized strings",
+            "description": {
+              "content": "Get a list of allowed locales that can be used when submitting localized string entities. Example usage: Terms of contained classifications must be defined in all these locales.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "classification-schemes",
+                "allowed-locales"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d66e5690-5dd8-475a-9e7c-32d214170cb4",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "classification-schemes",
+                    "allowed-locales"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"locales\": \"/xo_FO/\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "41335e85-6aa6-47a7-95b3-28d7b725fd46",
+          "name": "A list of allowed types of classification schemes",
+          "request": {
+            "name": "A list of allowed types of classification schemes",
+            "description": {
+              "content": "Get a list of allowed types that can be used for the 'typeClassification' attribute of classification scheme",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "classification-schemes",
+                "allowed-type-classifications"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "11949990-10ed-40dc-ad8a-5ebf364fa4e7",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "classification-schemes",
+                    "allowed-type-classifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"classifications\": [\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      }\n    },\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "232cc388-a8f6-47ff-b251-10842540d722",
+          "name": "Get classification scheme",
+          "request": {
+            "name": "Get classification scheme",
+            "description": {
+              "content": "Get classification scheme with specific UUID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "classification-schemes",
+                ":uuid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) UUID of the desired classification scheme"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5bdd6ff1-76ee-4022-91d4-1a7d6bc33eef",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "classification-schemes",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the desired classification scheme"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pureId\": 225,\n  \"uuid\": \"3f07635a-9b95-fa0e-ded1-611e6133aaeb\",\n  \"createdBy\": \"string\",\n  \"createdDate\": \"2021-01-17T11:21:36.198Z\",\n  \"modifiedBy\": \"string\",\n  \"modifiedDate\": \"1967-09-11T02:43:21.018Z\",\n  \"portalUrl\": \"string\",\n  \"prettyUrlIdentifiers\": [\n    \"string\",\n    \"string\"\n  ],\n  \"previousUuids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"version\": \"<string>\",\n  \"baseUri\": \"<string>\",\n  \"typeClassification\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"description\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"associatedSchemes\": [\n    {\n      \"pureId\": 2336,\n      \"classification\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"title\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"classificationScheme\": {\n        \"systemName\": \"<string>\",\n        \"uuid\": \"<uuid>\"\n      }\n    },\n    {\n      \"pureId\": 1282,\n      \"classification\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"title\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"classificationScheme\": {\n        \"systemName\": \"<string>\",\n        \"uuid\": \"<uuid>\"\n      }\n    }\n  ],\n  \"containedClassifications\": [\n    {\n      \"uri\": \"<string>\",\n      \"pureId\": 2953,\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"disabled\": \"<boolean>\",\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"classificationRelations\": [\n        {\n          \"pureId\": 5970,\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"pureId\": 2083,\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ]\n    },\n    {\n      \"uri\": \"<string>\",\n      \"pureId\": 5611,\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"disabled\": \"<boolean>\",\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"classificationRelations\": [\n        {\n          \"pureId\": 9027,\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"pureId\": 9520,\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ]\n    }\n  ],\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ],\n  \"systemName\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "49ae8dfd-8eca-47d2-9449-50b1f4b3ce43",
+              "name": "The requested content have changed UUID",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "classification-schemes",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the desired classification scheme"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Moved Permanently",
+              "code": 301,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b6ad3d4c-268f-4b1a-9059-28d07f395f69",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "classification-schemes",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the desired classification scheme"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2750,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "066a19c8-9292-4a10-ba48-7cc5f1fbba64",
+          "name": "Update classification scheme",
+          "request": {
+            "name": "Update classification scheme",
+            "description": {
+              "content": "Update classification scheme with specific UUID. Note: terms of all containedClassifications must be defined in all UI locales.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "classification-schemes",
+                ":uuid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) UUID of the classification scheme to update. Note: terms of all containedClassifications must be defined in all UI locales."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"version\": \"<string>\",\n  \"baseUri\": \"<string>\",\n  \"typeClassification\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"key_0\": \"<string>\"\n    }\n  },\n  \"description\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"associatedSchemes\": [\n    {\n      \"classification\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        }\n      },\n      \"title\": {\n        \"key_0\": \"<string>\"\n      },\n      \"classificationScheme\": \"<object>\"\n    },\n    {\n      \"classification\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        }\n      },\n      \"title\": {\n        \"key_0\": \"<string>\"\n      },\n      \"classificationScheme\": \"<object>\"\n    }\n  ],\n  \"containedClassifications\": [\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\",\n        \"key_3\": \"<string>\"\n      },\n      \"disabled\": \"<boolean>\",\n      \"description\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"classificationRelations\": [\n        {\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ]\n    },\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"disabled\": \"<boolean>\",\n      \"description\": {\n        \"key_0\": \"<string>\"\n      },\n      \"classificationRelations\": [\n        {\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ]\n    }\n  ],\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "594ae039-75a6-443a-9c8a-9548cd49f6e9",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "classification-schemes",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the classification scheme to update. Note: terms of all containedClassifications must be defined in all UI locales."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"version\": \"<string>\",\n  \"baseUri\": \"<string>\",\n  \"typeClassification\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"description\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"associatedSchemes\": [\n    {\n      \"classification\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"title\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"classificationScheme\": {\n        \"systemName\": \"<string>\",\n        \"uuid\": \"<uuid>\"\n      }\n    },\n    {\n      \"classification\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"title\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"classificationScheme\": {\n        \"systemName\": \"<string>\",\n        \"uuid\": \"<uuid>\"\n      }\n    }\n  ],\n  \"containedClassifications\": [\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"disabled\": \"<boolean>\",\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"classificationRelations\": [\n        {\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ]\n    },\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"disabled\": \"<boolean>\",\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"classificationRelations\": [\n        {\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ]\n    }\n  ],\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pureId\": 225,\n  \"uuid\": \"3f07635a-9b95-fa0e-ded1-611e6133aaeb\",\n  \"createdBy\": \"string\",\n  \"createdDate\": \"2021-01-17T11:21:36.198Z\",\n  \"modifiedBy\": \"string\",\n  \"modifiedDate\": \"1967-09-11T02:43:21.018Z\",\n  \"portalUrl\": \"string\",\n  \"prettyUrlIdentifiers\": [\n    \"string\",\n    \"string\"\n  ],\n  \"previousUuids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"version\": \"<string>\",\n  \"baseUri\": \"<string>\",\n  \"typeClassification\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"description\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"associatedSchemes\": [\n    {\n      \"pureId\": 2336,\n      \"classification\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"title\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"classificationScheme\": {\n        \"systemName\": \"<string>\",\n        \"uuid\": \"<uuid>\"\n      }\n    },\n    {\n      \"pureId\": 1282,\n      \"classification\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"title\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"classificationScheme\": {\n        \"systemName\": \"<string>\",\n        \"uuid\": \"<uuid>\"\n      }\n    }\n  ],\n  \"containedClassifications\": [\n    {\n      \"uri\": \"<string>\",\n      \"pureId\": 2953,\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"disabled\": \"<boolean>\",\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"classificationRelations\": [\n        {\n          \"pureId\": 5970,\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"pureId\": 2083,\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ]\n    },\n    {\n      \"uri\": \"<string>\",\n      \"pureId\": 5611,\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"disabled\": \"<boolean>\",\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"classificationRelations\": [\n        {\n          \"pureId\": 9027,\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"pureId\": 9520,\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ]\n    }\n  ],\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ],\n  \"systemName\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5f63bd4a-6653-4cf0-b7b5-fa3c60aac0cb",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "classification-schemes",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the classification scheme to update. Note: terms of all containedClassifications must be defined in all UI locales."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"version\": \"<string>\",\n  \"baseUri\": \"<string>\",\n  \"typeClassification\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"description\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"associatedSchemes\": [\n    {\n      \"classification\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"title\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"classificationScheme\": {\n        \"systemName\": \"<string>\",\n        \"uuid\": \"<uuid>\"\n      }\n    },\n    {\n      \"classification\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"title\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"classificationScheme\": {\n        \"systemName\": \"<string>\",\n        \"uuid\": \"<uuid>\"\n      }\n    }\n  ],\n  \"containedClassifications\": [\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"disabled\": \"<boolean>\",\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"classificationRelations\": [\n        {\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ]\n    },\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"disabled\": \"<boolean>\",\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"classificationRelations\": [\n        {\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ]\n    }\n  ],\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2750,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "56cbd9b8-c9ac-4e1a-8163-f4815e38bd49",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "classification-schemes",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the classification scheme to update. Note: terms of all containedClassifications must be defined in all UI locales."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"version\": \"<string>\",\n  \"baseUri\": \"<string>\",\n  \"typeClassification\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"description\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"associatedSchemes\": [\n    {\n      \"classification\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"title\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"classificationScheme\": {\n        \"systemName\": \"<string>\",\n        \"uuid\": \"<uuid>\"\n      }\n    },\n    {\n      \"classification\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"title\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"classificationScheme\": {\n        \"systemName\": \"<string>\",\n        \"uuid\": \"<uuid>\"\n      }\n    }\n  ],\n  \"containedClassifications\": [\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"disabled\": \"<boolean>\",\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"classificationRelations\": [\n        {\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ]\n    },\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"disabled\": \"<boolean>\",\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"classificationRelations\": [\n        {\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ]\n    }\n  ],\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2750,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cb9ddc17-9273-41a5-9ed5-d3e24c469ae0",
+              "name": "Version conflict",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "classification-schemes",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the classification scheme to update. Note: terms of all containedClassifications must be defined in all UI locales."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"version\": \"<string>\",\n  \"baseUri\": \"<string>\",\n  \"typeClassification\": {\n    \"uri\": \"<string>\",\n    \"term\": {\n      \"en_GB\": \"Some text\"\n    }\n  },\n  \"description\": {\n    \"en_GB\": \"Some text\"\n  },\n  \"associatedSchemes\": [\n    {\n      \"classification\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"title\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"classificationScheme\": {\n        \"systemName\": \"<string>\",\n        \"uuid\": \"<uuid>\"\n      }\n    },\n    {\n      \"classification\": {\n        \"uri\": \"<string>\",\n        \"term\": {\n          \"en_GB\": \"Some text\"\n        }\n      },\n      \"title\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"classificationScheme\": {\n        \"systemName\": \"<string>\",\n        \"uuid\": \"<uuid>\"\n      }\n    }\n  ],\n  \"containedClassifications\": [\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"disabled\": \"<boolean>\",\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"classificationRelations\": [\n        {\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ]\n    },\n    {\n      \"uri\": \"<string>\",\n      \"term\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"disabled\": \"<boolean>\",\n      \"description\": {\n        \"en_GB\": \"Some text\"\n      },\n      \"classificationRelations\": [\n        {\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"relatedTo\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relationType\": {\n            \"uri\": \"<string>\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ]\n    }\n  ],\n  \"identifiers\": [\n    {\n      \"typeDiscriminator\": \"<string>\"\n    },\n    {\n      \"typeDiscriminator\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9181,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"modified\": \"1956-08-23T09:40:07.186Z\",\n  \"modifiedBy\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0a3624c9-781f-40f7-9b35-57db62b0d46f",
+          "name": "Delete classification scheme",
+          "request": {
+            "name": "Delete classification scheme",
+            "description": {
+              "content": "Delete classification scheme with specific UUID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "classification-schemes",
+                ":uuid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) UUID of the classification scheme"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/problem+json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d7901232-37cb-4a55-98f5-f08a1dd6aa6b",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "classification-schemes",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the classification scheme"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "93aafbcc-2998-46cf-9f48-48f7f239be54",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "classification-schemes",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the classification scheme"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2750,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ee7f00c4-8ac9-4381-b76c-2613d5330c7f",
+              "name": "Conflict",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "classification-schemes",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the classification scheme"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9181,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"modified\": \"1956-08-23T09:40:07.186Z\",\n  \"modifiedBy\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0d5a67d0-d9c7-40fa-8c45-3d8564d435de",
+          "name": "Lock the content",
+          "request": {
+            "name": "Lock the content",
+            "description": {
+              "content": "Mark the content as external (used when content contains synchronised data). This has no effect on interactions with the content through the API.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "classification-schemes",
+                ":uuid",
+                "actions",
+                "lock"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) UUID of the content to lock"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/problem+json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ccabc2aa-a511-4cb6-9c8a-2edbf45b0b37",
+              "name": "Content marked as locked",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "classification-schemes",
+                    ":uuid",
+                    "actions",
+                    "lock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the content to lock"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8f9d3002-ae07-42e3-ac8d-642561af8543",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "classification-schemes",
+                    ":uuid",
+                    "actions",
+                    "lock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the content to lock"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2750,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bcde7bdf-1da1-4bf0-a70b-3a4e4dfc5c50",
+              "name": "Content already locked",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "classification-schemes",
+                    ":uuid",
+                    "actions",
+                    "lock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the content to lock"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9181,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"modified\": \"1956-08-23T09:40:07.186Z\",\n  \"modifiedBy\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fb5e9ea5-998e-4632-92e5-29868879170a",
+          "name": "Unlock the content",
+          "request": {
+            "name": "Unlock the content",
+            "description": {
+              "content": "Remove the external mark on the content (used when content contains synchronised data). This has no effect on interactions with the content through the API.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "classification-schemes",
+                ":uuid",
+                "actions",
+                "unlock"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) UUID of the content to unlock"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/problem+json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d628fede-ac90-4c43-bf03-bfd07cb54998",
+              "name": "Content marked as unlocked",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "classification-schemes",
+                    ":uuid",
+                    "actions",
+                    "unlock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the content to unlock"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fbe9d70b-a34e-402b-80a9-de3df281a2af",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "classification-schemes",
+                    ":uuid",
+                    "actions",
+                    "unlock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the content to unlock"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2750,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c563044b-1e60-4435-8552-7e5b55ffce8b",
+              "name": "Content already unlocked",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "classification-schemes",
+                    ":uuid",
+                    "actions",
+                    "unlock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the content to unlock"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9181,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"modified\": \"1956-08-23T09:40:07.186Z\",\n  \"modifiedBy\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://pure.qub.ac.uk/ws/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d7ff6636-697a-4ccd-b246-560626e737a3",
+    "name": "Pure activity classificationScheme API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Pure API provides a secure and complete web services API for using and managing research information data in Pure. The API enables a broad range of use-cases for interacting with research information, from anonymous Open Data scenarios to enabling the next generation Pure admin.\n\nContact Support:\n Email: pure-support@elsevier.com",
+      "type": "text/plain"
+    }
+  }
+}

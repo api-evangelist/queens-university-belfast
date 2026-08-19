@@ -1,0 +1,249 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pure activity user API",
+    "version": "5.35.3-4"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api-key",
+      "value": "{{api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "user",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Lists all users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/users",
+            "params": [
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Number of returned users per request."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset for the returned list. 0 or null value is from the start"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "The order of the list, must be a value from /users/orderings"
+              }
+            ]
+          },
+          "docs": "Lists all users in the Pure instance."
+        },
+        {
+          "info": {
+            "name": "Create user",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://pure.qub.ac.uk/ws/api/users",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create user"
+        },
+        {
+          "info": {
+            "name": "Lists available orderings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/users/orderings"
+          },
+          "docs": "Lists all orderings available to the user endpoint. These values can be used by the order parameter."
+        },
+        {
+          "info": {
+            "name": "Get user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/users/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the user"
+              }
+            ]
+          },
+          "docs": "Get user with specific UUID."
+        },
+        {
+          "info": {
+            "name": "Update user",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://pure.qub.ac.uk/ws/api/users/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the user to update"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update user with specific UUID."
+        },
+        {
+          "info": {
+            "name": "Delete user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://pure.qub.ac.uk/ws/api/users/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the user to delete"
+              }
+            ]
+          },
+          "docs": "Delete user with specific UUID."
+        },
+        {
+          "info": {
+            "name": "Lock the content",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://pure.qub.ac.uk/ws/api/users/:uuid/actions/lock",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the content to lock"
+              }
+            ]
+          },
+          "docs": "Mark the content as external (used when content contains synchronised data). This has no effect on interactions with the content through the API."
+        },
+        {
+          "info": {
+            "name": "Reset user password",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://pure.qub.ac.uk/ws/api/users/:uuid/actions/reset-password",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the user to reset the password for"
+              },
+              {
+                "name": "tokenExpiryHours",
+                "value": "",
+                "type": "query",
+                "description": "Token expiration in hours. Must be between 1 and 168 hours (1 week)."
+              }
+            ]
+          },
+          "docs": "Resets the user's password. Reset password email will be sent to the user's email. The token expiry hour defaults to 24 hours."
+        },
+        {
+          "info": {
+            "name": "Unlock the content",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://pure.qub.ac.uk/ws/api/users/:uuid/actions/unlock",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the content to unlock"
+              }
+            ]
+          },
+          "docs": "Remove the external mark on the content (used when content contains synchronised data). This has no effect on interactions with the content through the API."
+        },
+        {
+          "info": {
+            "name": "Lists all roles of a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/users/:uuid/roles",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the user to list the roles of"
+              }
+            ]
+          },
+          "docs": "Lists all roles of a user"
+        },
+        {
+          "info": {
+            "name": "Updates roles",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://pure.qub.ac.uk/ws/api/users/:uuid/roles",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the user to update roles of"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Applies the supplied roles to a user. Roles not in the request will be removed from user"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

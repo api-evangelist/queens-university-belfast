@@ -1,0 +1,204 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pure activity classificationScheme API",
+    "version": "5.35.3-4"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api-key",
+      "value": "{{api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "classificationScheme",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Lists all classification schemes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/classification-schemes",
+            "params": [
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Number of returned classification schemes per request."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset for the returned list. 0 or null value is from the start"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "The order of the list, must be a value from classificationSchemes_getOrderings"
+              }
+            ]
+          },
+          "docs": "Lists all classification schemes in the Pure instance."
+        },
+        {
+          "info": {
+            "name": "Create classification scheme",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://pure.qub.ac.uk/ws/api/classification-schemes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create classification scheme"
+        },
+        {
+          "info": {
+            "name": "A list of allowed associated schemes classifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/classification-schemes/allowed-associated-schemes"
+          },
+          "docs": "Get a list of allowed types of associated classification schemes that can be used for the getAssociatedSchemes.classification attribute on classification scheme"
+        },
+        {
+          "info": {
+            "name": "A list of allowed locales in localized strings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/classification-schemes/allowed-locales"
+          },
+          "docs": "Get a list of allowed locales that can be used when submitting localized string entities. Example usage: Terms of contained classifications must be defined in all these locales."
+        },
+        {
+          "info": {
+            "name": "A list of allowed types of classification schemes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/classification-schemes/allowed-type-classifications"
+          },
+          "docs": "Get a list of allowed types that can be used for the 'typeClassification' attribute of classification scheme"
+        },
+        {
+          "info": {
+            "name": "Get classification scheme",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/classification-schemes/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the desired classification scheme"
+              }
+            ]
+          },
+          "docs": "Get classification scheme with specific UUID."
+        },
+        {
+          "info": {
+            "name": "Update classification scheme",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://pure.qub.ac.uk/ws/api/classification-schemes/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the classification scheme to update. Note: terms of all containedClassifications must be defined in all UI locales."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update classification scheme with specific UUID. Note: terms of all containedClassifications must be defined in all UI locales."
+        },
+        {
+          "info": {
+            "name": "Delete classification scheme",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://pure.qub.ac.uk/ws/api/classification-schemes/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the classification scheme"
+              }
+            ]
+          },
+          "docs": "Delete classification scheme with specific UUID."
+        },
+        {
+          "info": {
+            "name": "Lock the content",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://pure.qub.ac.uk/ws/api/classification-schemes/:uuid/actions/lock",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the content to lock"
+              }
+            ]
+          },
+          "docs": "Mark the content as external (used when content contains synchronised data). This has no effect on interactions with the content through the API."
+        },
+        {
+          "info": {
+            "name": "Unlock the content",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://pure.qub.ac.uk/ws/api/classification-schemes/:uuid/actions/unlock",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the content to unlock"
+              }
+            ]
+          },
+          "docs": "Remove the external mark on the content (used when content contains synchronised data). This has no effect on interactions with the content through the API."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,455 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pure activity fundingOpportunity API",
+    "version": "5.35.3-4"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api-key",
+      "value": "{{api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "fundingOpportunity",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Lists all funding opportunities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/funding-opportunities",
+            "params": [
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Number of returned funding opportunities per request."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset for the returned list. 0 or null value is from the start"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "The order of the list, must be a value from /fundingOpportunities/orderings"
+              }
+            ]
+          },
+          "docs": "Lists all funding opportunities in the Pure instance. If you need to filter the funding opportunities returned, see the POST version which supports additional filtering."
+        },
+        {
+          "info": {
+            "name": "Create funding opportunity",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://pure.qub.ac.uk/ws/api/funding-opportunities",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create funding opportunity"
+        },
+        {
+          "info": {
+            "name": "A list of allowed classified identifier types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/funding-opportunities/allowed-classified-academic-degree-eligibility-types"
+          },
+          "docs": "Get a list of allowed classified identifier types that can be used for the 'identifiers.type' attribute of funding opportunity"
+        },
+        {
+          "info": {
+            "name": "A list of allowed classified identifier types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/funding-opportunities/allowed-classified-eligibility-types"
+          },
+          "docs": "Get a list of allowed classified identifier types that can be used for the 'identifiers.type' attribute of funding opportunity"
+        },
+        {
+          "info": {
+            "name": "Get allowed classifications for the custom-defined field associated with the funding opportunity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/funding-opportunities/allowed-custom-defined-field-values/:propertyName/classifications",
+            "params": [
+              {
+                "name": "propertyName",
+                "value": "",
+                "type": "path",
+                "description": "PropertyName for the desired custom-defined field"
+              }
+            ]
+          },
+          "docs": "Get allowed classifications for the custom-defined field associated with the funding opportunity."
+        },
+        {
+          "info": {
+            "name": "A list of allowed document licenses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/funding-opportunities/allowed-document-licenses"
+          },
+          "docs": "Get a list of allowed document licenses for funding opportunity"
+        },
+        {
+          "info": {
+            "name": "A list of allowed document types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/funding-opportunities/allowed-document-types"
+          },
+          "docs": "Get a list of allowed license types that can be used for the 'documents.type' attribute of funding opportunity"
+        },
+        {
+          "info": {
+            "name": "A list of allowed document version types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/funding-opportunities/allowed-document-version-types"
+          },
+          "docs": "Get a list of allowed version types for documents on funding opportunity"
+        },
+        {
+          "info": {
+            "name": "A list of keyword group configurations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/funding-opportunities/allowed-keyword-group-configurations"
+          },
+          "docs": "Get a list of allowed keyword group configurations that can be used when submitting keyword groups."
+        },
+        {
+          "info": {
+            "name": "A list of allowed classifications for the specified keyword group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/funding-opportunities/allowed-keyword-group-configurations/:id/classifications",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Pure id of the keyword group configuration"
+              }
+            ]
+          },
+          "docs": "Get a list of allowed classifications that can be used when submitting a specified keyword group."
+        },
+        {
+          "info": {
+            "name": "A list of allowed locales in localized strings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/funding-opportunities/allowed-locales"
+          },
+          "docs": "Get a list of allowed locales that can be used when submitting localized string entities."
+        },
+        {
+          "info": {
+            "name": "A list of allowed classified identifier types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/funding-opportunities/allowed-nature-types"
+          },
+          "docs": "Get a list of allowed classified identifier types that can be used for the 'identifiers.type' attribute of funding opportunity"
+        },
+        {
+          "info": {
+            "name": "A list of allowed classifications for the type property",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/funding-opportunities/allowed-types"
+          },
+          "docs": "Get a list of classifications that can be used when submitting a type."
+        },
+        {
+          "info": {
+            "name": "Upload file to a specific funding opportunity",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://pure.qub.ac.uk/ws/api/funding-opportunities/file-uploads",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Uploads file for the funding opportunity"
+        },
+        {
+          "info": {
+            "name": "Lists available orderings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/funding-opportunities/orderings"
+          },
+          "docs": "Lists all orderings available to the funding opportunities endpoint. These values can be used by the order parameter when listing funding opportunities."
+        },
+        {
+          "info": {
+            "name": "Query operation for funding opportunities",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://pure.qub.ac.uk/ws/api/funding-opportunities/search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Lists funding opportunities in the Pure instance that matches the provided query, similar to the GET version, instead of using parameters to alter the response, an JSON document is posted with the request. The JSON document contains fields for all the parameters available for the GET version, but also additional filtering options."
+        },
+        {
+          "info": {
+            "name": "Get funding opportunity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/funding-opportunities/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the desired funding opportunity"
+              }
+            ]
+          },
+          "docs": "Get funding opportunity with specific UUID."
+        },
+        {
+          "info": {
+            "name": "Update funding opportunity",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://pure.qub.ac.uk/ws/api/funding-opportunities/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the funding opportunity to update"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update funding opportunity with specific UUID."
+        },
+        {
+          "info": {
+            "name": "Delete funding opportunity",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://pure.qub.ac.uk/ws/api/funding-opportunities/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the funding opportunity"
+              }
+            ]
+          },
+          "docs": "Delete funding opportunity with specific UUID."
+        },
+        {
+          "info": {
+            "name": "Lock the content",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://pure.qub.ac.uk/ws/api/funding-opportunities/:uuid/actions/lock",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the content to lock"
+              }
+            ]
+          },
+          "docs": "Mark the content as external (used when content contains synchronised data). This has no effect on interactions with the content through the API."
+        },
+        {
+          "info": {
+            "name": "Unlock the content",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://pure.qub.ac.uk/ws/api/funding-opportunities/:uuid/actions/unlock",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the content to unlock"
+              }
+            ]
+          },
+          "docs": "Remove the external mark on the content (used when content contains synchronised data). This has no effect on interactions with the content through the API."
+        },
+        {
+          "info": {
+            "name": "Lists all dependents to a funding opportunity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/funding-opportunities/:uuid/dependents",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the funding opportunity"
+              },
+              {
+                "name": "verbose",
+                "value": "",
+                "type": "query",
+                "description": "DEPRECATED - Parameter has no effect."
+              }
+            ]
+          },
+          "docs": "Lists all dependents to a funding opportunity with the specified UUID. If the user does not have access to view all the dependent content, an authorization error will be thrown. "
+        },
+        {
+          "info": {
+            "name": "Get file from the funding opportunity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/funding-opportunities/:uuid/files/:fileId",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the funding opportunity"
+              },
+              {
+                "name": "fileId",
+                "value": "",
+                "type": "path",
+                "description": "File id "
+              }
+            ]
+          },
+          "docs": "Get file from the funding opportunity"
+        },
+        {
+          "info": {
+            "name": "Lists notes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/funding-opportunities/:uuid/notes",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the funding opportunity to get notes for"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Number of returned notes per request"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset for the returned list. 0 or null value is from the start"
+              }
+            ]
+          },
+          "docs": "Lists notes associated with a funding opportunity ordered by date (nulls last)"
+        },
+        {
+          "info": {
+            "name": "Create note",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://pure.qub.ac.uk/ws/api/funding-opportunities/:uuid/notes",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the funding opportunity to add note to"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create note and associate it with a funding opportunity"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

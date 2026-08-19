@@ -1,0 +1,507 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pure activity course API",
+    "version": "5.35.3-4"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api-key",
+      "value": "{{api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "course",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Lists all courses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/courses",
+            "params": [
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Number of returned courses per request."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset for the returned list. 0 or null value is from the start"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "The order of the list, must be a value from /courses/orderings"
+              }
+            ]
+          },
+          "docs": "Lists all courses in the Pure instance. If you need to filter the courses returned, see the POST version which supports additional filtering."
+        },
+        {
+          "info": {
+            "name": "Create course",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://pure.qub.ac.uk/ws/api/courses",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create course"
+        },
+        {
+          "info": {
+            "name": "A list of allowed classified identifier types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/courses/allowed-classified-identifier-types"
+          },
+          "docs": "Get a list of allowed classified identifier types that can be used for the 'identifiers.type' attribute of courses"
+        },
+        {
+          "info": {
+            "name": "A list of allowed access types for course files",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/courses/allowed-course-file-access-types"
+          },
+          "docs": "Get a list of allowed course files access types on course"
+        },
+        {
+          "info": {
+            "name": "A list of allowed license types for course files",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/courses/allowed-course-file-license-types"
+          },
+          "docs": "Get a list of allowed course files license types on course"
+        },
+        {
+          "info": {
+            "name": "A list of allowed file types for course files",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/courses/allowed-course-file-types"
+          },
+          "docs": "Get a list of allowed course file types on course"
+        },
+        {
+          "info": {
+            "name": "A list of allowed role types for course lecturers on a given course occurrence",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/courses/allowed-course-occurrence-lecturer-role-types"
+          },
+          "docs": "Get a list of allowed lecturer role types on course occurrence"
+        },
+        {
+          "info": {
+            "name": "A list of allowed semester types for course occurrences",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/courses/allowed-course-occurrence-semester-types"
+          },
+          "docs": "Get a list of allowed course occurrence semester types on course"
+        },
+        {
+          "info": {
+            "name": "A list of allowed credit types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/courses/allowed-credit-types"
+          },
+          "docs": "Get a list of allowed credit types on courses"
+        },
+        {
+          "info": {
+            "name": "Get allowed classifications for the custom-defined field associated with the course",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/courses/allowed-custom-defined-field-values/:propertyName/classifications",
+            "params": [
+              {
+                "name": "propertyName",
+                "value": "",
+                "type": "path",
+                "description": "PropertyName for the desired custom-defined field"
+              }
+            ]
+          },
+          "docs": "Get allowed classifications for the custom-defined field associated with the course."
+        },
+        {
+          "info": {
+            "name": "A list of allowed description types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/courses/allowed-description-types"
+          },
+          "docs": "Get a list of allowed types for descriptions on courses"
+        },
+        {
+          "info": {
+            "name": "A list of allowed formats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/courses/allowed-formats"
+          },
+          "docs": "Get a list of allowed formats on courses"
+        },
+        {
+          "info": {
+            "name": "A list of allowed image types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/courses/allowed-image-types"
+          },
+          "docs": "Get a list of allowed image types that can be used for the 'images.type' attribute of courses"
+        },
+        {
+          "info": {
+            "name": "A list of keyword group configurations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/courses/allowed-keyword-group-configurations"
+          },
+          "docs": "Get a list of allowed keyword group configurations that can be used when submitting keyword groups."
+        },
+        {
+          "info": {
+            "name": "A list of allowed classifications for the specified keyword group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/courses/allowed-keyword-group-configurations/:id/classifications",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Pure id of the keyword group configuration"
+              }
+            ]
+          },
+          "docs": "Get a list of allowed classifications that can be used when submitting a specified keyword group."
+        },
+        {
+          "info": {
+            "name": "A list of allowed languages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/courses/allowed-languages"
+          },
+          "docs": "Get a list of allowed languages on courses"
+        },
+        {
+          "info": {
+            "name": "A list of allowed levels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/courses/allowed-levels"
+          },
+          "docs": "Get a list of allowed levels on courses"
+        },
+        {
+          "info": {
+            "name": "A list of allowed link types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/courses/allowed-link-types"
+          },
+          "docs": "Get a list of allowed link types that can be used for the 'links.linkType' attribute of courses"
+        },
+        {
+          "info": {
+            "name": "A list of allowed locales in localized strings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/courses/allowed-locales"
+          },
+          "docs": "Get a list of allowed locales that can be used when submitting localized string entities."
+        },
+        {
+          "info": {
+            "name": "A list of allowed course types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/courses/allowed-types"
+          },
+          "docs": "Get a list of allowed types that can be used for the 'type' attribute of courses"
+        },
+        {
+          "info": {
+            "name": "A list of allowed workflow steps in localized strings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/courses/allowed-workflow-steps"
+          },
+          "docs": "Get a list of allowed workflow steps."
+        },
+        {
+          "info": {
+            "name": "Upload file to a specific course",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://pure.qub.ac.uk/ws/api/courses/file-uploads",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Uploads file for the course"
+        },
+        {
+          "info": {
+            "name": "Query operation for courses",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://pure.qub.ac.uk/ws/api/courses/search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Lists courses in the Pure instance that matches the provided query, similar to the GET version, instead of using parameters to alter the response, an JSON document is posted with the request. The JSON document contains fields for all the parameters available for the GET version, but also additional filtering options."
+        },
+        {
+          "info": {
+            "name": "Get course",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/courses/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the desired course"
+              }
+            ]
+          },
+          "docs": "Get course with specific UUID."
+        },
+        {
+          "info": {
+            "name": "Update courses",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://pure.qub.ac.uk/ws/api/courses/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the course to update"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update courses with specific UUID."
+        },
+        {
+          "info": {
+            "name": "Delete course",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://pure.qub.ac.uk/ws/api/courses/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the course"
+              }
+            ]
+          },
+          "docs": "Delete course with specific UUID."
+        },
+        {
+          "info": {
+            "name": "Lock the content",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://pure.qub.ac.uk/ws/api/courses/:uuid/actions/lock",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the content to lock"
+              }
+            ]
+          },
+          "docs": "Mark the content as external (used when content contains synchronised data). This has no effect on interactions with the content through the API."
+        },
+        {
+          "info": {
+            "name": "Unlock the content",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://pure.qub.ac.uk/ws/api/courses/:uuid/actions/unlock",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the content to unlock"
+              }
+            ]
+          },
+          "docs": "Remove the external mark on the content (used when content contains synchronised data). This has no effect on interactions with the content through the API."
+        },
+        {
+          "info": {
+            "name": "Get file from the course",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/courses/:uuid/files/:fileId",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the course"
+              },
+              {
+                "name": "fileId",
+                "value": "",
+                "type": "path",
+                "description": "File id "
+              }
+            ]
+          },
+          "docs": "Get file from the course"
+        },
+        {
+          "info": {
+            "name": "Lists notes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/courses/:uuid/notes",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the course to get notes for"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Number of returned notes per request"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset for the returned list. 0 or null value is from the start"
+              }
+            ]
+          },
+          "docs": "Lists notes associated with a course ordered by date (nulls last)"
+        },
+        {
+          "info": {
+            "name": "Create note",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://pure.qub.ac.uk/ws/api/courses/:uuid/notes",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the course to add note to"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create note and associate it with a course"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

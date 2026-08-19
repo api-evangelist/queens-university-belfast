@@ -1,0 +1,192 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pure activity personExpertise API",
+    "version": "5.35.3-4"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api-key",
+      "value": "{{api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "personExpertise",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Lists all person expertises",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/person-expertises",
+            "params": [
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Number of returned person expertises per request."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset for the returned list. 0 or null value is from the start"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "The order of the list, must be a value from /person-expertises/orderings"
+              }
+            ]
+          },
+          "docs": "Lists all person expertises in the Pure instance. If you need to filter the person expertises returned, see the POST version which supports additional filtering."
+        },
+        {
+          "info": {
+            "name": "Create person expertise",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://pure.qub.ac.uk/ws/api/person-expertises",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create person expertise"
+        },
+        {
+          "info": {
+            "name": "A list of allowed area of expertise classifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/person-expertises/allowed-area-of-expertise-classifications"
+          },
+          "docs": "Get a list of allowed area of expertise classifications that can be used for the 'allowedAreaOfExpertiseClassifications' attribute of person expertises"
+        },
+        {
+          "info": {
+            "name": "A list of allowed classifications for the type property",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/person-expertises/allowed-types"
+          },
+          "docs": "Get a list of classifications that can be used when submitting a type."
+        },
+        {
+          "info": {
+            "name": "A list of allowed workflow steps",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/person-expertises/allowed-workflow-steps"
+          },
+          "docs": "Get a list of allowed workflow steps that can be used for the 'workflow' attribute of person expertises"
+        },
+        {
+          "info": {
+            "name": "Lists available orderings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/person-expertises/orderings"
+          },
+          "docs": "Lists all orderings available to the person expertises endpoint. These values can be used by the order parameter when listing person expertises."
+        },
+        {
+          "info": {
+            "name": "Query operation for person expertises",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://pure.qub.ac.uk/ws/api/person-expertises/search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Lists person expertises in the Pure instance that matches the provided query, similar to the GET version, instead of using parameters to alter the response, an JSON document is posted with the request. The JSON document contains fields for all the parameters available for the GET version, but also additional filtering options."
+        },
+        {
+          "info": {
+            "name": "Get person expertise",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/person-expertises/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the desired person expertise"
+              }
+            ]
+          },
+          "docs": "Get person expertise with specific UUID."
+        },
+        {
+          "info": {
+            "name": "Update person expertise",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://pure.qub.ac.uk/ws/api/person-expertises/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the person expertise to update"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update person expertise with specific UUID."
+        },
+        {
+          "info": {
+            "name": "Delete person expertise",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://pure.qub.ac.uk/ws/api/person-expertises/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the person expertise"
+              }
+            ]
+          },
+          "docs": "Delete person expertise with specific UUID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,533 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pure activity externalPerson API",
+    "version": "5.35.3-4"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api-key",
+      "value": "{{api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "externalPerson",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Lists all external persons",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/external-persons",
+            "params": [
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Number of returned external persons per request."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset for the returned list. 0 or null value is from the start"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "The order of the list, must be a value from /external-persons/orderings"
+              }
+            ]
+          },
+          "docs": "Lists all external persons in the Pure instance. If you need to filter the external persons returned, see the POST version which supports additional filtering."
+        },
+        {
+          "info": {
+            "name": "Create external person",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://pure.qub.ac.uk/ws/api/external-persons",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create external person"
+        },
+        {
+          "info": {
+            "name": "A list of allowed classified identifier types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/external-persons/allowed-classified-identifier-types"
+          },
+          "docs": "Get a list of allowed classified identifier types that can be used for the 'identifiers.type' attribute of external persons"
+        },
+        {
+          "info": {
+            "name": "A list of allowed countries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/external-persons/allowed-countries"
+          },
+          "docs": "Get a list of allowed countries that can be used for the 'countries' attribute of external persons"
+        },
+        {
+          "info": {
+            "name": "A list of allowed image types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/external-persons/allowed-image-types"
+          },
+          "docs": "Get a list of allowed image types that can be used for the 'images.type' attribute of external persons"
+        },
+        {
+          "info": {
+            "name": "A list of keyword group configurations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/external-persons/allowed-keyword-group-configurations"
+          },
+          "docs": "Get a list of allowed keyword group configurations that can be used when submitting keyword groups."
+        },
+        {
+          "info": {
+            "name": "A list of allowed classifications for the specified keyword group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/external-persons/allowed-keyword-group-configurations/:id/classifications",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Pure id of the keyword group configuration"
+              }
+            ]
+          },
+          "docs": "Get a list of allowed classifications that can be used when submitting a specified keyword group."
+        },
+        {
+          "info": {
+            "name": "A list of allowed locales in localized strings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/external-persons/allowed-locales"
+          },
+          "docs": "Get a list of allowed locales that can be used when submitting localized string entities."
+        },
+        {
+          "info": {
+            "name": "A list of allowed external person types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/external-persons/allowed-types"
+          },
+          "docs": "Get a list of allowed types that can be used for the 'type' attribute of external persons"
+        },
+        {
+          "info": {
+            "name": "A list of allowed workflow steps",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/external-persons/allowed-workflow-steps"
+          },
+          "docs": "Get a list of allowed workflow steps that can be used for the 'workflow' attribute of external persons"
+        },
+        {
+          "info": {
+            "name": "A list of allowed discipline schemes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/external-persons/disciplines/allowed-discipline-schemes"
+          },
+          "docs": "Get a list fo a allowed discipline schemes for external persons"
+        },
+        {
+          "info": {
+            "name": "A list of allowed disciplines for a specific discipline scheme",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/external-persons/disciplines/:discipline-scheme/allowed-disciplines",
+            "params": [
+              {
+                "name": "discipline-scheme",
+                "value": "",
+                "type": "path",
+                "description": "Identifier for the discipline scheme for external persons"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Number of returned disciplines per request"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset for the returned list. 0 or null value is from the start"
+              }
+            ]
+          },
+          "docs": "Get a list of a allowed disciplines for specific discipline scheme for external persons"
+        },
+        {
+          "info": {
+            "name": "Query operation for disciplines associated with external persons",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://pure.qub.ac.uk/ws/api/external-persons/disciplines/:discipline-scheme/search",
+            "params": [
+              {
+                "name": "discipline-scheme",
+                "value": "",
+                "type": "path",
+                "description": "Identifier for the discipline scheme"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Lists disciplines from the discipline scheme associated with external persons in the Pure instance that matches the provided query."
+        },
+        {
+          "info": {
+            "name": "Upload file to a specific external person",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://pure.qub.ac.uk/ws/api/external-persons/file-uploads",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Uploads file for the external person"
+        },
+        {
+          "info": {
+            "name": "Lists available orderings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/external-persons/orderings"
+          },
+          "docs": "Lists all orderings available to the external person endpoint. These values can be used by the order parameter."
+        },
+        {
+          "info": {
+            "name": "Query operation for external persons",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://pure.qub.ac.uk/ws/api/external-persons/search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Lists external persons in the Pure instance that matches the provided query, similar to the GET version, instead of using parameters to alter the response, an JSON document is posted with the request. The JSON document contains fields for all the parameters available for the GET version, but also additional filtering options."
+        },
+        {
+          "info": {
+            "name": "Get external person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/external-persons/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the desired external person"
+              }
+            ]
+          },
+          "docs": "Get external person with specific UUID."
+        },
+        {
+          "info": {
+            "name": "Update external persons",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://pure.qub.ac.uk/ws/api/external-persons/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the external person to update"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update external persons with specific UUID."
+        },
+        {
+          "info": {
+            "name": "Delete external person",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://pure.qub.ac.uk/ws/api/external-persons/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the external person"
+              }
+            ]
+          },
+          "docs": "Delete external person with specific UUID."
+        },
+        {
+          "info": {
+            "name": "Lock the content",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://pure.qub.ac.uk/ws/api/external-persons/:uuid/actions/lock",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the content to lock"
+              }
+            ]
+          },
+          "docs": "Mark the content as external (used when content contains synchronised data). This has no effect on interactions with the content through the API."
+        },
+        {
+          "info": {
+            "name": "Unlock the content",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://pure.qub.ac.uk/ws/api/external-persons/:uuid/actions/unlock",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the content to unlock"
+              }
+            ]
+          },
+          "docs": "Remove the external mark on the content (used when content contains synchronised data). This has no effect on interactions with the content through the API."
+        },
+        {
+          "info": {
+            "name": "Lists all dependents to a external person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/external-persons/:uuid/dependents",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the external person"
+              },
+              {
+                "name": "verbose",
+                "value": "",
+                "type": "query",
+                "description": "DEPRECATED - Parameter has no effect."
+              }
+            ]
+          },
+          "docs": "Lists all dependents to a external person with the specified UUID. If the user does not have access to view all the dependent content, an authorization error will be thrown. "
+        },
+        {
+          "info": {
+            "name": "Get disciplines from the discipline scheme associated with the external person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/external-persons/:uuid/disciplines/:discipline-scheme",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the desired external person"
+              },
+              {
+                "name": "discipline-scheme",
+                "value": "",
+                "type": "path",
+                "description": "Identifier for the discipline scheme"
+              }
+            ]
+          },
+          "docs": "Get disciplines from the discipline scheme associated with the external person with specific UUID."
+        },
+        {
+          "info": {
+            "name": "Update disciplines from the discipline scheme associated with the external person",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://pure.qub.ac.uk/ws/api/external-persons/:uuid/disciplines/:discipline-scheme",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the external person to update"
+              },
+              {
+                "name": "discipline-scheme",
+                "value": "",
+                "type": "path",
+                "description": "Identifier for the discipline scheme"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update disciplines from the discipline scheme associated with the external person with specific UUID."
+        },
+        {
+          "info": {
+            "name": "Get file from the external person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/external-persons/:uuid/files/:fileId",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the external person"
+              },
+              {
+                "name": "fileId",
+                "value": "",
+                "type": "path",
+                "description": "File id "
+              }
+            ]
+          },
+          "docs": "Get file from the external person"
+        },
+        {
+          "info": {
+            "name": "Lists notes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pure.qub.ac.uk/ws/api/external-persons/:uuid/notes",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the external person to get notes for"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Number of returned notes per request"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset for the returned list. 0 or null value is from the start"
+              }
+            ]
+          },
+          "docs": "Lists notes associated with an external person ordered by date (nulls last)"
+        },
+        {
+          "info": {
+            "name": "Create note",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://pure.qub.ac.uk/ws/api/external-persons/:uuid/notes",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the external person to add note to"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create note and associate it with an external person"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
