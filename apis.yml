@@ -12,6 +12,18 @@ description: >-
   library discovery via Ex Libris Alma/Primo) are gated behind authentication
   and do not publish open developer documentation.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: free
   onboarding: self-serve
@@ -1377,6 +1389,9 @@ apis:
   - type: HumanURL
     url: https://pure.qub.ac.uk/
 common:
+  - type: CapabilityMap
+    url: capabilities/queens-university-belfast-capability-edges.yml
+    name: Queen's University Belfast Business Capability Map
   - type: AgenticAccess
     url: agentic-access/queens-university-belfast-agentic-access.yml
   - type: DomainSecurity
