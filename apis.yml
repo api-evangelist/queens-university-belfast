@@ -89,6 +89,12 @@ apis:
   - Identity Federation
   - Shibboleth
   - SAML
+  - SSO
+  - eduGAIN
+  tags_raw:
+  - Identity Federation
+  - Shibboleth
+  - SAML
   - Single Sign-On
   - eduGAIN
   properties:
@@ -145,6 +151,11 @@ apis:
   x-spec-not-saved: Deliberately not saved. Keeping it would credit Queen's with Elsevier's engineering
     — the exact misattribution this pipeline exists to prevent.
   tags:
+  - Research Information
+  - CRI
+  - Pure
+  - Research Repository
+  tags_raw:
   - Research Information
   - CRIS
   - Pure
