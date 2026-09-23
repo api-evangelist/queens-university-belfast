@@ -64,53 +64,116 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Queen's University Belfast is a Russell Group research-intensive university in Northern Ireland, United Kingdom, founded in 1845 and ranked #206 in the QS World University Rankings 2025. This repository catalogs the institution's public, machine-readable developer/API footprint as an [APIs.json](http://apisjson.org) profile. That footprint is limited and research-centric: the primary confirmed open interface is the Pure-based Research Portal's OAI-PMH metadata endpoint.
+Queen's University Belfast is a public, research-intensive Russell Group university in Belfast,
+Northern Ireland, founded in 1845. This repository catalogs the institution's public,
+machine-readable footprint as an [APIs.json](http://apisjson.org) profile.
+
+**Read the operator column before you read anything else.** A university is a federation of buyers,
+not a producer, and most of what looks like a QUB API is a vendor's product running under a QUB
+hostname. This profile was re-run on 2026-08-30 under the API Evangelist university pipeline, which
+settles *who operates the thing* before it saves any contract.
 
 - APIs.json: https://raw.githubusercontent.com/api-evangelist/queens-university-belfast/refs/heads/main/apis.yml
 - Run with Naftiko: https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=queens-university-belfast-api-evangelist&utm_content=repo
 
 ## Type
 
-- Type: Index
+- Type: Index (`x-type: university`)
+- Category: Public Research University
 - Position: Consumer
 - Access: 3rd-Party
 
 ## Tags
 
-Education, Higher Education, University, Research, Open Access, OAI-PMH, United Kingdom, Northern Ireland
+University, Higher Education, Education, Research, United Kingdom, Northern Ireland, Russell Group,
+Identity Federation, Research Repository, Open Access, OAI-PMH, Shibboleth, SAML, Research Computing
 
-## APIs
+## Surfaces, by operator
 
-- **Queen's University Belfast Research Portal (Pure OAI-PMH)** — OAI-PMH metadata harvesting endpoint for the institutional research repository (Elsevier Pure), exposing research outputs, datasets, and theses.
-  - Base URL: `https://pureadmin.qub.ac.uk/ws/oai`
-  - Human URL: https://pure.qub.ac.uk/
-  - Protocol docs: https://www.openarchives.org/OAI/openarchivesprotocol.html
+| Surface | Operator | Evidence |
+|---|---|---|
+| Shibboleth SAML 2.0 Identity Provider, `https://qub.ac.uk/shibboleth` | **institution** | Registered in the UK Access Management Federation; signed entity descriptor resolvable via MDQ (200); scope `qub.ac.uk`; SSO on `qub-shib.qub.ac.uk` |
+| DataCite repository client `BL.QUB` (since 2015) | **institution** | `api.datacite.org/clients/bl.qub` → 200; QUB is DataCite consortium organization `jxtg` |
+| Research Portal OAI-PMH, `pureadmin.qub.ac.uk/ws/oai` | tenant | `?verb=Identify` → 200, repositoryName "QUB Research Portal"; host CNAMEs to `qub-pva.elsevierpure.com` |
+| Pure Web Service API, `pureadmin.qub.ac.uk/ws/api` | tenant | Served OpenAPI is titled "Pure API", contact `pure-support@elsevier.com`, version 5.36.2-1; anonymous call → 401 |
+| Canvas LMS, `canvas.qub.ac.uk/api/v1` | tenant | CNAMEs to `qub-vanity.instructure.com`; `/api/v1/courses` → 401; LTI 1.3 JWKS → 200 |
+| Ex Libris Primo discovery, `qub.primo.exlibrisgroup.com` | tenant (pointer only) | `vid=44QSUB_INST:QUB` → 200 |
 
-## Plans / Rate Limits / FinOps
+## Domain standard conformance (Kin Score `education` regime)
+
+Probed live on 2026-08-30 and recorded in
+[conformance/queens-university-belfast-conformance.yml](conformance/queens-university-belfast-conformance.yml):
+
+- `shibboleth`, `saml` — conformant, **institution-operated**
+- `oai-pmh` — conformant, tenant deployment
+- `datacite` — conformant, institution registration
+- `lti` — conformant, tenant deployment (Canvas LTI 1.3 JWKS)
+- `crossref` — partial (School of Law is a Crossref member, prefix `10.53386`; no institution-wide member record found)
+- `scim`, `orcid`, `oneroster`, `ed-fi`, `caliper`, `qti` — probed for, not found
+
+## Plans / Rate Limits / FinOps / Security
 
 - Plans: [plans/queens-university-belfast-plans-pricing.yml](plans/queens-university-belfast-plans-pricing.yml)
 - Rate Limits: [rate-limits/queens-university-belfast-rate-limits.yml](rate-limits/queens-university-belfast-rate-limits.yml)
 - FinOps: [finops/queens-university-belfast-finops.yml](finops/queens-university-belfast-finops.yml)
+- Domain security: [security/queens-university-belfast-domain-security.yml](security/queens-university-belfast-domain-security.yml)
 
 ## Timestamps
 
 - Created: 2026-06-03
-- Modified: 2026-06-03
+- Modified: 2026-08-30
 
 ## Common Properties
 
 - Website: https://www.qub.ac.uk/
-- Research Portal: https://pure.qub.ac.uk/
-- LinkedIn: https://www.linkedin.com/school/queen's-university-belfast/
+- Research repository: https://pure.qub.ac.uk/
+- Identity federation: http://mdq.ukfederation.org.uk/entities/https%3A%2F%2Fqub.ac.uk%2Fshibboleth
+- Library catalog: https://qub.primo.exlibrisgroup.com/discovery/search?vid=44QSUB_INST:QUB
+- Course catalog: https://www.qub.ac.uk/courses/
+- Research computing: https://www.ni-hpc.ac.uk/
+- AI policy: https://blogs.qub.ac.uk/digitallearning/ai/ai-in-research/qub-guidance-on-responsible-use-of-ai-in-research/
+- AI tooling: https://libguides.qub.ac.uk/AILibrary
+- Privacy: https://www.qub.ac.uk/about/website/privacy-and-cookies/
+- Support: https://www.qub.ac.uk/contact/ask-a-question/
+- LinkedIn: https://www.linkedin.com/school/queens-university-belfast/
 - Review: [review.yml](review.yml)
+
+## What changed on 2026-08-30, and why the score should fall
+
+The June 2026 profile of this institution held **38 OpenAPI documents** — 37 refined per-tag specs
+plus the pristine source — and 89 artifacts derived from them (Postman and OpenCollection
+collections, JSON Schemas, JSON Structures, examples, a vocabulary, a JSON-LD context, an
+authentication summary, an agentic-access classification, two Spectral rulesets). **Every one of
+those documents was Elsevier's contract, not Queen's.** Each carried `info.title: "Pure API"` or
+`"Pure activity … API"` and `info.contact.email: pure-support@elsevier.com`; the same titles ship in
+nine other university repositories in this catalog.
+
+A hostname check could not see it: `pure.qub.ac.uk` and `pureadmin.qub.ac.uk` sit under the
+university's own registrable domain, so a host-based verdict reads them as institution-owned. DNS
+settles it — both CNAME to `qub-pva.elsevierpure.com` → `eu.prod.elsevierpure.com`. This is the
+`scholarbank.nus.edu.sg` pattern: a vanity hostname on a vendor's platform.
+
+All 127 files were removed, the tenancies were recorded as relationships instead, and the surfaces
+Queen's genuinely operates — its federated identity provider and its DataCite registration — were
+found and recorded with live evidence. Fewer artifacts, correctly attributed, is the point. A lower
+composite score here is the pipeline working, not a regression.
 
 ## Notes
 
-- All entries reflect URLs verified during research on 2026-06-03; no endpoints were fabricated.
-- The OAI-PMH endpoint was confirmed live (`ListMetadataFormats` returns valid OAI-PMH XML); the bare `Identify` verb returned HTTP 500 on this Pure instance, while other verbs and the base endpoint return 200.
-- No dedicated developer portal, open REST API catalog, or API key/sign-up flow was found.
-- The "Qmulus" open data API found in search belongs to Queen's University in **Canada**, not Queen's University **Belfast**, and was deliberately excluded.
-- No official university-wide GitHub organization was confirmed (only department/research-group accounts such as DIPSA-QUB), so no GitHub common property is asserted.
+- No `api.qub.ac.uk`, `developer.qub.ac.uk`, `data.qub.ac.uk` or `opendata.qub.ac.uk` host resolves.
+- No `llms.txt` and no `/.well-known/security.txt` on `www.qub.ac.uk` (both 404).
+- The "Qmulus" open data API (`qmulus.io`) that search engines surface for "Queen's University Open
+  Data API" belongs to Queen's University at Kingston, **Ontario** — not Queen's University
+  **Belfast**. It is deliberately excluded.
+- No official university-wide GitHub organization was confirmed. The `qub` and `qub-ac-uk` GitHub
+  accounts are personal user accounts with no name, bio, or website tying them to the university,
+  and the QUB-branded orgs that exist (`DIPSA-QUB`, `QUB-Genomics-CTU`, `QUB-AI`, and similar) are
+  research groups and schools. No `GitHubOrganization` pointer is asserted.
+- QUB additionally operates federated identity for two other Northern Ireland organisations under
+  its own domain: the Healthcare Library of Northern Ireland (`honni.qub.ac.uk`) and the Agri-Food
+  and Biosciences Institute (`afbi.qub.ac.uk`).
+- `www.ni-hpc.ac.uk` (the NI-HPC centre and the Kelvin2 system) CNAMEs to QUB's own Terminalfour CMS
+  instance, which is why it is recorded as an institution-operated research-computing pointer.
 
 ## Maintainers
 

@@ -1,0 +1,167 @@
+slug: queens-university-belfast
+provider: Queen's University Belfast
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Education
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 14
+edges:
+- tag: ethicalReview
+  spec_file: queens-university-belfast-ethicalreview-api-openapi.yml
+  capability_id: BC-4780.30
+  capability_id_l1: BC-4780
+  capability_name: Research Ethics & Integrity Oversight
+  confidence: 0.9
+  evidence: GET /ethical-reviews  ethicalReview_list  Lists all ethicalReviews; 'A list of allowed ethical
+    review types'; schemas EthicalReviewDocument, EthicalReviewAwardAssociation
+  reason: Operations manage ethical review records, their types, documents and associations to research
+    applications and awards — research ethics oversight.
+- tag: impact
+  spec_file: queens-university-belfast-impact-api-openapi.yml
+  capability_id: BC-4780.60
+  capability_id_l1: BC-4780
+  capability_name: Research Impact & Assessment
+  confidence: 0.9
+  evidence: '''A list of allowed impact categories'', ''A list of allowed impact evidence indicators'',
+    ''A list of allowed impact levels''; schema ''ImpactResearchOutputAssociation'''
+  reason: These are research impact case-study records with categories, levels and evidence indicators
+    linked to research outputs — the classic REF-style impact assessment surface, matching Research Impact
+    & Assessment directly.
+- tag: researchOutput
+  spec_file: queens-university-belfast-researchoutput-api-openapi.yml
+  capability_id: BC-4780.40
+  capability_id_l1: BC-4780
+  capability_name: Scholarly Output & Publication Management
+  confidence: 0.9
+  evidence: GET /research-outputs  researchOutput_list  Lists all research outputs; allowed-article-processing-charge-currencies;
+    schemas ElectronicVersion, PublicationStatus, MetricCollection
+  reason: Operations manage publications and other research outputs including open-access article processing
+    charges, publication status, electronic versions and bibliometric metric collections — squarely scholarly
+    output and publication management.
+- tag: award
+  spec_file: queens-university-belfast-award-api-openapi.yml
+  capability_id: BC-4780.20
+  capability_id_l1: BC-4780
+  capability_name: Research Grant Management
+  confidence: 0.88
+  evidence: GET /awards/allowed-awardholder-roles, 'A list of allowed funding classifications', schemas
+    AwardBudget, AwardFundingBudgetAssociation, ApplicationRef, Milestone
+  reason: Awards here are funded research grants with budgets, funding classifications, award holders
+    and milestones — post-award research grant administration.
+- tag: user
+  spec_file: queens-university-belfast-user-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.85
+  evidence: PUT /users  user_create  Create user; POST /users/{uuid}/actions/reset-password  Reset user
+    password; PUT /users/{uuid}/roles  Updates roles
+  reason: Operations create/update/delete system user accounts, reset passwords and assign roles (GlobalRoleAssignment,
+    LocalRoleAssignment) — application identity and access administration, not any education-domain capability.
+- tag: application
+  spec_file: queens-university-belfast-application-api-openapi.yml
+  capability_id: BC-4780.20
+  capability_id_l1: BC-4780
+  capability_name: Research Grant Management
+  confidence: 0.82
+  evidence: GET /applications ... 'A list of allowed applicant roles', 'A list of allowed budget-account
+    classifications', schema FundingOpportunityRef, ApplicationCluster
+  reason: In Pure's research information model, 'applications' are grant/funding applications (applicant
+    roles, budget accounts, funding opportunity references), i.e. the pre-award stage of research grant
+    lifecycle management, not student admissions applications.
+- tag: activity
+  spec_file: queens-university-belfast-activity-api-openapi.yml
+  capability_id: BC-4780
+  capability_id_l1: BC-4780
+  capability_name: Research & Scholarship Management
+  confidence: 0.8
+  evidence: GET /activities activity_list Lists all activities; allowed-consultancy-person-roles; allowed-editorial-work-person-roles;
+    allowed-degree-of-recognitions; schemas PrizeRef, DataSetRef, PressMediaRef, ProjectRef
+  reason: 'Pure research information management: recording academic activities (consultancy, editorial
+    work, prizes, media, projects) as part of institutional research and scholarship records. Ambiguous
+    between scholarly-output tracking and research impact assessment, so L1 only.'
+- tag: fundingOpportunity
+  spec_file: queens-university-belfast-fundingopportunity-api-openapi.yml
+  capability_id: BC-4780.20
+  capability_id_l1: BC-4780
+  capability_name: Research Grant Management
+  confidence: 0.8
+  evidence: GET /funding-opportunities 'Lists all funding opportunities'; 'allowed-classified-eligibility-types';
+    schema 'FundingOpportunityEligibility', 'CurrencyAmount'
+  reason: The surface manages research funding opportunities with eligibility criteria and amounts, which
+    is precisely the opportunity-identification front end of the research grant lifecycle described by
+    BC-4780.20 ('from opportunity identification through post-award administration').
+- tag: role
+  spec_file: queens-university-belfast-role-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.78
+  evidence: GET /roles  role_get_assignable_roles  Lists all assignable roles; schema AssignableRole
+  reason: This tag exposes assignable application roles used for authorisation in the Pure admin system
+    — access management plumbing, mapped to Identity & Access Management rather than any education business
+    capability.
+- tag: journal
+  spec_file: queens-university-belfast-journal-api-openapi.yml
+  capability_id: BC-4780.40
+  capability_id_l1: BC-4780
+  capability_name: Scholarly Output & Publication Management
+  confidence: 0.75
+  evidence: GET /journals 'Lists all journals'; schemas 'SherpaRomeoOpenAccessPermission', 'SherpaRomeoPolicy',
+    'MetricCollectionDefinition'
+  reason: Journal records carrying Sherpa/RoMEO open-access permissions and journal metrics exist to support
+    publication venue stewardship and open-access compliance for scholarly output, which is Scholarly
+    Output & Publication Management. Slight ambiguity because journals are a reference entity rather than
+    the outputs themselves.
+- tag: course
+  spec_file: queens-university-belfast-course-api-openapi.yml
+  capability_id: BC-4700
+  capability_id_l1: BC-4700
+  capability_name: Curriculum & Programme Management
+  confidence: 0.72
+  evidence: GET /courses/allowed-credit-types, 'A list of allowed semester types for course occurrences',
+    'allowed role types for course lecturers on a given course occurrence', schemas Course, CourseOccurrence,
+    CourseFile
+  reason: Operations maintain course records with credits, formats, semester occurrences and lecturers
+    — course/curriculum records management; unclear whether this is course design or catalogue publication,
+    so no L2 asserted.
+- tag: dataSet
+  spec_file: queens-university-belfast-dataset-api-openapi.yml
+  capability_id: BC-4780.40
+  capability_id_l1: BC-4780
+  capability_name: Scholarly Output & Publication Management
+  confidence: 0.72
+  evidence: GET /data-sets/allowed-doi-access-types, 'allowed license types for DOI', schemas DataSetResearchOutputAssociation,
+    DataSetProjectAssociation
+  reason: Research datasets registered with DOIs, licences, contributor roles and links to research outputs
+    and projects — stewardship of scholarly output and persistent identifiers.
+- tag: milestone
+  spec_file: queens-university-belfast-milestone-api-openapi.yml
+  capability_id: BC-4780.20
+  capability_id_l1: BC-4780
+  capability_name: Research Grant Management
+  confidence: 0.7
+  evidence: '''A list of allowed academic roles for milestones which have a related award''; ''/milestones/contract/allowed-academic-roles'';
+    schemas ''ApplicationRef'', ''AwardRef'', ''EthicalReviewRef'', ''MilestoneReminder'''
+  reason: Milestones here are deadline/reminder records attached to grant applications, awards, contracts
+    and ethical reviews — pre- and post-award grant administration tracking. That is research grant management
+    rather than generic project management, given the award/application/ethical-review anchors. Some chance
+    a reviewer would prefer a generic project capability, hence 0.7.
+- tag: project
+  spec_file: queens-university-belfast-project-api-openapi.yml
+  capability_id: BC-4780.20
+  capability_id_l1: BC-4780
+  capability_name: Research Grant Management
+  confidence: 0.7
+  evidence: 'GET /projects  project_list  Lists all projects; schemas: AwardCluster, ApplicationClusterRef,
+    ResearchOutputRef, OrganizationRef, project_getAllowedCollaboratorTypes'
+  reason: Projects in Pure are research projects tied to funding applications and awards ('AwardCluster',
+    'ApplicationClusterRef') and linked to research outputs and collaborators, matching research grant/project
+    lifecycle management rather than generic enterprise project management.

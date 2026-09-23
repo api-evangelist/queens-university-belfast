@@ -1,0 +1,126 @@
+# Queen's University Belfast — education-regime domain standard conformance.
+# Every entry below was PROBED live on 2026-08-30. Nothing here is inferred from
+# a prose claim on a web page, and nothing is recorded that was not returned by
+# a real request. Absent standards are listed under `not_found` on purpose.
+generated: '2026-08-30'
+method: probed
+source: live HTTP/DNS probes of qub.ac.uk surfaces + UK Access Management Federation MDQ, DataCite REST API, Crossref REST API
+provider: Queen's University Belfast
+providerId: queens-university-belfast
+regime: education
+conformance:
+
+- standard: shibboleth
+  status: conformant
+  x-operator: institution
+  summary: >-
+    Queen's University Belfast runs a production Shibboleth SAML 2.0 Identity Provider registered
+    in the UK Access Management Federation (and by extension eduGAIN). The signed entity descriptor
+    is machine-readable and resolvable per-entity through the federation's MDQ service.
+  evidence:
+  - what: Registered IdP entity descriptor, OrganizationDisplayName "Queen's University Belfast"
+    entity_id: https://qub.ac.uk/shibboleth
+    url: http://mdq.ukfederation.org.uk/entities/https%3A%2F%2Fqub.ac.uk%2Fshibboleth
+    status: 200
+    detail: shibmd:Scope qub.ac.uk; IDPSSODescriptor present; SSO endpoints at https://qub-shib.qub.ac.uk/idp/profile/SAML2/{Redirect,POST}/SSO
+  - what: Same entity present in the aggregate federation metadata
+    url: http://metadata.ukfederation.org.uk/ukfederation-metadata.xml
+    status: 200
+    detail: five qub.ac.uk entityIDs found — production IdP, a QUB TEST IdP, and IdPs QUB hosts for the Healthcare Library of Northern Ireland (honni.qub.ac.uk) and AFBI (afbi.qub.ac.uk)
+
+- standard: saml
+  status: conformant
+  x-operator: institution
+  summary: >-
+    SAML 2.0 metadata, single sign-on and single logout endpoints, and SOAP attribute query
+    endpoints are all published in the federation entity descriptor above.
+  evidence:
+  - what: SAML2 SSO / SLO / ArtifactResolution / AttributeQuery bindings in the signed metadata
+    url: http://mdq.ukfederation.org.uk/entities/https%3A%2F%2Fqub.ac.uk%2Fshibboleth
+    status: 200
+    detail: SAML2 Redirect + POST + POST-SimpleSign SSO and SLO; SAML1 and SAML2 SOAP AttributeQuery on qub-shib.qub.ac.uk:8443
+
+- standard: oai-pmh
+  status: conformant
+  x-operator: tenant
+  summary: >-
+    The QUB Research Portal exposes a live OAI-PMH 2.0 harvesting endpoint on a qub.ac.uk hostname.
+    The repository software is Elsevier Pure and the host CNAMEs into Elsevier's platform, so the
+    deployment is a tenant surface — but the harvesting protocol itself is an open standard and the
+    endpoint answers institution-scoped verbs.
+  evidence:
+  - what: Identify response
+    url: https://pureadmin.qub.ac.uk/ws/oai?verb=Identify
+    status: 200
+    detail: repositoryName "QUB Research Portal"; adminEmail puresupport@qub.ac.uk; protocolVersion 2.0; earliestDatestamp 2016-04-05T09:57:59Z; granularity YYYY-MM-DDThh:mm:ssZ
+  - what: ListMetadataFormats
+    url: https://pureadmin.qub.ac.uk/ws/oai?verb=ListMetadataFormats
+    status: 200
+    detail: oai_dc, qdc, mods, uketd_dc, xmetadiss, nl_didl
+  - what: ListSets
+    url: https://pureadmin.qub.ac.uk/ws/oai?verb=ListSets
+    status: 200
+    detail: persons:all, publications:all, publications:withFiles, and per-year publication sets from 1970 forward
+
+- standard: datacite
+  status: conformant
+  x-operator: institution
+  summary: >-
+    Queen's University Belfast is a DataCite consortium organization and operates a registered
+    DataCite repository client for the Research Portal, through which it mints DOIs for datasets
+    and theses. Both records are machine-readable through the DataCite REST API.
+  evidence:
+  - what: DataCite repository client BL.QUB
+    url: https://api.datacite.org/clients/bl.qub
+    status: 200
+    detail: name "Queen's University Belfast Research Portal"; clientType repository; url https://pure.qub.ac.uk/; registered 2015
+  - what: DataCite provider record
+    url: https://api.datacite.org/providers?query=Queen%27s%20University%20Belfast
+    status: 200
+    detail: provider id jxtg, memberType consortium_organization
+
+- standard: crossref
+  status: partial
+  x-operator: institution
+  summary: >-
+    Crossref DOI registration exists at Queen's but at school rather than institution level — the
+    School of Law is a Crossref member in its own right. No institution-wide Crossref member record
+    was found, so this is recorded as partial, not conformant.
+  evidence:
+  - what: Crossref member record
+    url: https://api.crossref.org/members/31309
+    status: 200
+    detail: primary-name "School of Law, Queen's University Belfast"; DOI prefix 10.53386; 1,044 DOIs registered
+
+- standard: lti
+  status: conformant
+  x-operator: tenant
+  summary: >-
+    The Queen's Canvas deployment publishes a live LTI 1.3 platform JWKS and an OpenID Connect
+    discovery document on the qub.ac.uk hostname. The LMS is Instructure Canvas and the host CNAMEs
+    to qub-vanity.instructure.com, so the LTI platform is a tenant surface, not QUB engineering.
+  evidence:
+  - what: LTI 1.3 platform JWKS
+    url: https://canvas.qub.ac.uk/api/lti/security/jwks
+    status: 200
+    detail: RSA public keys returned, kid dated 2026-06-01
+  - what: OpenID Connect discovery document
+    url: https://canvas.qub.ac.uk/.well-known/openid-configuration
+    status: 200
+
+not_found:
+- standard: scim
+  detail: https://canvas.qub.ac.uk/api/scim/v2/Users returned 404; no other SCIM endpoint found on any qub.ac.uk host probed.
+- standard: orcid
+  detail: >-
+    No ORCID identifier was returned in any OAI-PMH oai_dc record sampled from the Research Portal,
+    and no ORCID member or integration record naming the institution was located. Elsevier Pure
+    supports ORCID, but nothing QUB publishes proved it here, so no conformance is recorded.
+- standard: oneroster
+  detail: probed for; no OneRoster endpoint found.
+- standard: ed-fi
+  detail: probed for; no Ed-Fi endpoint found.
+- standard: caliper
+  detail: probed for; no Caliper event store or endpoint found.
+- standard: qti
+  detail: probed for; no QTI surface found.
