@@ -52,7 +52,7 @@ tags:
 - SAML
 - Research Computing
 created: '2026-06-03'
-modified: '2026-08-30'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 x-operator-summary:
   generated: '2026-08-30'
@@ -218,6 +218,8 @@ apis:
   - type: HumanURL
     url: https://pure.qub.ac.uk/
 common:
+- url: https://www.qub.ac.uk/News/
+  type: Blog
 - type: Website
   url: https://www.qub.ac.uk/
 - type: Documentation
