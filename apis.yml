@@ -180,6 +180,11 @@ apis:
     401; /api/lti/security/jwks and /.well-known/openid-configuration return 200. Probed 2026-08-30.
   x-vendor: Instructure Canvas
   tags:
+  - LMS
+  - LTI
+  - Canvas
+  - Teaching
+  tags_raw:
   - Learning Management
   - LMS
   - LTI
